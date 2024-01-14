@@ -60,17 +60,26 @@
   font-size: 2rem;
   text-transform: lowercase;
 
+  color: silver;
+  display: block;
+  height: 100%;
+
   &::first-letter {
     // color: var(--accent-primary);
   }
 
-  color: inherit;
-  display: block;
-  height: 100%;
-
   // @media screen and (min-width: $desktop) {
   //   padding: 35px 0;
   // }
+
+  &:hover,
+  &:focus-visible {
+    color: gray;
+  }
+
+  &.active {
+    color: inherit;
+  }
 
   .sticky-header & {
     padding: 25px 0;
@@ -85,11 +94,11 @@
   // }
 }
 
-.header-logo-link,
-.nav-link,
-.burger-button {
-  &:hover,
-  &:focus-visible {
-    color: silver;
-  }
-}
+// .header-logo-link,
+// .nav-link,
+// .burger-button {
+//   &:hover,
+//   &:focus-visible {
+//     color: inherit;
+//   }
+// }

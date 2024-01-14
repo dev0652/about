@@ -8,28 +8,6 @@ $gray: #b4afaf;
 $violet: #4f2ee8;
 $gold: #eac645;
 
-$bg-color: #151515;
-$text-color: white;
-$text-color-faded: #fbfbfb;
-$text-color-benefits: #f3f3f3;
-$text-color-benefits-faded: rgba(243, 243, 243, 0.8);
-$text-color-old-faded: rgba(243, 243, 243, 0.8);
-$text-color-brown: #404040;
-$text-color-navy: #004267;
-$text-color-all-equal: rgb(100, 100, 100);
-$color-blue: #3e93d9;
-$color-yellow: #ffd258;
-$color-grey: #d9d9d9;
-$color-dark-grey: rgb(255, 255, 255, 0.08);
-$color-icon-grey: #262626;
-// $color-border-result: #363636;
-$color-border-result: rgba(white, 0.08);
-
-$color-feedback-bg: #242424;
-$color-feedback-bg-hover: #202020;
-// $tariff-card-bg: rgba(20, 20, 20, 0.5);
-$tariff-card-bg: rgba(20, 20, 20, 0.7);
-
 // Breakpoints
 $mobile: 320px;
 $tablet: 768px;
@@ -46,36 +24,5 @@ $regular: 400;
 $medium: 500;
 $bold: 700;
 
-// Header and hero - vertical offsets
-:root {
-  --upper-bracket-offset: 70px;
-  --lower-bracket-offset: 70px;
-  --container-padding: 10px;
-
-  @media screen and (max-width: calc($tablet - 1px)) and (orientation: landscape) {
-    --upper-bracket-offset: 40px;
-    --lower-bracket-offset: 40px;
-  }
-
-  @media screen and (min-width: $tablet) {
-    --lower-bracket-offset: 160px;
-    --upper-bracket-offset: 130px;
-    --container-padding: 15px;
-  }
-
-  @media screen and (min-width: $tablet) and (max-width: calc($desktop - 1px )) and (orientation: landscape) {
-    --upper-bracket-offset: 60px;
-    --lower-bracket-offset: 60px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    --upper-bracket-offset: 100px;
-    --lower-bracket-offset: 130px;
-  }
-}
-
-$upper-bracket-offset: var(--upper-bracket-offset);
-$lower-bracket-offset: var(--lower-bracket-offset);
-$container-padding: var(--container-padding);
-
-$transition-duration: 250ms linear;
+$transition-duration: 200ms;
+$transition-timing-function: linear;

@@ -1,5 +1,6 @@
 :root {
-  --accent-primary: #{$violet};
+  // --accent-primary: #{$violet};
+  --accent-primary: #2980b9;
   --accent-secondary: #{$gold};
 }
 
@@ -17,4 +18,8 @@ body {
   --to-top-button-bg-color: var(--accent-primary);
   --to-top-button-shadow-color: rgba(82, 48, 232, 0.3);
   --to-top-button-icon-color: white;
+
+  /* Project card */
+  --project-card-bg: white;
+  --project-card-border: black;
 }
