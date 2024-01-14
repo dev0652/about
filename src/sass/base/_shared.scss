@@ -1,0 +1,30 @@
+:root {
+  /* Hide scrollbar  */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+
+html {
+  // scroll-padding-top: 90px; /* height of sticky header + 20px */
+}
+
+body {
+  font-family: 'Segoe WP', sans-serif;
+
+  // color: $text-color;
+  // background-color: $bg-color;
+  // background: url('/img/noise/noise.webp'), $bg-color;
+
+  &.is-modal-shown {
+    overflow: hidden;
+  }
+}
+
+.section-title {
+  font-size: 5rem;
+  text-transform: lowercase;
+}

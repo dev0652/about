@@ -1,0 +1,95 @@
+.header {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // z-index: 1000;
+
+  width: 100vw;
+  background-color: var(--header-bg-color);
+  // transition: padding 200ms ease-out;
+
+  &.sticky-header {
+    // background-color: $bg-color;
+
+    @media screen and (max-width: calc($tablet - 1px)) {
+      // padding-top: 10px;
+      // padding-bottom: 10px;
+    }
+
+    @media screen and (max-width: calc($desktop - 1px)) {
+      // padding-top: 20px;
+      // padding-bottom: 20px;
+    }
+  }
+
+  &:not(.sticky-header) {
+    // @media screen and (max-width: calc($desktop - 1px)) {
+    //   display: flex;
+    //   align-items: center;
+    //   // height: $upper-bracket-offset;
+    // }
+  }
+}
+
+.header-container {
+  @extend .container;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 50px;
+}
+
+.nav {
+  // display: none;
+
+  // @media screen and (min-width: $desktop) {
+  //   display: block;
+  //   flex-grow: 1;
+  // }
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  // justify-content: flex-end;
+  gap: 30px;
+}
+
+.nav-link {
+  font-size: 2rem;
+  text-transform: lowercase;
+
+  &::first-letter {
+    // color: var(--accent-primary);
+  }
+
+  color: inherit;
+  display: block;
+  height: 100%;
+
+  // @media screen and (min-width: $desktop) {
+  //   padding: 35px 0;
+  // }
+
+  .sticky-header & {
+    padding: 25px 0;
+  }
+}
+
+.nav-item {
+  // @media screen and (min-width: $desktop) {
+  //   &:last-child {
+  //     margin-left: auto;
+  //   }
+  // }
+}
+
+.header-logo-link,
+.nav-link,
+.burger-button {
+  &:hover,
+  &:focus-visible {
+    color: silver;
+  }
+}

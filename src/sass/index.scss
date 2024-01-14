@@ -1,0 +1,21 @@
+// Defaults
+@import 'defaults/reset';
+@import 'defaults/defaults';
+
+@import 'base/variables';
+
+// Utilities
+@import 'utils/animations';
+@import 'utils/mixins';
+@import 'utils/placeholders';
+
+// Shared styles
+@import 'base/container';
+@import 'base/shared';
+
+// Components
+@import 'components/header';
+
+// Color schemes
+@import './color-schemes/light';
+// @import './color-schemes/dark';

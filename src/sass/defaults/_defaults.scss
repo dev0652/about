@@ -1,0 +1,73 @@
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a,
+button {
+  --d: 200ms;
+  --tf: linear;
+
+  transition: color var(--d) var(--tf), border var(--d) var(--tf),
+    background-color var(--d) var(--tf), transform var(--d) var(--tf);
+
+  font-family: inherit;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  -webkit-user-select: none;
+  user-select: none;
+
+  &:disabled {
+    cursor: auto;
+  }
+}
+
+/* Firefox  */
+input,
+textarea,
+select {
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+/* Firefox  */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input,
+textarea {
+  &::-moz-placeholder {
+    opacity: 1;
+  }
+}
+address {
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+}

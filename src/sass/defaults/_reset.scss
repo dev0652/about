@@ -1,0 +1,29 @@
+:root {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+
+  -moz-tab-size: 2;
+  tab-size: 2;
+
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  /* scroll-padding-top: height of fixed header;  */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,20 @@
+:root {
+  --accent-primary: #{$violet};
+  --accent-secondary: #{$gold};
+}
+
+body {
+  /* Body */
+  --background-color: #{$milky};
+  --text-color: #{$blackish};
+
+  /* Header */
+  --header-bg-color: var(--background-color);
+  --header-border-color: #{$blackish};
+  --logo-stroke-color: black;
+
+  /* To top button */
+  --to-top-button-bg-color: var(--accent-primary);
+  --to-top-button-shadow-color: rgba(82, 48, 232, 0.3);
+  --to-top-button-icon-color: white;
+}
