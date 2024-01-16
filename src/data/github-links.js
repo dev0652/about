@@ -4,7 +4,7 @@ export default [
     link: 'https://github.com/dev0652/zenbit-test',
     livePage: 'https://dev0652.github.io/zenbit-test/',
     technologies: [],
-    thumb: 'images/zenbit.png',
+    thumb: '/images/zenbit.png',
     type: 'Test',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -15,7 +15,7 @@ export default [
     link: 'https://github.com/dev0652/fighters-nodejs',
     livePage: 'https://dev0652.github.io/binary-hw-nodejs/',
     technologies: [],
-    thumb: 'images/fighters.jpeg',
+    thumb: '/images/fighters.jpeg',
     type: 'Test',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -26,7 +26,7 @@ export default [
     link: 'https://github.com/dev0652/barber',
     livePage: 'https://dev0652.github.io/barber/',
     technologies: [],
-    thumb: 'images/barber.png',
+    thumb: '/images/barber.png',
     type: 'Commercial project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -37,7 +37,7 @@ export default [
     link: 'https://github.com/dev0652/webstudio',
     livePage: 'https://dev0652.github.io/webstudio/',
     technologies: [],
-    thumb: 'images/webstudio.png',
+    thumb: '/images/webstudio.png',
     type: 'Study project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -48,7 +48,7 @@ export default [
     link: 'https://github.com/dev0652/bookshelf',
     livePage: 'https://dev0652.github.io/bookshelf/',
     technologies: [],
-    thumb: 'images/bookshelf.png',
+    thumb: '/images/bookshelf.png',
     type: 'Study project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -59,7 +59,7 @@ export default [
     link: 'https://github.com/dev0652/swift-car-rental',
     livePage: 'https://dev0652.github.io/swift-car-rental/',
     technologies: [],
-    thumb: 'images/car-rental.png',
+    thumb: '/images/car-rental.png',
     type: 'Test',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -70,7 +70,7 @@ export default [
     link: 'https://github.com/dev0652/pixabay-search',
     livePage: 'https://dev0652.github.io/pixabay-search/',
     technologies: [],
-    thumb: 'images/Pixabay.png',
+    thumb: '/images/Pixabay.png',
     type: 'Study project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -81,7 +81,7 @@ export default [
     link: 'https://github.com/dev0652/icecream',
     livePage: 'https://dev0652.github.io/icecream/',
     technologies: [],
-    thumb: 'images/icecream.png',
+    thumb: '/images/icecream.png',
     type: 'Study project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -92,7 +92,7 @@ export default [
     link: 'https://github.com/dev0652/barbershop',
     livePage: 'https://dev0652.github.io/barbershop/',
     technologies: [],
-    thumb: 'images/Barbershop.png',
+    thumb: '/images/Barbershop.png',
     type: 'Study project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -103,7 +103,7 @@ export default [
     link: 'https://github.com/dev0652/britlex',
     livePage: 'https://dev0652.github.io/britlex/',
     technologies: ['Grid'],
-    thumb: 'images/Britlex.png',
+    thumb: '/images/Britlex.png',
     type: 'Study project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
