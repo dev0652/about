@@ -1,0 +1,22 @@
+.contacts-list-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  font-size: 1.5rem;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.contact-icon {
+  $size: 36px;
+
+  height: $size;
+  width: $size;
+}
+
+.contact-link {
+  color: currentColor;
+}
