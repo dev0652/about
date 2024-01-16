@@ -8,20 +8,12 @@
   }
 }
 
-html {
-  // scroll-padding-top: 90px; /* height of sticky header + 20px */
-}
-
 body {
   font-family: 'Segoe WP', sans-serif;
 
-  // color: $text-color;
-  // background-color: $bg-color;
-  // background: url('/img/noise/noise.webp'), $bg-color;
-
-  &.is-modal-shown {
-    overflow: hidden;
-  }
+  // &.is-modal-shown {
+  //   overflow: hidden;
+  // }
 }
 
 .section {

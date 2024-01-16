@@ -7,9 +7,12 @@ const handleMissingImage = ({ currentTarget }) => {
   currentTarget.src = 'https://placehold.co/400';
 };
 
+const makeImagePath = (path) => new URL(path, import.meta.url).href;
+
 const makeItemMarkup = (project) => {
   const { name, type, link, thumb, description } = project;
   // const imagePath = thumb !== '' ? thumb : placeholderImage;
+  const imagePath = makeImagePath(thumb);
 
   return `
    <li class="project-card ">
@@ -19,7 +22,7 @@ const makeItemMarkup = (project) => {
         <div class="flip-card-front">
           <img
             class="project-card-image"
-            src="${thumb}"
+            src="${imagePath}"
             alt="${name} live page screenshot"
             loading="lazy"
             onError="${handleMissingImage}"

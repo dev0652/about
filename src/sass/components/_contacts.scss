@@ -18,5 +18,9 @@
 }
 
 .contact-link {
-  color: currentColor;
+  color: gray;
+
+  &:hover {
+    color: currentColor;
+  }
 }
