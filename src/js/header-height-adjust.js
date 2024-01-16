@@ -1,8 +1,6 @@
 // Refs
 const header = document.querySelector('.header');
-console.log('header: ', header);
 const headerNavLinks = document.querySelectorAll('.header-nav-link');
-console.log('headerNavLinks: ', headerNavLinks);
 
 // Body height adjust to compensate for positioned header height
 (() => {
