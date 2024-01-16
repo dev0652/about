@@ -1,11 +1,12 @@
 .header {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 
   width: 100vw;
-  background-color: var(--header-bg-color);
+  background-color: #fff;
+  // background-color: var(--header-bg-color);
   // transition: padding 200ms ease-out;
 
   &.sticky-header {
@@ -49,20 +50,20 @@
   // }
 }
 
-.nav-list {
+.header-nav-list {
   display: flex;
   align-items: center;
-  // justify-content: flex-end;
   gap: 30px;
 }
 
-.nav-link {
+.header-nav-link {
   font-size: 2rem;
   text-transform: lowercase;
 
   color: silver;
   display: block;
-  height: 100%;
+  // height: 100%;
+  padding: 0.1rem 0 0.5rem;
 
   &::first-letter {
     // color: var(--accent-primary);
