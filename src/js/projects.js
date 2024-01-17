@@ -1,4 +1,5 @@
 import projects from '../data/github-links';
+// import imageUrl from '../images/barber.png';
 
 const handleMissingImage = ({ currentTarget }) => {
   currentTarget.onerror = null; // prevents looping
@@ -6,13 +7,12 @@ const handleMissingImage = ({ currentTarget }) => {
   currentTarget.src = 'https://placehold.co/400';
 };
 
-const makeImagePath = (path) => new URL(path, import.meta.url).href;
-
 const makeItemMarkup = (project) => {
-  const { name, type, link, thumb, description } = project;
+  const { name, type, link, thumbFilename, description } = project;
   // const imagePath = thumb !== '' ? thumb : placeholderImage;
-  const imagePath = makeImagePath(thumb);
-  console.log('imagePath: ', imagePath);
+
+  // !!! the URL string must be static (not a variable) so it can be analyzed, otherwise the code will be left as is
+  const thumbUrl = new URL(`../images/${thumbFilename}`, import.meta.url).href;
 
   return `
    <li class="project-card ">
@@ -22,7 +22,7 @@ const makeItemMarkup = (project) => {
         <div class="flip-card-front">
           <img
             class="project-card-image"
-            src="${imagePath}"
+            src="${thumbUrl}"
             alt="${name} live page screenshot"
             loading="lazy"
             onError="${handleMissingImage}"
