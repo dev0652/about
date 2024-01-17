@@ -1,31 +1,27 @@
 .project-card-list {
-  // display: flex;
-  // flex-wrap: wrap;
-  // gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.card-title {
-  cursor: pointer;
-  user-select: none;
-  display: inline-block;
+.project-card {
+  // width: 350px;
+  // height: 250px;
 
-  text-transform: lowercase;
-  font-size: 2rem;
-}
+  @media screen and (max-width: ($tablet - 1px)) {
+    // width: 450px;
+    @include flex-basis(1);
+  }
 
-.card-collapsible-wrapper {
-  max-height: 0px;
-  overflow: hidden;
-  transition: max-height 400ms ease-out;
-}
+  @media screen and (min-width: $tablet) {
+    // width: 354px;
+    @include flex-basis(2);
+  }
 
-.card-collapsible {
-  height: 300px;
-  width: 500px;
-
-  margin: 1rem 0;
-  margin-left: 5rem;
-  background-color: silver;
+  @media screen and (min-width: $desktop) {
+    // width: 370px;
+    @include flex-basis(3);
+  }
 }
 
 .project-card-link {
@@ -81,6 +77,9 @@
   object-position: center;
   height: 100%;
   width: 100%;
+}
+
+.project-name {
 }
 
 .project-type {

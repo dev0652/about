@@ -11,32 +11,76 @@ const makeItemMarkup = (project) => {
   const { name, type, link, thumbFilename, description } = project;
   // const imagePath = thumb !== '' ? thumb : placeholderImage;
 
-  // !!! the URL string must be static (not a variable) so it can be analyzed, otherwise the code will be left as is
   const thumbUrl = new URL(`../images/${thumbFilename}`, import.meta.url).href;
 
+  // const tmp = (
+  //   <li class="project-card ">
+  //     <h2 class="card-title collapsible-toggle">${name}</h2>
+
+  //     <div class="card-collapsible-wrapper">
+  //       <div class="card-collapsible">
+  //         <a
+  //           class="project-card-link flip-card"
+  //           href="${link}"
+  //           target="_blank"
+  //           rel="noopener noreferrer"
+  //         >
+  //           <div class="flip-card-inner">
+  //             <div class="flip-card-front">
+  //               <img
+  //                 class="project-card-image"
+  //                 src="${thumbUrl}"
+  //                 alt="${name} live page screenshot"
+  //                 loading="lazy"
+  //                 onError="${handleMissingImage}"
+  //               />
+  //             </div>
+
+  //             <div class="flip-card-back">
+  //               <h3 class="project-name">${name}</h3>
+  //               <p class="project-type">${type}</p>
+  //               <p class="project-description">${description}</p>
+  //             </div>
+  //           </div>
+  //         </a>
+  //       </div>
+  //     </div>
+  //   </li>
+  // );
+
   return `
-   <li class="project-card ">
-    <a class="project-card-link flip-card" href="${link}" target="_blank" rel="noopener noreferrer">
+  <li class="project-card ">
+      <h2 class="card-title collapsible-toggle" data-id="${name}">${name}</h2>
 
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img
-            class="project-card-image"
-            src="${thumbUrl}"
-            alt="${name} live page screenshot"
-            loading="lazy"
-            onError="${handleMissingImage}"
-          />
-        </div>
+      <div class="card-collapsible-wrapper">
+        <div class="card-collapsible">
+          <a
+            class="project-card-link flip-card"
+            href="${link}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  class="project-card-image"
+                  src="${thumbUrl}"
+                  alt="${name} live page screenshot"
+                  loading="lazy"
+                  onError="${handleMissingImage}"
+                />
+              </div>
 
-        <div class="flip-card-back">
-          <h3 class="project-name">${name}</h3>
-          <p class="project-type">${type}</p>
-          <p class="project-description">${description}</p>
+              <div class="flip-card-back">
+                <h3 class="project-name">${name}</h3>
+                <p class="project-type">${type}</p>
+                <p class="project-description">${description}</p>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
-    </a>
-  </li>
+    </li>
   `;
 };
 
