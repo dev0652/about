@@ -11,21 +11,16 @@
 }
 
 .contact-icon {
-  $size: 46px;
+  $size: 2.2rem;
 
   height: $size;
   width: $size;
 
-  fill: var(--accent-primary);
+  // fill: dimgray;
 }
 
 .contact-link {
-  color: dimgray;
-  display: inline-block;
-  margin-bottom: 0.4rem;
+  @extend %link;
 
-  &:hover,
-  &:focus-visible {
-    color: currentColor;
-  }
+  margin-bottom: 0.4rem;
 }

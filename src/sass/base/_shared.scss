@@ -27,3 +27,12 @@ body {
 
   margin-bottom: 60px;
 }
+
+%link {
+  color: gray;
+
+  &:hover,
+  &:focus {
+    color: currentColor;
+  }
+}

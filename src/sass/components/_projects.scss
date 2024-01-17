@@ -16,15 +16,8 @@
   text-transform: lowercase;
   font-size: 2rem;
 
-  color: gray;
-
-  &:hover,
-  &:focus {
-    color: currentColor;
-  }
-
   &.content-expanded {
-    color: var(--accent-primary);
+    color: currentColor;
   }
 }
 
