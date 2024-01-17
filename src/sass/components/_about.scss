@@ -5,3 +5,12 @@
 
   font-size: 1.5rem;
 }
+
+.description-link {
+  color: var(--accent-primary);
+
+  &:hover,
+  &:focus {
+    color: lightslategray;
+  }
+}

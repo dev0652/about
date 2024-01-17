@@ -1,26 +1,31 @@
 .contacts-list-item {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   align-items: center;
 
-  font-size: 1.5rem;
+  font-size: 2rem;
 
   &:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 }
 
 .contact-icon {
-  $size: 36px;
+  $size: 46px;
 
   height: $size;
   width: $size;
+
+  fill: var(--accent-primary);
 }
 
 .contact-link {
-  color: gray;
+  color: dimgray;
+  display: inline-block;
+  margin-bottom: 0.4rem;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     color: currentColor;
   }
 }

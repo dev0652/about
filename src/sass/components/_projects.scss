@@ -1,16 +1,31 @@
 .project-card-list {
-  // display: flex;
-  // flex-wrap: wrap;
-  // gap: 10px;
+  &.gallery-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 }
 
 .card-title {
+  @extend %link;
+
   cursor: pointer;
   user-select: none;
   display: inline-block;
 
   text-transform: lowercase;
   font-size: 2rem;
+
+  color: gray;
+
+  &:hover,
+  &:focus {
+    color: currentColor;
+  }
+
+  &.content-expanded {
+    color: var(--accent-primary);
+  }
 }
 
 .card-collapsible-wrapper {
@@ -25,7 +40,6 @@
 
   margin: 1rem 0;
   margin-left: 5rem;
-  background-color: silver;
 }
 
 .project-card-link {
