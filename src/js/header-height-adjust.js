@@ -25,3 +25,7 @@ function handleNavLinkClick(event) {
 
   event.target.classList.add('active');
 }
+
+// Leave sufficient space below Contacts
+const viewPortHeight = window.innerHeight;
+document.body.style.paddingBottom = `${viewPortHeight}px`;
