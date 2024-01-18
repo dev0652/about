@@ -1,5 +1,5 @@
-// import './js/header-scroll';
-// import './js/mobile-menu';
-import './js/header-height-adjust';
+import './js/header';
+
 import './js/projects';
 import './js/accordion';
+import './js/section-render';

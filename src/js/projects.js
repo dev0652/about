@@ -1,5 +1,4 @@
 import projects from '../data/github-links';
-// import imageUrl from '../images/barber.png';
 
 const handleMissingImage = ({ currentTarget }) => {
   currentTarget.onerror = null; // prevents looping
@@ -60,3 +59,16 @@ const projectCardsMarkup = makeListMarkup(projects);
 
 const gallery = document.querySelector('#gallery');
 gallery.innerHTML = projectCardsMarkup;
+
+// *****************************************************
+
+const cardList = document.querySelector('.project-card-list');
+const switcher = document.querySelector('.projects-view-switch');
+
+switcher.addEventListener('click', switchView);
+
+function switchView() {
+  cardList.classList.toggle('gallery-view');
+  const isGallery = cardList.classList.contains('gallery-view');
+  switcher.innerHTML = `Switch to ${isGallery ? 'list' : 'gallery'}`;
+}

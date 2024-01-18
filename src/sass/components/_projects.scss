@@ -1,3 +1,14 @@
+.projects-view-switch {
+  @extend %link !optional;
+
+  cursor: pointer;
+  text-align: right;
+  text-transform: lowercase;
+
+  position: relative;
+  top: -40px;
+}
+
 .project-card-list {
   &.gallery-view {
     display: flex;
@@ -7,7 +18,12 @@
 }
 
 .card-title {
-  @extend %link;
+  //
+  .project-card-list.gallery-view & {
+    display: none;
+  }
+
+  @extend %link !optional;
 
   cursor: pointer;
   user-select: none;
@@ -25,6 +41,11 @@
   max-height: 0px;
   overflow: hidden;
   transition: max-height 400ms ease-out;
+
+  .project-card-list.gallery-view & {
+    max-height: 100%;
+    overflow: visible;
+  }
 }
 
 .card-collapsible {
@@ -33,6 +54,24 @@
 
   margin: 1rem 0;
   margin-left: 5rem;
+
+  .project-card-list.gallery-view & {
+    width: 400px;
+    height: 250px;
+    margin: 0;
+
+    @media screen and (max-width: ($tablet - 1px)) {
+      @include flex-basis(1);
+    }
+
+    @media screen and (min-width: $tablet) {
+      @include flex-basis(2);
+    }
+
+    @media screen and (min-width: $desktop) {
+      @include flex-basis(3);
+    }
+  }
 }
 
 .project-card-link {
@@ -93,7 +132,4 @@
 .project-type {
   font-size: 0.9rem;
   margin-bottom: 30px;
-}
-
-.project-description {
 }
