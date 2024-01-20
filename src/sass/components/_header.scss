@@ -6,30 +6,6 @@
 
   width: 100vw;
   background-color: #fff;
-  // background-color: var(--header-bg-color);
-  // transition: padding 200ms ease-out;
-
-  &.sticky-header {
-    // background-color: $bg-color;
-
-    @media screen and (max-width: calc($tablet - 1px)) {
-      // padding-top: 10px;
-      // padding-bottom: 10px;
-    }
-
-    @media screen and (max-width: calc($desktop - 1px)) {
-      // padding-top: 20px;
-      // padding-bottom: 20px;
-    }
-  }
-
-  &:not(.sticky-header) {
-    // @media screen and (max-width: calc($desktop - 1px)) {
-    //   display: flex;
-    //   align-items: center;
-    //   // height: $upper-bracket-offset;
-    // }
-  }
 }
 
 .header-container {

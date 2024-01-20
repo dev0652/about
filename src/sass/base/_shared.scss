@@ -18,6 +18,10 @@ body {
 
 .section {
   margin-bottom: 100px;
+
+  &:not(:first-child) {
+    display: none;
+  }
 }
 
 .section-title {
