@@ -1,4 +1,6 @@
-// Refs
+import { setTypewriterEffect } from './typing-animation';
+
+// Header refs
 const header = document.querySelector('.header');
 const headerNavLinks = document.querySelectorAll('.header-nav-link');
 const sections = document.querySelectorAll('.section');
@@ -21,7 +23,10 @@ function handleNavLinkClick(event) {
 
   // Display the desired section and hide the others
   sections.forEach((section) => {
-    section.style.display = section.id === id ? 'block' : 'none';
+    const isCurrent = section.id === id;
+    section.style.display = isCurrent ? 'block' : 'none';
+
+    if (isCurrent) setTypewriterEffect(id);
   });
 
   // Make the clicked link active

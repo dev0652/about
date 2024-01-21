@@ -19,14 +19,22 @@ body {
     display: none; // initially hide all sections but first
   }
 
-  $first-animation-duration: 700ms;
+  $first-animation-duration: 1.5s;
 
   .section-title {
-    animation: left-to-right $first-animation-duration ease-in;
+    display: inline-block;
+    overflow: hidden;
+
+    // animation: typing 3.5s steps(100, end);
+
+    // animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+
+    // animation: left-to-right $first-animation-duration
+    //   cubic-bezier(0.75, -0.5, 0, 1.75);
   }
 
   .section-content {
-    animation: fade-in 2s $first-animation-duration ease-in both;
+    animation: fade-in 2s $first-animation-duration both;
   }
 }
 
