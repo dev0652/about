@@ -19,7 +19,7 @@ function handleNavLinkClick(event) {
   event.preventDefault();
   const { id } = event.target.dataset;
 
-  // Display the desired section and hide others
+  // Display the desired section and hide the others
   sections.forEach((section) => {
     section.style.display = section.id === id ? 'block' : 'none';
   });
@@ -31,7 +31,3 @@ function handleNavLinkClick(event) {
 
   event.target.classList.add('active');
 }
-
-// Leave sufficient space below Contacts
-// const viewPortHeight = window.innerHeight;
-// document.body.style.paddingBottom = `${viewPortHeight}px`;
