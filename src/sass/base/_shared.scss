@@ -10,14 +10,10 @@
 
 body {
   font-family: 'Segoe WP', sans-serif;
-
-  // &.is-modal-shown {
-  //   overflow: hidden;
-  // }
 }
 
 .section {
-  margin-bottom: 100px;
+  margin: 100px 0;
 
   &:not(:first-child) {
     display: none;

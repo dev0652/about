@@ -2,6 +2,8 @@
   @extend %link !optional;
 
   cursor: pointer;
+  user-select: none;
+
   text-align: right;
   text-transform: lowercase;
 
@@ -40,7 +42,10 @@
 .card-collapsible-wrapper {
   max-height: 0px;
   overflow: hidden;
-  transition: max-height 400ms ease-out;
+
+  &.transition {
+    transition: max-height 400ms ease-out;
+  }
 
   .project-card-list.gallery-view & {
     max-height: 100%;
@@ -75,8 +80,10 @@
 }
 
 .project-card-link {
-  display: block;
+  display: block; // to enable 3d effects
 }
+
+// Flip cards
 
 .flip-card {
   background-color: transparent;

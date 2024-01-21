@@ -33,5 +33,5 @@ function handleNavLinkClick(event) {
 }
 
 // Leave sufficient space below Contacts
-const viewPortHeight = window.innerHeight;
-document.body.style.paddingBottom = `${viewPortHeight}px`;
+// const viewPortHeight = window.innerHeight;
+// document.body.style.paddingBottom = `${viewPortHeight}px`;
