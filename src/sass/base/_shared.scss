@@ -25,10 +25,6 @@ body {
     display: inline-block;
     overflow: hidden;
 
-    // animation: typing 3.5s steps(100, end);
-
-    // animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-
     // animation: left-to-right $first-animation-duration
     //   cubic-bezier(0.75, -0.5, 0, 1.75);
   }
@@ -44,13 +40,4 @@ body {
   user-select: none;
 
   margin-bottom: 60px;
-}
-
-%link {
-  color: gray;
-
-  &:hover,
-  &:focus {
-    color: currentColor;
-  }
 }

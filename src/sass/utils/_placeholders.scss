@@ -18,17 +18,11 @@
   overflow: hidden;
 }
 
-%glow {
-  &::before {
-    content: url('/img/glow/glow.webp');
-    z-index: -1;
-    position: absolute;
+%link {
+  color: gray;
 
-    // Example:
-
-    // top: 0%;
-    // left: 0%;
-    // transform-origin: top center;
-    // transform: rotate(-60deg) scale(1.2);
+  &:hover,
+  &:focus {
+    color: currentColor;
   }
 }
