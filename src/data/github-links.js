@@ -4,7 +4,7 @@ export default [
     link: 'https://github.com/dev0652/barber',
     livePage: 'https://dev0652.github.io/barber/',
     technologies: [],
-    thumbFilename: 'barber.png',
+    thumbFilename: 'barber',
     type: 'Commercial project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -15,7 +15,7 @@ export default [
     link: 'https://github.com/dev0652/zenbit-test',
     livePage: 'https://dev0652.github.io/zenbit-test/',
     technologies: [],
-    thumbFilename: 'zenbit.png',
+    thumbFilename: 'zenbit',
     type: 'Test',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -26,7 +26,7 @@ export default [
     link: 'https://github.com/dev0652/fighters-nodejs',
     livePage: 'https://dev0652.github.io/binary-hw-nodejs/',
     technologies: [],
-    thumbFilename: 'fighters.jpeg',
+    thumbFilename: 'fighters',
     type: 'Test',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -37,7 +37,7 @@ export default [
     link: 'https://github.com/dev0652/bookshelf',
     livePage: 'https://dev0652.github.io/bookshelf/',
     technologies: [],
-    thumbFilename: 'bookshelf.png',
+    thumbFilename: 'bookshelf_dark',
     type: 'Study team project',
     role: 'Team leader',
     description:
@@ -49,7 +49,7 @@ export default [
     link: 'https://github.com/PVO-fullstack/drink_master',
     livePage: 'https://pvo-fullstack.github.io/drink_master/',
     technologies: [],
-    thumbFilename: '',
+    thumbFilename: 'drinkmaster',
     type: 'Study team project',
     role: 'Front-end developer',
     description:
@@ -61,7 +61,7 @@ export default [
     link: 'https://github.com/dev0652/swift-car-rental',
     livePage: 'https://dev0652.github.io/swift-car-rental/',
     technologies: [],
-    thumbFilename: 'car-rental.png',
+    thumbFilename: 'car-rental',
     type: 'Test',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -72,7 +72,7 @@ export default [
     link: 'https://github.com/dev0652/goit-react-hw-08-phonebook',
     livePage: 'https://dev0652.github.io/goit-react-hw-08-phonebook',
     technologies: ['React'],
-    thumbFilename: '',
+    thumbFilename: 'phonebook',
     type: 'Study project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -83,7 +83,7 @@ export default [
     link: 'https://github.com/dev0652/goit-react-hw-05-movies',
     livePage: 'https://dev0652.github.io/goit-react-hw-05-movies',
     technologies: ['React'],
-    thumbFilename: '',
+    thumbFilename: 'movies',
     type: 'Study project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -94,7 +94,7 @@ export default [
     link: 'https://github.com/dev0652/pixabay-search',
     livePage: 'https://dev0652.github.io/pixabay-search/',
     technologies: [],
-    thumbFilename: 'pixabay.png',
+    thumbFilename: 'pixabay',
     type: 'Study project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -105,7 +105,7 @@ export default [
     link: 'https://github.com/dev0652/icecream',
     livePage: 'https://dev0652.github.io/icecream/',
     technologies: [],
-    thumbFilename: 'icecream.png',
+    thumbFilename: 'icecream',
     type: 'Study team project',
     role: 'Team leader',
     description:
@@ -117,7 +117,7 @@ export default [
     link: 'https://github.com/dev0652/webstudio',
     livePage: 'https://dev0652.github.io/webstudio/',
     technologies: [],
-    thumbFilename: 'webstudio.png',
+    thumbFilename: 'webstudio',
     type: 'Study project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -128,7 +128,7 @@ export default [
     link: 'https://github.com/dev0652/barbershop',
     livePage: 'https://dev0652.github.io/barbershop/',
     technologies: [],
-    thumbFilename: 'barbershop.png',
+    thumbFilename: 'barbershop',
     type: 'Study project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -139,7 +139,7 @@ export default [
     link: 'https://github.com/dev0652/britlex',
     livePage: 'https://dev0652.github.io/britlex/',
     technologies: ['Grid'],
-    thumbFilename: 'britlex.png',
+    thumbFilename: 'britlex',
     type: 'Study project',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
