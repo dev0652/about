@@ -12,6 +12,8 @@ body {
   font-family: 'Segoe WP', sans-serif;
   color: var(--text-color);
   background-color: var(--background-color);
+
+  transition: background-color 200ms, color 200ms;
 }
 
 main {
