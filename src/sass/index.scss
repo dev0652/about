@@ -13,12 +13,15 @@
 @import 'base/container';
 @import 'base/shared';
 
-// Components
+// Header
 @import 'components/header';
+@import 'components/color-scheme-switcher';
+
+// Sections
 @import 'components/about';
 @import 'components/projects';
 @import 'components/contacts';
 
 // Color schemes
 @import './color-schemes/light';
-// @import './color-schemes/dark';
+@import './color-schemes/dark';

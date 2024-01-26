@@ -1,25 +1,15 @@
-:root {
-  // --accent-primary: #{$violet};
-  --accent-primary: #2980b9;
-  --accent-secondary: #{$gold};
-}
-
 body {
+  --accent-primary: #{$green};
+  --accent-secondary: #{$gold};
+
   /* Body */
   --background-color: #{$milky};
   --text-color: #{$blackish};
 
   /* Header */
-  --header-bg-color: var(--background-color);
-  --header-border-color: #{$blackish};
-  --logo-stroke-color: black;
+  --header-bg-color: white;
 
-  /* To top button */
-  --to-top-button-bg-color: var(--accent-primary);
-  --to-top-button-shadow-color: rgba(82, 48, 232, 0.3);
-  --to-top-button-icon-color: white;
-
-  /* Project card */
-  --project-card-bg: white;
-  --project-card-border: black;
+  --header-nav-link-color: silver;
+  --header-nav-link-hover: gray;
+  --header-nav-link-active: var(--text-color);
 }

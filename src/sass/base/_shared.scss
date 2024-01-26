@@ -10,6 +10,37 @@
 
 body {
   font-family: 'Segoe WP', sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+main {
+  position: relative;
+  --topOffset: 52px; // default, reset via JS
+
+  $spread: 15vh;
+  $color: var(--header-bg-color);
+  $percentage: 100%;
+
+  &:before {
+    content: '';
+    position: fixed;
+    top: var(--topOffset);
+    left: 0;
+    width: 100%;
+    height: $spread;
+    background: linear-gradient(0deg, transparent 0, $color $percentage);
+  }
+
+  &:after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $spread;
+    background: linear-gradient(180deg, transparent 0, $color $percentage);
+  }
 }
 
 .section {
