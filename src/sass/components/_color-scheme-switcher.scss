@@ -32,6 +32,7 @@ $slider-circle-size: calc($slider-height - 2px);
   &-sun {
     opacity: 0;
     transition: opacity 300ms;
+    fill: var(--text-color);
   }
 
   &-moon {
@@ -78,7 +79,7 @@ $slider-circle-size: calc($slider-height - 2px);
   }
 
   &.animated::before {
-    transition: 200ms linear;
+    transition: 400ms ease-in;
   }
 }
 
@@ -106,7 +107,6 @@ $slider-circle-size: calc($slider-height - 2px);
 
     .color-switcher-icon {
       &-sun {
-        fill: var(--text-color);
         opacity: 1;
         transition: opacity 200ms;
       }
