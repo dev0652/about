@@ -1,5 +1,5 @@
 body {
-  --accent-primary: #{$green};
+  --accent-primary: #{$lightblue};
   --accent-secondary: #{$gold};
 
   /* Body */
@@ -12,4 +12,11 @@ body {
   --header-nav-link-color: silver;
   --header-nav-link-hover: gray;
   --header-nav-link-active: var(--text-color);
+
+  /* Theme switcher */
+  --theme-switcher-gradient-start: #{$theme-switcher-gradient-start};
+
+  --theme-switcher-gradient-start: gray;
+
+  --theme-switcher-gradient-end: #dcdcdc; // #dcdcdc
 }

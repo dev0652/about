@@ -11,4 +11,9 @@ body.dark {
   --header-nav-link-color: gray;
   --header-nav-link-hover: silver;
   --header-nav-link-active: gainsboro;
+
+  /* Theme switcher */
+  --theme-switcher-gradient-start: gray;
+
+  --theme-switcher-gradient-end: #{$dark-gray}; // #686868
 }

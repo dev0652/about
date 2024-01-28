@@ -1,15 +1,13 @@
-body {
-  --slider-width: 40px;
-  --slider-height: 20px;
-  --slider-circle-size: calc(var(--slider-height) - 2px);
-}
+$slider-width: 40px;
+$slider-height: 20px;
+$slider-circle-size: calc($slider-height - 2px);
 
 .color-scheme-switcher {
   display: inline-block;
   position: relative; // for slider positioning
 
-  width: var(--slider-width);
-  height: var(--slider-height);
+  width: $slider-width;
+  height: $slider-height;
 }
 
 #color-scheme-switcher-checkbox {
@@ -25,7 +23,7 @@ body {
 
 .color-switcher-icons {
   position: absolute;
-  right: calc((var(--slider-circle-size) + 2px) * -1);
+  right: calc(($slider-circle-size + 2px) * -1);
   top: 50%;
   transform: translateY(-50%);
 }
@@ -33,13 +31,12 @@ body {
 .color-switcher-icon {
   &-sun {
     opacity: 0;
-    // transition: opacity 300ms;
+    transition: opacity 300ms;
   }
 
   &-moon {
     opacity: 1;
-    fill: dimgray;
-    transition: opacity 300ms;
+    fill: var(--text-color);
   }
 }
 
@@ -50,12 +47,14 @@ body {
   bottom: 0;
   left: 0;
   cursor: pointer;
-  // z-index: -1;
 
-  // padding: 1px;
-  border-radius: var(--slider-circle-size);
+  border-radius: $slider-circle-size;
 
-  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
+  background: linear-gradient(
+    180deg,
+    var(--theme-switcher-gradient-start) 0%,
+    var(--theme-switcher-gradient-end) 100%
+  );
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 
   &::before {
@@ -66,8 +65,8 @@ body {
     transform: translateY(-50%);
     left: 1px;
 
-    height: var(--slider-circle-size);
-    width: var(--slider-circle-size);
+    height: $slider-circle-size;
+    width: $slider-circle-size;
 
     border: none;
     border-radius: 50%;
@@ -85,25 +84,29 @@ body {
 
 #color-scheme-switcher-checkbox:checked {
   & + .color-scheme-switcher-slider {
-    background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
+    background: linear-gradient(
+      180deg,
+      var(--theme-switcher-gradient-start) 0%,
+      var(--theme-switcher-gradient-end) 100%
+    );
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 
     &::before {
       transform: translate(
-        calc(var(--slider-width) - var(--slider-circle-size) - 2px),
+        calc($slider-width - $slider-circle-size - 2px),
         -50%
       );
 
-      background: linear-gradient(180deg, darkgray 0%, dimgray 100%);
+      background: linear-gradient(180deg, gainsboro 0%, gray 100%);
     }
   }
 
   & ~ .color-switcher-icons {
-    left: calc((var(--slider-circle-size) + 2px) * -1);
+    left: calc(($slider-circle-size + 2px) * -1);
 
     .color-switcher-icon {
       &-sun {
-        fill: var(--accent-secondary);
+        fill: var(--text-color);
         opacity: 1;
         transition: opacity 200ms;
       }
