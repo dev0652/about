@@ -71,6 +71,7 @@
 
     @media screen and (min-width: $tablet) {
       @include flex-basis(2);
+      width: calc($tablet / 2 - 20px);
     }
 
     @media screen and (min-width: $desktop) {
