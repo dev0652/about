@@ -14,6 +14,5 @@ body.dark {
 
   /* Theme switcher */
   --theme-switcher-gradient-start: gray;
-
-  --theme-switcher-gradient-end: #{$dark-gray}; // #686868
+  --theme-switcher-gradient-end: #{$dark-gray};
 }
