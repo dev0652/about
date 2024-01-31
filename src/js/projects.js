@@ -7,7 +7,8 @@ const handleMissingImage = ({ currentTarget }) => {
 };
 
 const makeItemMarkup = (project) => {
-  const { name, type, link, thumbFilename, description } = project;
+  const { name, type, link, thumbFilename, description, technologies } =
+    project;
 
   const thumbUrl1x = new URL(
     `../images/projects/thumbs/400x250/${thumbFilename}.webp`,
@@ -27,6 +28,8 @@ const makeItemMarkup = (project) => {
   const imagePath1x = isFileName ? thumbUrl1x : placeholder1x;
   const imagePath2x = isFileName ? thumbUrl2x : placeholder2x;
 
+  const technologiesList = technologies.join(', ');
+
   return `
   <li class="project-card">
     <article class="fade-in">
@@ -34,24 +37,11 @@ const makeItemMarkup = (project) => {
 
       <div class="list-content collapsible">
         <div class="list-content-meta">
-          <h3 class="project-name">${name}</h3>
           <p class="project-type">${type}</p>
           <p class="project-description">${description}</p>
+          <p class="technologies">Technologies: ${technologiesList}</p>
 
           <button type="button" class="project-card-button">View more</button>
-        </div>
-
-        <div class="list-content-image">
-          <img
-                  class="project-card-image"
-                  srcset="${imagePath1x} 1x, ${imagePath2x} 2x"
-                  src="${imagePath1x}"
-                  alt="${name} live page screenshot"
-                  width="400"
-                  height="250"
-                  loading="lazy"
-                  onError="${handleMissingImage}"
-                />
         </div>
       </div>
 
