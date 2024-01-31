@@ -16,11 +16,23 @@ function presetSwitcher() {
 }
 
 function setColorScheme() {
+  const main = document.querySelector('main');
+  main.classList.remove('faded-edges');
+
   if (colorSwitcher.checked) {
     document.body.classList.add('dark');
   } else {
     document.body.classList.remove('dark');
   }
+
+  const delay =
+    parseFloat(
+      getComputedStyle(document.body).getPropertyValue('transition-duration')
+    ) * 1000;
+
+  setTimeout(() => {
+    main.classList.add('faded-edges');
+  }, delay);
 }
 
 function updateLocalStorage(checkbox) {

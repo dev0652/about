@@ -28,20 +28,21 @@ const makeItemMarkup = (project) => {
   const imagePath2x = isFileName ? thumbUrl2x : placeholder2x;
 
   return `
-  <li class="project-card ">
+  <li class="project-card">
+    <article class="fade-in">
       <h2 class="card-title collapsible-toggle" data-id="${name}">${name}</h2>
 
-      <div class="card-collapsible-wrapper transition">
-        <div class="card-collapsible">
-          <a
-            class="project-card-link flip-card"
-            href="${link}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
+      <div class="list-content collapsible">
+        <div class="list-content-meta">
+          <h3 class="project-name">${name}</h3>
+          <p class="project-type">${type}</p>
+          <p class="project-description">${description}</p>
+
+          <button type="button" class="project-card-button">View more</button>
+        </div>
+
+        <div class="list-content-image">
+          <img
                   class="project-card-image"
                   srcset="${imagePath1x} 1x, ${imagePath2x} 2x"
                   src="${imagePath1x}"
@@ -51,18 +52,40 @@ const makeItemMarkup = (project) => {
                   loading="lazy"
                   onError="${handleMissingImage}"
                 />
-              </div>
-
-              <div class="flip-card-back">
-                <h3 class="project-name">${name}</h3>
-                <p class="project-type">${type}</p>
-                <p class="project-description">${description}</p>
-              </div>
-            </div>
-          </a>
         </div>
       </div>
-    </li>
+
+      <div class="gallery-content">
+        <a
+          class="project-card-link flip-card"
+          href="${link}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img
+                class="project-card-image"
+                srcset="${imagePath1x} 1x, ${imagePath2x} 2x"
+                src="${imagePath1x}"
+                alt="${name} live page screenshot"
+                width="400"
+                height="250"
+                loading="lazy"
+                onError="${handleMissingImage}"
+              />
+            </div>
+
+            <div class="flip-card-back">
+              <h3 class="project-name">${name}</h3>
+              <p class="project-type">${type}</p>
+              <p class="project-description">${description}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </article>
+  </li>
   `;
 };
 
@@ -80,27 +103,16 @@ gallery.innerHTML = projectCardsMarkup;
 
 // *****************************************************
 
-const cardList = document.querySelector('.project-card-list');
 const switcher = document.querySelector('.projects-view-switch');
-const wrappers = document.querySelectorAll('.card-collapsible-wrapper');
+const cardList = document.querySelector('.project-card-list');
 
 switcher.addEventListener('click', switchView);
 
 function switchView() {
-  // Toggle view
   cardList.classList.toggle('gallery-view');
+
   const isGallery = cardList.classList.contains('gallery-view');
 
   // Change button text
   switcher.innerHTML = `Switch to ${isGallery ? 'list' : 'gallery'}`;
-
-  if (isGallery) {
-    // Remove transition to avoid content flashing when switching to list view
-    wrappers.forEach((wrapper) => wrapper.classList.remove('transition'));
-  } else {
-    // Turn transition back on after switching to list view
-    setTimeout(() => {
-      wrappers.forEach((wrapper) => wrapper.classList.add('transition'));
-    }, 0);
-  }
 }

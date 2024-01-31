@@ -79,7 +79,8 @@ $slider-circle-size: calc($slider-height - 2px);
   }
 
   &.animated::before {
-    transition: 400ms ease-in;
+    transition: transform calc($theme-switch-duration / 2)
+      $theme-switch-timing-function;
   }
 }
 

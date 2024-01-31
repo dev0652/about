@@ -10,38 +10,42 @@
 
 body {
   font-family: 'Segoe WP', sans-serif;
+
   color: var(--text-color);
   background-color: var(--background-color);
 
-  transition: background-color 200ms, color 200ms;
+  transition: background-color $theme-switch-duration
+      $theme-switch-timing-function,
+    color $theme-switch-duration $theme-switch-timing-function;
 }
 
 main {
   position: relative;
-  --topOffset: 52px; // default, reset via JS
+  --topOffset: 52px; // default, is reset via JS
 
-  $spread: 10vh;
-  $color: var(--header-bg-color);
-  $percentage: 100%;
+  &.faded-edges {
+    $spread: 10vh;
+    $color: var(--header-bg-color);
 
-  &:before {
-    content: '';
-    position: fixed;
-    top: var(--topOffset);
-    left: 0;
-    width: 100%;
-    height: $spread;
-    background: linear-gradient(0deg, transparent 0, $color $percentage);
-  }
+    &:before {
+      content: '';
+      position: fixed;
+      top: var(--topOffset);
+      left: 0;
+      width: 100%;
+      height: $spread;
+      background: linear-gradient(to bottom, $color, transparent);
+    }
 
-  &:after {
-    content: '';
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: $spread;
-    background: linear-gradient(180deg, transparent 0, $color $percentage);
+    &:after {
+      content: '';
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: $spread;
+      background: linear-gradient(to top, $color, transparent);
+    }
   }
 }
 
@@ -57,13 +61,10 @@ main {
   .section-title {
     display: inline-block;
     overflow: hidden;
-
-    // animation: left-to-right $first-animation-duration
-    //   cubic-bezier(0.75, -0.5, 0, 1.75);
   }
 
   .section-content {
-    animation: fade-in 2s $first-animation-duration both;
+    animation: fade-in $first-animation-duration 1s both;
   }
 }
 

@@ -16,9 +16,7 @@ const titleClickHandler = (event) => {
   // ...and it's elements:
   const currentCardTitle = currentCard.querySelector('.collapsible-toggle');
 
-  const currentCardCollapsible = currentCard.querySelector(
-    '.card-collapsible-wrapper'
-  );
+  const currentCardCollapsible = currentCard.querySelector('.collapsible');
 
   // 2.
   // Check if another card if expanded...
@@ -31,9 +29,7 @@ const titleClickHandler = (event) => {
 
   // ...and if it is, collapse it
   if (expandedCard) {
-    const expandedCardCollapsible = expandedCard.querySelector(
-      '.card-collapsible-wrapper'
-    );
+    const expandedCardCollapsible = expandedCard.querySelector('.collapsible');
 
     const expandedCardTitle = expandedCard.querySelector('.collapsible-toggle');
 

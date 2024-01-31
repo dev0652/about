@@ -6,6 +6,10 @@
 
   width: 100vw;
   background-color: var(--header-bg-color);
+
+  transition: background-color $theme-switch-duration
+      $theme-switch-timing-function,
+    color $theme-switch-duration $theme-switch-timing-function;
 }
 
 .header-container {
@@ -15,15 +19,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 50px;
-}
-
-.nav {
-  // display: none;
-
-  // @media screen and (min-width: $desktop) {
-  //   display: block;
-  //   flex-grow: 1;
-  // }
 }
 
 .header-nav-list {
@@ -39,6 +34,8 @@
 
   display: block;
   padding: 0.1rem 0 0.5rem;
+
+  transition: color $theme-switch-duration $theme-switch-timing-function;
 
   // @media screen and (min-width: $desktop) {
   //   padding: 35px 0;
@@ -67,12 +64,3 @@
   //   }
   // }
 }
-
-// .header-logo-link,
-// .nav-link,
-// .burger-button {
-//   &:hover,
-//   &:focus-visible {
-//     color: inherit;
-//   }
-// }

@@ -13,15 +13,24 @@ $tablet: 768px;
 $desktop: 1280px;
 $desktop-wide: 1440px;
 
-// Font-family
-$arial: 'Arial Black';
-$inter: Inter;
-$montserrat: Montserrat;
+// Default section text size
+// $section-fz-mobile: 1.6rem;
+// $section-fz-tablet: 1.6rem;
+$section-fz-desktop: 1.6rem;
+// $section-fz-desktop-wide: 1.6rem;
 
-// Font-weight
-$regular: 400;
-$medium: 500;
-$bold: 700;
-
+//Regular transitions
 $transition-duration: 200ms;
 $transition-timing-function: linear;
+
+// Color theme switching transitions
+$theme-switch-duration: 600ms;
+$theme-switch-timing-function: linear;
+
+// Container
+$container-padding-mobile: 10px;
+$container-padding-tablet: 15px;
+$container-padding-desktop: 20px;
+
+// Gallery
+$gallery-gap: 10px;

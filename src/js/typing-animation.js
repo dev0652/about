@@ -25,3 +25,5 @@ export const setTypewriterEffect = function (id) {
 
   typeWriter();
 };
+
+setTypewriterEffect('about');

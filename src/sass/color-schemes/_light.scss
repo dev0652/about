@@ -7,7 +7,7 @@ body {
   --text-color: #{$blackish};
 
   /* Header */
-  --header-bg-color: white;
+  --header-bg-color: var(--background-color);
 
   --header-nav-link-color: silver;
   --header-nav-link-hover: gray;

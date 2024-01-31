@@ -1,9 +1,11 @@
+// .contacts-list { margin-left: 3rem }
+
 .contacts-list-item {
   display: flex;
   gap: 30px;
   align-items: center;
 
-  font-size: 2rem;
+  font-size: $section-fz-desktop;
 
   &:not(:last-child) {
     margin-bottom: 20px;
@@ -16,7 +18,8 @@
   height: $size;
   width: $size;
 
-  // fill: dimgray;
+  fill: var(--text-color);
+  transition: fill $theme-switch-duration $theme-switch-timing-function;
 }
 
 .contact-link {

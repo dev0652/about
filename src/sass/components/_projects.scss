@@ -1,30 +1,24 @@
-.projects-view-switch {
+// Gallery
+
+button.projects-view-switch {
   @extend %link !optional;
-
-  cursor: pointer;
-  user-select: none;
-
-  text-align: right;
   text-transform: lowercase;
+
+  border: none;
+  background-color: transparent;
+
+  display: block;
+  margin-left: auto;
 
   position: relative;
   top: -40px;
+
+  transition: color $theme-switch-duration;
 }
 
-.project-card-list {
-  &.gallery-view {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-}
+// Gallery item (project card)
 
 .card-title {
-  //
-  .project-card-list.gallery-view & {
-    display: none;
-  }
-
   @extend %link !optional;
 
   cursor: pointer;
@@ -37,54 +31,89 @@
   &.content-expanded {
     color: currentColor;
   }
+
+  .project-card-list.gallery-view & {
+    // display: none;
+    @extend %visually-hidden;
+  }
 }
 
-.card-collapsible-wrapper {
+// List view
+
+.collapsible {
   max-height: 0px;
+  transition: max-height 400ms ease-in; // don't change
+
   overflow: hidden;
 
-  &.transition {
-    transition: max-height 400ms ease-out;
-  }
-
   .project-card-list.gallery-view & {
-    max-height: 100%;
-    overflow: visible;
+    display: none;
   }
 }
 
-.card-collapsible {
-  height: 300px;
-  width: 500px;
+.list-content {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
 
+.collapsible .list-content-meta {
   margin: 1rem 0;
-  margin-left: 5rem;
+  margin-left: 2rem;
+
+  width: 50%;
+}
+
+.list-content-image {
+  width: 400px;
+  height: 250px;
+}
+
+// Gallery view
+
+.project-card-list {
+  &.gallery-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gallery-gap;
+
+    @media screen and (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
+      gap: $gallery-gap * 2;
+    }
+  }
+}
+
+.gallery-content {
+  display: none;
 
   .project-card-list.gallery-view & {
-    width: 400px;
+    display: block;
     height: 250px;
-    margin: 0;
-
-    @media screen and (max-width: ($tablet - 1px)) {
-      @include flex-basis(1);
-    }
+    width: auto;
 
     @media screen and (min-width: $tablet) {
-      @include flex-basis(2);
-      width: calc($tablet / 2 - 20px);
+      width: calc(
+        ($tablet - $gallery-gap * 2 - $container-padding-tablet * 2) / 2
+      );
+      height: 220px;
     }
 
     @media screen and (min-width: $desktop) {
-      @include flex-basis(3);
+      width: calc(
+        ($desktop - $gallery-gap * 2 - $container-padding-desktop * 2) / 3
+      );
+      height: 250px;
+    }
+
+    .project-card-link {
+      display: block; // for 3d effects
+      width: 100%;
+      height: 100%;
     }
   }
 }
 
-.project-card-link {
-  display: block; // to enable 3d effects
-}
-
-// Flip cards
+// Flip cards in gallery view
 
 .flip-card {
   background-color: transparent;
@@ -103,8 +132,14 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.flip-card:hover .flip-card-inner {
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-visible .flip-card-inner {
   transform: rotateY(180deg);
+}
+
+.flip-card:focus-visible {
+  outline: 3px solid var(--text-color);
+  outline-offset: 2px;
 }
 
 .flip-card-front,
