@@ -2,7 +2,7 @@ export default [
   {
     name: 'Barber course',
     link: 'https://github.com/dev0652/barber',
-    livePage: 'https://dev0652.github.io/barber/',
+    livePage: 'https://barbercourse.kyiv.ua/',
     thumbFilename: 'barber',
     type: 'Commercial project',
     description:

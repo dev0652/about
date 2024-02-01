@@ -37,9 +37,13 @@ const makeItemMarkup = (project) => {
 
       <div class="list-content collapsible">
         <div class="list-content-meta">
-          <p class="project-type">${type}</p>
+          <div>
+            <p class="project-type">${type}</p>
+            <p class="technologies">${technologiesList}</p>
+          </div>
+
           <p class="project-description">${description}</p>
-          <p class="technologies">Technologies: ${technologiesList}</p>
+          
 
           <button type="button" class="project-card-button">View more</button>
         </div>
