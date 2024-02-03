@@ -1,6 +1,5 @@
 body {
   --accent-primary: #{$lightblue};
-  --accent-secondary: #{$gold};
 
   /* Body */
   --background-color: #{$milky};
@@ -14,6 +13,8 @@ body {
   --header-nav-link-active: var(--text-color);
 
   /* Buttons */
+  --button-text-color: var(--text-color);
+
   --button-text-hover: #{$blackish};
   --button-bg-hover: silver;
 

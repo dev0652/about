@@ -1,5 +1,5 @@
 body.dark {
-  --accent-primary: #{$green}; // fireBrick, darkgoldenrod;
+  --accent-primary: SlateGray;
 
   /* Body */
   --background-color: black;
@@ -11,6 +11,15 @@ body.dark {
   --header-nav-link-color: gray;
   --header-nav-link-hover: silver;
   --header-nav-link-active: gainsboro;
+
+  /* Buttons */
+  --button-text-color: var(--text-color);
+
+  // --button-text-hover: #{$blackish};
+  --button-bg-hover: dimgray;
+
+  --button-text-active: dimgray;
+  --button-bg-active: #{$blackish};
 
   /* Theme switcher */
   --theme-switcher-gradient-start: gray;
