@@ -13,6 +13,13 @@ body {
   --header-nav-link-hover: gray;
   --header-nav-link-active: var(--text-color);
 
+  /* Buttons */
+  --button-text-hover: #{$blackish};
+  --button-bg-hover: silver;
+
+  --button-text-active: var(--button-text-hover);
+  --button-bg-active: darkgray;
+
   /* Theme switcher */
   --theme-switcher-gradient-start: gray;
   --theme-switcher-gradient-end: #dcdcdc;

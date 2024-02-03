@@ -26,3 +26,28 @@
     color: currentColor;
   }
 }
+
+%button {
+  // @extend %link !optional;
+  $color: var(--text-color);
+
+  color: $color;
+  background-color: transparent;
+  border: 3px solid $color;
+
+  padding: 0.1rem 0.8rem 0.3rem;
+  text-transform: lowercase;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--button-text-hover);
+    background-color: var(--button-bg-hover);
+    border-color: var(--button-bg-hover);
+  }
+
+  &:active {
+    color: var(--button-text-active);
+    background-color: var(--button-bg-active);
+    border-color: var(--button-bg-active);
+  }
+}

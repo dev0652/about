@@ -44,9 +44,15 @@
 
 .collapsible {
   max-height: 0px;
-  transition: max-height 400ms ease-in; // don't change
-
   overflow: hidden;
+
+  opacity: 0;
+
+  transition: max-height 400ms ease-in, opacity 600ms linear; // don't change the max-height's timing function
+
+  &.animated {
+    opacity: 1;
+  }
 
   .project-card-list.gallery-view & {
     display: none;
@@ -170,13 +176,9 @@
 // Card elements
 
 .project-card-button {
-  @extend %link !optional;
+  @extend %button !optional;
 
-  border: none;
-  background-color: transparent;
-  text-transform: lowercase;
-
-  color: var(--accent-primary);
+  // color: var(--accent-primary);
   font-size: 1.5rem;
 
   align-self: flex-start; // for when list-content-meta is a flex container
@@ -206,7 +208,6 @@
 .technologies {
   .list-content-meta & {
     font-size: 0.8rem;
-
-    opacity: 0.6;
+    color: var(--accent-primary);
   }
 }

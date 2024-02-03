@@ -43,10 +43,14 @@ const titleClickHandler = (event) => {
 
   if (currentCardCollapsible.style.maxHeight) {
     currentCardCollapsible.style.maxHeight = null;
+
+    currentCardCollapsible.classList.remove('animated');
     //
   } else {
     currentCardCollapsible.style.maxHeight =
       currentCardCollapsible.scrollHeight + 'px';
+
+    currentCardCollapsible.classList.add('animated');
   }
 };
 
