@@ -65,11 +65,7 @@ main {
 .section {
   z-index: 0; // in order for :before to take effect
 
-  margin: 60px 0;
-
-  @media screen and (min-width: $tablet) {
-    margin: 100px 0;
-  }
+  margin: 100px 0;
 
   &:not(:first-child) {
     display: none; // initially hide all sections but first

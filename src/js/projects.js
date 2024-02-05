@@ -49,7 +49,6 @@ const makeItemMarkup = (project) => {
                 srcset="${imagePath1x} 1x, ${imagePath2x} 2x"
                 src="${largeUrl}"
                 alt="${name} live page screenshot"
-                loading="lazy"
               />
             </div>
 
