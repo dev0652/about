@@ -33,8 +33,6 @@
               >
             </div>
 
-            <div class="list-content-meta"></div>
-
             <div class="list-content-heading">
               <p class="project-type">${a}</p>
               <p class="technologies">${S}</p>
