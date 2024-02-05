@@ -27,6 +27,10 @@
   @media screen and (min-width: $tablet) {
     gap: 50px;
   }
+
+  @media screen and (max-width: $tablet-1) {
+    flex-direction: row-reverse;
+  }
 }
 
 .header-nav-list {

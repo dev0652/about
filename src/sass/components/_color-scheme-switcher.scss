@@ -9,7 +9,11 @@ $slider-circle-size: calc($slider-height - 2px);
   width: $slider-width;
   height: $slider-height;
 
-  @media screen and (max-width: calc($tablet + 1rem)) {
+  @media screen and (max-width: $tablet-1) {
+    margin-left: 1rem; // for fdn: row-reverse
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: calc($tablet + 1rem)) {
     margin-right: 1rem;
   }
 }
