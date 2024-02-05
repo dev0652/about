@@ -26,6 +26,10 @@
     padding-left: $container-padding-desktop;
     padding-right: $container-padding-desktop;
   }
+
+  @media screen and (min-width: $desktop-wide) {
+    width: $desktop-wide;
+  }
 }
 
 @media screen and (min-width: $mobile) and (max-width: $tablet-1) {

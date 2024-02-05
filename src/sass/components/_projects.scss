@@ -217,6 +217,13 @@
       height: 250px;
     }
 
+    @media screen and (min-width: $desktop-wide) {
+      width: calc(
+        ($desktop-wide - $gallery-gap * 2 - $container-padding-desktop * 2) / 3
+      );
+      height: 270px;
+    }
+
     .project-card-link {
       display: block; // for 3d effects
       width: 100%;
