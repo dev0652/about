@@ -4,6 +4,11 @@
 
         <div class="modal-content-wrapper">
 
+          <div class="modal-heading">
+            <p class="project-type">${a}</p>
+            <p class="technologies">${p}</p>
+          </div>
+
           <div class="modal-image-block">
             <img
               class="project-card-image"
@@ -13,6 +18,10 @@
             />
           </div>
 
+          <div class="modal-description">
+            <p class="project-description">${i}</p>
+          </div>
+          
           <div class="modal-project-links-wrapper">
             <a
               class="project-link"
@@ -31,14 +40,6 @@
             >
           </div>
 
-          <div class="modal-heading">
-            <p class="project-type">${a}</p>
-            <p class="technologies">${p}</p>
-          </div>
-
-          <div class="modal-description">
-            <p class="project-description">${i}</p>
-          </div>  
         </div>
       </article>
   `}const q=document.querySelector("[data-pop-up]"),O=document.querySelector("[data-modal-close]"),Ce=document.querySelector(".modal-content-injection-target");function He(e){const o=z.find(a=>a.id===+e);Ce.innerHTML=Me(o),q.classList.remove("is-hidden"),document.body.style.overflow="hidden",O.addEventListener("click",A),document.addEventListener("keydown",U),document.addEventListener("click",N)}function E(){O.removeEventListener("click",A),document.removeEventListener("click",N),document.removeEventListener("keydown",U),q.classList.add("is-hidden"),document.body.style.removeProperty("overflow")}function A(e){E()}function N(e){e.target==q&&E()}function U(e){e.key==="Escape"&&E()}const qe=e=>{const{id:o,name:a,type:r,link:s,livePage:t,thumbFilename:i,description:c,technologies:n}=e,l=new URL(Object.assign({"../images/projects/thumbs/400x250/barber.webp":se,"../images/projects/thumbs/400x250/barbershop.webp":oe,"../images/projects/thumbs/400x250/bookshelf.webp":ae,"../images/projects/thumbs/400x250/bookshelf_dark.webp":ie,"../images/projects/thumbs/400x250/britlex.webp":re,"../images/projects/thumbs/400x250/car-rental.webp":ce,"../images/projects/thumbs/400x250/drinkmaster.webp":ne,"../images/projects/thumbs/400x250/fighters.webp":le,"../images/projects/thumbs/400x250/icecream.webp":pe,"../images/projects/thumbs/400x250/movies.webp":de,"../images/projects/thumbs/400x250/phonebook.webp":ge,"../images/projects/thumbs/400x250/pixabay.webp":be,"../images/projects/thumbs/400x250/webstudio.webp":me,"../images/projects/thumbs/400x250/zenbit.webp":ue})[`../images/projects/thumbs/400x250/${i}.webp`],self.location).href,m=new URL(Object.assign({"../images/projects/thumbs/800x500/barber.webp":he,"../images/projects/thumbs/800x500/barbershop.webp":_e,"../images/projects/thumbs/800x500/bookshelf.webp":ve,"../images/projects/thumbs/800x500/bookshelf_dark.webp":fe,"../images/projects/thumbs/800x500/britlex.webp":je,"../images/projects/thumbs/800x500/car-rental.webp":ke,"../images/projects/thumbs/800x500/drinkmaster.webp":ye,"../images/projects/thumbs/800x500/fighters.webp":we,"../images/projects/thumbs/800x500/icecream.webp":xe,"../images/projects/thumbs/800x500/movies.webp":Se,"../images/projects/thumbs/800x500/phonebook.webp":Le,"../images/projects/thumbs/800x500/pixabay.webp":$e,"../images/projects/thumbs/800x500/webstudio.webp":Te,"../images/projects/thumbs/800x500/zenbit.webp":Pe})[`../images/projects/thumbs/800x500/${i}.webp`],self.location).href,u=new URL(Object.assign({"../images/projects/large/barber.png":h,"../images/projects/large/barbershop.png":_,"../images/projects/large/bookshelf.png":v,"../images/projects/large/bookshelf_dark.png":f,"../images/projects/large/britlex.png":j,"../images/projects/large/car-rental.png":k,"../images/projects/large/drinkmaster.png":y,"../images/projects/large/fighters.png":w,"../images/projects/large/icecream.png":x,"../images/projects/large/movies.png":S,"../images/projects/large/phonebook.png":L,"../images/projects/large/pixabay.png":$,"../images/projects/large/webstudio.png":T,"../images/projects/large/zenbit.png":P})[`../images/projects/large/${i}.png`],self.location).href,d="https://placehold.co/400x250?text=Image+pending",g="https://placehold.co/800x500?text=Image+pending",b=i!==""&&i!==void 0,p=b?l:d,R=b?m:g,Q=n.join(", ");return`
