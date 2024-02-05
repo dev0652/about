@@ -94,7 +94,6 @@
 }
 
 .list-version-image-block {
-  // background-color: lightsalmon;
   grid-area: image;
 
   @media screen and (min-width: $tablet) {
@@ -102,7 +101,6 @@
   }
 }
 .project-links-wrapper {
-  // background-color: lightblue;
   grid-area: buttons;
   align-self: end; // as a grid element
 
@@ -114,7 +112,7 @@
   }
 
   @media screen and (min-width: $desktop) {
-    gap: 20px;
+    gap: 30px;
   }
 }
 
@@ -132,18 +130,14 @@
 }
 
 .list-version-heading {
-  // background-color: lightpink;
   grid-area: heading;
 }
 
 .list-version-description {
-  // background-color: lightseagreen;
   grid-area: description;
 }
 
 .list-version-wrapper {
-  // background-color: beige;
-
   margin: 1rem 0;
   @media screen and (min-width: $tablet) {
     margin: 1rem 0 2rem 1rem;
@@ -155,9 +149,14 @@
   display: grid;
 
   row-gap: 10px;
+
   @media screen and (min-width: $tablet) {
     column-gap: 20px;
     row-gap: 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    column-gap: 30px;
   }
 
   grid-template-areas:
