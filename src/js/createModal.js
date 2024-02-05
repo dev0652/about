@@ -35,6 +35,11 @@ export default function createModal(project) {
 
         <div class="modal-content-wrapper">
 
+          <div class="modal-heading">
+            <p class="project-type">${type}</p>
+            <p class="technologies">${technologiesList}</p>
+          </div>
+
           <div class="modal-image-block">
             <img
               class="project-card-image"
@@ -44,6 +49,10 @@ export default function createModal(project) {
             />
           </div>
 
+          <div class="modal-description">
+            <p class="project-description">${description}</p>
+          </div>
+          
           <div class="modal-project-links-wrapper">
             <a
               class="project-link"
@@ -62,14 +71,6 @@ export default function createModal(project) {
             >
           </div>
 
-          <div class="modal-heading">
-            <p class="project-type">${type}</p>
-            <p class="technologies">${technologiesList}</p>
-          </div>
-
-          <div class="modal-description">
-            <p class="project-description">${description}</p>
-          </div>  
         </div>
       </article>
   `;
