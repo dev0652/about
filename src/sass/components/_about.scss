@@ -3,8 +3,13 @@
   flex-direction: column;
   gap: 1rem;
 
-  font-size: $section-fz-desktop;
   color: gray;
+
+  font-size: $section-fz-mobile;
+
+  @media screen and (min-width: $tablet) {
+    font-size: $section-fz-desktop;
+  }
 
   @media screen and (min-width: $tablet) and (max-width: calc($tablet + 2rem)) {
     max-width: 90vw;

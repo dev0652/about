@@ -2,10 +2,19 @@
 
 .contacts-list-item {
   display: flex;
-  gap: 30px;
   align-items: center;
 
-  font-size: $section-fz-desktop;
+  font-size: $section-fz-mobile;
+  gap: 20px;
+
+  @media screen and (max-width: $tablet-1) {
+    margin-left: 10px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-size: $section-fz-desktop;
+    gap: 30px;
+  }
 
   &:not(:last-child) {
     margin-bottom: 20px;
@@ -13,10 +22,14 @@
 }
 
 .contact-icon {
-  $size: 2.2rem;
+  --size: 2rem;
 
-  height: $size;
-  width: $size;
+  @media screen and (min-width: $tablet) {
+    --size: 2.2rem;
+  }
+
+  height: var(--size);
+  width: var(--size);
 
   fill: var(--text-color);
   transition: fill $theme-switch-duration $theme-switch-timing-function;
@@ -25,5 +38,8 @@
 .contact-link {
   @extend %link;
 
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0.4rem;
+  }
 }
