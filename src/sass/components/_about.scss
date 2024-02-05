@@ -6,7 +6,6 @@
   color: gray;
 
   font-size: $section-fz-mobile;
-
   @media screen and (min-width: $tablet) {
     font-size: $section-fz-desktop;
   }
