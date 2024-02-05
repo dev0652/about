@@ -32,31 +32,31 @@ main {
     $spread: 10vh;
     $color: var(--header-bg-color);
 
-    &:before {
-      content: '';
-      position: fixed;
-      left: 0;
-      top: 0;
-      @media screen and (min-width: $tablet) {
-        top: var(--blurOffset); // header goes back to top
-      }
-
-      width: 100%;
-      height: $spread;
-      background: linear-gradient(to bottom, $color, transparent);
-    }
-
+    &:before,
     &:after {
       content: '';
       position: fixed;
       left: 0;
+
+      width: 100%;
+      height: $spread;
+
+      pointer-events: none;
+    }
+
+    &:before {
+      top: 0;
+      @media screen and (min-width: $tablet) {
+        top: var(--blurOffset); // header goes back to top
+      }
+      background: linear-gradient(to bottom, $color, transparent);
+    }
+
+    &:after {
       bottom: var(--blurOffset);
       @media screen and (min-width: $tablet) {
         bottom: 0; // header goes back to top
       }
-
-      width: 100%;
-      height: $spread;
       background: linear-gradient(to top, $color, transparent);
     }
   }
@@ -64,7 +64,6 @@ main {
 
 .section {
   z-index: 0; // in order for :before to take effect
-
   margin: 100px 0;
 
   &:not(:first-child) {

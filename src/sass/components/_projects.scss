@@ -1,5 +1,7 @@
 // Gallery
 
+// .gallery {}
+
 .projects-view-switch {
   @extend %link !optional;
   text-transform: lowercase;
@@ -69,6 +71,7 @@
 
 // List view
 
+// .project-card-list.list-view {}
 // .list-version {}
 
 .list-version.collapsible {
