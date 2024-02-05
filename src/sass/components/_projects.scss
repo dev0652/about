@@ -23,13 +23,42 @@
 
   cursor: pointer;
   user-select: none;
-  display: inline-block;
+
+  @media screen and (max-width: $tablet-1) {
+    // text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: scroll;
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
+    }
+  }
 
   text-transform: lowercase;
   font-size: 2rem;
 
   &.content-expanded {
     color: currentColor;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: inline-block;
+
+    &::after {
+      content: '»';
+      color: var(--swaying-icon-color);
+
+      opacity: 0;
+      transition: opacity 600ms;
+    }
+
+    &:not(.content-expanded):hover {
+      &::after {
+        animation: slide-and-fade 2s infinite 600ms;
+      }
+    }
   }
 
   .project-card-list.gallery-view & {
@@ -42,13 +71,15 @@
 
 // .list-content {}
 
-.collapsible {
+.list-content.collapsible {
   max-height: 0px;
+  opacity: 0;
   overflow: hidden;
 
-  opacity: 0;
+  $duration: 400ms;
+  $function: ease-in; // don't change
 
-  transition: max-height 400ms ease-in, opacity 600ms linear; // don't change the max-height's timing function
+  transition: max-height $duration $function, opacity $duration $function;
 
   &.animated {
     opacity: 1;
@@ -59,15 +90,77 @@
   }
 }
 
+// .list-content-wrapper {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 30px;
+
+//   @media screen and (min-width: $tablet) and (max-width: $desktop-1) {
+//     margin: 1rem 1rem 2rem;
+//     flex-direction: row;
+//     // max-width: 500px;
+//   }
+
+//   @media screen and (min-width: $desktop) {
+//     flex-direction: row;
+//     justify-content: start;
+//     gap: 30px;
+
+//     // max-width: 80%;
+//     margin: 2rem 1rem;
+//   }
+// }
+
+// .list-content-image-block {
+//   // flex-basis: fill;
+//   width: 50%;
+
+//   @media screen and (min-width: $desktop) {
+//     width: 50%;
+//   }
+// }
+
 .list-content-meta {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  justify-content: space-between;
 
-  margin: 2rem 0;
-  margin-left: 1rem;
+  align-items: start;
+  width: 50%;
 
-  max-width: 600px;
+  @media screen and (min-width: $desktop) {
+    width: 50%;
+  }
+}
+
+.list-content-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-links-wrapper {
+  display: flex;
+  gap: 10px;
+
+  width: 100%;
+
+  @media screen and (min-width: $tablet) {
+    gap: 20px;
+  }
+
+  align-self: flex-start; // for when list-content-meta is a flex container
+}
+
+.project-link {
+  @extend %button !optional;
+
+  font-size: 1.5rem;
+  text-align: center;
+
+  width: calc(50% - 5px);
+  // @media screen and (min-width: $tablet) {}
 }
 
 // Gallery view
@@ -78,7 +171,7 @@
     flex-wrap: wrap;
     gap: $gallery-gap;
 
-    @media screen and (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
+    @media screen and (min-width: $tablet) and (max-width: $desktop-1) {
       gap: $gallery-gap * 2;
     }
   }
@@ -115,10 +208,49 @@
 }
 
 .project-card-image {
-  object-fit: cover;
-  object-position: center;
-  height: 100%;
-  width: 100%;
+  .list-content & {
+    object-fit: contain;
+    object-position: top;
+    height: 100%;
+    width: 100%;
+  }
+
+  .gallery-content & {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+// Card elements
+
+.project-description {
+  text-align: justify;
+
+  // .list-content-meta & {
+  //   color: var(--text-color);
+  // }
+}
+
+.project-type {
+  transition: color $theme-switch-duration;
+
+  .list-content-heading & {
+    margin-bottom: 5px;
+  }
+
+  .flip-card-back & {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+  }
+}
+
+.technologies {
+  .list-content-heading & {
+    font-size: 0.8rem;
+    color: var(--accent-primary);
+  }
 }
 
 // Flip cards in gallery view
@@ -173,41 +305,78 @@
   padding: 20px;
 }
 
-// Card elements
+// ***************** test
 
-.project-card-button {
-  @extend %button !optional;
+.list-content-image-block {
+  // background-color: lightsalmon;
+  grid-area: image;
 
-  // color: var(--accent-primary);
-  font-size: 1.5rem;
-
-  align-self: flex-start; // for when list-content-meta is a flex container
-}
-
-.project-description {
-  text-align: justify;
-
-  // .list-content-meta & {
-  //   color: var(--text-color);
-  // }
-}
-
-.project-type {
-  transition: color $theme-switch-duration;
-
-  .list-content-meta & {
-    margin-bottom: 5px;
-  }
-
-  .flip-card-back & {
-    font-size: 0.9rem;
-    margin-bottom: 30px;
+  @media screen and (min-width: $tablet) {
+    padding-top: 5px; // to align evenly with .project-type
   }
 }
+.project-links-wrapper {
+  // background-color: lightblue;
+  grid-area: buttons;
+  align-self: end;
+}
+.list-content-heading {
+  // background-color: lightpink;
+  grid-area: heading;
+}
 
-.technologies {
-  .list-content-meta & {
-    font-size: 0.8rem;
-    color: var(--accent-primary);
+.list-content-description {
+  // background-color: lightseagreen;
+  grid-area: description;
+}
+
+.list-content-wrapper {
+  // background-color: beige;
+
+  margin: 1rem 0;
+  @media screen and (min-width: $tablet) {
+    margin: 1rem 0 2rem 1rem;
+  }
+  @media screen and (min-width: $desktop) {
+    margin: 2rem 0 2rem 2rem;
+  }
+
+  display: grid;
+
+  row-gap: 10px;
+  @media screen and (min-width: $tablet) {
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
+  grid-template-areas:
+    'heading'
+    'image'
+    'description'
+    'buttons';
+
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: 50% 1fr;
+
+    grid-template-areas:
+      'heading heading'
+      'image description'
+      'image buttons';
+  }
+
+  @media screen and (min-width: $desktop) {
+    grid-template-columns: 1fr 1fr 10%;
+
+    grid-template-areas:
+      'image heading'
+      'image description'
+      'image buttons';
+  }
+
+  @media screen and (min-width: $desktop-wide) {
+    grid-template-columns: 1fr 1fr 20%;
   }
 }

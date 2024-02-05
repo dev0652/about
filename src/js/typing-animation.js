@@ -11,6 +11,7 @@ export const setTypewriterEffect = function (id) {
   titleEl.innerHTML = '';
 
   const timeout = 100;
+
   contentEl.style.animationDelay = timeout * text.length;
 
   let i = 0;
@@ -18,7 +19,7 @@ export const setTypewriterEffect = function (id) {
   function typeWriter() {
     if (i < text.length) {
       titleEl.innerHTML += text.charAt(i);
-      i += 1;
+      i++;
       setTimeout(typeWriter, timeout);
     }
   }
@@ -26,4 +27,5 @@ export const setTypewriterEffect = function (id) {
   typeWriter();
 };
 
+// Animate default sectiony title on first load
 setTypewriterEffect('about');

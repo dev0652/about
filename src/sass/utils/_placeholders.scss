@@ -29,12 +29,16 @@
 
 %button {
   color: var(--button-text-color);
+  text-transform: lowercase;
 
   background-color: transparent;
   border: 3px solid var(--button-text-color);
 
-  padding: 0.1rem 0.8rem 0.3rem;
-  text-transform: lowercase;
+  padding: 0.1rem 1rem 0.3rem;
+
+  @media screen and (min-width: $tablet) {
+    padding: 0.1rem 1.5rem 0.3rem;
+  }
 
   &:hover,
   &:focus-visible {

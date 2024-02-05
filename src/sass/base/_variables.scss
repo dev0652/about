@@ -9,9 +9,18 @@ $green: darkolivegreen;
 
 // Breakpoints
 $mobile: 320px;
+
+$mobile-wide: 400px;
+$mobile-wide-1: calc($mobile-wide - 1px);
+
 $tablet: 768px;
-$desktop: 1280px;
+$tablet-1: calc($tablet - 1px);
+
+$desktop: 1024px;
+$desktop-1: calc($desktop - 1px);
+
 $desktop-wide: 1440px;
+$desktop-wide-1: calc($desktop-wide - 1px);
 
 // Default section text size
 // $section-fz-mobile: 1.6rem;
@@ -29,8 +38,9 @@ $theme-switch-timing-function: linear;
 
 // Container
 $container-padding-mobile: 10px;
-$container-padding-tablet: 15px;
-$container-padding-desktop: 20px;
+$container-padding-mobile-wide: 20px;
+$container-padding-tablet: 30px;
+$container-padding-desktop: 30px;
 
 // Gallery
 $gallery-gap: 10px;

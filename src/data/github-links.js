@@ -24,7 +24,7 @@ export default [
       'MongoDB',
     ],
     thumbFilename: 'zenbit',
-    type: 'Test',
+    type: 'Test assignment (front end, back end)',
     description:
       'This website was my full-stack test assignment for ZenBit Tech. Front end is an MPA built with React (using Create React App tool) and uses React Router for routing and Redux for state management. It also makes use of a few other libraries like React Helmet, React Icons and Notiflix. Back end is built with Node and MongoDB and is hosted on render.com. ',
   },
@@ -35,7 +35,7 @@ export default [
     livePage: 'https://dev0652.github.io/binary-hw-nodejs/',
     technologies: ['HTML', 'SaSS', 'JavaScript', 'React', 'Node.js'],
     thumbFilename: 'fighters',
-    type: 'Test (front end, back end)',
+    type: 'Test assignment (front end, back end)',
     description:
       "This a test assignment I've done for Binary Academy. Although I failed to deliver it on time, I still went on and completed it. The test is a simple, unanimated fighting game built with React and utilizes class components.",
   },
@@ -70,7 +70,7 @@ export default [
     livePage: 'https://dev0652.github.io/swift-car-rental/',
     technologies: ['HTML', 'SaSS', 'JavaScript'],
     thumbFilename: 'car-rental',
-    type: 'Test',
+    type: 'Test assignment',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
   },

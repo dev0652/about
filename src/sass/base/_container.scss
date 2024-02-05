@@ -1,11 +1,18 @@
 .container {
   @media screen and (min-width: $mobile) {
-    width: $mobile;
-
+    // width: $mobile;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  @media screen and (max-width: $mobile-wide-1) {
     padding-left: $container-padding-mobile;
     padding-right: $container-padding-mobile;
+  }
+
+  @media screen and (min-width: $mobile-wide) and (max-width: $tablet-1) {
+    padding-left: $container-padding-mobile-wide;
+    padding-right: $container-padding-mobile-wide;
   }
 
   @media screen and (min-width: $tablet) {
@@ -21,7 +28,7 @@
   }
 }
 
-@media screen and (min-width: $mobile) and (max-width: calc($tablet - 1px)) {
+@media screen and (min-width: $mobile) and (max-width: $tablet-1) {
   html,
   body {
     max-width: 100vw;

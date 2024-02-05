@@ -8,6 +8,10 @@ $slider-circle-size: calc($slider-height - 2px);
 
   width: $slider-width;
   height: $slider-height;
+
+  @media screen and (max-width: calc($tablet + 1rem)) {
+    margin-right: 1rem;
+  }
 }
 
 #color-scheme-switcher-checkbox {

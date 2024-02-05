@@ -10,6 +10,7 @@
 
 body {
   font-family: 'Segoe WP', sans-serif;
+  text-rendering: optimizeLegibility;
 
   color: var(--text-color);
   background-color: var(--background-color);
@@ -21,7 +22,7 @@ body {
 
 main {
   position: relative;
-  --topOffset: 52px; // default, is reset via JS
+  --topOffset: 67px; // default, is reset via JS
 
   &.faded-edges {
     $spread: 10vh;
@@ -51,6 +52,7 @@ main {
 
 .section {
   margin: 100px 0;
+  z-index: 0; // in order for :before to take effect
 
   &:not(:first-child) {
     display: none; // initially hide all sections but first
@@ -75,3 +77,10 @@ main {
 
   margin-bottom: 60px;
 }
+
+// .cursor {
+//   padding-right: 5px;
+//   border-right: 3px solid var(--accent-primary);
+
+//   animation: blink 600ms infinite alternate;
+// }

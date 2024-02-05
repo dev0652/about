@@ -18,30 +18,41 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 50px;
+
+  @media screen and (min-width: $tablet) {
+    gap: 50px;
+  }
 }
 
 .header-nav-list {
   display: flex;
   align-items: center;
-  gap: 30px;
+
+  gap: 20px;
+
+  @media screen and (min-width: $tablet) {
+    gap: 30px;
+  }
 }
 
 .header-nav-link {
-  font-size: 2rem;
+  font-size: 1rem;
+  @media screen and (min-width: $tablet) {
+    font-size: 2rem;
+  }
+
   text-transform: lowercase;
   user-select: none;
 
   display: block;
-  padding: 0.1rem 0 0.5rem;
+  padding: 0.5rem 0 1rem;
 
-  transition: color $theme-switch-duration $theme-switch-timing-function;
-
-  // @media screen and (min-width: $desktop) {
-  //   padding: 35px 0;
-  // }
+  @media screen and (min-width: $tablet) and (max-width: $desktop-1) {
+    padding: 1rem 0 1.5rem;
+  }
 
   color: var(--header-nav-link-color);
+  transition: color $theme-switch-duration $theme-switch-timing-function;
 
   &:hover,
   &:focus-visible {
@@ -51,16 +62,4 @@
   &.active {
     color: var(--header-nav-link-active);
   }
-
-  .sticky-header & {
-    padding: 25px 0;
-  }
-}
-
-.nav-item {
-  // @media screen and (min-width: $desktop) {
-  //   &:last-child {
-  //     margin-left: auto;
-  //   }
-  // }
 }
