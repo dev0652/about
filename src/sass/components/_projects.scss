@@ -108,7 +108,12 @@
 
   display: flex;
   gap: 10px;
-  @media screen and (min-width: $tablet) {
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop-1) {
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: $desktop) {
     gap: 20px;
   }
 }
@@ -120,7 +125,10 @@
   text-align: center;
 
   width: calc(50% - 5px);
-  // @media screen and (min-width: $tablet) {}
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop-1) {
+    width: auto;
+  }
 }
 
 .list-version-heading {
@@ -162,12 +170,12 @@
   grid-template-columns: 1fr;
 
   @media screen and (min-width: $tablet) {
-    grid-template-columns: 50% 1fr;
+    grid-template-columns: 70% 1fr;
 
     grid-template-areas:
-      'heading heading'
-      'image description'
-      'image buttons';
+      'image heading'
+      'image buttons'
+      'description description';
   }
 
   @media screen and (min-width: $desktop) {
