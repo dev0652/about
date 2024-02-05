@@ -71,8 +71,6 @@ const makeItemMarkup = (project) => {
               >
             </div>
 
-            <div class="list-content-meta"></div>
-
             <div class="list-content-heading">
               <p class="project-type">${type}</p>
               <p class="technologies">${technologiesList}</p>

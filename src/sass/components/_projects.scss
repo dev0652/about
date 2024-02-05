@@ -90,67 +90,24 @@
   }
 }
 
-// .list-content-wrapper {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 30px;
+.list-content-image-block {
+  // background-color: lightsalmon;
+  grid-area: image;
 
-//   @media screen and (min-width: $tablet) and (max-width: $desktop-1) {
-//     margin: 1rem 1rem 2rem;
-//     flex-direction: row;
-//     // max-width: 500px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     flex-direction: row;
-//     justify-content: start;
-//     gap: 30px;
-
-//     // max-width: 80%;
-//     margin: 2rem 1rem;
-//   }
-// }
-
-// .list-content-image-block {
-//   // flex-basis: fill;
-//   width: 50%;
-
-//   @media screen and (min-width: $desktop) {
-//     width: 50%;
-//   }
-// }
-
-.list-content-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: space-between;
-
-  align-items: start;
-  width: 50%;
-
-  @media screen and (min-width: $desktop) {
-    width: 50%;
+  @media screen and (min-width: $tablet) {
+    padding-top: 5px; // to align evenly with .project-type
   }
 }
-
-.list-content-text {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .project-links-wrapper {
+  // background-color: lightblue;
+  grid-area: buttons;
+  align-self: end; // as a grid element
+
   display: flex;
   gap: 10px;
-
-  width: 100%;
-
   @media screen and (min-width: $tablet) {
     gap: 20px;
   }
-
-  align-self: flex-start; // for when list-content-meta is a flex container
 }
 
 .project-link {
@@ -161,6 +118,67 @@
 
   width: calc(50% - 5px);
   // @media screen and (min-width: $tablet) {}
+}
+
+.list-content-heading {
+  // background-color: lightpink;
+  grid-area: heading;
+}
+
+.list-content-description {
+  // background-color: lightseagreen;
+  grid-area: description;
+}
+
+.list-content-wrapper {
+  // background-color: beige;
+
+  margin: 1rem 0;
+  @media screen and (min-width: $tablet) {
+    margin: 1rem 0 2rem 1rem;
+  }
+  @media screen and (min-width: $desktop) {
+    margin: 2rem 0 2rem 2rem;
+  }
+
+  display: grid;
+
+  row-gap: 10px;
+  @media screen and (min-width: $tablet) {
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
+  grid-template-areas:
+    'heading'
+    'image'
+    'description'
+    'buttons';
+
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: 50% 1fr;
+
+    grid-template-areas:
+      'heading heading'
+      'image description'
+      'image buttons';
+  }
+
+  @media screen and (min-width: $desktop) {
+    grid-template-columns: 1fr 1fr 10%;
+
+    grid-template-areas:
+      'image heading'
+      'image description'
+      'image buttons';
+  }
+
+  @media screen and (min-width: $desktop-wide) {
+    grid-template-columns: 1fr 1fr 20%;
+  }
 }
 
 // Gallery view
@@ -227,10 +245,6 @@
 
 .project-description {
   text-align: justify;
-
-  // .list-content-meta & {
-  //   color: var(--text-color);
-  // }
 }
 
 .project-type {
@@ -303,80 +317,4 @@
 
   text-align: left;
   padding: 20px;
-}
-
-// ***************** test
-
-.list-content-image-block {
-  // background-color: lightsalmon;
-  grid-area: image;
-
-  @media screen and (min-width: $tablet) {
-    padding-top: 5px; // to align evenly with .project-type
-  }
-}
-.project-links-wrapper {
-  // background-color: lightblue;
-  grid-area: buttons;
-  align-self: end;
-}
-.list-content-heading {
-  // background-color: lightpink;
-  grid-area: heading;
-}
-
-.list-content-description {
-  // background-color: lightseagreen;
-  grid-area: description;
-}
-
-.list-content-wrapper {
-  // background-color: beige;
-
-  margin: 1rem 0;
-  @media screen and (min-width: $tablet) {
-    margin: 1rem 0 2rem 1rem;
-  }
-  @media screen and (min-width: $desktop) {
-    margin: 2rem 0 2rem 2rem;
-  }
-
-  display: grid;
-
-  row-gap: 10px;
-  @media screen and (min-width: $tablet) {
-    column-gap: 20px;
-    row-gap: 20px;
-  }
-
-  grid-template-areas:
-    'heading'
-    'image'
-    'description'
-    'buttons';
-
-  grid-template-rows: auto;
-  grid-template-columns: 1fr;
-
-  @media screen and (min-width: $tablet) {
-    grid-template-columns: 50% 1fr;
-
-    grid-template-areas:
-      'heading heading'
-      'image description'
-      'image buttons';
-  }
-
-  @media screen and (min-width: $desktop) {
-    grid-template-columns: 1fr 1fr 10%;
-
-    grid-template-areas:
-      'image heading'
-      'image description'
-      'image buttons';
-  }
-
-  @media screen and (min-width: $desktop-wide) {
-    grid-template-columns: 1fr 1fr 20%;
-  }
 }
