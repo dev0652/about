@@ -1,5 +1,6 @@
 export default [
   {
+    id: 1,
     name: 'Barber course',
     link: 'https://github.com/dev0652/barber',
     livePage: 'https://barbercourse.kyiv.ua/',
@@ -11,6 +12,7 @@ export default [
   },
 
   {
+    id: 2,
     name: 'Real Estate Deals (ZenBit)',
     link: 'https://github.com/dev0652/zenbit-test',
     livePage: 'https://dev0652.github.io/zenbit-test/',
@@ -30,6 +32,7 @@ export default [
   },
 
   {
+    id: 3,
     name: 'Fighters (Binary Academy)',
     link: 'https://github.com/dev0652/fighters-nodejs',
     livePage: 'https://dev0652.github.io/binary-hw-nodejs/',
@@ -41,6 +44,7 @@ export default [
   },
 
   {
+    id: 4,
     name: 'Bookshelf',
     link: 'https://github.com/dev0652/bookshelf',
     livePage: 'https://dev0652.github.io/bookshelf/',
@@ -53,6 +57,7 @@ export default [
   },
 
   {
+    id: 5,
     name: 'Drink Master',
     link: 'https://github.com/PVO-fullstack/drink_master',
     livePage: 'https://pvo-fullstack.github.io/drink_master/',
@@ -65,6 +70,7 @@ export default [
   },
 
   {
+    id: 6,
     name: 'Car Rental',
     link: 'https://github.com/dev0652/swift-car-rental',
     livePage: 'https://dev0652.github.io/swift-car-rental/',
@@ -76,6 +82,7 @@ export default [
   },
 
   {
+    id: 7,
     name: 'Phonebook',
     link: 'https://github.com/dev0652/goit-react-hw-08-phonebook',
     livePage: 'https://dev0652.github.io/goit-react-hw-08-phonebook',
@@ -87,6 +94,7 @@ export default [
   },
 
   {
+    id: 8,
     name: 'Movie database',
     link: 'https://github.com/dev0652/goit-react-hw-05-movies',
     livePage: 'https://dev0652.github.io/goit-react-hw-05-movies',
@@ -98,6 +106,7 @@ export default [
   },
 
   {
+    id: 9,
     name: 'Pixabay Image Search',
     link: 'https://github.com/dev0652/pixabay-search',
     livePage: 'https://dev0652.github.io/pixabay-search/',
@@ -109,6 +118,7 @@ export default [
   },
 
   {
+    id: 10,
     name: 'Ice Cream',
     link: 'https://github.com/dev0652/icecream',
     livePage: 'https://dev0652.github.io/icecream/',
@@ -121,6 +131,7 @@ export default [
   },
 
   {
+    id: 11,
     name: 'Web studio',
     link: 'https://github.com/dev0652/webstudio',
     livePage: 'https://dev0652.github.io/webstudio/',
@@ -132,6 +143,7 @@ export default [
   },
 
   {
+    id: 12,
     name: 'Barbershop',
     link: 'https://github.com/dev0652/barbershop',
     livePage: 'https://dev0652.github.io/barbershop/',
@@ -143,6 +155,7 @@ export default [
   },
 
   {
+    id: 13,
     name: 'Britlex school',
     link: 'https://github.com/dev0652/britlex',
     livePage: 'https://dev0652.github.io/britlex/',

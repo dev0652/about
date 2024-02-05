@@ -1,91 +1,50 @@
-const makeItemMarkup = (project) => {
-  const { name, type, link, thumbFilename, description, technologies } =
-    project;
+import projects from '/data/db';
+import createModal from './createModal';
 
-  const thumbUrl1x = new URL(
-    `../images/projects/thumbs/400x250/${thumbFilename}.webp`,
-    import.meta.url
-  ).href;
+// *****************************************************
 
-  const thumbUrl2x = new URL(
-    `../images/projects/thumbs/800x500/${thumbFilename}.webp`,
-    import.meta.url
-  ).href;
+const modalPopUp = document.querySelector('[data-pop-up]');
+const closeModalButton = document.querySelector('[data-modal-close]');
+const modalContentEl = document.querySelector(
+  '.modal-content-injection-target'
+);
 
-  const placeholder1x = 'https://placehold.co/400x250?text=Image+pending';
-  const placeholder2x = 'https://placehold.co/800x500?text=Image+pending';
+// *****************************************************
 
-  const isFileName = thumbFilename !== '';
+export function openModal(id) {
+  const selectedProject = projects.find((project) => project.id === +id);
+  modalContentEl.innerHTML = createModal(selectedProject);
 
-  const imagePath1x = isFileName ? thumbUrl1x : placeholder1x;
-  const imagePath2x = isFileName ? thumbUrl2x : placeholder2x;
+  modalPopUp.classList.remove('is-hidden');
+  document.body.style.overflow = 'hidden';
 
-  const technologiesList = technologies.join(', ');
+  closeModalButton.addEventListener('click', handleModalCloseButtonClick);
 
-  return html`
-    <li class="project-card">
-      <article class="fade-in">
-        <h2 class="card-title collapsible-toggle" data-id="${name}">${name}</h2>
+  document.addEventListener('keydown', handleEscapePress);
+  document.addEventListener('click', handleBackdropClick);
+}
 
-        <div class="list-version collapsible">
-          <div class="list-version-wrapper">
-            <div class="list-version-image">
-              <img
-                class="project-card-image"
-                srcset="${imagePath1x} 1x, ${imagePath2x} 2x"
-                src="${imagePath1x}"
-                alt="${name} live page screenshot"
-                width="400"
-                height="250"
-                loading="lazy"
-              />
-            </div>
+// *****************************************************
 
-            <div class="list-version-meta">
-              <div>
-                <p class="project-type">${type}</p>
-                <p class="technologies">${technologiesList}</p>
-              </div>
+function closeModalAndRemoveListeners() {
+  closeModalButton.removeEventListener('click', handleModalCloseButtonClick);
+  document.removeEventListener('click', handleBackdropClick);
+  document.removeEventListener('keydown', handleEscapePress);
 
-              <p class="project-description">${description}</p>
+  modalPopUp.classList.add('is-hidden');
+  document.body.style.removeProperty('overflow');
+}
 
-              <button type="button" class="project-card-button">
-                View more
-              </button>
-            </div>
-          </div>
-        </div>
+// *****************************************************
 
-        <div class="gallery-version">
-          <a
-            class="project-card-link flip-card"
-            href="${link}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  class="project-card-image"
-                  srcset="${imagePath1x} 1x, ${imagePath2x} 2x"
-                  src="${imagePath1x}"
-                  alt="${name} live page screenshot"
-                  width="400"
-                  height="250"
-                  loading="lazy"
-                  onError="${handleMissingImage}"
-                />
-              </div>
+function handleModalCloseButtonClick(e) {
+  closeModalAndRemoveListeners();
+}
 
-              <div class="flip-card-back">
-                <h3 class="project-name">${name}</h3>
-                <p class="project-type">${type}</p>
-                <p class="project-description">${description}</p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </article>
-    </li>
-  `;
-};
+function handleBackdropClick(e) {
+  if (e.target == modalPopUp) closeModalAndRemoveListeners();
+}
+
+function handleEscapePress(e) {
+  if (e.key === 'Escape') closeModalAndRemoveListeners();
+}

@@ -1,7 +1,9 @@
-import projects from '../data/github-links';
+import projects from '/data/db';
+import { openModal } from '/js/modal';
 
 const makeItemMarkup = (project) => {
   const {
+    id,
     name,
     type,
     link,
@@ -85,9 +87,8 @@ const makeItemMarkup = (project) => {
         <div class="gallery-version">
           <a
             class="project-card-link flip-card"
-            href="${link}"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            data-id="${id}"
           >
             <div class="flip-card-inner">
               <div class="flip-card-front">
@@ -108,7 +109,8 @@ const makeItemMarkup = (project) => {
                 <p class="project-description">${description}</p>
               </div>
             </div>
-          </a>
+  </a>
+
         </div>
       </article>
     </li>
@@ -133,6 +135,9 @@ const switcher = document.querySelector('.projects-view-switch');
 const cardList = document.querySelector('.project-card-list');
 
 switcher.addEventListener('click', switchView);
+cardList.addEventListener('click', handleCardListClicks);
+
+// *****************************************************
 
 function switchView() {
   cardList.classList.toggle('gallery-view');
@@ -140,5 +145,16 @@ function switchView() {
   const isGallery = cardList.classList.contains('gallery-view');
 
   // Change button text
-  switcher.innerHTML = `Switch to ${isGallery ? 'list' : 'gallery'}`;
+  switcher.innerHTML = `View as ${isGallery ? 'list' : 'tiles'}`;
+}
+
+// *****************************************************
+
+function handleCardListClicks(event) {
+  event.preventDefault();
+
+  if (!event.target.matches('.project-card-link')) return;
+
+  const id = event.target.dataset.id;
+  openModal(id);
 }
