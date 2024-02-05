@@ -1,7 +1,10 @@
 .header {
   position: fixed;
-  bottom: 0; // header is in the bottom in mobile view
   left: 0;
+
+  @media screen and (max-width: $tablet-1) {
+    bottom: 0; // header is in the bottom in mobile view
+  }
 
   @media screen and (min-width: $tablet) {
     top: 0; // header goes back to top
