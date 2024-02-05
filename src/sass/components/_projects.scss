@@ -69,9 +69,9 @@
 
 // List view
 
-// .list-content {}
+// .list-version {}
 
-.list-content.collapsible {
+.list-version.collapsible {
   max-height: 0px;
   opacity: 0;
   overflow: hidden;
@@ -90,7 +90,7 @@
   }
 }
 
-.list-content-image-block {
+.list-version-image-block {
   // background-color: lightsalmon;
   grid-area: image;
 
@@ -120,17 +120,17 @@
   // @media screen and (min-width: $tablet) {}
 }
 
-.list-content-heading {
+.list-version-heading {
   // background-color: lightpink;
   grid-area: heading;
 }
 
-.list-content-description {
+.list-version-description {
   // background-color: lightseagreen;
   grid-area: description;
 }
 
-.list-content-wrapper {
+.list-version-wrapper {
   // background-color: beige;
 
   margin: 1rem 0;
@@ -186,28 +186,28 @@
 .project-card-list {
   &.gallery-view {
     display: flex;
-    flex-wrap: wrap;
-    gap: $gallery-gap;
 
-    @media screen and (min-width: $tablet) and (max-width: $desktop-1) {
-      gap: $gallery-gap * 2;
+    flex-direction: column;
+    gap: $gallery-gap * 1.5;
+
+    @media screen and (min-width: $tablet) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: $gallery-gap;
     }
   }
 }
 
-.gallery-content {
+.gallery-version {
   display: none;
 
   .project-card-list.gallery-view & {
     display: block;
-    height: 250px;
     width: auto;
+    height: 200px;
 
     @media screen and (min-width: $tablet) {
-      width: calc(
-        ($tablet - $gallery-gap * 2 - $container-padding-tablet * 2) / 2
-      );
-      height: 220px;
+      width: calc(($tablet - $gallery-gap - $container-padding-tablet * 2) / 2);
     }
 
     @media screen and (min-width: $desktop) {
@@ -233,14 +233,14 @@
 }
 
 .project-card-image {
-  .list-content & {
+  .list-version & {
     object-fit: contain;
     object-position: top;
     height: 100%;
     width: 100%;
   }
 
-  .gallery-content & {
+  .gallery-version & {
     object-fit: cover;
     object-position: center;
     height: 100%;
@@ -257,7 +257,7 @@
 .project-type {
   transition: color $theme-switch-duration;
 
-  .list-content-heading & {
+  .list-version-heading & {
     margin-bottom: 5px;
   }
 
@@ -268,7 +268,7 @@
 }
 
 .technologies {
-  .list-content-heading & {
+  .list-version-heading & {
     font-size: 0.8rem;
     color: var(--accent-primary);
   }

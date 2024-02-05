@@ -41,9 +41,9 @@ const makeItemMarkup = (project) => {
       <article class="fade-in">
         <h2 class="card-title collapsible-toggle" data-id="${name}">${name}</h2>
 
-        <div class="list-content collapsible">
-          <div class="list-content-wrapper">
-            <div class="list-content-image-block">
+        <div class="list-version collapsible">
+          <div class="list-version-wrapper">
+            <div class="list-version-image-block">
               <img
                 class="project-card-image"
                 srcset="${imagePath1x} 1x, ${imagePath2x} 2x"
@@ -71,19 +71,19 @@ const makeItemMarkup = (project) => {
               >
             </div>
 
-            <div class="list-content-heading">
+            <div class="list-version-heading">
               <p class="project-type">${type}</p>
               <p class="technologies">${technologiesList}</p>
             </div>
 
-            <div class="list-content-description">
+            <div class="list-version-description">
               <p class="project-description">${description}</p>
             </div>  
 
           </div>
         </div>
 
-        <div class="gallery-content">
+        <div class="gallery-version">
           <a
             class="project-card-link flip-card"
             href="${link}"
