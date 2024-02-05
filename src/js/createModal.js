@@ -6,6 +6,9 @@ export default function createModal(project) {
     livePage,
     thumbFilename,
     description,
+    stack,
+    role,
+    customer,
     technologies,
   } = project;
 
@@ -30,13 +33,14 @@ export default function createModal(project) {
   const technologiesList = technologies.join(', ');
 
   return /* html */ `
-      <article class="modal-article">
+      <article>
         <h2 class="modal-title">${name}</h2>
 
         <div class="modal-content-wrapper">
 
           <div class="modal-heading">
-            <p class="project-type">${type}</p>
+            <p class="project-type">Project type: ${type}</p>
+            <p class="project-stack">Stack: ${stack}</p>
             <p class="technologies">${technologiesList}</p>
           </div>
 

@@ -22,9 +22,12 @@ body.dark {
   --button-bg-active: #{$blackish};
 
   /* Theme switcher */
-  --theme-switcher-gradient-start: gray;
   --theme-switcher-gradient-end: #{$dark-gray};
 
   /* Project title animation */
   --swaying-icon-color: gainsboro;
+
+  /* Modal */
+  --modal-background-color: #{$blackish}; // darkSlateGray;
+  --modal-close-background-color: gray;
 }
