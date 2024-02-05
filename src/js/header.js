@@ -13,7 +13,7 @@ const headerHeight = `${height}px`;
 
 document.body.style.paddingTop = headerHeight;
 document.documentElement.style.scrollPaddingTop = headerHeight;
-main.style.setProperty('--topOffset', headerHeight);
+main.style.setProperty('--blurOffset', headerHeight);
 
 // Listen to clicks on header nav links
 headerNavLinks.forEach((link) => {

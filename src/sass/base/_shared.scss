@@ -22,7 +22,11 @@ body {
 
 main {
   position: relative;
-  --topOffset: 67px; // default, is reset via JS
+
+  --blurOffset: 54px; // default for mobile, is reset via JS
+  @media screen and (min-width: $tablet) {
+    --blurOffset: 67px; // default, is reset via JS
+  }
 
   &.faded-edges {
     $spread: 10vh;
@@ -31,8 +35,12 @@ main {
     &:before {
       content: '';
       position: fixed;
-      top: var(--topOffset);
       left: 0;
+      top: 0;
+      @media screen and (min-width: $tablet) {
+        top: var(--blurOffset); // header goes back to top
+      }
+
       width: 100%;
       height: $spread;
       background: linear-gradient(to bottom, $color, transparent);
@@ -41,8 +49,12 @@ main {
     &:after {
       content: '';
       position: fixed;
-      bottom: 0;
       left: 0;
+      bottom: var(--blurOffset);
+      @media screen and (min-width: $tablet) {
+        bottom: 0; // header goes back to top
+      }
+
       width: 100%;
       height: $spread;
       background: linear-gradient(to top, $color, transparent);
