@@ -40,7 +40,19 @@ $theme-switch-timing-function: linear;
 $container-padding-mobile: 10px;
 $container-padding-mobile-wide: 20px;
 $container-padding-tablet: 30px;
-$container-padding-desktop: 30px;
+$container-padding-desktop: 15px;
 
 // Gallery
 $gallery-gap: 10px;
+
+// Extra horizontal offset on desktop screens (on either side)
+:root {
+  --horizontal-offset: 0;
+  @media screen and (min-width: $desktop) {
+    --horizontal-offset: 8rem;
+  }
+  @media screen and (min-width: $desktop-wide) {
+    --horizontal-offset: 6rem;
+  }
+}
+$horizontal-offset: var(--horizontal-offset);

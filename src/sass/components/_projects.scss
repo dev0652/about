@@ -12,8 +12,10 @@
   display: block;
   margin-left: auto;
 
-  position: relative;
-  top: -40px;
+  position: absolute;
+  top: -50px;
+
+  right: $horizontal-offset;
 
   transition: color $theme-switch-duration;
 }
@@ -187,7 +189,7 @@
   }
 
   @media screen and (min-width: $desktop-wide) {
-    grid-template-columns: 1fr 1fr 20%;
+    grid-template-columns: 35% 35% 1fr;
   }
 }
 
@@ -222,16 +224,22 @@
 
     @media screen and (min-width: $desktop) {
       width: calc(
-        ($desktop - $gallery-gap * 2 - $container-padding-desktop * 2) / 3
+        (
+            $desktop - $horizontal-offset * 2 - $gallery-gap * 2 -
+              $container-padding-desktop * 2
+          ) / 3
       );
-      height: 250px;
+      height: 190px;
     }
 
     @media screen and (min-width: $desktop-wide) {
       width: calc(
-        ($desktop-wide - $gallery-gap * 2 - $container-padding-desktop * 2) / 3
+        (
+            $desktop-wide - $horizontal-offset * 2 - $gallery-gap * 2 -
+              $container-padding-desktop * 2
+          ) / 3
       );
-      height: 270px;
+      height: 230px;
     }
 
     .project-card-link {
