@@ -16,7 +16,7 @@ export function openModal(id) {
   modalContentEl.innerHTML = createModal(selectedProject);
 
   document.body.style.overflow = 'hidden';
-  document.body.style.height = '100vh';
+  document.body.style.height = '100vh'; // temp fix
 
   modalPopUp.classList.remove('is-hidden');
 
@@ -34,7 +34,7 @@ function closeModalAndRemoveListeners() {
 
   modalPopUp.classList.add('is-hidden');
   document.body.style.removeProperty('overflow');
-  document.body.style.removeProperty('height');
+  document.body.style.removeProperty('height'); // temp fix
 }
 
 // *****************************************************
