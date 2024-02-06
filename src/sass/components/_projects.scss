@@ -109,12 +109,12 @@
   display: flex;
   gap: 10px;
 
-  @media screen and (min-width: $tablet) and (max-width: $desktop-1) {
+  @media screen and (min-width: $tablet) {
     flex-direction: column;
   }
 
   @media screen and (min-width: $desktop) {
-    gap: 30px;
+    flex-direction: row;
   }
 }
 
@@ -170,7 +170,7 @@
   grid-template-columns: 1fr;
 
   @media screen and (min-width: $tablet) {
-    grid-template-columns: 70% 1fr;
+    grid-template-columns: 65% 1fr;
 
     grid-template-areas:
       'image heading'
@@ -179,16 +179,16 @@
   }
 
   @media screen and (min-width: $desktop) {
-    grid-template-columns: 1fr 1fr 10%;
+    grid-template-columns: 50% 1fr;
 
     grid-template-areas:
-      'image heading'
-      'image description'
-      'image buttons';
+      ' image heading'
+      ' image description'
+      ' image buttons';
   }
 
   @media screen and (min-width: $desktop-wide) {
-    grid-template-columns: 35% 35% 1fr;
+    grid-template-columns: 50% 1fr 10%;
   }
 }
 
@@ -285,24 +285,13 @@
   text-align: justify;
 }
 
-.project-type {
-  transition: color $theme-switch-duration;
-
-  .list-version-heading & {
-    margin-bottom: 5px;
-  }
-
-  .flip-card-back & {
-    font-size: 0.9rem;
-    margin-bottom: 30px;
-  }
+.field-type {
+  opacity: 0.5;
 }
 
 .technologies {
-  .list-version-heading & {
-    font-size: 0.8rem;
-    color: var(--accent-primary);
-  }
+  color: var(--accent-primary);
+  transition: color $theme-switch-duration;
 }
 
 // Flip cards in gallery view
@@ -355,4 +344,28 @@
 
   text-align: left;
   padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.flip-card-project-name {
+  margin-bottom: 15px;
+}
+
+.flip-card-meta-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+
+  & .technologies {
+    color: currentColor;
+  }
+}
+
+.flip-card-prompt-to-click {
+  justify-self: end;
+  align-self: flex-end;
 }

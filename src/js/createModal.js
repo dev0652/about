@@ -4,7 +4,7 @@ export default function createModal(project) {
     type,
     link,
     livePage,
-    thumbFilename,
+    thumbFilename: thumb,
     description,
     stack,
     role,
@@ -12,23 +12,16 @@ export default function createModal(project) {
     technologies,
   } = project;
 
-  const largeUrl1x = new URL(
-    `../images/projects/large/${thumbFilename}.png`,
-    import.meta.url
-  ).href;
+  // path must be relative to /images/projects
+  const largeUrl1x = getImageUrl(`/large/${thumb}.png`);
+  const largeUrl2x = getImageUrl(`/large/${thumb}.png`);
 
-  const largeUrl2x = new URL(
-    `../images/projects/large/${thumbFilename}.png`,
-    import.meta.url
-  ).href;
+  const message = 'Image pending';
+  const placeholder1x = makePlaceholderUrl('400x250', message);
+  const placeholder2x = makePlaceholderUrl('800x500', message);
 
-  const placeholder1x = 'https://placehold.co/400x250?text=Image+pending';
-  const placeholder2x = 'https://placehold.co/800x500?text=Image+pending';
-
-  const isFileName = thumbFilename !== '' && thumbFilename !== undefined;
-
-  const imagePath1x = isFileName ? largeUrl1x : placeholder1x;
-  const imagePath2x = isFileName ? largeUrl2x : placeholder2x;
+  const imagePath1x = !thumb ? placeholder1x : largeUrl1x;
+  const imagePath2x = !thumb ? placeholder2x : largeUrl2x;
 
   const technologiesList = technologies.join(', ');
 
@@ -96,4 +89,20 @@ export default function createModal(project) {
         </div>
       </article>
   `;
+}
+
+// *****************************************************
+
+function getImageUrl(relativePath) {
+  const path = `/images/projects${relativePath}`;
+  return new URL(path, import.meta.url).href;
+}
+
+function makePlaceholderUrl(resolution, message = null) {
+  let queryFromMessage = '';
+  if (message) queryFromMessage = `?text=${message.split(' ').join('+')}`;
+
+  const baseUrl = 'https://placehold.co/';
+  const query = resolution + queryFromMessage;
+  return baseUrl + query;
 }

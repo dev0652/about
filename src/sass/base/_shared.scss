@@ -18,6 +18,11 @@ body {
   transition: background-color $theme-switch-duration
       $theme-switch-timing-function,
     color $theme-switch-duration $theme-switch-timing-function;
+
+  &.modal-open {
+    overflow: hidden;
+    height: 100vh; // temp fix
+  }
 }
 
 main {

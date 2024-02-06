@@ -8,33 +8,25 @@ const makeItemMarkup = (project) => {
     type,
     link,
     livePage,
-    thumbFilename,
+    thumbFilename: thumb,
     description,
+    stack,
+    role,
+    customer,
     technologies,
   } = project;
 
-  const thumbUrl1x = new URL(
-    `../images/projects/thumbs/400x250/${thumbFilename}.webp`,
-    import.meta.url
-  ).href;
+  // path must be relative to /images/projects
+  const thumbUrl1x = getImageUrl(`/thumbs/400x250/${thumb}.webp`);
+  const thumbUrl2x = getImageUrl(`/thumbs/800x500/${thumb}.webp`);
+  const largeUrl = getImageUrl(`/large/${thumb}.png`);
 
-  const thumbUrl2x = new URL(
-    `../images/projects/thumbs/800x500/${thumbFilename}.webp`,
-    import.meta.url
-  ).href;
+  const message = 'Image pending';
+  const placeholder1x = makePlaceholderUrl('400x250', message);
+  const placeholder2x = makePlaceholderUrl('800x500', message);
 
-  const largeUrl = new URL(
-    `../images/projects/large/${thumbFilename}.png`,
-    import.meta.url
-  ).href;
-
-  const placeholder1x = 'https://placehold.co/400x250?text=Image+pending';
-  const placeholder2x = 'https://placehold.co/800x500?text=Image+pending';
-
-  const isFileName = thumbFilename !== '' && thumbFilename !== undefined;
-
-  const imagePath1x = isFileName ? thumbUrl1x : placeholder1x;
-  const imagePath2x = isFileName ? thumbUrl2x : placeholder2x;
+  const imagePath1x = !thumb ? placeholder1x : thumbUrl1x;
+  const imagePath2x = !thumb ? placeholder2x : thumbUrl2x;
 
   const technologiesList = technologies.join(', ');
 
@@ -73,7 +65,22 @@ const makeItemMarkup = (project) => {
             </div>
 
             <div class="list-version-heading">
-              <p class="project-type">${type}</p>
+              <div class="heading-items-wrapper">
+                  <p class="type"><span class="field-type">Type:</span> ${type}</p>
+
+                  <p class="customer"
+                  style="${!customer && 'display: none'}">
+                    <span class="field-type">Customer:</span> ${customer}
+                  </p>
+
+                  <p class="role"
+                  style="${!role && 'display: none'}">
+                    <span class="field-type">Role:</span> ${role}
+                  </p>
+
+                  <p class="stack"><span class="field-type">Stack:</span> ${stack}</p>
+              </div>
+
               <p class="technologies">${technologiesList}</p>
             </div>
 
@@ -104,9 +111,21 @@ const makeItemMarkup = (project) => {
               </div>
 
               <div class="flip-card-back">
-                <h3 class="project-name">${name}</h3>
-                <p class="project-type">${type}</p>
-                <p class="project-description">${description}</p>
+                <h3 class="flip-card-project-name">${name}</h3>
+
+                <div class="flip-card-meta-wrapper">
+                  <div>
+                    <p class="type"><span class="field-type">Type:</span> ${type}</p>
+
+                    <p class="stack"><span class="field-type">Stack:</span> ${stack}</p>
+
+                    <p class="technologies"><span class="field-type">Technologies:</span> ${technologiesList}</p>
+                  </div>
+
+                  <p class="flip-card-prompt-to-click">Click to learn more</p> 
+                </div>
+
+                             
               </div>
             </div>
   </a>
@@ -116,6 +135,22 @@ const makeItemMarkup = (project) => {
     </li>
   `;
 };
+
+// *****************************************************
+
+function getImageUrl(relativePath) {
+  const path = `/images/projects${relativePath}`;
+  return new URL(path, import.meta.url).href;
+}
+
+function makePlaceholderUrl(resolution, message = null) {
+  let queryFromMessage = '';
+  if (message) queryFromMessage = `?text=${message.split(' ').join('+')}`;
+
+  const baseUrl = 'https://placehold.co/';
+  const query = resolution + queryFromMessage;
+  return baseUrl + query;
+}
 
 const makeListMarkup = (projectsArray) => {
   return `

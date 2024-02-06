@@ -15,9 +15,7 @@ export function openModal(id) {
   const selectedProject = projects.find((project) => project.id === +id);
   modalContentEl.innerHTML = createModal(selectedProject);
 
-  document.body.style.overflow = 'hidden';
-  document.body.style.height = '100vh'; // temp fix
-
+  document.body.classList.add('modal-open');
   modalPopUp.classList.remove('is-hidden');
 
   closeModalButton.addEventListener('click', handleModalCloseButtonClick);
@@ -33,8 +31,7 @@ function closeModalAndRemoveListeners() {
   document.removeEventListener('keydown', handleEscapePress);
 
   modalPopUp.classList.add('is-hidden');
-  document.body.style.removeProperty('overflow');
-  document.body.style.removeProperty('height'); // temp fix
+  document.body.classList.remove('modal-open');
 }
 
 // *****************************************************

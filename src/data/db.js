@@ -8,9 +8,9 @@ export default [
     type: 'Commercial project',
     stack: 'Front-end',
     role: 'Team member',
-    customer: 'Private customer',
+    customer: 'barbercourse.kyiv.ua',
     description:
-      'A landing page of a barber training course made with vanilla JavaScript and Vite. I worked on this project in collaboration with two other developers and a designer.',
+      'A landing page of a barber training course created with vanilla JavaScript. I worked on this project in collaboration with two other developers and a designer.',
     technologies: ['HTML', 'SaSS', 'JavaScript', 'EMailJS', 'Vite'],
   },
 
