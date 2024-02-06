@@ -56,3 +56,16 @@ $gallery-gap: 10px;
   }
 }
 $horizontal-offset: var(--horizontal-offset);
+
+// Z-indices
+
+$index-header: 1000;
+
+$index-main: 1000;
+$index-main-pseudos: 2;
+$index-section: 0;
+
+$index-project-card-link-pseudo: 1;
+
+$index-modal: 30;
+$index-modal-backdrop: 10000;

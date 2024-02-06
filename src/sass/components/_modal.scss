@@ -1,3 +1,5 @@
+// Backdrop
+
 .modal-backdrop {
   position: fixed;
 
@@ -10,7 +12,7 @@
 
   opacity: 1;
   // cursor: pointer;
-  z-index: 10000;
+  z-index: $index-modal-backdrop;
   // padding: 94px 15px;
   // overflow-y: scroll;
   // overscroll-behavior: none;
@@ -22,12 +24,14 @@
   }
 }
 
+// Modal window
+
 .modal {
-  z-index: 30;
+  z-index: $index-modal;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1); // centering
 
   padding: 40px 24px;
   overflow-y: auto;

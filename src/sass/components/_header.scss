@@ -10,7 +10,7 @@
     top: 0; // header goes back to top
   }
 
-  z-index: 1000;
+  z-index: $index-header;
 
   width: 100vw;
   background-color: var(--header-bg-color);

@@ -42,7 +42,7 @@ main {
       height: $spread;
 
       pointer-events: none;
-      z-index: 2;
+      z-index: $index-main-pseudos;
     }
 
     &:before {
@@ -64,7 +64,7 @@ main {
 }
 
 .section {
-  z-index: 0; // in order for :before to take effect
+  z-index: $index-section; // in order for :before to take effect
 
   margin: 60px 0;
   @media screen and (min-width: $tablet) {
