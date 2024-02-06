@@ -12,8 +12,6 @@
 
   opacity: 1;
   z-index: $index-modal-backdrop;
-  // overflow-y: scroll;
-  overscroll-behavior: contain;
 
   &.is-hidden {
     visibility: hidden;

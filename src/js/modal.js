@@ -15,11 +15,12 @@ export function openModal(id) {
   const selectedProject = projects.find((project) => project.id === +id);
   modalContentEl.innerHTML = createModal(selectedProject);
 
-  modalPopUp.classList.remove('is-hidden');
   document.body.style.overflow = 'hidden';
+  document.body.style.height = '100vh';
+
+  modalPopUp.classList.remove('is-hidden');
 
   closeModalButton.addEventListener('click', handleModalCloseButtonClick);
-
   document.addEventListener('keydown', handleEscapePress);
   document.addEventListener('click', handleBackdropClick);
 }

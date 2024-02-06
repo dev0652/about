@@ -32,9 +32,6 @@ export default function createModal(project) {
 
   const technologiesList = technologies.join(', ');
 
-  const roleDisplay = role ? '' : 'display: none';
-  const customerDisplay = customer ? '' : 'display: none';
-
   return /* html */ `
       <article>
         <h2 class="modal-title">${name}</h2>
@@ -50,9 +47,15 @@ export default function createModal(project) {
               </div>
 
               <div class="heading-column">
-                <p class="role" style="${roleDisplay}"><span class="field-type">Role:</span> ${role}</p>
+                <p class="role"
+                style="${!role && 'display: none'}">
+                  <span class="field-type">Role:</span> ${role}
+                </p>
 
-                <p class="customer" style="${customerDisplay}"><span class="field-type">Customer:</span> ${customer}</p>
+                <p class="customer"
+                style="${!customer && 'display: none'}">
+                  <span class="field-type">Customer:</span> ${customer}
+                </p>
               </div>
             </div>
 

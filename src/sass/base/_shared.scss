@@ -83,7 +83,7 @@ main {
 
   .section-title {
     display: inline-block;
-    overflow: hidden;
+    overflow-x: hidden;
 
     padding-left: $horizontal-offset;
   }
