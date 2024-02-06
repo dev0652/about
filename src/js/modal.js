@@ -34,6 +34,7 @@ function closeModalAndRemoveListeners() {
 
   modalPopUp.classList.add('is-hidden');
   document.body.style.removeProperty('overflow');
+  document.body.style.removeProperty('height');
 }
 
 // *****************************************************
