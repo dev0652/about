@@ -30,6 +30,7 @@
 %button {
   color: var(--button-text-color);
   text-transform: lowercase;
+  text-align: center; // for links
 
   background-color: transparent;
   border: 3px solid var(--button-text-color);

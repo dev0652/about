@@ -1,5 +1,6 @@
 // Colors
 $milky: #f6f6f6;
+$light-gray: #f7f7f7;
 $dark-gray: #202024;
 $blackish: #111111;
 $gray: #b4afaf;
@@ -42,8 +43,8 @@ $container-padding-mobile-wide: 20px;
 $container-padding-tablet: 30px;
 $container-padding-desktop: 15px;
 
-// Gallery
-$gallery-gap: 10px;
+// Gaps
+$single-gap: 10px;
 
 // Extra horizontal offset on desktop screens (on either side)
 :root {
@@ -58,14 +59,17 @@ $gallery-gap: 10px;
 $horizontal-offset: var(--horizontal-offset);
 
 // Z-indices
-
 $index-header: 1000;
-
 $index-main: 1000;
 $index-main-pseudos: 2;
 $index-section: 0;
-
 $index-project-card-link-pseudo: 1;
-
 $index-modal: 30;
 $index-modal-backdrop: 10000;
+
+// Theme switcher slider
+$theme-switcher-slider-light-gradient-start: white;
+$theme-switcher-slider-light-gradient-end: $light-gray;
+
+$theme-switcher-slider-dark-gradient-start: gainsboro;
+$theme-switcher-slider-dark-gradient-end: gray;

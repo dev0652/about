@@ -31,6 +31,7 @@ export default [
     thumbFilename: 'zenbit',
     type: 'Test',
     stack: 'Front-end, back-end',
+    role: null,
     customer: 'ZenBit Tech',
     description:
       'Front-end is a MPA built with React (using Create React App tool) and uses React Router for routing and Redux for state management. It also makes use of a few other libraries like React Helmet, React Icons and Notiflix. Back-end is built with Node.js and MongoDB and is hosted on render.com',
@@ -45,6 +46,7 @@ export default [
     thumbFilename: 'fighters',
     type: 'Test',
     stack: 'Front-end, back-end',
+    role: null,
     customer: 'Binary Academy',
     description:
       'A simple, unanimated fighting game. Front-end was built with React making use of class components',
@@ -58,8 +60,8 @@ export default [
     technologies: ['HTML', 'SaSS', 'JavaScript'],
     thumbFilename: 'bookshelf_dark',
     type: 'Study team project',
-    role: 'Team leader',
     stack: 'Front-end',
+    role: 'Team leader',
     customer: null,
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -73,8 +75,8 @@ export default [
     technologies: ['React', 'SaSS'],
     thumbFilename: 'drinkmaster',
     type: 'Study team project',
-    role: 'Team member',
     stack: 'Front-end',
+    role: 'Team member',
     customer: null,
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -89,6 +91,7 @@ export default [
     thumbFilename: 'car-rental',
     type: 'Test',
     stack: 'Front-end',
+    role: null,
     customer: null,
     description:
       'Simple, lightweight and user-friendly car rental website developed as a test assignment for a job interview',
@@ -103,6 +106,7 @@ export default [
     thumbFilename: 'phonebook',
     type: 'Study project',
     stack: 'Front-end',
+    role: null,
     customer: null,
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -117,6 +121,7 @@ export default [
     thumbFilename: 'movies',
     type: 'Study project',
     stack: 'Front-end',
+    role: null,
     customer: null,
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -131,6 +136,7 @@ export default [
     thumbFilename: 'pixabay',
     type: 'Study project',
     stack: 'Front-end',
+    role: null,
     customer: null,
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -144,8 +150,8 @@ export default [
     technologies: ['HTML', 'SaSS', 'JavaScript'],
     thumbFilename: 'icecream',
     type: 'Study team project',
-    role: 'Team leader',
     stack: 'Front-end',
+    role: 'Team leader',
     customer: null,
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -160,6 +166,7 @@ export default [
     thumbFilename: 'webstudio',
     type: 'Study project',
     stack: 'Front-end',
+    role: null,
     customer: null,
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -174,6 +181,7 @@ export default [
     thumbFilename: 'barbershop',
     type: 'Study project',
     stack: 'Front-end',
+    role: null,
     customer: null,
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
@@ -188,6 +196,7 @@ export default [
     thumbFilename: 'britlex',
     type: 'Study project',
     stack: 'Front-end',
+    role: null,
     customer: null,
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',

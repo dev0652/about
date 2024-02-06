@@ -59,8 +59,8 @@ $slider-circle-size: calc($slider-height - 2px);
 
   background: linear-gradient(
     180deg,
-    var(--theme-switcher-gradient-start) 0%,
-    var(--theme-switcher-gradient-end) 100%
+    var(--theme-switcher-bg-gradient-start) 0%,
+    var(--theme-switcher-bg-gradient-end) 100%
   );
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 
@@ -78,7 +78,11 @@ $slider-circle-size: calc($slider-height - 2px);
     border: none;
     border-radius: 50%;
 
-    background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+    background: linear-gradient(
+      180deg,
+      $theme-switcher-slider-light-gradient-start 0%,
+      $theme-switcher-slider-light-gradient-end 100%
+    );
 
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1),
       1px 2px 4px rgba(0, 0, 0, 0.1);
@@ -94,8 +98,8 @@ $slider-circle-size: calc($slider-height - 2px);
   & + .color-scheme-switcher-slider {
     background: linear-gradient(
       180deg,
-      var(--theme-switcher-gradient-start) 0%,
-      var(--theme-switcher-gradient-end) 100%
+      var(--theme-switcher-bg-gradient-start) 0%,
+      var(--theme-switcher-bg-gradient-end) 100%
     );
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 
@@ -105,7 +109,11 @@ $slider-circle-size: calc($slider-height - 2px);
         -50%
       );
 
-      background: linear-gradient(180deg, gainsboro 0%, gray 100%);
+      background: linear-gradient(
+        180deg,
+        $theme-switcher-slider-dark-gradient-start 0%,
+        $theme-switcher-slider-dark-gradient-end 100%
+      );
     }
   }
 

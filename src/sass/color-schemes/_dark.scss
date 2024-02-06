@@ -22,7 +22,8 @@ body.dark {
   --button-bg-active: #{$blackish};
 
   /* Theme switcher */
-  --theme-switcher-gradient-end: #{$dark-gray};
+  --theme-switcher-bg-gradient-start: gray;
+  --theme-switcher-bg-gradient-end: #{$dark-gray};
 
   /* Project title animation */
   --swaying-icon-color: gainsboro;

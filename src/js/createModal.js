@@ -32,6 +32,9 @@ export default function createModal(project) {
 
   const technologiesList = technologies.join(', ');
 
+  const roleDisplay = role ? '' : 'display: none';
+  const customerDisplay = customer ? '' : 'display: none';
+
   return /* html */ `
       <article>
         <h2 class="modal-title">${name}</h2>
@@ -39,8 +42,20 @@ export default function createModal(project) {
         <div class="modal-content-wrapper">
 
           <div class="modal-heading">
-            <p class="project-type">Project type: ${type}</p>
-            <p class="project-stack">Stack: ${stack}</p>
+            <div class="heading-columns-wrapper">
+              <div class="heading-column">
+                <p class="type"><span class="field-type">Project type:</span> ${type}</p>
+
+                <p class="stack"><span class="field-type">Stack:</span> ${stack}</p>
+              </div>
+
+              <div class="heading-column">
+                <p class="role" style="${roleDisplay}"><span class="field-type">Role:</span> ${role}</p>
+
+                <p class="customer" style="${customerDisplay}"><span class="field-type">Customer:</span> ${customer}</p>
+              </div>
+            </div>
+
             <p class="technologies">${technologiesList}</p>
           </div>
 
@@ -59,7 +74,7 @@ export default function createModal(project) {
           
           <div class="modal-project-links-wrapper">
             <a
-              class="project-link"
+              class="modal-project-link"
               href="${link}"
               target="_blank"
               rel="noopener noreferrer"
@@ -67,7 +82,7 @@ export default function createModal(project) {
             >
 
             <a
-              class="project-link"
+              class="modal-project-link"
               href="${livePage}"
               target="_blank"
               rel="noopener noreferrer"
