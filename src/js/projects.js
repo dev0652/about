@@ -16,18 +16,13 @@ const makeItemMarkup = (project) => {
     technologies,
   } = project;
 
-  const thumbUrl1x = new URL(
-    `/images/projects/thumbs/400x250/${thumb}.webp`,
-    import.meta.url
-  ).href;
-  const thumbUrl2x = new URL(
-    `/images/projects/thumbs/800x500/${thumb}.webp`,
-    import.meta.url
-  ).href;
-  const largeUrl = new URL(
-    `/images/projects/large/${thumb}.png`,
-    import.meta.url
-  ).href;
+  const thumbUrl1x = getImageUrl(
+    `/images/projects/thumbs/400x250/${thumb}.webp`
+  );
+  const thumbUrl2x = getImageUrl(
+    `/images/projects/thumbs/800x500/${thumb}.webp`
+  );
+  const largeUrl = getImageUrl(`/images/projects/large/${thumb}.png`);
 
   const message = 'Image pending';
   const placeholder1x = makePlaceholderUrl('400x250', message);
@@ -145,6 +140,10 @@ const makeItemMarkup = (project) => {
 };
 
 // *****************************************************
+
+function getImageUrl(path) {
+  return new URL(path, import.meta.url).href;
+}
 
 function makePlaceholderUrl(resolution, message = null) {
   let queryFromMessage = '';
