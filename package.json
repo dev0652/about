@@ -10,12 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.1.0",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
   },
   "devDependencies": {
-    "vite": "^4.0.5",
     "glob": "^8.1.0",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "vite": "^4.0.5"
   }
 }

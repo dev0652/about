@@ -2,7 +2,7 @@ body {
   --accent-primary: #{$lightblue};
 
   /* Body */
-  --background-color: #{$milky};
+  --background-color: snow;
   --text-color: #{$blackish};
 
   /* Header */
@@ -31,4 +31,7 @@ body {
   /* Modal */
   --modal-background-color: var(--background-color);
   --modal-close-background-color: silver;
+
+  /* Form */
+  --form-field-bg-color: white;
 }

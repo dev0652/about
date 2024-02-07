@@ -2,11 +2,10 @@ body.dark {
   --accent-primary: SlateGray;
 
   /* Body */
-  --background-color: black;
+  --background-color: #{$blackish};
   --text-color: gainsboro;
 
   /* Header */
-  --header-bg-color: black;
 
   --header-nav-link-color: gray;
   --header-nav-link-hover: silver;
@@ -31,4 +30,7 @@ body.dark {
   /* Modal */
   --modal-background-color: #{$blackish}; // darkSlateGray;
   --modal-close-background-color: gray;
+
+  /* Form */
+  --form-field-bg-color: black;
 }

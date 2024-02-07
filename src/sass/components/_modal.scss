@@ -1,5 +1,4 @@
 // Backdrop
-
 .modal-backdrop {
   position: fixed;
 
@@ -21,7 +20,6 @@
 }
 
 // Modal window
-
 .modal {
   z-index: $index-modal;
   position: absolute;
@@ -30,7 +28,7 @@
   @media screen and (min-width: $tablet) {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1); // centering
+    transform: translate(-50%, -50%); // centering
 
     width: 600px;
     height: max-content;
@@ -52,6 +50,14 @@
 
   @media screen and (max-width: $tablet-1) {
     padding-bottom: $single-gap * 4;
+  }
+
+  .modal-backdrop:not(.is-hidden) & {
+    animation: slide-in-from-below 600ms;
+
+    @media screen and (min-width: $tablet) {
+      animation: emerge 600ms;
+    }
   }
 }
 
