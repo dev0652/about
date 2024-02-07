@@ -46,6 +46,8 @@
     color: var(--button-text-hover);
     background-color: var(--button-bg-hover);
     border-color: var(--button-bg-hover);
+
+    outline: none;
   }
 
   &:active {

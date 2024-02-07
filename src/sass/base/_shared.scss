@@ -72,6 +72,7 @@ main {
   z-index: $index-section; // in order for :before to take effect
 
   margin: 60px 0;
+
   @media screen and (min-width: $tablet) {
     margin: 100px 0;
   }
@@ -91,6 +92,17 @@ main {
     overflow-x: hidden;
 
     padding-left: $horizontal-offset;
+
+    text-transform: lowercase;
+    user-select: none;
+
+    font-size: 4rem;
+    margin-bottom: 40px;
+
+    @media screen and (min-width: $tablet) {
+      font-size: 5rem;
+      margin-bottom: 60px;
+    }
   }
 
   .section-content {
@@ -100,19 +112,6 @@ main {
 
     padding-left: $horizontal-offset;
     padding-right: $horizontal-offset;
-  }
-}
-
-.section-title {
-  text-transform: lowercase;
-  user-select: none;
-
-  font-size: 4rem;
-  margin-bottom: 40px;
-
-  @media screen and (min-width: $tablet) {
-    font-size: 5rem;
-    margin-bottom: 60px;
   }
 }
 

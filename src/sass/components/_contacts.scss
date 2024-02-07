@@ -1,4 +1,17 @@
-// .contacts-list { margin-left: 3rem }
+.contacts-section-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @media screen and (min-width: $desktop) {
+    flex-direction: row;
+    gap: 100px;
+  }
+
+  @media screen and (min-width: $desktop-wide) {
+    gap: 150px;
+  }
+}
 
 .contacts-list-item {
   display: flex;
