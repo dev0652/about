@@ -1,4 +1,5 @@
 import projects from '/data/db';
+import { makePlaceholderUrl } from './shared';
 import { openModal } from '/js/modal';
 
 const makeItemMarkup = (project) => {
@@ -145,15 +146,6 @@ const makeItemMarkup = (project) => {
 };
 
 // *****************************************************
-
-function makePlaceholderUrl(resolution, message = null) {
-  let queryFromMessage = '';
-  if (message) queryFromMessage = `?text=${message.split(' ').join('+')}`;
-
-  const baseUrl = 'https://placehold.co/';
-  const query = resolution + queryFromMessage;
-  return baseUrl + query;
-}
 
 const makeListMarkup = (projectsArray) => {
   return `

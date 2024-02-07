@@ -1,3 +1,5 @@
+import { makePlaceholderUrl } from './shared';
+
 export default function createModal(project) {
   const {
     name,
@@ -11,6 +13,8 @@ export default function createModal(project) {
     customer,
     technologies,
   } = project;
+
+  // *****************************************************
 
   const largeUrl1x = new URL(
     `/images/projects/large/${thumb}.png`,
@@ -29,6 +33,8 @@ export default function createModal(project) {
   const imagePath2x = !thumb ? placeholder2x : largeUrl2x;
 
   const technologiesList = technologies.join(', ');
+
+  // *****************************************************
 
   return /* html */ `
       <article>
@@ -94,15 +100,4 @@ export default function createModal(project) {
         </div>
       </article>
   `;
-}
-
-// *****************************************************
-
-function makePlaceholderUrl(resolution, message = null) {
-  let queryFromMessage = '';
-  if (message) queryFromMessage = `?text=${message.split(' ').join('+')}`;
-
-  const baseUrl = 'https://placehold.co/';
-  const query = resolution + queryFromMessage;
-  return baseUrl + query;
 }
