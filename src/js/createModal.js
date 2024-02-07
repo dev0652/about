@@ -12,9 +12,14 @@ export default function createModal(project) {
     technologies,
   } = project;
 
-  // path must be relative to /images/projects
-  const largeUrl1x = getImageUrl(`/large/${thumb}.png`);
-  const largeUrl2x = getImageUrl(`/large/${thumb}.png`);
+  const largeUrl1x = new URL(
+    `/images/projects/large/${thumb}.png`,
+    import.meta.url
+  ).href;
+  const largeUrl2x = new URL(
+    `/images/projects/large/${thumb}.png`,
+    import.meta.url
+  ).href;
 
   const message = 'Image pending';
   const placeholder1x = makePlaceholderUrl('400x250', message);
@@ -92,11 +97,6 @@ export default function createModal(project) {
 }
 
 // *****************************************************
-
-function getImageUrl(relativePath) {
-  const path = `/images/projects${relativePath}`;
-  return new URL(path, import.meta.url).href;
-}
 
 function makePlaceholderUrl(resolution, message = null) {
   let queryFromMessage = '';
