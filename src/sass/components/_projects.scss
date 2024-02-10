@@ -73,9 +73,6 @@
 
 // List view
 
-// .project-card-list.list-view {}
-// .list-view {}
-
 .list-card.collapsible {
   max-height: 0px;
   opacity: 0;
@@ -209,7 +206,7 @@
   }
 }
 
-.gallery-view {
+.tile-card {
   display: none;
 
   .project-card-list.gallery-view & {
@@ -271,7 +268,7 @@
     width: 100%;
   }
 
-  .gallery-view & {
+  .tile-card & {
     object-fit: cover;
     object-position: center;
     height: 100%;
