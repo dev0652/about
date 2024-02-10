@@ -42,15 +42,15 @@ export default function createModal(project) {
 
         <div class="modal-content-wrapper">
 
-          <div class="modal-heading">
-            <div class="heading-columns-wrapper">
-              <div class="heading-column">
+          <div class="modal-summary">
+            <div class="summary-columns-wrapper">
+              <div class="summary-column">
                 <p class="type"><span class="field-type">Project type:</span> ${type}</p>
 
                 <p class="stack"><span class="field-type">Stack:</span> ${stack}</p>
               </div>
 
-              <div class="heading-column">
+              <div class="summary-column">
                 <p class="role"
                 style="${!role && 'display: none'}">
                   <span class="field-type">Role:</span> ${role}

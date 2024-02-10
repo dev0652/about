@@ -74,9 +74,9 @@
 // List view
 
 // .project-card-list.list-view {}
-// .list-version {}
+// .list-view {}
 
-.list-version.collapsible {
+.list-view.collapsible {
   max-height: 0px;
   opacity: 0;
   overflow: hidden;
@@ -95,7 +95,7 @@
   }
 }
 
-.list-version-image-block {
+.list-view-image-block {
   grid-area: image;
 
   @media screen and (min-width: $tablet) {
@@ -130,15 +130,15 @@
   }
 }
 
-.list-version-heading {
-  grid-area: heading;
+.list-view-summary {
+  grid-area: summary;
 }
 
-.list-version-description {
+.list-view-description {
   grid-area: description;
 }
 
-.list-version-wrapper {
+.list-view-wrapper {
   margin: 1rem 0;
   @media screen and (min-width: $tablet) {
     margin: 1rem 0 2rem 1rem;
@@ -161,7 +161,7 @@
   }
 
   grid-template-areas:
-    'heading'
+    'summary'
     'image'
     'description'
     'buttons';
@@ -173,7 +173,7 @@
     grid-template-columns: 65% 1fr;
 
     grid-template-areas:
-      'image heading'
+      'image summary'
       'image buttons'
       'description description';
   }
@@ -182,7 +182,7 @@
     grid-template-columns: 50% 1fr;
 
     grid-template-areas:
-      ' image heading'
+      ' image summary'
       ' image description'
       ' image buttons';
   }
@@ -209,7 +209,7 @@
   }
 }
 
-.gallery-version {
+.gallery-view {
   display: none;
 
   .project-card-list.gallery-view & {
@@ -264,14 +264,14 @@
 }
 
 .project-card-image {
-  .list-version & {
+  .list-view & {
     object-fit: contain;
     object-position: top;
     height: 100%;
     width: 100%;
   }
 
-  .gallery-version & {
+  .gallery-view & {
     object-fit: cover;
     object-position: center;
     height: 100%;
