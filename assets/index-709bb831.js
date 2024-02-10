@@ -144,7 +144,7 @@
               <div class="flip-card-back">
                 <h3 class="flip-card-project-name">${s}</h3>
 
-                <div class="flip-card-meta-wrapper">
+                <div class="tile-card-project-summary">
                   <div>
                     <p class="type"><span class="field-type">Type:</span> ${i}</p>
 
