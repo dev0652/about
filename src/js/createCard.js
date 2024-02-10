@@ -102,7 +102,7 @@ export default function createCardMarkup(project) {
 
         <div class="gallery-view">
           <a
-            class="project-card-link flip-card"
+            class="gallery-card-link flip-card"
             href="#"
             data-id="${id}"
           >

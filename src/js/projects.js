@@ -22,25 +22,27 @@ const switcher = document.querySelector('.projects-view-switch');
 const cardList = document.querySelector('.project-card-list');
 
 switcher.addEventListener('click', switchView);
-cardList.addEventListener('click', handleCardListClicks);
-
-// *****************************************************
 
 function switchView() {
   cardList.classList.toggle('gallery-view');
-
   const isGallery = cardList.classList.contains('gallery-view');
 
   // Change button text
   switcher.innerHTML = `View as ${isGallery ? 'list' : 'tiles'}`;
+
+  if (isGallery) {
+    cardList.addEventListener('click', handleGalleryCardClicks);
+  } else {
+    cardList.removeEventListener('click', handleGalleryCardClicks);
+  }
 }
 
 // *****************************************************
 
-function handleCardListClicks(event) {
+function handleGalleryCardClicks(event) {
   event.preventDefault();
 
-  if (!event.target.matches('.project-card-link')) return;
+  if (!event.target.matches('.gallery-card-link')) return;
 
   const id = event.target.dataset.id;
   openModal(id);
