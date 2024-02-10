@@ -44,9 +44,9 @@ export default function createCardMarkup(project) {
       <article class="fade-in">
         <h2 class="card-title collapsible-toggle" data-id="${name}">${name}</h2>
 
-        <div class="list-view collapsible">
-          <div class="list-view-wrapper">
-            <div class="list-view-image-block">
+        <div class="list-card collapsible">
+          <div class="list-card-wrapper">
+            <div class="list-card-image-block">
               <img
                 class="project-card-image"
                 srcset="${imagePath1x} 1x, ${imagePath2x} 2x"
@@ -73,7 +73,7 @@ export default function createCardMarkup(project) {
               >
             </div>
 
-            <div class="list-view-summary">
+            <div class="list-card-summary">
               <div class="summary-items-wrapper">
                   <p class="type"><span class="field-type">Type:</span> ${type}</p>
 
@@ -93,16 +93,16 @@ export default function createCardMarkup(project) {
               <p class="technologies">${technologiesList}</p>
             </div>
 
-            <div class="list-view-description">
+            <div class="list-card-description">
               <p class="project-description">${description}</p>
             </div>  
 
           </div>
         </div>
 
-        <div class="gallery-view">
+        <div class="tile-card">
           <a
-            class="gallery-card-link flip-card"
+            class="tile-card-link flip-card"
             href="#"
             data-id="${id}"
           >

@@ -42,7 +42,7 @@ function switchView() {
 function handleGalleryCardClicks(event) {
   event.preventDefault();
 
-  if (!event.target.matches('.gallery-card-link')) return;
+  if (!event.target.matches('.tile-card-link')) return;
 
   const id = event.target.dataset.id;
   openModal(id);

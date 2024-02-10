@@ -76,7 +76,7 @@
 // .project-card-list.list-view {}
 // .list-view {}
 
-.list-view.collapsible {
+.list-card.collapsible {
   max-height: 0px;
   opacity: 0;
   overflow: hidden;
@@ -95,7 +95,7 @@
   }
 }
 
-.list-view-image-block {
+.list-card-image-block {
   grid-area: image;
 
   @media screen and (min-width: $tablet) {
@@ -130,15 +130,15 @@
   }
 }
 
-.list-view-summary {
+.list-card-summary {
   grid-area: summary;
 }
 
-.list-view-description {
+.list-card-description {
   grid-area: description;
 }
 
-.list-view-wrapper {
+.list-card-wrapper {
   margin: 1rem 0;
   @media screen and (min-width: $tablet) {
     margin: 1rem 0 2rem 1rem;
@@ -241,7 +241,7 @@
       height: 230px;
     }
 
-    .gallery-card-link {
+    .tile-card-link {
       display: block; // for 3d effects
       width: 100%;
       height: 100%;
@@ -257,14 +257,14 @@
         bottom: 0;
         right: 0;
 
-        z-index: $index-gallery-card-link-pseudo;
+        z-index: $index-tile-card-link-pseudo;
       }
     }
   }
 }
 
 .project-card-image {
-  .list-view & {
+  .list-card & {
     object-fit: contain;
     object-position: top;
     height: 100%;
