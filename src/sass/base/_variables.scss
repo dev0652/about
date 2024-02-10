@@ -1,6 +1,7 @@
 // Colors
 $milky: #f6f6f6;
-$light-gray: #f7f7f7;
+$white-gray: #f7f7f7;
+$light-gray: #dcdcdc;
 $dark-gray: #202024;
 $blackish: #111111;
 $gray: #b4afaf;
@@ -69,7 +70,7 @@ $index-modal-backdrop: 10000;
 
 // Theme switcher slider
 $theme-switcher-slider-light-gradient-start: white;
-$theme-switcher-slider-light-gradient-end: $light-gray;
+$theme-switcher-slider-light-gradient-end: $white-gray;
 
 $theme-switcher-slider-dark-gradient-start: gainsboro;
 $theme-switcher-slider-dark-gradient-end: gray;

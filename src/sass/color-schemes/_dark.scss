@@ -27,6 +27,9 @@ body.dark {
   /* Project title animation */
   --swaying-icon-color: gainsboro;
 
+  /* Project card */
+  --list-card-image-shadow: transparent;
+
   /* Modal */
   --modal-background-color: #{$blackish}; // darkSlateGray;
   --modal-close-background-color: gray;

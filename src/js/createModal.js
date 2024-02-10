@@ -16,21 +16,23 @@ export default function createModal(project) {
 
   // *****************************************************
 
-  const largeUrl1x = new URL(
-    `/images/projects/large/${thumb}.png`,
-    import.meta.url
-  ).href;
-  const largeUrl2x = new URL(
-    `/images/projects/large/${thumb}.png`,
-    import.meta.url
-  ).href;
-
+  const root = '/images/projects';
   const message = 'Image pending';
-  const placeholder1x = makePlaceholderUrl('400x250', message);
-  const placeholder2x = makePlaceholderUrl('800x500', message);
 
-  const imagePath1x = !thumb ? placeholder1x : largeUrl1x;
-  const imagePath2x = !thumb ? placeholder2x : largeUrl2x;
+  const small = new URL(`${root}/small/${thumb}.png`, import.meta.url).href;
+  const medium = new URL(`${root}/medium/${thumb}.png`, import.meta.url).href;
+  const large1x = new URL(`${root}/large1x/${thumb}.png`, import.meta.url).href;
+  const large2x = new URL(`${root}/large2x/${thumb}.png`, import.meta.url).href;
+
+  const placeholderSmall = makePlaceholderUrl('370x208', message);
+  const placeholderMedium = makePlaceholderUrl('480x270', message);
+  const placeholderLarge1x = makePlaceholderUrl('960x540', message);
+  const placeholderLarge2x = makePlaceholderUrl('1920x1080', message);
+
+  const imagePathSmall = !thumb ? placeholderSmall : small;
+  const imagePathMedium = !thumb ? placeholderMedium : medium;
+  const imagePathLarge1x = !thumb ? placeholderLarge1x : large1x;
+  const imagePathLarge2x = !thumb ? placeholderLarge2x : large2x;
 
   const technologiesList = technologies.join(', ');
 
@@ -69,8 +71,12 @@ export default function createModal(project) {
           <div class="modal-image-block">
             <img
               class="project-card-image"
-              srcset="${imagePath1x} 1x, ${imagePath2x} 2x"
-              src="${imagePath1x}"
+                  srcset="
+                    ${imagePathSmall} 370w,
+                    ${imagePathMedium} 480w,
+                    ${imagePathLarge1x} 960w,
+                    ${imagePathLarge2x} 1920w"
+                  src="${imagePathLarge1x}"
               alt="${name} live page screenshot"
             />
           </div>

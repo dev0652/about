@@ -23,10 +23,13 @@ body {
 
   /* Theme switcher */
   --theme-switcher-bg-gradient-start: gray;
-  --theme-switcher-bg-gradient-end: #dcdcdc;
+  --theme-switcher-bg-gradient-end: #{$light-gray};
 
   /* Project title animation */
   --swaying-icon-color: gray;
+
+  /* Project card */
+  --list-card-image-shadow: #{$light-gray};
 
   /* Modal */
   --modal-background-color: var(--background-color);
