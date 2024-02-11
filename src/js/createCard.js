@@ -1,4 +1,6 @@
-import { makePlaceholderUrl } from './shared';
+import { makePlaceholderUrl, getImageUrl } from './shared';
+
+// *****************************************************
 
 export default function createCardMarkup(project) {
   const {
@@ -17,13 +19,12 @@ export default function createCardMarkup(project) {
 
   // *****************************************************
 
-  const root = '../images/projects';
-  const message = 'Image pending';
+  const small = getImageUrl('small', thumb);
+  const medium = getImageUrl('medium', thumb);
+  const large1x = getImageUrl('large1x', thumb);
+  const large2x = getImageUrl('large2x', thumb);
 
-  const small = new URL(`${root}/small/${thumb}.png`, import.meta.url).href;
-  const medium = new URL(`${root}/medium/${thumb}.png`, import.meta.url).href;
-  const large1x = new URL(`${root}/large1x/${thumb}.png`, import.meta.url).href;
-  const large2x = new URL(`${root}/large2x/${thumb}.png`, import.meta.url).href;
+  const message = 'Image pending';
 
   const placeholderSmall = makePlaceholderUrl('370x208', message);
   const placeholderMedium = makePlaceholderUrl('480x270', message);
