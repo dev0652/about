@@ -6,10 +6,6 @@
   @media screen and (min-width: $tablet) {
     font-size: $section-fz-desktop;
   }
-
-  @media screen and (min-width: $desktop) {
-    margin-top: -5px; // to make it seem aligned by baseline with the top-most contact link
-  }
 }
 
 .contact-form-title {

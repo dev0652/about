@@ -13,6 +13,13 @@
   }
 }
 
+.contacts-list {
+  @media screen and (min-width: $desktop) {
+    // to make it seem aligned by baseline with the top-most contact link
+    // margin-top: calc(60px + 8px);
+  }
+}
+
 .contacts-list-item {
   display: flex;
   align-items: center;
