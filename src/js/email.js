@@ -10,8 +10,6 @@ form.addEventListener('submit', formSubmitHandler);
 function formSubmitHandler(event) {
   event.preventDefault();
 
-  // serviceID, templateID, templateParams, options
-
   emailjs
     .sendForm('default_service', 'contact_form', '#contact-form')
     .then(

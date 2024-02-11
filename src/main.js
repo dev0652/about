@@ -5,4 +5,4 @@ import './js/typing-animation';
 import './js/projects';
 import './js/accordion';
 
-import './js/send-message';
+import './js/email';

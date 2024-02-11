@@ -1,4 +1,4 @@
-import { getImagePaths } from './shared';
+import { getImagePaths } from './imagePaths';
 
 // *****************************************************
 
