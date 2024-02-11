@@ -17,7 +17,7 @@ export default function createCardMarkup(project) {
 
   // *****************************************************
 
-  const root = '/images/projects';
+  const root = '../images/projects';
   const message = 'Image pending';
 
   const small = new URL(`${root}/small/${thumb}.png`, import.meta.url).href;

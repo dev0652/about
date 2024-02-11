@@ -19,10 +19,20 @@ export default function createModal(project) {
   const root = '/images/projects';
   const message = 'Image pending';
 
-  const small = new URL(`${root}/small/${thumb}.png`, import.meta.url).href;
-  const medium = new URL(`${root}/medium/${thumb}.png`, import.meta.url).href;
-  const large1x = new URL(`${root}/large1x/${thumb}.png`, import.meta.url).href;
-  const large2x = new URL(`${root}/large2x/${thumb}.png`, import.meta.url).href;
+  const small = new URL(`/images/projects/small/${thumb}.png`, import.meta.url)
+    .href;
+  const medium = new URL(
+    `/images/projects/medium/${thumb}.png`,
+    import.meta.url
+  ).href;
+  const large1x = new URL(
+    `/images/projects/large1x/${thumb}.png`,
+    import.meta.url
+  ).href;
+  const large2x = new URL(
+    `/images/projects/large2x/${thumb}.png`,
+    import.meta.url
+  ).href;
 
   const placeholderSmall = makePlaceholderUrl('370x208', message);
   const placeholderMedium = makePlaceholderUrl('480x270', message);
