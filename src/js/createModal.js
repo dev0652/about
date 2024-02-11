@@ -71,12 +71,13 @@ export default function createModal(project) {
           <div class="modal-image-block">
             <img
               class="project-card-image"
-                  srcset="
-                    ${imagePathSmall} 370w,
-                    ${imagePathMedium} 480w,
-                    ${imagePathLarge1x} 960w,
-                    ${imagePathLarge2x} 1920w"
-                  src="${imagePathLarge1x}"
+              srcset="
+                ${imagePathSmall} 370w,
+                ${imagePathMedium} 480w,
+                ${imagePathLarge1x} 960w,
+                ${imagePathLarge2x} 1920w"
+              sizes="(max-width: 400px): 100vw, (min-width: 768px) 520px, (min-width: 1280px) 620px"
+              src="${imagePathLarge1x}"
               alt="${name} live page screenshot"
             />
           </div>

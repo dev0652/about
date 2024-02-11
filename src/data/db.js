@@ -193,7 +193,7 @@ export default [
     link: 'https://github.com/dev0652/britlex',
     livePage: 'https://dev0652.github.io/britlex/',
     technologies: ['HTML', 'SaSS'],
-    // thumbFilename: 'britlex',
+    thumbFilename: 'britlex',
     type: 'Study project',
     stack: 'Front-end',
     role: null,

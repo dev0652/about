@@ -98,6 +98,11 @@
   @media screen and (min-width: $tablet) {
     margin-top: 5px; // to align evenly with .project-type
   }
+
+  @media screen and (min-width: $desktop) {
+    // width: 480px;
+    // height: 270px;
+  }
 }
 
 .list-card-image-block,
@@ -217,51 +222,52 @@
 
   .project-card-list.gallery-view & {
     display: block;
-    width: auto;
-    height: 200px;
+  }
 
-    @media screen and (min-width: $tablet) {
-      width: calc(($tablet - $single-gap - $container-padding-tablet * 2) / 2);
-    }
+  width: 100%;
+  aspect-ratio: 16 / 9;
 
-    @media screen and (min-width: $desktop) {
-      width: calc(
-        (
-            $desktop - $horizontal-offset * 2 - $single-gap * 2 -
-              $container-padding-desktop * 2
-          ) / 3
-      );
-      height: 190px;
-    }
+  @media screen and (min-width: $tablet) {
+    width: calc(($tablet - $single-gap - $container-padding-tablet * 2) / 2);
+  }
 
-    @media screen and (min-width: $desktop-wide) {
-      width: calc(
-        (
-            $desktop-wide - $horizontal-offset * 2 - $single-gap * 2 -
-              $container-padding-desktop * 2
-          ) / 3
-      );
-      height: 230px;
-    }
+  @media screen and (min-width: $desktop) {
+    width: calc(
+      (
+          $desktop - $horizontal-offset * 2 - $single-gap * 2 -
+            $container-padding-desktop * 2
+        ) / 3
+    );
+    height: 190px;
+  }
 
-    .tile-card-link {
-      display: block; // for 3d effects
-      width: 100%;
-      height: 100%;
+  @media screen and (min-width: $desktop-wide) {
+    width: calc(
+      (
+          $desktop-wide - $horizontal-offset * 2 - $single-gap * 2 -
+            $container-padding-desktop * 2
+        ) / 3
+    );
+    height: 230px;
+  }
 
-      position: relative;
+  .tile-card-link {
+    display: block; // for 3d effects
+    width: 100%;
+    height: 100%;
 
-      // Make the entire tile clickable to its containing link - solution courtesy of Vadim Makeyev
-      &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+    position: relative;
 
-        z-index: $index-tile-card-link-pseudo;
-      }
+    // Make the entire tile clickable to its containing link - solution courtesy of Vadim Makeyev
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+
+      z-index: $index-tile-card-link-pseudo;
     }
   }
 }
@@ -275,10 +281,16 @@
   }
 
   .tile-card & {
-    object-fit: cover;
-    object-position: center;
     height: 100%;
     width: 100%;
+    object-position: center;
+
+    @media screen and (max-width: $tablet-1) {
+      object-fit: contain;
+      height: auto;
+    }
+
+    object-fit: cover;
   }
 }
 

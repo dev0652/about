@@ -47,7 +47,12 @@ export default function createCardMarkup(project) {
             <div class="list-card-image-block">
               <img
                 class="project-card-image"
-                srcset="${imagePathLarge1x} 1x, ${imagePathLarge2x} 2x"
+                srcset="
+                  ${imagePathSmall} 370w,
+                  ${imagePathMedium} 480w,
+                  ${imagePathLarge1x} 960w,
+                  ${imagePathLarge2x} 1920w"
+                sizes="(min-width: 768px) 480px"
                 src="${imagePathLarge1x}"
                 alt="${name} live page screenshot"
               />
@@ -113,6 +118,7 @@ export default function createCardMarkup(project) {
                     ${imagePathMedium} 480w,
                     ${imagePathLarge1x} 960w,
                     ${imagePathLarge2x} 1920w"
+                  sizes="(min-width: 768px) 350px, (min-width: 1440px) 400px"
                   src="${imagePathMedium}"
                   alt="${name} live page screenshot"
                   loading="lazy"

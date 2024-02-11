@@ -129,6 +129,15 @@
   }
 }
 
+.project-card-image {
+  .modal-image-block & {
+    object-fit: contain;
+    object-position: top;
+    height: 100%;
+    width: 100%;
+  }
+}
+
 // Close button
 
 .close-button {
