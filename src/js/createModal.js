@@ -1,4 +1,4 @@
-import { makePlaceholderUrl } from './shared';
+import { getImagePaths } from './shared';
 
 // *****************************************************
 
@@ -8,7 +8,7 @@ export default function createModal(project) {
     type,
     link,
     livePage,
-    thumbFilename: thumb,
+    thumbFilename,
     description,
     stack,
     role,
@@ -16,28 +16,10 @@ export default function createModal(project) {
     technologies,
   } = project;
 
-  // *****************************************************
-
-  const small = getImageUrl('small', thumb);
-  const medium = getImageUrl('medium', thumb);
-  const large1x = getImageUrl('large1x', thumb);
-  const large2x = getImageUrl('large2x', thumb);
-
-  const message = 'Image pending';
-
-  const placeholderSmall = makePlaceholderUrl('370x208', message);
-  const placeholderMedium = makePlaceholderUrl('480x270', message);
-  const placeholderLarge1x = makePlaceholderUrl('960x540', message);
-  const placeholderLarge2x = makePlaceholderUrl('1920x1080', message);
-
-  const imagePathSmall = !thumb ? placeholderSmall : small;
-  const imagePathMedium = !thumb ? placeholderMedium : medium;
-  const imagePathLarge1x = !thumb ? placeholderLarge1x : large1x;
-  const imagePathLarge2x = !thumb ? placeholderLarge2x : large2x;
+  const { imgSmall, imgMedium, imgLarge1x, imgLarge2x } =
+    getImagePaths(thumbFilename);
 
   const technologiesList = technologies.join(', ');
-
-  // *****************************************************
 
   return /* html */ `
       <article>
@@ -73,12 +55,12 @@ export default function createModal(project) {
             <img
               class="project-card-image"
               srcset="
-                ${imagePathSmall} 370w,
-                ${imagePathMedium} 480w,
-                ${imagePathLarge1x} 960w,
-                ${imagePathLarge2x} 1920w"
+                ${imgSmall} 370w,
+                ${imgMedium} 480w,
+                ${imgLarge1x} 960w,
+                ${imgLarge2x} 1920w"
               sizes="(max-width: 400px): 100vw, (min-width: 768px) 520px, (min-width: 1280px) 620px"
-              src="${imagePathLarge1x}"
+              src="${imgLarge1x}"
               alt="${name} live page screenshot"
             />
           </div>

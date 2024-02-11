@@ -1,4 +1,4 @@
-import { makePlaceholderUrl, getImageUrl } from './shared';
+import { getImagePaths } from './shared';
 
 // *****************************************************
 
@@ -9,7 +9,7 @@ export default function createCardMarkup(project) {
     type,
     link,
     livePage,
-    thumbFilename: thumb,
+    thumbFilename,
     description,
     stack,
     role,
@@ -17,24 +17,8 @@ export default function createCardMarkup(project) {
     technologies,
   } = project;
 
-  // *****************************************************
-
-  const small = getImageUrl('small', thumb);
-  const medium = getImageUrl('medium', thumb);
-  const large1x = getImageUrl('large1x', thumb);
-  const large2x = getImageUrl('large2x', thumb);
-
-  const message = 'Image pending';
-
-  const placeholderSmall = makePlaceholderUrl('370x208', message);
-  const placeholderMedium = makePlaceholderUrl('480x270', message);
-  const placeholderLarge1x = makePlaceholderUrl('960x540', message);
-  const placeholderLarge2x = makePlaceholderUrl('1920x1080', message);
-
-  const imagePathSmall = !thumb ? placeholderSmall : small;
-  const imagePathMedium = !thumb ? placeholderMedium : medium;
-  const imagePathLarge1x = !thumb ? placeholderLarge1x : large1x;
-  const imagePathLarge2x = !thumb ? placeholderLarge2x : large2x;
+  const { imgSmall, imgMedium, imgLarge1x, imgLarge2x } =
+    getImagePaths(thumbFilename);
 
   const technologiesList = technologies.join(', ');
 
@@ -49,12 +33,12 @@ export default function createCardMarkup(project) {
               <img
                 class="project-card-image"
                 srcset="
-                  ${imagePathSmall} 370w,
-                  ${imagePathMedium} 480w,
-                  ${imagePathLarge1x} 960w,
-                  ${imagePathLarge2x} 1920w"
+                  ${imgSmall} 370w,
+                  ${imgMedium} 480w,
+                  ${imgLarge1x} 960w,
+                  ${imgLarge2x} 1920w"
                 sizes="(min-width: 768px) 480px"
-                src="${imagePathLarge1x}"
+                src="${imgLarge1x}"
                 alt="${name} live page screenshot"
               />
             </div>
@@ -115,12 +99,12 @@ export default function createCardMarkup(project) {
                 <img
                   class="project-card-image"
                   srcset="
-                    ${imagePathSmall} 370w,
-                    ${imagePathMedium} 480w,
-                    ${imagePathLarge1x} 960w,
-                    ${imagePathLarge2x} 1920w"
+                    ${imgSmall} 370w,
+                    ${imgMedium} 480w,
+                    ${imgLarge1x} 960w,
+                    ${imgLarge2x} 1920w"
                   sizes="(min-width: 768px) 350px, (min-width: 1440px) 400px"
-                  src="${imagePathMedium}"
+                  src="${imgMedium}"
                   alt="${name} live page screenshot"
                   loading="lazy"
                 />
