@@ -25,5 +25,5 @@ dist-ssr
 
 *.env
 
-src/images/projects/raw
+# HQ images
 src/images/projects/png
