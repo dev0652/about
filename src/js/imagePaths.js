@@ -10,7 +10,8 @@ function makePlaceholderUrl(resolution, message = null) {
 // *****************************************************
 
 function getImageUrl(dir, name) {
-  return new URL(`/images/projects/${dir}/${name}.png`, import.meta.url).href;
+  return new URL(`/images/projects/webp/${dir}/${name}.webp`, import.meta.url)
+    .href;
 }
 
 // *****************************************************

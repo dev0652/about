@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 *.env
+
+src/images/projects/raw
+src/images/projects/png
