@@ -24,10 +24,6 @@ $slider-circle-size: calc($slider-height - 2px);
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
-
-  &:hover {
-    outline: none;
-  }
 }
 
 .color-switcher-icons {
