@@ -1,5 +1,6 @@
 // Backdrop
-.modal-backdrop {
+.popup-modal-backdrop,
+.email-modal-backdrop {
   position: fixed;
 
   top: 0;
@@ -19,26 +20,13 @@
   }
 }
 
-// Modal window
+// Modal windows
+
+// Shared styles:
 .modal {
   z-index: $index-modal;
   position: absolute;
   bottom: 0;
-
-  @media screen and (min-width: $tablet) {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); // centering
-
-    width: 600px;
-    height: max-content;
-    max-height: 90vh;
-    padding: 40px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    width: 700px;
-  }
 
   overflow-y: auto;
   overflow-x: hidden;
@@ -52,12 +40,48 @@
     padding-bottom: $single-gap * 4;
   }
 
-  .modal-backdrop:not(.is-hidden) & {
+  @media screen and (min-width: $tablet) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); // centering
+
+    height: max-content;
+    padding: 40px;
+  }
+}
+
+// Tile card modal
+.popup-modal {
+  @media screen and (min-width: $tablet) {
+    width: 600px;
+    max-height: 90vh;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 700px;
+  }
+
+  .popup-modal-backdrop:not(.is-hidden) & {
     animation: slide-in-from-below 600ms;
 
     @media screen and (min-width: $tablet) {
       animation: emerge 600ms;
     }
+  }
+}
+
+// Email dialog modal
+.email-modal {
+  @media screen and (min-width: $tablet) {
+    padding: 50px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 50px 70px;
+  }
+
+  .email-modal-backdrop:not(.is-hidden) & {
+    animation: emerge 400ms;
   }
 }
 
@@ -68,6 +92,11 @@
     display: flex;
     gap: 24px;
   }
+}
+
+.email-confirmation-text {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
 }
 
 // Injected content
@@ -140,7 +169,7 @@
 
 // Close button
 
-.close-button {
+.popup-modal-close-button {
   position: absolute;
 
   top: 30px;
@@ -170,20 +199,33 @@
   }
 }
 
-.close-button-icon {
+.popup-modal-close-button-icon {
   fill: var(--text-color);
 
-  .close-button:hover &,
-  .close-button:focus-visible & {
+  .popup-modal-close-button:hover &,
+  .popup-modal-close-button:focus-visible & {
     fill: black;
   }
 
-  .close-button:active & {
+  .popup-modal-close-button:active & {
     fill: gainsboro;
   }
 
   @media screen and (min-width: $tablet) {
     width: 21px;
     height: 21px;
+  }
+}
+
+.email-modal-close-button {
+  @extend %button !optional;
+
+  font-size: 1.5rem;
+
+  @media screen and (min-width: $tablet) {
+    $horizontal-padding: 70px;
+
+    padding-left: $horizontal-padding;
+    padding-right: $horizontal-padding;
   }
 }

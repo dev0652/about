@@ -1,4 +1,5 @@
 import emailjs from '@emailjs/browser';
+import { openEmailModal } from './modal';
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 emailjs.init('E8FZeR5jYUP13UDEy');
@@ -14,12 +15,12 @@ function formSubmitHandler(event) {
     .sendForm('default_service', 'contact_form', '#contact-form')
     .then(
       function (response) {
-        // Notify.success('Успішно надіслано');
-        alert('Success');
+        if (response.status === 200)
+          openEmailModal('Your message has been successfully sent');
       },
       function (error) {
-        // Notify.failure('Щось пішло не так!');
-        alert('Error');
+        console.error('error: ', error);
+        openEmailModal('Sorry, there was an error sending your message');
       }
     )
     .finally(function () {

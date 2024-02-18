@@ -1,49 +1,75 @@
 import projects from '/data/db';
 import createModal from './createModal';
 
-// *****************************************************
+// ***** Tile card modal *********************************
 
-const modalPopUp = document.querySelector('[data-pop-up]');
-const closeModalButton = document.querySelector('[data-modal-close]');
-const modalContentEl = document.querySelector(
+const modalPopUp = document.querySelector('.popup-modal-backdrop');
+const closeModalButton = modalPopUp.querySelector('.popup-modal-close-button');
+const modalContentEl = modalPopUp.querySelector(
   '.modal-content-injection-target'
 );
-
-// *****************************************************
 
 export function openModal(id) {
   const selectedProject = projects.find((project) => project.id === +id);
   modalContentEl.innerHTML = createModal(selectedProject);
 
-  document.body.classList.add('modal-open');
   modalPopUp.classList.remove('is-hidden');
+  modalPopUp.classList.add('current-modal');
 
-  closeModalButton.addEventListener('click', handleModalCloseButtonClick);
-  document.addEventListener('keydown', handleEscapePress);
-  document.addEventListener('click', handleBackdropClick);
+  closeModalButton.classList.add('current-close-button');
+
+  onModalOpen();
 }
 
-// *****************************************************
+// ***** Email dialog modal ******************************
 
-function closeModalAndRemoveListeners() {
-  closeModalButton.removeEventListener('click', handleModalCloseButtonClick);
+const modalEmail = document.querySelector('.email-modal-backdrop');
+const closeDialogButton = modalEmail.querySelector('.email-modal-close-button');
+const modalEmailText = modalEmail.querySelector('.email-confirmation-text');
+
+export function openEmailModal(message) {
+  modalEmailText.innerHTML = message;
+
+  modalEmail.classList.remove('is-hidden');
+  modalEmail.classList.add('current-modal');
+  closeDialogButton.addEventListener('click', onModalClose);
+
+  onModalOpen();
+}
+
+// ***** Do for all modals ********************************
+
+function onModalOpen() {
+  document.body.classList.add('modal-open');
+  document.addEventListener('click', handleBackdropClick);
+  document.addEventListener('keydown', handleEscapePress);
+
+  const currentCloseButton = document.querySelector('.current-close-button');
+  currentCloseButton.addEventListener('click', onModalClose);
+}
+
+function onModalClose() {
+  document.body.classList.remove('modal-open');
   document.removeEventListener('click', handleBackdropClick);
   document.removeEventListener('keydown', handleEscapePress);
 
-  modalPopUp.classList.add('is-hidden');
-  document.body.classList.remove('modal-open');
+  const currentModal = document.querySelector('.current-modal');
+  currentModal.classList.add('is-hidden');
+  currentModal.classList.remove('current-modal');
+
+  const currentCloseButton = document.querySelector('.current-close-button');
+  currentCloseButton.removeEventListener('click', onModalClose);
 }
 
 // *****************************************************
 
-function handleModalCloseButtonClick(e) {
-  closeModalAndRemoveListeners();
+function handleBackdropClick(event) {
+  const backdrop = document.querySelector('.current-modal');
+  if (event.target !== backdrop) return;
+
+  onModalClose();
 }
 
-function handleBackdropClick(e) {
-  if (e.target == modalPopUp) closeModalAndRemoveListeners();
-}
-
-function handleEscapePress(e) {
-  if (e.key === 'Escape') closeModalAndRemoveListeners();
+function handleEscapePress(event) {
+  if (event.key === 'Escape') onModalClose();
 }
