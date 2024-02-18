@@ -21,7 +21,11 @@ body {
 
   &.modal-open {
     overflow: hidden;
-    height: 100vh; // temp fix
+
+    @media screen and (max-width: $tablet-1) {
+      max-height: 100vh; // temp fix for mobile
+      // position: fixed;
+    }
   }
 }
 
@@ -114,10 +118,3 @@ main {
     padding-right: $horizontal-offset;
   }
 }
-
-// .cursor {
-//   padding-right: 5px;
-//   border-right: 3px solid var(--accent-primary);
-
-//   animation: blink 600ms infinite alternate;
-// }

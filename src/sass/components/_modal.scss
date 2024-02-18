@@ -87,12 +87,7 @@
 
 // Content injection div inside .modal
 
-.modal-content-injection-target {
-  @media screen and (min-width: $tablet) {
-    display: flex;
-    gap: 24px;
-  }
-}
+// .modal-content-injection-target {}
 
 .email-confirmation-text {
   font-size: 1.5rem;
@@ -161,7 +156,7 @@
 .project-card-image {
   .modal-image-block & {
     object-fit: contain;
-    object-position: top;
+    object-position: center;
     height: 100%;
     width: 100%;
   }

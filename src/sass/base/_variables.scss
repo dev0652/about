@@ -60,13 +60,13 @@ $single-gap: 10px;
 $horizontal-offset: var(--horizontal-offset);
 
 // Z-indices
-$index-header: 1000;
-$index-main: 1000;
-$index-main-pseudos: 2;
+$index-header: 100;
+$index-main: 20;
+$index-main-pseudos: 10;
 $index-section: 0;
 $index-tile-card-link-pseudo: 1;
 $index-modal: 30;
-$index-modal-backdrop: 10000;
+$index-modal-backdrop: 1000;
 
 // Theme switcher slider
 $theme-switcher-slider-light-gradient-start: white;
