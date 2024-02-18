@@ -54,5 +54,7 @@ Here are some of the features of this website:
 
    <source media="(prefers-color-scheme: dark)" srcset="./src/images/readme/lighthouse_dark.webp">
 
-  <img alt="A screenshot of my website's Lighthouse report with the following ratings: Performance: 100, Accessibility: 89, Best Practices: 100, SEO: 100. The low Accessibility rating is due to background and foreground colors not having a sufficient contrast ratio" src="./src/images/readme/lighthouse_light.webp">
+  <img alt="A screenshot of my website's Lighthouse report with the following ratings: Performance: 100, Accessibility: 89, Best Practices: 100, SEO: 100." src="./src/images/readme/lighthouse_light.webp">
 </picture>
+
+The low Accessibility rating is due to background and foreground colors not having a sufficient contrast ratio.
