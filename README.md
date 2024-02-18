@@ -1,6 +1,7 @@
 # About Me
 
 To all to whom these presents shall come, greetings =)
+
 This is my personal portfolio website created to showcase my projects and to give anyone interested a glimpse of my web-development skills.
 
 ## Design
