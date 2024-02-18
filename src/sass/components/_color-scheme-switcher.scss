@@ -14,6 +14,10 @@ $slider-circle-size: calc($slider-height - 2px);
   @media screen and (min-width: $tablet) {
     margin-right: 1rem;
   }
+
+  #color-scheme-switcher-checkbox:focus & {
+    outline: 3px solid red;
+  }
 }
 
 #color-scheme-switcher-checkbox {
@@ -21,8 +25,7 @@ $slider-circle-size: calc($slider-height - 2px);
   appearance: none;
   position: absolute;
 
-  &:hover,
-  &:focus {
+  &:hover {
     outline: none;
   }
 }

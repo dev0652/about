@@ -23,11 +23,11 @@ export default function createCardMarkup(project) {
   const technologiesList = technologies.join(', ');
 
   return /* html */ `
-    <li class="project-card">
+    <li class="project-card" tabindex="-1">
       <article class="fade-in">
-        <h2 class="card-title collapsible-toggle" data-id="${name}">${name}</h2>
+        <h2 class="card-title collapsible-toggle" aria-expanded="false" aria-controls="collapsible-${name}" tabindex="0" data-id="${name}">${name}</h2>
 
-        <div class="list-card collapsible">
+        <div class="list-card collapsible" id="collapsible-${name}">
           <div class="list-card-wrapper">
             <div class="list-card-image-block">
               <img
@@ -49,6 +49,7 @@ export default function createCardMarkup(project) {
                 href="${link}"
                 target="_blank"
                 rel="noopener noreferrer"
+                tabindex="-1"
                 >GitHub</a
               >
 
@@ -57,6 +58,7 @@ export default function createCardMarkup(project) {
                 href="${livePage}"
                 target="_blank"
                 rel="noopener noreferrer"
+                tabindex="-1"
                 >Live page</a
               >
             </div>
