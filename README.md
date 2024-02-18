@@ -5,12 +5,11 @@ To all to whom these presents shall come, greetings =)
 This is my personal portfolio website created to showcase my projects and to give anyone interested a glimpse of my web-development skills.
 
 <picture>
- 
   <source media="(prefers-color-scheme: light)" srcset="./src/images/readme/screenshot_light.png">
 
    <source media="(prefers-color-scheme: dark)" srcset="./src/images/readme/screenshot_dark.png">
 
-  <img alt="A screenshot of my website's Projects page with the project gallery in its list presentation. One of the project cards is expanded revealing the project image, description and links to its GitHub page and live page." src="./src/images/readme/screenshot_light.png">
+  <img alt="A screenshot of my website's Projects page with the project gallery in its list presentation. The first project card is expanded, revealing the live page screenshot, project description and links to its GitHub page and live page." src="./src/images/readme/screenshot_light.png">
 </picture>
 
 ## Design
