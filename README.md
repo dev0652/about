@@ -1,5 +1,5 @@
 # About Me
-Hello, this is my personal portfolio website created to showcase all my projects and my web-development skill.
+Hello, this is my personal portfolio website created to showcase my projects and to give anyone interested a glimpse of my web-development skills.
 
 ## Design
 The design of this website was inspired by Windows Phone Metro interface which I have always found clean and attractive.
