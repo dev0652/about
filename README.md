@@ -23,9 +23,9 @@ Consider this an attempt to have the best of both worlds.
 
 As this website was supposed to be a SPA/landing at the beginning, I chose to go with vanilla JavaScript instead of React.
 
-My bundler of choice is Vite.
-
-I have used EmailJS library for the contact form.
+- Vite
+- EmailJS
+- SaSS
 
 ## Features
 
