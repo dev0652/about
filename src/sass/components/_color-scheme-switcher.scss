@@ -15,7 +15,9 @@ $slider-circle-size: calc($slider-height - 2px);
     margin-right: 1rem;
   }
 
-  &:has(.color-scheme-switcher-checkbox:focus) {
+  outline: none;
+
+  &:has(.color-scheme-switcher-checkbox:focus-visible) {
     outline: auto;
     outline-offset: 2px;
   }
