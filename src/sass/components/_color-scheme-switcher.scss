@@ -15,15 +15,20 @@ $slider-circle-size: calc($slider-height - 2px);
     margin-right: 1rem;
   }
 
-  #color-scheme-switcher-checkbox:focus & {
-    outline: 3px solid red;
+  &:has(.color-scheme-switcher-checkbox:focus) {
+    outline: auto;
+    outline-offset: 2px;
   }
 }
 
-#color-scheme-switcher-checkbox {
+.color-scheme-switcher-checkbox {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .color-switcher-icons {
