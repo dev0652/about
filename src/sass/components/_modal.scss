@@ -1,28 +1,27 @@
-// Backdrop
-.popup-modal-backdrop,
-.email-modal-backdrop {
-  position: fixed;
+// Shared styles:
 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background-color: rgba(SlateGray, 0.7);
-
-  opacity: 1;
-  z-index: $index-modal-backdrop;
-
+.modal-backdrop {
   &.is-hidden {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
   }
+
+  &:not(.is-hidden) {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(SlateGray, 0.7);
+
+    opacity: 1;
+    z-index: $index-modal-backdrop;
+  }
 }
 
-// Modal windows
-
-// Shared styles:
 .modal {
   z-index: $index-modal;
   position: absolute;
@@ -61,7 +60,7 @@
     width: 700px;
   }
 
-  .popup-modal-backdrop:not(.is-hidden) & {
+  .popup-backdrop:not(.is-hidden) & {
     animation: slide-in-from-below 600ms;
 
     @media screen and (min-width: $tablet) {
@@ -80,7 +79,7 @@
     padding: 50px 70px;
   }
 
-  .email-modal-backdrop:not(.is-hidden) & {
+  .email-backdrop:not(.is-hidden) & {
     animation: emerge 400ms;
   }
 }

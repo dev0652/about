@@ -3,7 +3,7 @@ import createModal from './createModal';
 
 // ***** Tile card modal *********************************
 
-const modalPopUp = document.querySelector('.popup-modal-backdrop');
+const modalPopUp = document.querySelector('.popup-backdrop');
 const closeModalButton = modalPopUp.querySelector('.popup-modal-close-button');
 const modalContentEl = modalPopUp.querySelector(
   '.modal-content-injection-target'
@@ -23,7 +23,7 @@ export function openModal(id) {
 
 // ***** Email dialog modal ******************************
 
-const modalEmail = document.querySelector('.email-modal-backdrop');
+const modalEmail = document.querySelector('.email-backdrop');
 const closeDialogButton = modalEmail.querySelector('.email-modal-close-button');
 const modalEmailText = modalEmail.querySelector('.email-confirmation-text');
 
@@ -40,7 +40,9 @@ export function openEmailModal(message) {
 // ***** Do for all modals ********************************
 
 function onModalOpen() {
-  document.body.classList.add('modal-open');
+  // document.body.classList.add('modal-open');
+  document.body.style.overflow = 'hidden';
+
   document.addEventListener('click', handleBackdropClick);
   document.addEventListener('keydown', handleEscapePress);
 
@@ -49,7 +51,9 @@ function onModalOpen() {
 }
 
 function onModalClose() {
-  document.body.classList.remove('modal-open');
+  // document.body.classList.remove('modal-open');
+  document.body.style.removeProperty('overflow');
+
   document.removeEventListener('click', handleBackdropClick);
   document.removeEventListener('keydown', handleEscapePress);
 
@@ -65,9 +69,7 @@ function onModalClose() {
 
 function handleBackdropClick(event) {
   const backdrop = document.querySelector('.current-modal');
-  if (event.target !== backdrop) return;
-
-  onModalClose();
+  if (event.target === backdrop) onModalClose();
 }
 
 function handleEscapePress(event) {
