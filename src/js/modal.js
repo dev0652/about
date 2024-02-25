@@ -40,7 +40,7 @@ export function openEmailModal(message) {
 // ***** Do for all modals ********************************
 
 function onModalOpen() {
-  // document.body.classList.add('modal-open');
+  document.documentElement.style.overflow = 'hidden';
   document.body.style.overflow = 'hidden';
 
   document.addEventListener('click', handleBackdropClick);
@@ -51,7 +51,7 @@ function onModalOpen() {
 }
 
 function onModalClose() {
-  // document.body.classList.remove('modal-open');
+  document.documentElement.style.removeProperty('overflow');
   document.body.style.removeProperty('overflow');
 
   document.removeEventListener('click', handleBackdropClick);
