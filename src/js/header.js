@@ -10,9 +10,16 @@ const main = document.querySelector('main');
 // Body height adjust to compensate for positioned header height
 const { height } = header.getBoundingClientRect();
 const headerHeight = `${height}px`;
+const mobile = window.innerWidth < 768;
 
-document.body.style.paddingTop = headerHeight;
-document.documentElement.style.scrollPaddingTop = headerHeight;
+if (mobile) {
+  document.body.style.paddingBottom = headerHeight;
+  document.documentElement.style.scrollPaddingBottom = headerHeight;
+} else {
+  document.body.style.paddingTop = headerHeight;
+  document.documentElement.style.scrollPaddingTop = headerHeight;
+}
+
 main.style.setProperty('--blurOffset', headerHeight);
 
 // Listen to clicks on header nav links

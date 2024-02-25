@@ -37,7 +37,7 @@ export default function createCardMarkup(project) {
                   ${imgMedium} 480w,
                   ${imgLarge1x} 960w,
                   ${imgLarge2x} 1920w"
-                sizes="(min-width: 768px) 480px"
+                sizes="(max-width: 767px): 100vw, (max-width: 1279px) 450px, 490px"
                 src="${imgLarge1x}"
                 alt="${name} live page screenshot"
               />
