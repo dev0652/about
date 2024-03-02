@@ -61,19 +61,43 @@ main {
       background: linear-gradient(to top, $color, transparent);
     }
   }
+
+  // Swiper effect:
+
+  // @media screen and (max-width: $tablet-1) {
+  //   display: flex;
+  //   align-items: flex-start;
+
+  //   transition: transform 500ms;
+
+  //   &:has(section:nth-of-type(1).current-section-mobile) {
+  //     transform: translateX(0);
+  //   }
+
+  //   &:has(section:nth-of-type(2).current-section-mobile) {
+  //     transform: translateX(-100vw);
+  //   }
+
+  //   &:has(section:nth-of-type(3).current-section-mobile) {
+  //     transform: translateX(-200vw);
+  //   }
+  // }
 }
 
 .section {
   z-index: $index-section; // in order for :before to take effect
 
-  margin: 60px 0;
+  @media screen and (max-width: $tablet-1) {
+    // Swiper effect:
+    // min-width: 100vw;
+    // min-height: max-content;
+
+    margin-top: 15vh;
+    margin-bottom: 10vh;
+  }
 
   @media screen and (min-width: $tablet) {
     margin: 100px 0;
-  }
-
-  @media screen and (max-width: $tablet-1) {
-    margin-bottom: 25vh;
   }
 
   &:not(:first-child) {
