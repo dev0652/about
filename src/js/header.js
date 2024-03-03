@@ -1,31 +1,20 @@
 import { setTypewriterEffect } from './typing-animation';
 
+// ***********************************
+
 // Refs
 const header = document.querySelector('.header');
 const headerNavLinks = document.querySelectorAll('.header-nav-link');
-
 const sections = document.querySelectorAll('.section');
 const main = document.querySelector('main');
 
-// Body height adjust to compensate for positioned header height
-const { height } = header.getBoundingClientRect();
-const headerHeight = `${height}px`;
-const mobile = window.innerWidth < 768;
+// ***********************************
 
-if (mobile) {
-  document.body.style.paddingBottom = headerHeight;
-  document.documentElement.style.scrollPaddingBottom = headerHeight;
-} else {
-  document.body.style.paddingTop = headerHeight;
-  document.documentElement.style.scrollPaddingTop = headerHeight;
-}
-
-main.style.setProperty('--blurOffset', headerHeight);
-
-// Listen to clicks on header nav links
 headerNavLinks.forEach((link) => {
   link.addEventListener('click', handleNavLinkClick);
 });
+
+// *********************************
 
 // Set an active nav link in header
 function handleNavLinkClick(event) {
@@ -46,4 +35,32 @@ function handleNavLinkClick(event) {
   });
 
   event.target.classList.add('active');
+}
+
+// *********************************
+
+export function adjustHeaderHeight(isMobile) {
+  const { height } = header.getBoundingClientRect();
+  const headerHeight = `${height}px`;
+
+  // Adjust body height to make up for the height of the fixed header
+  main.style.setProperty('--blurOffset', headerHeight);
+
+  if (isMobile) {
+    document.body.style.paddingBottom = headerHeight;
+    document.documentElement.style.scrollPaddingBottom = headerHeight;
+  } else {
+    document.body.style.paddingTop = headerHeight;
+    document.documentElement.style.scrollPaddingTop = headerHeight;
+  }
+}
+
+// ***********************************
+
+export function toggleSectionVisibility(isMobile) {
+  if (isMobile) {
+    sections.forEach((section) => {
+      section.style.display = 'block';
+    });
+  }
 }

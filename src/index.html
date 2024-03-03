@@ -37,15 +37,17 @@
   <body>
     <load ="partials/header.html" />
 
-    <main>
-      <load ="partials/about.html" />
-      <load ="partials/projects.html" />
-      <load ="partials/contacts.html" />
-
-      <!-- Modals -->
-      <load ="partials/modal.html" />
-      <load ="partials/modal-email.html" />
+    <main id="slider" class="swipe">
+      <div class="swipe-wrap">
+        <load ="partials/about.html" />
+        <load ="partials/projects.html" />
+        <load ="partials/contacts.html" />
+      </div>
     </main>
+
+    <!-- Modals -->
+    <load ="partials/modal.html" />
+    <load ="partials/modal-email.html" />
 
     <script type="module" src="./main.js"></script>
   </body>

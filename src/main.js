@@ -1,4 +1,7 @@
 import './js/header';
+import './js/swipe';
+import './js/onScreenChange';
+
 import './js/color-scheme-switcher';
 
 import './js/typing-animation';

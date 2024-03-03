@@ -27,12 +27,20 @@
   align-items: center;
   justify-content: space-between;
 
+  @media screen and (max-width: $tablet-1) {
+    // flex-direction: row-reverse;
+    justify-content: center;
+    height: 50px;
+  }
+
   @media screen and (min-width: $tablet) {
     gap: 50px;
   }
+}
 
+.header-nav {
   @media screen and (max-width: $tablet-1) {
-    flex-direction: row-reverse;
+    display: none;
   }
 }
 
