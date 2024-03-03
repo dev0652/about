@@ -12,11 +12,8 @@ export function toggleSwiper(isMobile, startSlide = 0) {
   // https://github.com/lyfeyaj/swipe/issues/35
 
   if (isMobile) {
-    // window.mySwipe.setup({ startSlide }); // doesn't work as expected
-
-    // Hence, a crutch... :(
-    window.mySwipe.setup();
-    window.mySwipe.slide(startSlide);
+    window.mySwipe.setup({ startSlide }); // doesn't work as expected
+    window.mySwipe.slide(startSlide); // Hence, a crutch... :(
   } else {
     window.mySwipe.kill();
   }
