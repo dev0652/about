@@ -1,3 +1,5 @@
+import './js/refs';
+
 import './js/header';
 import './js/swipe';
 import './js/onScreenChange';
