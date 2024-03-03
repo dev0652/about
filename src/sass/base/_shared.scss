@@ -106,7 +106,11 @@ main {
   .section-content {
     position: relative; // for view switch positioning
 
-    animation: fade-in $first-animation-duration 1s both;
+    animation: fade-in $first-animation-duration 0.5s both;
+
+    @media screen and (min-width: $tablet) {
+      animation: fade-in $first-animation-duration 1s both;
+    }
 
     padding-left: $horizontal-offset;
     padding-right: $horizontal-offset;

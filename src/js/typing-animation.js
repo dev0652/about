@@ -27,5 +27,5 @@ export const setTypewriterEffect = function (id) {
   typeWriter();
 };
 
-// Animate default sectiony title on first load
-setTypewriterEffect('about');
+// Animate default section title on first load
+// setTypewriterEffect('about');

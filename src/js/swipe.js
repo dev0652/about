@@ -1,20 +1,38 @@
 import Swipe from 'swipejs';
+import { refs } from './refs';
 
-const options = {
-  continuous: false,
-  // draggable: true, // listen to mouse events in addition to the touch events
-};
+// *********************************
 
-// https://github.com/lyfeyaj/swipe
-window.mySwipe = new Swipe(document.getElementById('slider', options));
+function getCurrentSectionIndex() {
+  let currentSectionIndex = 0;
 
-export function toggleSwiper(isMobile, startSlide = 0) {
-  // https://github.com/lyfeyaj/swipe/issues/35
+  refs.headerNavLinks.forEach((link, index) => {
+    if (!link.classList.contains('active')) return;
+    currentSectionIndex = index;
+  });
 
-  if (isMobile) {
-    window.mySwipe.setup({ startSlide }); // doesn't work as expected
-    window.mySwipe.slide(startSlide); // Hence, a crutch... :(
+  return currentSectionIndex;
+}
+
+function initialize(startSlide = 0) {
+  const options = { continuous: false, startSlide };
+  window.mySwipe = new Swipe(document.getElementById('slider', options));
+}
+
+function reactivate() {
+  const startSlide = getCurrentSectionIndex();
+
+  if (window.mySwipe) {
+    // window.mySwipe.setup({ startSlide });
+    window.mySwipe.setup();
+    window.mySwipe.slide(startSlide, -1);
   } else {
-    window.mySwipe.kill();
+    initialize({ startSlide });
   }
 }
+
+function kill() {
+  window.mySwipe.kill();
+}
+
+export const slider = { initialize, reactivate, kill };
