@@ -6,59 +6,62 @@ import { refs } from './refs';
 
 // *********************************
 
-function getCurrentSectionIndex() {
-  let currentSectionIndex = 0;
+class Slider {
+  #getCurrentSectionIndex() {
+    let currentSectionIndex = 0;
 
-  refs.headerNavLinks.forEach((link, index) => {
-    if (!link.classList.contains('active')) return;
-    currentSectionIndex = index;
-  });
+    refs.headerNavLinks.forEach((link, index) => {
+      if (!link.classList.contains('active')) return;
+      currentSectionIndex = index;
+    });
 
-  return currentSectionIndex;
-}
+    return currentSectionIndex;
+  }
 
-function setActiveBullet(index, elem, dir) {
-  const bullets = document.querySelectorAll('.pagination-bullet');
+  #setActiveBullet(index, elem, dir) {
+    const bullets = document.querySelectorAll('.pagination-bullet');
 
-  bullets.forEach((bullet) => {
-    if (+bullet.dataset.id === index) {
-      bullet.classList.add('current');
-      bullet.setAttribute('aria-current', true);
+    bullets.forEach((bullet) => {
+      if (+bullet.dataset.id === index) {
+        bullet.classList.add('current');
+        bullet.setAttribute('aria-current', true);
+      } else {
+        bullet.classList.remove('current');
+        bullet.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  // *********************************
+
+  initialize(startSlide = 0) {
+    const options = {
+      continuous: false,
+      draggable: true,
+      startSlide,
+      callback: this.#setActiveBullet,
+    };
+
+    const sliderEl = document.getElementById('slider');
+    window.mySwipe = new Swipe(sliderEl, options);
+
+    this.#setActiveBullet(startSlide);
+  }
+
+  reactivate() {
+    const startSlide = this.#getCurrentSectionIndex();
+
+    if (window.mySwipe) {
+      window.mySwipe.setup();
+      window.mySwipe.slide(startSlide, -1);
     } else {
-      bullet.classList.remove('current');
-      bullet.removeAttribute('aria-current');
+      this.initialize(startSlide);
     }
-  });
-}
+  }
 
-// *********************************
-
-function initialize(startSlide = 0) {
-  const options = {
-    continuous: false,
-    startSlide,
-    callback: setActiveBullet,
-  };
-  const sliderEl = document.getElementById('slider');
-  window.mySwipe = new Swipe(sliderEl, options);
-
-  setActiveBullet(startSlide);
-}
-
-function reactivate() {
-  const startSlide = getCurrentSectionIndex();
-
-  if (window.mySwipe) {
-    // window.mySwipe.setup({ startSlide });
-    window.mySwipe.setup();
-    window.mySwipe.slide(startSlide, -1);
-  } else {
-    initialize(startSlide);
+  kill() {
+    window.mySwipe.kill();
   }
 }
 
-function kill() {
-  window.mySwipe.kill();
-}
-
-export const slider = { initialize, reactivate, kill };
+export const slider = new Slider();

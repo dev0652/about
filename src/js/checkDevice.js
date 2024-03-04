@@ -1,17 +1,25 @@
-import { slider } from './swipe';
-import { createPagination } from './pagination';
 import {
   adjustHeaderHeight,
   setCurrentSection,
   restoreSectionVisibility,
   addHeaderNavListeners,
 } from './header';
+
+import { slider } from './swipe';
+import { createPagination } from './pagination';
+
 import { setTypewriterEffect } from './typing-animation';
 
 // *********************************
 
+function checkSize() {
+  return window.innerWidth < 768;
+}
+
 function doThingsOnLoad() {
-  const isMobile = window.innerWidth < 768;
+  const isMobile = checkSize();
+
+  adjustHeaderHeight(isMobile);
 
   if (isMobile) {
     const paginationList = document.querySelector('.pagination-list');
@@ -19,8 +27,6 @@ function doThingsOnLoad() {
   } else {
     addHeaderNavListeners();
   }
-
-  adjustHeaderHeight(isMobile);
 
   return isMobile;
 }
@@ -42,10 +48,10 @@ function onScreenChange() {
   if (isMobile) {
     restoreSectionVisibility();
     slider.reactivate();
-  } else {
+  } else if (window.mySwipe) {
     setCurrentSection();
     slider.kill();
-  }
+  } else return;
 }
 
 // *********************************
