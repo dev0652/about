@@ -4,14 +4,14 @@ export default [
     name: 'Barber course',
     link: 'https://github.com/dev0652/barber',
     livePage: 'https://barbercourse.kyiv.ua/',
+    technologies: ['HTML', 'SaSS', 'JavaScript', 'EMailJS', 'Vite', 'Git'],
     thumbFilename: 'barber',
     type: 'Commercial project',
     stack: 'Front-end',
-    role: 'Team member',
+    role: 'Team member, repository owner',
     customer: 'barbercourse.kyiv.ua',
     description:
-      'A landing page of a barber training course created with vanilla JavaScript. I worked on this project in collaboration with two other developers and a designer.',
-    technologies: ['HTML', 'SaSS', 'JavaScript', 'EMailJS', 'Vite'],
+      'A landing page of a barber training course created with vanilla JavaScript. I worked on this project in collaboration with two other developers and a designer. My part included the header, the hero block, the curriculum section with the accordion and the mobile menu',
   },
 
   {
@@ -30,7 +30,7 @@ export default [
     ],
     thumbFilename: 'zenbit',
     type: 'Test',
-    stack: 'Front-end, back-end',
+    stack: 'Front-End, Back-End',
     role: null,
     customer: 'ZenBit Tech',
     description:
@@ -42,14 +42,14 @@ export default [
     name: 'Fighters (game)',
     link: 'https://github.com/dev0652/fighters-nodejs',
     livePage: 'https://dev0652.github.io/binary-hw-nodejs/',
-    technologies: ['HTML', 'SaSS', 'JavaScript', 'React', 'Node.js'],
+    technologies: ['HTML', 'SaSS', 'JavaScript', 'React', 'Node.js', 'Git'],
     thumbFilename: 'fighters',
     type: 'Test',
-    stack: 'Front-end, back-end',
+    stack: 'Front-End, Back-End',
     role: null,
     customer: 'Binary Academy',
     description:
-      'A simple, unanimated fighting game. Front-end was built with React making use of class components',
+      'A simple unanimated fighting game. As per the terms of reference, front-end part was rewritten from JS into React making use of class components. Back-end was built with Node.js and features authentication as well the ability to add new fighters.',
   },
 
   {
@@ -57,14 +57,14 @@ export default [
     name: 'Bookshelf',
     link: 'https://github.com/dev0652/bookshelf',
     livePage: 'https://dev0652.github.io/bookshelf/',
-    technologies: ['HTML', 'SaSS', 'JavaScript'],
+    technologies: ['HTML', 'SaSS', 'JavaScript', 'Git'],
     thumbFilename: 'bookshelf',
     type: 'Study team project',
     stack: 'Front-end',
-    role: 'Team leader',
+    role: 'Team leader, repository owner',
     customer: null,
     description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
+      "Our team project for the JavaScript block. This a two-page web app with Firebase-based authorization that allows users to browse, review and buy popular books as well as add them to their shopping list. Unregistered users can add books to the shopping list that will only be available locally. Once logged in, a user's collection of books will be automatically saved in the cloud and can be accessed from anywhere. The website offers dark and light color themes.",
   },
 
   {
@@ -72,14 +72,24 @@ export default [
     name: 'Drink Master',
     link: 'https://github.com/PVO-fullstack/drink_master',
     livePage: 'https://pvo-fullstack.github.io/drink_master/',
-    technologies: ['React', 'SaSS'],
+    technologies: [
+      'HTML',
+      'SaSS',
+      'React',
+      'React Router',
+      'Persist',
+      'React Select',
+      'Formik',
+      'Vite',
+      'Git',
+    ],
     thumbFilename: 'drinkmaster',
     type: 'Study team project',
     stack: 'Front-end',
     role: 'Team member',
     customer: null,
     description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
+      'Our final team project at GoIT. My part was the "Add Recipe" page with a complex multi-layer form built with Formik and React Select that allows registered users to add their own drinks to the database. You will need to register in order to browse the website.',
   },
 
   {
@@ -109,7 +119,7 @@ export default [
     role: null,
     customer: null,
     description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
+      'A simple phonebook whose design was inspired by the React Router tutorial.',
   },
 
   {
@@ -117,14 +127,14 @@ export default [
     name: 'Movie database',
     link: 'https://github.com/dev0652/goit-react-hw-05-movies',
     livePage: 'https://dev0652.github.io/goit-react-hw-05-movies',
-    technologies: ['React'],
+    technologies: ['React', 'React Router'],
     thumbFilename: 'movies',
     type: 'Study project',
     stack: 'Front-end',
     role: null,
     customer: null,
     description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
+      'A simple website that uses the API of themoviedb.org to browse trending movies and search the movie database.',
   },
 
   {
@@ -139,7 +149,7 @@ export default [
     role: null,
     customer: null,
     description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
+      'A website that allows users to find stock images by keyword using the Pixabay API',
   },
 
   {
@@ -147,14 +157,14 @@ export default [
     name: 'Ice Cream',
     link: 'https://github.com/dev0652/icecream',
     livePage: 'https://dev0652.github.io/icecream/',
-    technologies: ['HTML', 'SaSS', 'JavaScript'],
+    technologies: ['HTML', 'SaSS', 'JavaScript', 'Git'],
     thumbFilename: 'icecream',
     type: 'Study team project',
     stack: 'Front-end',
-    role: 'Team leader',
+    role: 'Team leader, repository owner',
     customer: null,
     description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
+      'Our first team project for the HTML/CSS block, with animations and a little bit of JS. I was responsible for the Products section as well as owning the project repository, merging pull requests and resolving conflicts',
   },
 
   {
@@ -168,8 +178,7 @@ export default [
     stack: 'Front-end',
     role: null,
     customer: null,
-    description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
+    description: 'Study project at GoIT',
   },
 
   {
@@ -183,8 +192,7 @@ export default [
     stack: 'Front-end',
     role: null,
     customer: null,
-    description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
+    description: 'Study project at GoIT',
   },
 
   {
@@ -198,7 +206,6 @@ export default [
     stack: 'Front-end',
     role: null,
     customer: null,
-    description:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ullam?',
+    description: 'Study project at GoIT',
   },
 ];
