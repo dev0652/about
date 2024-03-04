@@ -3,11 +3,11 @@ import { refs } from './refs';
 
 // ***********************************
 
-refs.headerNavLinks.forEach((link) => {
-  link.addEventListener('click', handleNavLinkClick);
-});
-
-// *********************************
+export function addHeaderNavListeners() {
+  refs.headerNavLinks.forEach((link) => {
+    link.addEventListener('click', handleNavLinkClick);
+  });
+}
 
 function handleNavLinkClick(event) {
   event.preventDefault();
@@ -24,10 +24,12 @@ function handleNavLinkClick(event) {
   // Set all link inactive
   refs.headerNavLinks.forEach((link) => {
     link.classList.remove('active');
+    link.removeAttribute('aria-current');
   });
 
   // Make the clicked link active
   event.target.classList.add('active');
+  event.target.setAttribute('aria-current', true);
 }
 
 // *********************************
@@ -41,10 +43,16 @@ export function adjustHeaderHeight(isMobile) {
 
   if (isMobile) {
     document.body.style.paddingBottom = headerHeight;
-    document.documentElement.style.scrollPaddingBottom = headerHeight;
+    document.body.style.removeProperty('padding-top');
+
+    // document.documentElement.style.scrollPaddingBottom = headerHeight;
+    // document.documentElement.style.removeProperty('scroll-padding-top');
   } else {
     document.body.style.paddingTop = headerHeight;
-    document.documentElement.style.scrollPaddingTop = headerHeight;
+    document.body.style.removeProperty('padding-bottom');
+
+    // document.documentElement.style.scrollPaddingTop = headerHeight;
+    // document.documentElement.style.removeProperty('scroll-padding-bottom');
   }
 }
 
@@ -65,8 +73,6 @@ export function setCurrentSection() {
   // Set active the current section's corresponding nav link
   refs.headerNavLinks.forEach((link, index) => {
     const method = index === currentSectionIndex ? 'add' : 'remove';
-    // index === currentSectionIndex ? link.classList.add('active') : link.classList.remove('active');
-
     link.classList[method]('active');
   });
 

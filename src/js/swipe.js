@@ -38,10 +38,8 @@ function initialize(startSlide = 0) {
     continuous: false,
     startSlide,
     callback: setActiveBullet,
-    // transitionEnd: function (index, elem) {},
   };
   const sliderEl = document.getElementById('slider');
-
   window.mySwipe = new Swipe(sliderEl, options);
 
   setActiveBullet(startSlide);
@@ -55,7 +53,7 @@ function reactivate() {
     window.mySwipe.setup();
     window.mySwipe.slide(startSlide, -1);
   } else {
-    initialize({ startSlide });
+    initialize(startSlide);
   }
 }
 

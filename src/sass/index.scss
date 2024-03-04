@@ -19,9 +19,10 @@
 @import 'components/pagination';
 
 // Sections
-@import 'components/about';
-@import 'components/projects';
-@import 'components/contacts';
+@import 'sections/sections';
+@import 'sections/about';
+@import 'sections/projects';
+@import 'sections/contacts';
 
 // Modal window
 @import 'components/modal';
