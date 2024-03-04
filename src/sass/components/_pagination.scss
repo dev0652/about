@@ -12,17 +12,17 @@
 }
 
 .pagination-bullet {
-  $size: 10px;
+  $size: 0.5rem;
 
   width: $size;
   height: $size;
-  border-radius: 50%;
+  border-radius: 50%; // ?
   background-color: var(--pagination-bullet);
 
   transition: transform $bullet-td, background-color $bullet-td;
 
   &.current {
-    transform: scale(1.4);
+    transform: scale(1.7);
     background-color: var(--pagination-bullet-current);
   }
 }

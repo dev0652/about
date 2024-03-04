@@ -23,8 +23,10 @@ function setActiveBullet(index, elem, dir) {
   bullets.forEach((bullet) => {
     if (+bullet.dataset.id === index) {
       bullet.classList.add('current');
+      bullet.setAttribute('aria-current', true);
     } else {
       bullet.classList.remove('current');
+      bullet.removeAttribute('aria-current');
     }
   });
 }
