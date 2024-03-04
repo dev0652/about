@@ -21,7 +21,15 @@
     <load ="partials/head/favicon.html" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="./sass/index.scss" />
+    <!-- <link rel="stylesheet" href="./sass/index.scss" /> -->
+
+    <link
+      rel="preload"
+      href="./sass/index.scss"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="styles.css" /></noscript>
   </head>
 
   <style>
