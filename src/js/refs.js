@@ -3,4 +3,5 @@ export const refs = {
   headerNavLinks: document.querySelectorAll('.header-nav-link'),
   sections: document.querySelectorAll('.section'),
   main: document.querySelector('main'),
+  pagination: document.querySelector('.pagination'),
 };

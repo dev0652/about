@@ -1,6 +1,9 @@
 import Swipe from 'swipejs';
 import { refs } from './refs';
 
+// https://github.com/lyfeyaj/swipe
+// https://github.com/lyfeyaj/swipe/issues/35
+
 // *********************************
 
 function getCurrentSectionIndex() {
@@ -15,8 +18,22 @@ function getCurrentSectionIndex() {
 }
 
 function initialize(startSlide = 0) {
-  const options = { continuous: false, startSlide };
-  window.mySwipe = new Swipe(document.getElementById('slider', options));
+  const options = {
+    continuous: false,
+    startSlide,
+    callback: function (index, elem, dir) {
+      const page = index + 1;
+      refs.pagination.innerHTML = `${page} of ${pages}`;
+    },
+    // transitionEnd: function (index, elem) {},
+  };
+  const sliderEl = document.getElementById('slider');
+
+  window.mySwipe = new Swipe(sliderEl, options);
+
+  const page = window.mySwipe.getPos() + 1;
+  const pages = window.mySwipe.getNumSlides();
+  refs.pagination.innerHTML = `${page} of ${pages}`;
 }
 
 function reactivate() {
