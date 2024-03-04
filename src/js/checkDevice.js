@@ -5,21 +5,32 @@ import {
   setCurrentSection,
   restoreSectionVisibility,
 } from './header';
+import { createPagination } from './pagination';
+import { refs } from './refs';
 
 // *********************************
 
-function checkSize() {
-  return window.innerWidth < 768;
-}
+function doThingsOnLoad() {
+  const isMobile = window.innerWidth < 768;
 
-// *********************************
-
-function onFirstLoad() {
-  const isMobile = checkSize();
   adjustHeaderHeight(isMobile);
 
   if (isMobile) {
     restoreSectionVisibility();
+
+    const paginationList = document.querySelector('.pagination-list');
+
+    if (!paginationList) createPagination();
+  }
+
+  return isMobile;
+}
+// *********************************
+
+function onFirstLoad() {
+  const isMobile = doThingsOnLoad();
+
+  if (isMobile) {
     slider.initialize();
   } else {
     setTypewriterEffect('about');
@@ -27,11 +38,9 @@ function onFirstLoad() {
 }
 
 function onScreenChange() {
-  const isMobile = checkSize();
-  adjustHeaderHeight(isMobile);
+  const isMobile = doThingsOnLoad();
 
   if (isMobile) {
-    restoreSectionVisibility();
     slider.reactivate();
   } else {
     slider.kill();

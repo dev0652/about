@@ -1,0 +1,28 @@
+.pagination {
+  justify-self: center;
+
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.pagination-list {
+  display: flex;
+  gap: 1rem;
+}
+
+.pagination-bullet {
+  $size: 10px;
+
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: var(--pagination-bullet);
+
+  transition: transform $bullet-td, background-color $bullet-td;
+
+  &.current {
+    transform: scale(1.4);
+    background-color: var(--pagination-bullet-current);
+  }
+}

@@ -17,23 +17,32 @@ function getCurrentSectionIndex() {
   return currentSectionIndex;
 }
 
+function setActiveBullet(index, elem, dir) {
+  const bullets = document.querySelectorAll('.pagination-bullet');
+
+  bullets.forEach((bullet) => {
+    if (+bullet.dataset.id === index) {
+      bullet.classList.add('current');
+    } else {
+      bullet.classList.remove('current');
+    }
+  });
+}
+
+// *********************************
+
 function initialize(startSlide = 0) {
   const options = {
     continuous: false,
     startSlide,
-    callback: function (index, elem, dir) {
-      const page = index + 1;
-      refs.pagination.innerHTML = `${page} of ${pages}`;
-    },
+    callback: setActiveBullet,
     // transitionEnd: function (index, elem) {},
   };
   const sliderEl = document.getElementById('slider');
 
   window.mySwipe = new Swipe(sliderEl, options);
 
-  const page = window.mySwipe.getPos() + 1;
-  const pages = window.mySwipe.getNumSlides();
-  refs.pagination.innerHTML = `${page} of ${pages}`;
+  setActiveBullet(startSlide);
 }
 
 function reactivate() {
