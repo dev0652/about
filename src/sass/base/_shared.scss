@@ -18,19 +18,39 @@ body {
   transition: background-color $theme-switch-duration
       $theme-switch-timing-function,
     color $theme-switch-duration $theme-switch-timing-function;
+
+  --blurOffset: 15vh; // default for mobile, is reset via JS
+  --bottomBlurOffset: 50px; // default, mobile only, will be reset via JS
+
+  @media screen and (min-width: $tablet) {
+    --blurOffset: 5.1375rem; // default, is reset via JS
+  }
+
+  @media screen and (min-width: $desktop) {
+    --blurOffset: 4.4rem; // default, is reset via JS
+  }
+
+  @media screen and (max-width: $tablet-1) {
+    padding-bottom: var(--bottomBlurOffset);
+  }
+
+  padding-top: var(--blurOffset);
 }
 
 main {
   position: relative;
-
-  --blurOffset: 54px; // default for mobile, is reset via JS
-  @media screen and (min-width: $tablet) {
-    --blurOffset: 67px; // default, is reset via JS
-  }
+  overflow: hidden;
 
   &.faded-edges {
-    $spread: 10vh;
+    --spread: 10vh;
+
+    @media screen and (max-width: $tablet-1) {
+      --spread: 5vh;
+    }
+
+    $spread: var(--spread);
     $color: var(--header-bg-color);
+    // $color: red;
 
     &:before,
     &:after {
@@ -46,17 +66,15 @@ main {
     }
 
     &:before {
-      top: 0;
-      @media screen and (min-width: $tablet) {
-        top: var(--blurOffset); // header goes back to top
-      }
+      top: var(--blurOffset);
       background: linear-gradient(to bottom, $color, transparent);
     }
 
     &:after {
-      bottom: var(--blurOffset);
+      bottom: var(--bottomBlurOffset);
+
       @media screen and (min-width: $tablet) {
-        bottom: 0; // header goes back to top
+        bottom: 0; // footer with pagination is only shown in mobile view
       }
       background: linear-gradient(to top, $color, transparent);
     }

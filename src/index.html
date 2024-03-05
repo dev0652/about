@@ -21,15 +21,15 @@
     <load ="partials/head/favicon.html" />
 
     <!-- Styles -->
-    <!-- <link rel="stylesheet" href="./sass/index.scss" /> -->
+    <link rel="stylesheet" href="./sass/index.scss" />
 
-    <link
+    <!-- <link
       rel="preload"
       href="./sass/index.scss"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
-    <noscript><link rel="stylesheet" href="styles.css" /></noscript>
+    <noscript><link rel="stylesheet" href="styles.css" /></noscript> -->
   </head>
 
   <style>
@@ -45,13 +45,19 @@
   <body>
     <load ="partials/header.html" />
 
-    <main id="slider" class="swipe">
-      <div class="swipe-wrap">
-        <load ="partials/about.html" />
-        <load ="partials/projects.html" />
-        <load ="partials/contacts.html" />
+    <main>
+      <div id="slider" class="swipe">
+        <div class="swipe-wrap">
+          <load ="partials/about.html" />
+          <load ="partials/projects.html" />
+          <load ="partials/contacts.html" />
+        </div>
       </div>
     </main>
+
+    <footer class="footer">
+      <nav class="pagination" aria-label="Pagination navigation"></nav>
+    </footer>
 
     <!-- Modals -->
     <load ="partials/modal.html" />

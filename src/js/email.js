@@ -1,6 +1,5 @@
 import emailjs from '@emailjs/browser';
 import { openEmailModal } from './modal';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 emailjs.init('E8FZeR5jYUP13UDEy');
 

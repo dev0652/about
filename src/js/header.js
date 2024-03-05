@@ -34,27 +34,27 @@ function handleNavLinkClick(event) {
 
 // *********************************
 
-export function adjustHeaderHeight(isMobile) {
-  const { height } = refs.header.getBoundingClientRect();
-  const headerHeight = `${height}px`;
+// export function adjustBodyOffsets(isMobile) {
+//   const { height } = refs.header.getBoundingClientRect();
+//   const headerHeight = `${height}px`;
 
-  // Adjust body height to make up for the height of the fixed header
-  refs.main.style.setProperty('--blurOffset', headerHeight);
+//   // Adjust body height to make up for the height of the fixed header
+//   document.body.style.paddingTop = headerHeight;
+//   document.body.style.setProperty('--blurOffset', headerHeight);
+//   document.documentElement.style.scrollPaddingTop = headerHeight;
 
-  if (isMobile) {
-    document.body.style.paddingBottom = headerHeight;
-    document.body.style.removeProperty('padding-top');
+//   if (isMobile) {
+//     const { height } = refs.footer.getBoundingClientRect();
+//     const footerHeight = `${height}px`;
 
-    // document.documentElement.style.scrollPaddingBottom = headerHeight;
-    // document.documentElement.style.removeProperty('scroll-padding-top');
-  } else {
-    document.body.style.paddingTop = headerHeight;
-    document.body.style.removeProperty('padding-bottom');
-
-    // document.documentElement.style.scrollPaddingTop = headerHeight;
-    // document.documentElement.style.removeProperty('scroll-padding-bottom');
-  }
-}
+//     document.body.style.paddingBottom = footerHeight;
+//     // document.body.style.setProperty('--bottomBlurOffset', footerHeight);
+//     document.documentElement.style.scrollPaddingBottom = footerHeight;
+//   } else {
+//     document.body.style.removeProperty('padding-bottom');
+//     document.documentElement.style.removeProperty('scroll-padding-bottom');
+//   }
+// }
 
 // ***********************************
 

@@ -1,9 +1,18 @@
-.pagination {
-  margin-right: 1rem;
-
+.footer {
   @media screen and (min-width: $tablet) {
     display: none;
   }
+
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+
+  background-color: var(--background-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pagination-list {

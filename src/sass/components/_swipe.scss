@@ -1,6 +1,6 @@
 @media screen and (max-width: $tablet-1) {
   .swipe {
-    // position: relative; // already exists on main
+    position: relative;
     overflow: hidden;
     visibility: hidden;
   }

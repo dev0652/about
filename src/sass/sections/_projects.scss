@@ -1,22 +1,32 @@
-// Gallery
-
-// .gallery {}
+.section#projects {
+  .section-content {
+    @media screen and (min-width: $tablet) {
+      position: relative; // for view switch positioning
+    }
+    // background-color: beige;
+  }
+}
 
 .projects-view-switch {
   @extend %link !optional;
   text-transform: lowercase;
 
-  border: none;
-  background-color: transparent;
-
   display: block;
   margin-left: auto;
 
-  position: absolute;
-  top: -50px;
+  @media screen and (max-width: $tablet-1) {
+    // position: static;
+    margin-bottom: 1rem;
+  }
 
-  right: $horizontal-offset;
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    right: $horizontal-offset;
+    top: -50px;
+  }
 
+  border: none;
+  background-color: transparent;
   transition: color $theme-switch-duration;
 }
 

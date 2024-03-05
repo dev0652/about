@@ -1,4 +1,5 @@
-import projects from '/data/db';
+import projects from '/data/db.json' assert { type: 'json' };
+
 import { openModal } from '/js/modal';
 import createCardMarkup from './createCard';
 

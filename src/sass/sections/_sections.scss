@@ -1,14 +1,14 @@
 .section {
   z-index: $index-section; // in order for :before to take effect
 
-  @media screen and (max-width: $tablet-1) {
-    // Swiper effect:
-    // min-width: 100vw;
-    // max-height: max-content;
+  // @media screen and (max-width: $tablet-1) {
+  //   // Swiper effect:
+  //   // min-width: 100vw;
+  //   // max-height: max-content;
 
-    margin-top: 15vh;
-    margin-bottom: 10vh;
-  }
+  //   margin-top: 15vh;
+  //   margin-bottom: 10vh;
+  // }
 
   @media screen and (min-width: $tablet) {
     margin: 100px 0;
@@ -18,19 +18,23 @@
     }
   }
 
-  $first-animation-duration: 1.5s;
-
   .section-title {
-    display: inline-block;
-    overflow-x: hidden;
-
-    padding-left: $horizontal-offset;
-
     text-transform: lowercase;
     user-select: none;
 
-    font-size: 4rem;
-    margin-bottom: 40px;
+    // @media screen and (max-width: $tablet-1) { // prev version
+    // display: inline-block;
+    // overflow-x: hidden;
+    // padding-left: $horizontal-offset;
+    // font-size: 4rem;
+    // margin-bottom: 40px;
+    // }
+
+    @media screen and (max-width: $tablet-1) {
+      visibility: hidden;
+      max-height: 0;
+      margin-bottom: 5vh;
+    }
 
     @media screen and (min-width: $tablet) {
       font-size: 5rem;
@@ -39,7 +43,7 @@
   }
 
   .section-content {
-    position: relative; // for view switch positioning
+    $first-animation-duration: 1.5s;
 
     animation: fade-in $first-animation-duration 0.5s both;
 
@@ -49,5 +53,9 @@
 
     padding-left: $horizontal-offset;
     padding-right: $horizontal-offset;
+
+    @media screen and (max-width: $tablet-1) {
+      margin-bottom: 10vh;
+    }
   }
 }

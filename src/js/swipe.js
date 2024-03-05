@@ -1,67 +1,66 @@
 import Swipe from 'swipejs';
-import { refs } from './refs';
+import { setActiveTitleByDirection } from './mobileTitles';
 
 // https://github.com/lyfeyaj/swipe
 // https://github.com/lyfeyaj/swipe/issues/35
 
 // *********************************
 
-class Slider {
-  #getCurrentSectionIndex() {
-    let currentSectionIndex = 0;
+function scrollToTop() {
+  window.scroll({
+    top: 0,
+    // behavior: 'instant'
+  });
+}
 
-    refs.headerNavLinks.forEach((link, index) => {
-      if (!link.classList.contains('active')) return;
-      currentSectionIndex = index;
-    });
+function setActiveBullet(index) {
+  const bullets = document.querySelectorAll('.pagination-bullet');
 
-    return currentSectionIndex;
-  }
-
-  #setActiveBullet(index, elem, dir) {
-    const bullets = document.querySelectorAll('.pagination-bullet');
-
-    bullets.forEach((bullet) => {
-      if (+bullet.dataset.id === index) {
-        bullet.classList.add('current');
-        bullet.setAttribute('aria-current', true);
-      } else {
-        bullet.classList.remove('current');
-        bullet.removeAttribute('aria-current');
-      }
-    });
-  }
-
-  // *********************************
-
-  initialize(startSlide = 0) {
-    const options = {
-      continuous: false,
-      draggable: true,
-      startSlide,
-      callback: this.#setActiveBullet,
-    };
-
-    const sliderEl = document.getElementById('slider');
-    window.mySwipe = new Swipe(sliderEl, options);
-
-    this.#setActiveBullet(startSlide);
-  }
-
-  reactivate() {
-    const startSlide = this.#getCurrentSectionIndex();
-
-    if (window.mySwipe) {
-      window.mySwipe.setup();
-      window.mySwipe.slide(startSlide, -1);
+  bullets.forEach((bullet) => {
+    if (+bullet.dataset.id === index) {
+      bullet.classList.add('current');
+      bullet.setAttribute('aria-current', true);
     } else {
-      this.initialize(startSlide);
+      bullet.classList.remove('current');
+      bullet.removeAttribute('aria-current');
     }
-  }
+  });
+}
 
-  kill() {
-    window.mySwipe.kill();
+function onSlideChange(index, elem, dir) {
+  setActiveBullet(index);
+  setActiveTitleByDirection(dir);
+}
+// *********************************
+
+function initialize(startSlide = 0) {
+  const options = {
+    // continuous: false,
+    draggable: true,
+    startSlide,
+    callback: onSlideChange,
+    transitionEnd: scrollToTop,
+  };
+
+  const sliderEl = document.getElementById('slider');
+  window.mySwipe = new Swipe(sliderEl, options);
+
+  setActiveBullet(startSlide);
+}
+
+function reactivate(startSlide = 0) {
+  if (window.mySwipe) {
+    window.mySwipe.setup();
+    window.mySwipe.slide(startSlide, -1);
+  } else {
+    initialize(startSlide);
   }
 }
 
-export const slider = new Slider();
+function kill() {
+  window.mySwipe.kill();
+}
+
+// *********************************
+
+export const slider = { initialize, reactivate, kill };
