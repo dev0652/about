@@ -9,7 +9,7 @@ export const refs = {
 
   pagination: document.querySelector('.pagination'),
   // bullets: document.querySelectorAll('.pagination-bullet'),
-  titlesInjectionTarget: document.querySelector('.mobile-nav'),
+  titlesInjectionTarget: document.querySelector('.mobile-headings'),
 
   colorSwitcher: document.querySelector('#color-scheme-switcher-checkbox'),
   colorSwitcherSlider: document.querySelector('.color-scheme-switcher-slider'),

@@ -11,6 +11,10 @@ $slider-circle-size: calc($slider-height - 2px);
 
   margin-left: 1rem;
 
+  @media screen and (max-width: $tablet-1) {
+    margin-top: $container-padding-mobile;
+  }
+
   @media screen and (min-width: $tablet) {
     margin-right: 1rem;
   }

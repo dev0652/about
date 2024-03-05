@@ -19,7 +19,7 @@ body {
       $theme-switch-timing-function,
     color $theme-switch-duration $theme-switch-timing-function;
 
-  --blurOffset: 15vh; // default for mobile, is reset via JS
+  --blurOffset: 20vh; // default for mobile, is reset via JS
   --bottomBlurOffset: 50px; // default, mobile only, will be reset via JS
 
   @media screen and (min-width: $tablet) {
