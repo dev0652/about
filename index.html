@@ -46,8 +46,16 @@
 
     <!-- Styles -->
     
-    <script type="module" crossorigin src="/about/assets/index-3b246390.js"></script>
-    <link rel="stylesheet" href="/about/assets/index-d893475e.css">
+
+    <!-- <link
+      rel="preload"
+      href="./sass/index.scss"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="styles.css" /></noscript> -->
+    <script type="module" crossorigin src="/about/assets/index-d24e9704.js"></script>
+    <link rel="stylesheet" href="/about/assets/index-ee4f9c85.css">
   </head>
 
   <style>
@@ -64,7 +72,8 @@
     <header class="header">
   <div class="header-container">
     <!-- Navigation -->
-    <nav class="nav">
+
+    <nav class="header-nav">
       <ul class="header-nav-list">
         <li class="nav-item">
           <a class="header-nav-link active" href="#about" data-id="about"
@@ -86,13 +95,15 @@
       </ul>
     </nav>
 
+    <div class="mobile-headings"></div>
+
     <label class="color-scheme-switcher">
   <input
     type="checkbox"
     name="color-scheme-switcher-checkbox"
     class="color-scheme-switcher-checkbox"
     id="color-scheme-switcher-checkbox"
-    aria-label="Color scheme switcher"
+    aria-label="Color-scheme switcher"
   />
 
   <span class="color-scheme-switcher-slider"></span>
@@ -114,7 +125,9 @@
 
 
     <main>
-      <section class="section" id="about">
+      <div id="slider" class="swipe">
+        <div class="swipe-wrap">
+          <section class="section" id="about">
   <div class="container">
     <h2 class="section-title" id="about-title">About me</h2>
 
@@ -144,7 +157,7 @@
   </div>
 </section>
 
-      <section class="section" id="projects">
+          <section class="section" id="projects">
   <div class="container">
     <h2 class="section-title" id="projects-title">Projects</h2>
 
@@ -155,7 +168,7 @@
   </div>
 </section>
 
-      <section class="section" id="contacts">
+          <section class="section" id="contacts">
   <div class="container">
     <h2 class="section-title" id="contacts-title">Contacts</h2>
 
@@ -248,9 +261,16 @@
   </div>
 </section>
 
+        </div>
+      </div>
+    </main>
 
-      <!-- Modals -->
-      <div class="modal-backdrop popup-backdrop is-hidden">
+    <footer class="footer">
+      <nav class="pagination" aria-label="Pagination navigation"></nav>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal-backdrop popup-backdrop is-hidden">
   <div class="modal popup-modal">
     <button
       type="button"
@@ -266,7 +286,7 @@
   </div>
 </div>
 
-      <div class="modal-backdrop email-backdrop is-hidden">
+    <div class="modal-backdrop email-backdrop is-hidden">
   <div class="modal email-modal">
     <div class="email-confirmation-text"></div>
 
@@ -280,7 +300,6 @@
   </div>
 </div>
 
-    </main>
 
     
   </body>
