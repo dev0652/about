@@ -1,7 +1,4 @@
-const colorSwitcher = document.querySelector('#color-scheme-switcher-checkbox');
-const colorSwitcherSlider = document.querySelector(
-  '.color-scheme-switcher-slider'
-);
+import { refs } from './refs';
 
 // #############################################################
 
@@ -12,19 +9,22 @@ function presetSwitcher() {
   if (!isSaved) return;
   if (isSaved === 'false') return;
 
-  colorSwitcher.checked = true;
+  document.body.classList.add('dark');
+  refs.colorSwitcher.setAttribute('checked', '');
 }
 
 function setColorScheme() {
   const main = document.querySelector('main');
   main.classList.remove('faded-edges');
 
-  if (colorSwitcher.checked) {
-    document.body.classList.add('dark');
+  if (refs.colorSwitcher.checked) {
+    if (!document.body.classList.contains('dark'))
+      document.body.classList.add('dark');
   } else {
     document.body.classList.remove('dark');
   }
 
+  // Avoid color flashing by postponing the faded edges effect on main
   const delay =
     parseFloat(
       getComputedStyle(document.body).getPropertyValue('transition-duration')
@@ -40,16 +40,15 @@ function updateLocalStorage(checkbox) {
   localStorage.setItem('dark-color-scheme', checkbox.checked);
 }
 
-// #############################################################
+// *********************************
 
-// Resulting function:
 function activateColorSchemeSwitcher() {
   presetSwitcher();
   setColorScheme();
 
-  colorSwitcher.addEventListener('change', onChange);
+  refs.colorSwitcher.addEventListener('change', onChange);
   setTimeout(() => {
-    colorSwitcherSlider.classList.add('animated');
+    refs.colorSwitcherSlider.classList.add('animated');
   }, 100);
 }
 
@@ -58,6 +57,6 @@ function onChange(event) {
   updateLocalStorage(event.currentTarget);
 }
 
-// #############################################################
+// *********************************
 
 activateColorSchemeSwitcher();

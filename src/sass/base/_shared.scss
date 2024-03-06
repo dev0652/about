@@ -18,19 +18,39 @@ body {
   transition: background-color $theme-switch-duration
       $theme-switch-timing-function,
     color $theme-switch-duration $theme-switch-timing-function;
+
+  --blurOffset: 20vh; // default for mobile, is reset via JS
+  --bottomBlurOffset: 50px; // default, mobile only, will be reset via JS
+
+  @media screen and (min-width: $tablet) {
+    --blurOffset: 5.1375rem; // default, is reset via JS
+  }
+
+  @media screen and (min-width: $desktop) {
+    --blurOffset: 4.4rem; // default, is reset via JS
+  }
+
+  @media screen and (max-width: $tablet-1) {
+    padding-bottom: var(--bottomBlurOffset);
+  }
+
+  padding-top: var(--blurOffset);
 }
 
 main {
   position: relative;
-
-  --blurOffset: 54px; // default for mobile, is reset via JS
-  @media screen and (min-width: $tablet) {
-    --blurOffset: 67px; // default, is reset via JS
-  }
+  overflow: hidden;
 
   &.faded-edges {
-    $spread: 10vh;
+    --spread: 10vh;
+
+    @media screen and (max-width: $tablet-1) {
+      --spread: 5vh;
+    }
+
+    $spread: var(--spread);
     $color: var(--header-bg-color);
+    // $color: red;
 
     &:before,
     &:after {
@@ -46,66 +66,17 @@ main {
     }
 
     &:before {
-      top: 0;
-      @media screen and (min-width: $tablet) {
-        top: var(--blurOffset); // header goes back to top
-      }
+      top: var(--blurOffset);
       background: linear-gradient(to bottom, $color, transparent);
     }
 
     &:after {
-      bottom: var(--blurOffset);
+      bottom: var(--bottomBlurOffset);
+
       @media screen and (min-width: $tablet) {
-        bottom: 0; // header goes back to top
+        bottom: 0; // footer with pagination is only shown in mobile view
       }
       background: linear-gradient(to top, $color, transparent);
     }
-  }
-}
-
-.section {
-  z-index: $index-section; // in order for :before to take effect
-
-  margin: 60px 0;
-
-  @media screen and (min-width: $tablet) {
-    margin: 100px 0;
-  }
-
-  @media screen and (max-width: $tablet-1) {
-    margin-bottom: 25vh;
-  }
-
-  &:not(:first-child) {
-    display: none; // initially hide all sections but first
-  }
-
-  $first-animation-duration: 1.5s;
-
-  .section-title {
-    display: inline-block;
-    overflow-x: hidden;
-
-    padding-left: $horizontal-offset;
-
-    text-transform: lowercase;
-    user-select: none;
-
-    font-size: 4rem;
-    margin-bottom: 40px;
-
-    @media screen and (min-width: $tablet) {
-      font-size: 5rem;
-      margin-bottom: 60px;
-    }
-  }
-
-  .section-content {
-    position: relative; // for view switch positioning
-
-    animation: fade-in $first-animation-duration 1s both;
-
-    padding-left: $horizontal-offset;
-    padding-right: $horizontal-offset;
   }
 }

@@ -4,13 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "build-gh": "vite build --base=/about/",
     "preview": "vite preview"
   },
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
+    "swipejs": "^2.3.1",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
   },

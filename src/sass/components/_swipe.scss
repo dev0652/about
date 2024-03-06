@@ -1,0 +1,17 @@
+@media screen and (max-width: $tablet-1) {
+  .swipe {
+    position: relative;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  .swipe-wrap {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+  }
+  .swipe-wrap > .section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+}

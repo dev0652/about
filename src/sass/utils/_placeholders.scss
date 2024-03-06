@@ -22,7 +22,7 @@
   color: gray;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: currentColor;
   }
 }

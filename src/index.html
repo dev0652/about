@@ -22,6 +22,14 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="./sass/index.scss" />
+
+    <!-- <link
+      rel="preload"
+      href="./sass/index.scss"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="styles.css" /></noscript> -->
   </head>
 
   <style>
@@ -38,14 +46,22 @@
     <load ="partials/header.html" />
 
     <main>
-      <load ="partials/about.html" />
-      <load ="partials/projects.html" />
-      <load ="partials/contacts.html" />
-
-      <!-- Modals -->
-      <load ="partials/modal.html" />
-      <load ="partials/modal-email.html" />
+      <div id="slider" class="swipe">
+        <div class="swipe-wrap">
+          <load ="partials/about.html" />
+          <load ="partials/projects.html" />
+          <load ="partials/contacts.html" />
+        </div>
+      </div>
     </main>
+
+    <footer class="footer">
+      <nav class="pagination" aria-label="Pagination navigation"></nav>
+    </footer>
+
+    <!-- Modals -->
+    <load ="partials/modal.html" />
+    <load ="partials/modal-email.html" />
 
     <script type="module" src="./main.js"></script>
   </body>
