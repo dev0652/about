@@ -37,7 +37,7 @@ function doThingsOnLoad() {
   } else {
     addHeaderNavListeners();
   }
-  // adjustBodyOffsets(isMobile);
+  // adjustBodyOffsets(mediaQueryMobile.matches);
 }
 
 // *********************************
@@ -51,7 +51,6 @@ function onFirstLoad() {
     setTypewriterEffect('about');
   }
 
-  // window.addEventListener('resize', onScreenChange);
   mediaQueryMobile.addEventListener('change', onScreenChange);
 }
 
