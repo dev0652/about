@@ -48,6 +48,7 @@ function onSlideChange(index, elem, dir) {
 function initialize(startSlide = 0) {
   const options = {
     // continuous: false,
+    ignore: 'input, textarea',
     draggable: true,
     startSlide,
     callback: onSlideChange,
