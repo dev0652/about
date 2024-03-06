@@ -13,9 +13,9 @@ import { setTypewriterEffect } from './typing-animation';
 
 // *********************************
 
-function checkSize() {
-  return window.innerWidth < 768;
-}
+const mediaQueryMobile = window.matchMedia('(max-width: 767px)');
+
+// *********************************
 
 function getCurrentSectionIndex() {
   let currentSectionIndex = 0;
@@ -28,36 +28,37 @@ function getCurrentSectionIndex() {
   return currentSectionIndex;
 }
 
-function doThingsOnLoad() {
-  const isMobile = checkSize();
+// *********************************
 
-  if (isMobile) {
+function doThingsOnLoad() {
+  if (mediaQueryMobile.matches) {
     const paginationList = document.querySelector('.pagination-list');
     if (!paginationList) createPagination();
   } else {
     addHeaderNavListeners();
   }
   // adjustBodyOffsets(isMobile);
-  return isMobile;
 }
+
 // *********************************
 
 function onFirstLoad() {
-  const isMobile = doThingsOnLoad();
+  doThingsOnLoad();
 
-  if (isMobile) {
+  if (mediaQueryMobile.matches) {
     slider.initialize();
   } else {
     setTypewriterEffect('about');
   }
 
-  window.addEventListener('resize', onScreenChange);
+  // window.addEventListener('resize', onScreenChange);
+  mediaQueryMobile.addEventListener('change', onScreenChange);
 }
 
-function onScreenChange() {
-  const isMobile = doThingsOnLoad();
+function onScreenChange(event) {
+  doThingsOnLoad();
 
-  if (isMobile) {
+  if (event.matches) {
     restoreSectionVisibility();
     const currentSectionIndex = getCurrentSectionIndex();
     slider.reactivate(currentSectionIndex);
