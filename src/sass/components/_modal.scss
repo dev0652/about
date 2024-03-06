@@ -15,7 +15,8 @@
     width: 100%;
     height: 100%;
 
-    background-color: rgba(SlateGray, 0.7);
+    background-color: rgba(#303234, 0.8);
+    backdrop-filter: blur(2px);
 
     opacity: 1;
     z-index: $index-modal-backdrop;
