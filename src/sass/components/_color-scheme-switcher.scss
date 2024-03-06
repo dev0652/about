@@ -10,13 +10,13 @@ $slider-circle-size: calc($slider-height - 2px);
   height: $slider-height;
 
   margin-left: 1rem;
+  margin-right: 1rem;
 
   @media screen and (max-width: $tablet-1) {
-    margin-top: $container-padding-mobile;
-  }
-
-  @media screen and (min-width: $tablet) {
-    margin-right: 1rem;
+    margin-top: $container-padding-mobile * 2;
+    margin-right: 1.5rem;
+    // margin-left: 2rem;
+    // align-self: start;
   }
 
   outline: none;

@@ -8,11 +8,15 @@
   height: 50px;
   width: 100%;
 
-  background-color: var(--background-color);
-
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: background-color $theme-switch-duration
+      $theme-switch-timing-function,
+    color $theme-switch-duration $theme-switch-timing-function;
+
+  background-color: var(--background-color);
 }
 
 .pagination-list {
