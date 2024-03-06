@@ -17,21 +17,21 @@
 
 .pagination-list {
   display: flex;
-  gap: 1rem;
+  gap: 1.7rem;
 }
 
 .pagination-bullet {
-  $size: 0.5rem;
+  $size: 0.4rem;
 
   width: $size;
   height: $size;
-  border-radius: 30%; // ?
+  border-radius: 10%;
   background-color: var(--pagination-bullet);
 
   transition: transform $bullet-td, background-color $bullet-td;
 
   &.current {
-    transform: scale(1.7);
+    transform: scale(2);
     background-color: var(--pagination-bullet-current);
   }
 }

@@ -1,5 +1,6 @@
+import { refs } from './refs';
 import Swipe from 'swipejs';
-import { setActiveTitleByDirection } from './mobileTitles';
+import { injectMobileTitles, setActiveTitleByDirection } from './mobileTitles';
 
 // https://github.com/lyfeyaj/swipe
 // https://github.com/lyfeyaj/swipe/issues/35
@@ -11,6 +12,17 @@ function scrollToTop() {
     top: 0,
     // behavior: 'instant'
   });
+}
+
+function getCurrentSectionId(sectionIndex) {
+  let id = null;
+
+  refs.sections.forEach((section, index) => {
+    if (index !== sectionIndex) return;
+    id = section.id;
+  });
+
+  return id;
 }
 
 function setActiveBullet(index) {
@@ -46,6 +58,9 @@ function initialize(startSlide = 0) {
   window.mySwipe = new Swipe(sliderEl, options);
 
   setActiveBullet(startSlide);
+  const currentSectionId = getCurrentSectionId(startSlide);
+
+  injectMobileTitles(currentSectionId);
 }
 
 function reactivate(startSlide = 0) {

@@ -10,7 +10,6 @@ import { slider } from './swipe';
 import { createPagination } from './pagination';
 
 import { setTypewriterEffect } from './typing-animation';
-import { injectMobileTitles } from './mobileTitles';
 
 // *********************************
 
@@ -27,17 +26,6 @@ function getCurrentSectionIndex() {
   });
 
   return currentSectionIndex;
-}
-
-function getCurrentSectionId(sectionIndex) {
-  let id = null;
-
-  refs.sections.forEach((section, index) => {
-    if (index !== sectionIndex) return;
-    id = section.id;
-  });
-
-  return id;
 }
 
 function doThingsOnLoad() {
@@ -58,35 +46,29 @@ function onFirstLoad() {
   const isMobile = doThingsOnLoad();
 
   if (isMobile) {
-    injectMobileTitles();
     slider.initialize();
   } else {
     setTypewriterEffect('about');
   }
+
+  window.addEventListener('resize', onScreenChange);
 }
 
 function onScreenChange() {
   const isMobile = doThingsOnLoad();
 
   if (isMobile) {
-    const currentSectionIndex = getCurrentSectionIndex();
     restoreSectionVisibility();
+    const currentSectionIndex = getCurrentSectionIndex();
     slider.reactivate(currentSectionIndex);
-
-    if (currentSectionIndex === 0) {
-      injectMobileTitles();
-    } else {
-      const currentSectionId = getCurrentSectionId(currentSectionIndex);
-      injectMobileTitles(currentSectionId);
+  } else {
+    if (window.mySwipe) {
+      setCurrentSection();
+      slider.kill();
     }
-    //
-  } else if (window.mySwipe) {
-    setCurrentSection();
-    slider.kill();
-  } else return;
+  }
 }
 
 // *********************************
 
 onFirstLoad();
-window.onresize = onScreenChange;

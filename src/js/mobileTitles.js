@@ -6,6 +6,8 @@ const sectionsNodeList = refs.sections;
 const sections = Array.from(sectionsNodeList);
 const titles = sections.map((section) => section.id.toLowerCase());
 
+// ***********************************
+
 function populateTitles(titlesArray) {
   refs.titlesInjectionTarget.innerHTML = '';
 
@@ -13,45 +15,38 @@ function populateTitles(titlesArray) {
     const element = document.createElement('span');
     element.classList.add('mobile-section-title');
     element.innerHTML = title;
-
     refs.titlesInjectionTarget.appendChild(element);
   });
 }
 
 // ***********************************
 
-export function injectMobileTitles(id = null) {
-  id ? setActiveTitleById(id) : populateTitles(titles);
-}
-
+// On Screen change:
 function setActiveTitleById(id) {
-  console.log('id: ', id);
+  const index = titles.indexOf(id);
 
-  const newTitleIndex = titles.indexOf(id);
-  console.log('newTitleIndex: ', newTitleIndex);
-
-  const indexToDelete =
-    newTitleIndex === 0 ? titles.length - 1 : newTitleIndex - 1;
-  const itemToMove = titles[indexToDelete];
-
-  titles.splice(indexToDelete, 1);
-  titles.push(itemToMove);
-  // const isNext = dir === -1;
-
-  // const firstItem = titles[0];
-  // const lastItem = titles[titles.length - 1];
-  // const itemToMove = isNext ? firstItem : lastItem;
-
-  // const indexToDelete = isNext ? 0 : titles.length - 1;
-  // titles.splice(indexToDelete, 1);
-
-  // const method = isNext ? 'push' : 'unshift';
-  // titles[method](itemToMove);
-
-  // Re-assemble titles from the rearranged array
+  if (index !== 0) {
+    if (index === titles.length - 1) {
+      titles.pop();
+      titles.unshift(id);
+    } else {
+      for (let i = 0; i < index; i++) {
+        const itemToMove = titles[i];
+        titles.shift();
+        titles.push(itemToMove);
+      }
+    }
+  }
   populateTitles(titles);
 }
 
+export function injectMobileTitles(id) {
+  id ? setActiveTitleById(id) : populateTitles(titles);
+}
+
+// ***********************************
+
+//Slider callback:
 export function setActiveTitleByDirection(dir) {
   // Rearrange the array moving (deleting and then inserting) either:
   // - the first item to the end (for next slide); or
