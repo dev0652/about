@@ -2,7 +2,7 @@ body.dark {
   --accent-primary: SlateGray;
 
   /* Body */
-  --background-color: #{$blackish};
+  --background-color: #0c090a; // initially #{$blackish}
   --text-color: gainsboro;
 
   /* Header */
@@ -38,5 +38,5 @@ body.dark {
   --modal-close-background-color: gray;
 
   /* Form */
-  --form-field-bg-color: black;
+  --form-field-bg-color: #{$blackish};
 }
