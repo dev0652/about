@@ -50,6 +50,10 @@
   }
 }
 
+.contact-form-message {
+  resize: vertical;
+}
+
 .contact-form-button {
   @extend %button !optional;
 

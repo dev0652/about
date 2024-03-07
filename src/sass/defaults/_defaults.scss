@@ -65,6 +65,11 @@ textarea {
     opacity: 1;
   }
 }
+
+textarea {
+  overflow: auto;
+}
+
 address {
   font-style: normal;
 }

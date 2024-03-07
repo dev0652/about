@@ -28,6 +28,12 @@ function getCurrentSectionIndex() {
   return currentSectionIndex;
 }
 
+function changeTextAreaSize() {
+  const isMobile = window.matchMedia('(max-width: 499px)').matches;
+
+  refs.textArea.setAttribute('rows', isMobile ? 3 : 5);
+}
+
 // *********************************
 
 function doThingsOnLoad() {
@@ -38,6 +44,7 @@ function doThingsOnLoad() {
     addHeaderNavListeners();
   }
   // adjustBodyOffsets(mediaQueryMobile.matches);
+  changeTextAreaSize();
 }
 
 // *********************************
@@ -72,3 +79,4 @@ function onScreenChange(event) {
 // *********************************
 
 onFirstLoad();
+// document.addEventListener('DOMContentLoaded', onFirstLoad);

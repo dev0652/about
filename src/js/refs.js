@@ -14,5 +14,7 @@ export const refs = {
   colorSwitcher: document.querySelector('#color-scheme-switcher-checkbox'),
   colorSwitcherSlider: document.querySelector('.color-scheme-switcher-slider'),
 
+  textArea: document.querySelector('.contact-form-message'),
+
   footer: document.querySelector('.footer'),
 };
