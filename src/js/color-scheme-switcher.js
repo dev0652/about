@@ -1,6 +1,8 @@
 import { refs } from './refs';
 
 // *********************************
+// Color scheme switcher courtesy of Vadim Makeyev
+// *********************************
 
 function getSavedColorScheme() {
   return localStorage.getItem('color-scheme');
