@@ -1,9 +1,11 @@
+@import './color-variables.css';
+
 body {
-  --accent-primary: #{$lightblue};
+  --accent-primary: var(--lightblue);
 
   /* Body */
   --background-color: snow;
-  --text-color: #{$blackish};
+  --text-color: var(--blackish);
 
   /* Header */
   --header-bg-color: var(--background-color);
@@ -17,8 +19,7 @@ body {
 
   /* Buttons */
   --button-text-color: var(--text-color);
-
-  --button-text-hover: #{$blackish};
+  --button-text-hover: var(--blackish);
   --button-bg-hover: silver;
 
   --button-text-active: var(--button-text-hover);
@@ -26,13 +27,13 @@ body {
 
   /* Theme switcher */
   --theme-switcher-bg-gradient-start: gray;
-  --theme-switcher-bg-gradient-end: #{$light-gray};
+  --theme-switcher-bg-gradient-end: var(--light-gray);
 
   /* Project title animation */
   --swaying-icon-color: gray;
 
   /* Project card */
-  --list-card-image-shadow: #{$light-gray};
+  --list-card-image-shadow: var(--light-gray);
 
   /* Modal */
   --modal-background-color: var(--background-color);

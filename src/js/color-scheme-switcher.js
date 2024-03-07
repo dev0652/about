@@ -1,62 +1,113 @@
 import { refs } from './refs';
 
-// #############################################################
+// *********************************
 
-function presetSwitcher() {
-  // Check if switcher position is saved in Local Storage
-  const isSaved = localStorage.getItem('dark-color-scheme');
-
-  if (!isSaved) return;
-  if (isSaved === 'false') return;
-
-  document.body.classList.add('dark');
-  refs.colorSwitcher.setAttribute('checked', '');
+function getSavedColorScheme() {
+  return localStorage.getItem('color-scheme');
 }
 
-function setColorScheme() {
-  const main = document.querySelector('main');
-  main.classList.remove('faded-edges');
+function saveColorScheme(scheme) {
+  return localStorage.setItem('color-scheme', scheme);
+}
 
-  if (refs.colorSwitcher.checked) {
-    if (!document.body.classList.contains('dark'))
-      document.body.classList.add('dark');
+function clearColorScheme() {
+  return localStorage.removeItem('color-scheme');
+}
+
+// *********************************
+
+function setColorScheme(scheme) {
+  switchMedia(scheme);
+
+  if (scheme === 'auto') {
+    clearColorScheme();
   } else {
-    document.body.classList.remove('dark');
+    saveColorScheme(scheme);
+  }
+}
+
+// function setColorScheme() {
+//   const main = document.querySelector('main');
+//   main.classList.remove('faded-edges');
+
+//   if (refs.colorSwitcher.checked) {
+//     if (!document.body.classList.contains('dark'))
+//       document.body.classList.add('dark');
+//   } else {
+//     document.body.classList.remove('dark');
+//   }
+
+//   // Avoid color flashing by postponing the faded edges effect on main
+//   const delay =
+//     parseFloat(
+//       getComputedStyle(document.body).getPropertyValue('transition-duration')
+//     ) * 1000;
+
+//   setTimeout(() => {
+//     main.classList.add('faded-edges');
+//   }, delay);
+// }
+
+// *********************************
+
+function switchMedia(scheme) {
+  let lightMedia;
+  let darkMedia;
+
+  if (scheme === ' auto') {
+    lightMedia = 'prefers-color-scheme: light';
+    darkMedia = 'prefers-color-scheme: dark';
+  } else {
+    lightMedia = scheme === 'light' ? 'all' : 'not all';
+    darkMedia = scheme === 'dark' ? 'all' : 'not all';
   }
 
-  // Avoid color flashing by postponing the faded edges effect on main
-  const delay =
-    parseFloat(
-      getComputedStyle(document.body).getPropertyValue('transition-duration')
-    ) * 1000;
+  [...refs.lightStyles].forEach((styleLink) => {
+    styleLink.media = lightMedia;
+  });
 
-  setTimeout(() => {
-    main.classList.add('faded-edges');
-  }, delay);
-}
-
-function updateLocalStorage(checkbox) {
-  // Save switcher position to Local Storage
-  localStorage.setItem('dark-color-scheme', checkbox.checked);
+  [...refs.darkStyles].forEach((styleLink) => {
+    styleLink.media = darkMedia;
+  });
 }
 
 // *********************************
 
-function activateColorSchemeSwitcher() {
-  presetSwitcher();
-  setColorScheme();
+const darkSChemeMedia = matchMedia('prefers-color-scheme: dark');
 
-  refs.colorSwitcher.addEventListener('change', onChange);
-  setTimeout(() => {
-    refs.colorSwitcherSlider.classList.add('animated');
-  }, 100);
-}
-
-function onChange(event) {
-  setColorScheme();
-  updateLocalStorage(event.currentTarget);
+function getSystemSCheme() {
+  return darkSChemeMedia.matches ? 'dark' : 'light';
 }
 
 // *********************************
 
-// activateColorSchemeSwitcher();
+function setupScheme() {
+  const savedScheme = getSavedColorScheme();
+  const systemScheme = getSystemSCheme();
+
+  if (!savedScheme || savedScheme === systemScheme) return;
+
+  setColorScheme(savedScheme);
+}
+
+function presetSwitcher() {
+  const savedScheme = getSavedColorScheme();
+
+  if (savedScheme) {
+    const currentRadio = document.querySelector(
+      `.switcher-radio[value=${savedScheme}]`
+    );
+    currentRadio.setAttribute('checked', '');
+  }
+
+  [...refs.switcherRadios].forEach((radio) => {
+    const handleChangeRadio = (event) => {
+      setColorScheme(event.target.value);
+    };
+    radio.addEventListener('change', handleChangeRadio);
+  });
+}
+// *********************************
+
+setupScheme();
+presetSwitcher();

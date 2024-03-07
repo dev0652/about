@@ -1,8 +1,10 @@
-body.dark {
+@import './color-variables.css';
+
+body {
   --accent-primary: SlateGray;
 
   /* Body */
-  --background-color: #0c090a; // initially #{$blackish}
+  --background-color: #0c090a;
   --text-color: gainsboro;
 
   /* Header */
@@ -16,16 +18,15 @@ body.dark {
 
   /* Buttons */
   --button-text-color: var(--text-color);
-
-  // --button-text-hover: #{$blackish};
+  /* --button-text-hover: var(--blackish); */
   --button-bg-hover: dimgray;
 
   --button-text-active: dimgray;
-  --button-bg-active: #{$blackish};
+  --button-bg-active: var(--blackish);
 
   /* Theme switcher */
   --theme-switcher-bg-gradient-start: gray;
-  --theme-switcher-bg-gradient-end: #{$dark-gray};
+  --theme-switcher-bg-gradient-end: var(--dark-gray);
 
   /* Project title animation */
   --swaying-icon-color: gainsboro;
@@ -34,9 +35,9 @@ body.dark {
   --list-card-image-shadow: transparent;
 
   /* Modal */
-  --modal-background-color: #{$blackish}; // darkSlateGray;
+  --modal-background-color: var(--blackish);
   --modal-close-background-color: gray;
 
   /* Form */
-  --form-field-bg-color: #{$blackish};
+  --form-field-bg-color: var(--blackish);
 }

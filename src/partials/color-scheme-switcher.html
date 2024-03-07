@@ -1,12 +1,39 @@
-<fieldset>
-  <legend>Choose your favorite monster</legend>
+<fieldset class="color-scheme-switcher">
+  <legend class="switcher-legend">Color scheme</legend>
 
-  <input type="radio" id="kraken" name="monster" value="K" />
-  <label for="kraken">Light</label><br />
+  <input
+    class="switcher-radio light"
+    type="radio"
+    id="light"
+    name="color-scheme"
+    value="light"
+    aria-label="light"
+  />
 
-  <input type="radio" id="sasquatch" name="monster" value="S" />
-  <label for="sasquatch">Auto</label><br />
+  <input
+    class="switcher-radio auto"
+    type="radio"
+    id="auto"
+    name="color-scheme"
+    value="auto"
+    aria-label="auto"
+    checked
+  />
 
-  <input type="radio" id="mothman" name="monster" value="M" />
-  <label for="mothman">Dark</label>
+  <input
+    class="switcher-radio dark"
+    type="radio"
+    id="dark"
+    name="color-scheme"
+    value="dark"
+    aria-label="dark"
+  />
+
+  <div class="switcher-status"></div>
+
+  <!-- <div class="labels">
+    <label for="light">Light</label><br />
+    <label for="auto">System</label><br />
+    <label for="dark">Dark</label>
+  </div> -->
 </fieldset>
