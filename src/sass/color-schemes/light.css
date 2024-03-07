@@ -1,0 +1,43 @@
+body {
+  --accent-primary: #{$lightblue};
+
+  /* Body */
+  --background-color: snow;
+  --text-color: #{$blackish};
+
+  /* Header */
+  --header-bg-color: var(--background-color);
+
+  --header-nav-link-color: silver;
+  --header-nav-link-hover: gray;
+  --header-nav-link-active: var(--text-color);
+
+  --pagination-bullet: gray;
+  --pagination-bullet-current: black;
+
+  /* Buttons */
+  --button-text-color: var(--text-color);
+
+  --button-text-hover: #{$blackish};
+  --button-bg-hover: silver;
+
+  --button-text-active: var(--button-text-hover);
+  --button-bg-active: darkgray;
+
+  /* Theme switcher */
+  --theme-switcher-bg-gradient-start: gray;
+  --theme-switcher-bg-gradient-end: #{$light-gray};
+
+  /* Project title animation */
+  --swaying-icon-color: gray;
+
+  /* Project card */
+  --list-card-image-shadow: #{$light-gray};
+
+  /* Modal */
+  --modal-background-color: var(--background-color);
+  --modal-close-background-color: silver;
+
+  /* Form */
+  --form-field-bg-color: white;
+}

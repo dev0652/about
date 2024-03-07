@@ -1,22 +1,12 @@
-<label class="color-scheme-switcher">
-  <input
-    type="checkbox"
-    name="color-scheme-switcher-checkbox"
-    class="color-scheme-switcher-checkbox"
-    id="color-scheme-switcher-checkbox"
-    aria-label="Color-scheme switcher"
-  />
+<fieldset>
+  <legend>Choose your favorite monster</legend>
 
-  <span class="color-scheme-switcher-slider"></span>
+  <input type="radio" id="kraken" name="monster" value="K" />
+  <label for="kraken">Light</label><br />
 
-  <svg class="color-switcher-icons" width="18" height="18">
-    <use
-      class="color-switcher-icon-moon"
-      href="./images/symbol-defs.svg#icon-moon"
-    ></use>
-    <use
-      class="color-switcher-icon-sun"
-      href="./images/symbol-defs.svg#icon-sun"
-    ></use>
-  </svg>
-</label>
+  <input type="radio" id="sasquatch" name="monster" value="S" />
+  <label for="sasquatch">Auto</label><br />
+
+  <input type="radio" id="mothman" name="monster" value="M" />
+  <label for="mothman">Dark</label>
+</fieldset>

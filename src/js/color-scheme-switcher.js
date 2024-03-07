@@ -59,4 +59,4 @@ function onChange(event) {
 
 // *********************************
 
-activateColorSchemeSwitcher();
+// activateColorSchemeSwitcher();

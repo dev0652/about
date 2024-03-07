@@ -11,8 +11,8 @@ export const refs = {
   // bullets: document.querySelectorAll('.pagination-bullet'),
   titlesInjectionTarget: document.querySelector('.mobile-headings'),
 
-  colorSwitcher: document.querySelector('#color-scheme-switcher-checkbox'),
-  colorSwitcherSlider: document.querySelector('.color-scheme-switcher-slider'),
+  // colorSwitcher: document.querySelector('#color-switcher-checkbox'),
+  // colorSwitcherSlider: document.querySelector('.color-switcher-slider'),
 
   textArea: document.querySelector('.contact-form-message'),
 
