@@ -1,33 +1,95 @@
+$scheme-switcher-td: 300ms;
+$scheme-switcher-gap: 5px;
+$scheme-switcher-icon-size: 32px;
+
 .color-scheme-switcher {
   position: relative;
-  width: 100px;
-  // background-color: gray;
-  display: flex;
+
   // display: grid;
   // grid-template-columns: 1fr 1fr 1fr;
+
+  display: flex;
+  gap: $scheme-switcher-gap;
+  justify-content: center;
+
+  // padding: 2px;
+
   border: none;
-  gap: 5px;
 }
 .switcher-legend {
   position: absolute;
   opacity: 0;
-  pointer-events: none;
   max-height: 0;
+  pointer-events: none;
 }
 
 .switcher-radio {
-  min-width: 24px;
-  border-radius: 10px;
+  // min-width: 24px;
+  // border-radius: 50px;
+
+  appearance: none;
+
+  height: $scheme-switcher-icon-size;
+  width: $scheme-switcher-icon-size;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  transition: filter $scheme-switcher-td ease-in;
+
+  &:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+
+  &:focus-visible ~ .switcher-highlighter {
+    box-shadow: 0 0 0 2px var(--text-color);
+  }
+
+  fill: red;
+  color: red;
 }
 
 .light {
+  background-image: url('../../icons/sun-2.svg');
+  &:checked ~ .switcher-highlighter {
+    background-position: left 1px center;
+  }
 }
 
 .auto {
+  background-image: url('../../icons/adjust.svg');
+  &:checked ~ .switcher-highlighter {
+    background-position: top 2px center;
+  }
 }
 
 .dark {
+  background-image: url('../../icons/cloud.svg');
+  &:checked ~ .switcher-highlighter {
+    background-position: right -1px center;
+  }
 }
 
-.switcher-status {
+.switcher-highlighter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+
+  box-shadow: 0 0 0 2px transparent;
+  border-radius: 18px;
+
+  // background-color: gainsboro;
+  background-image: url('../../icons/circle.svg');
+
+  background-repeat: no-repeat;
+  background-size: calc($scheme-switcher-icon-size - 2px);
+  background-position: center;
+
+  transition: background-position $scheme-switcher-td ease-in,
+    background-color $scheme-switcher-td ease-in;
 }

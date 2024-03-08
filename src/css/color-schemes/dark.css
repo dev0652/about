@@ -47,9 +47,9 @@ body {
 }
 
 .switcher-radio:checked {
-  filter: invert(0);
+  filter: invert(1);
 }
 
-.switcher-status {
+.switcher-highlighter {
   filter: invert(1);
 }
