@@ -69,8 +69,8 @@ $slider-circle-size: calc($slider-height - 2px);
 
   background: linear-gradient(
     180deg,
-    var(--theme-switcher-bg-gradient-start) 0%,
-    var(--theme-switcher-bg-gradient-end) 100%
+    var(--scheme-switcher-bg-gradient-start) 0%,
+    var(--scheme-switcher-bg-gradient-end) 100%
   );
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 
@@ -90,8 +90,8 @@ $slider-circle-size: calc($slider-height - 2px);
 
     background: linear-gradient(
       180deg,
-      $theme-switcher-slider-light-gradient-start 0%,
-      $theme-switcher-slider-light-gradient-end 100%
+      $scheme-switcher-slider-light-gradient-start 0%,
+      $scheme-switcher-slider-light-gradient-end 100%
     );
 
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1),
@@ -99,8 +99,8 @@ $slider-circle-size: calc($slider-height - 2px);
   }
 
   &.animated::before {
-    transition: transform calc($theme-switch-duration / 2)
-      $theme-switch-timing-function;
+    transition: transform calc($scheme-switch-duration / 2)
+      $scheme-switch-timing-function;
   }
 }
 
@@ -108,8 +108,8 @@ $slider-circle-size: calc($slider-height - 2px);
   & + .gallery-view-switcher-slider {
     background: linear-gradient(
       180deg,
-      var(--theme-switcher-bg-gradient-start) 0%,
-      var(--theme-switcher-bg-gradient-end) 100%
+      var(--scheme-switcher-bg-gradient-start) 0%,
+      var(--scheme-switcher-bg-gradient-end) 100%
     );
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 
@@ -121,8 +121,8 @@ $slider-circle-size: calc($slider-height - 2px);
 
       background: linear-gradient(
         180deg,
-        $theme-switcher-slider-dark-gradient-start 0%,
-        $theme-switcher-slider-dark-gradient-end 100%
+        $scheme-switcher-slider-dark-gradient-start 0%,
+        $scheme-switcher-slider-dark-gradient-end 100%
       );
     }
   }

@@ -44,9 +44,9 @@
       color: var(--header-nav-link-color);
     }
 
-    transition: background-color $theme-switch-duration
-        $theme-switch-timing-function,
-      color $theme-switch-duration $theme-switch-timing-function;
+    transition: background-color $scheme-switch-duration
+        $scheme-switch-timing-function,
+      color $scheme-switch-duration $scheme-switch-timing-function;
   }
 }
 

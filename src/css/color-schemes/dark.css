@@ -1,14 +1,13 @@
 @import './color-variables.css';
 
 body {
-  --accent-primary: SlateGray;
+  --accent-primary: darkgoldenrod;
 
   /* Body */
   --background-color: #0c090a;
   --text-color: gainsboro;
 
   /* Header */
-
   --header-nav-link-color: gray;
   --header-nav-link-hover: silver;
   --header-nav-link-active: gainsboro;
@@ -25,8 +24,10 @@ body {
   --button-bg-active: var(--blackish);
 
   /* Theme switcher */
-  --theme-switcher-bg-gradient-start: gray;
-  --theme-switcher-bg-gradient-end: var(--dark-gray);
+  --scheme-switcher-bg-gradient-start: gray;
+  --scheme-switcher-bg-gradient-end: var(--dark-gray);
+
+  --scheme-switcher-dropdown-bg: var(--dark-gray);
 
   /* Project title animation */
   --swaying-icon-color: gainsboro;

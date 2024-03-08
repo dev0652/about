@@ -19,6 +19,19 @@ function clearColorScheme() {
 // *********************************
 
 function setColorScheme(scheme) {
+  // Avoid color flashing by postponing the faded edges effect on main
+  const main = document.querySelector('main');
+  main.classList.remove('faded-edges');
+
+  const delay =
+    parseFloat(
+      getComputedStyle(document.body).getPropertyValue('transition-duration')
+    ) * 1000;
+
+  setTimeout(() => {
+    main.classList.add('faded-edges');
+  }, delay);
+
   switchMedia(scheme);
 
   if (scheme === 'auto') {
@@ -27,28 +40,6 @@ function setColorScheme(scheme) {
     saveColorScheme(scheme);
   }
 }
-
-// function setColorScheme() {
-//   const main = document.querySelector('main');
-//   main.classList.remove('faded-edges');
-
-//   if (refs.colorSwitcher.checked) {
-//     if (!document.body.classList.contains('dark'))
-//       document.body.classList.add('dark');
-//   } else {
-//     document.body.classList.remove('dark');
-//   }
-
-//   // Avoid color flashing by postponing the faded edges effect on main
-//   const delay =
-//     parseFloat(
-//       getComputedStyle(document.body).getPropertyValue('transition-duration')
-//     ) * 1000;
-
-//   setTimeout(() => {
-//     main.classList.add('faded-edges');
-//   }, delay);
-// }
 
 // *********************************
 
@@ -106,9 +97,11 @@ function presetSwitcher() {
     const handleChangeRadio = (event) => {
       setColorScheme(event.target.value);
     };
+
     radio.addEventListener('change', handleChangeRadio);
   });
 }
+
 // *********************************
 
 setupScheme();

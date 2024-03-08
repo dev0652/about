@@ -20,6 +20,7 @@
 
 .projects-view-switch {
   @extend %link !optional;
+
   text-transform: lowercase;
 
   display: block;
@@ -38,7 +39,7 @@
 
   border: none;
   background-color: transparent;
-  transition: color $theme-switch-duration;
+  transition: color $scheme-switch-duration;
 }
 
 // Gallery item (project card)
@@ -327,7 +328,7 @@
 
 .technologies {
   color: var(--accent-primary);
-  transition: color $theme-switch-duration;
+  transition: color $scheme-switch-duration;
 }
 
 // Flip cards in gallery view
