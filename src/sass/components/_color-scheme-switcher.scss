@@ -1,21 +1,15 @@
-$scheme-switcher-td: 300ms;
-$scheme-switcher-gap: 5px;
-$scheme-switcher-icon-size: 32px;
-
-.color-scheme-switcher {
+fieldset.color-scheme-switcher {
   position: relative;
 
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr;
-
   display: flex;
-  gap: $scheme-switcher-gap;
+  gap: 5px;
   justify-content: center;
 
-  // padding: 2px;
-
   border: none;
+  // border: 3px solid gray;
+  // border-radius: 18px;
 }
+
 .switcher-legend {
   position: absolute;
   opacity: 0;
@@ -24,72 +18,27 @@ $scheme-switcher-icon-size: 32px;
 }
 
 .switcher-radio {
-  // min-width: 24px;
-  // border-radius: 50px;
-
   appearance: none;
-
-  height: $scheme-switcher-icon-size;
-  width: $scheme-switcher-icon-size;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-
-  transition: filter $scheme-switcher-td ease-in;
-
-  &:focus-visible {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
-  }
-
-  &:focus-visible ~ .switcher-highlighter {
-    box-shadow: 0 0 0 2px var(--text-color);
-  }
-
-  fill: red;
-  color: red;
-}
-
-.light {
-  background-image: url('../../icons/sun-2.svg');
-  &:checked ~ .switcher-highlighter {
-    background-position: left 1px center;
-  }
-}
-
-.auto {
-  background-image: url('../../icons/adjust.svg');
-  &:checked ~ .switcher-highlighter {
-    background-position: top 2px center;
-  }
-}
-
-.dark {
-  background-image: url('../../icons/cloud.svg');
-  &:checked ~ .switcher-highlighter {
-    background-position: right -1px center;
-  }
-}
-
-.switcher-highlighter {
+  // max-height: 0;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: -1;
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+}
 
-  box-shadow: 0 0 0 2px transparent;
-  border-radius: 18px;
+.color-scheme-switcher-icon {
+  height: 30px;
+  width: 30px;
 
-  // background-color: gainsboro;
-  background-image: url('../../icons/circle.svg');
+  cursor: pointer;
+  color: silver;
+  fill: currentColor;
 
-  background-repeat: no-repeat;
-  background-size: calc($scheme-switcher-icon-size - 2px);
-  background-position: center;
+  transition: color 600ms ease-in;
+  // transition: color 600ms ease-in, transform 300ms ease-in;
 
-  transition: background-position $scheme-switcher-td ease-in,
-    background-color $scheme-switcher-td ease-in;
+  &:hover,
+  .switcher-radio:checked ~ & {
+    color: black;
+  }
 }

@@ -41,15 +41,3 @@ body {
   /* Form */
   --form-field-bg-color: var(--blackish);
 }
-
-.switcher-radio {
-  filter: invert(1);
-}
-
-.switcher-radio:checked {
-  filter: invert(1);
-}
-
-.switcher-highlighter {
-  filter: invert(1);
-}

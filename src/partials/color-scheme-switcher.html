@@ -1,39 +1,49 @@
 <fieldset class="color-scheme-switcher">
   <legend class="switcher-legend">Color scheme</legend>
 
-  <input
-    class="switcher-radio light"
-    type="radio"
-    id="light"
-    name="color-scheme"
-    value="light"
-    aria-label="light"
-  />
+  <label class="switcher-label" for="light">
+    <input
+      class="switcher-radio light"
+      type="radio"
+      id="light"
+      name="color-scheme"
+      value="light"
+      aria-label="light"
+    />
 
-  <input
-    class="switcher-radio auto"
-    type="radio"
-    id="auto"
-    name="color-scheme"
-    value="auto"
-    aria-label="auto"
-    checked
-  />
+    <svg class="color-scheme-switcher-icon" width="32" height="32">
+      <use href="images/symbol-defs.svg#icon-sun-circled"></use>
+    </svg>
+  </label>
 
-  <input
-    class="switcher-radio dark"
-    type="radio"
-    id="dark"
-    name="color-scheme"
-    value="dark"
-    aria-label="dark"
-  />
+  <label class="switcher-label" for="auto">
+    <input
+      class="switcher-radio auto"
+      type="radio"
+      id="auto"
+      name="color-scheme"
+      value="auto"
+      aria-label="auto"
+      checked
+    />
 
-  <div class="switcher-highlighter"></div>
+    <svg class="color-scheme-switcher-icon" width="32" height="32">
+      <use href="images/symbol-defs.svg#icon-windows"></use>
+    </svg>
+  </label>
 
-  <!-- <div class="labels">
-    <label for="light">Light</label><br />
-    <label for="auto">System</label><br />
-    <label for="dark">Dark</label>
-  </div> -->
+  <label class="switcher-label" for="dark">
+    <input
+      class="switcher-radio dark"
+      type="radio"
+      id="dark"
+      name="color-scheme"
+      value="dark"
+      aria-label="dark"
+    />
+
+    <svg class="color-scheme-switcher-icon" width="32" height="32">
+      <use href="images/symbol-defs.svg#icon-cloud-circled"></use>
+    </svg>
+  </label>
 </fieldset>
