@@ -1,9 +1,10 @@
 import projects from '/data/db.json' assert { type: 'json' };
+import { refs } from './refs';
 
 import { openModal } from '/js/modal';
 import createCardMarkup from './createCard';
 
-// *****************************************************
+// *********************************
 
 const makeListMarkup = (projectsArray) => {
   return `
@@ -12,33 +13,43 @@ const makeListMarkup = (projectsArray) => {
   </ul>`;
 };
 
-const projectCardsMarkup = makeListMarkup(projects);
+refs.gallery.innerHTML = makeListMarkup(projects);
 
-const gallery = document.querySelector('#gallery');
-gallery.innerHTML = projectCardsMarkup;
+// *********************************
 
-// *****************************************************
-
-const switcher = document.querySelector('.projects-view-switch');
-const cardList = document.querySelector('.project-card-list');
-
-switcher.addEventListener('click', switchView);
+refs.galleryViewSwitcher.addEventListener('click', switchView);
 
 function switchView() {
-  cardList.classList.toggle('gallery-view');
-  const isGallery = cardList.classList.contains('gallery-view');
+  const cardList = document.querySelector('.project-card-list');
 
-  // Change button text
-  switcher.innerHTML = `View as ${isGallery ? 'list' : 'tiles'}`;
+  // Slide gallery out of view
+  refs.gallery.classList.remove('slide-in');
+  refs.gallery.classList.add('slide-out');
 
-  if (isGallery) {
-    cardList.addEventListener('click', handleGalleryCardClicks);
-  } else {
-    cardList.removeEventListener('click', handleGalleryCardClicks);
-  }
+  // After slid-out animation has completed, swap gallery view
+  setTimeout(() => {
+    cardList.classList.toggle('gallery-view');
+
+    const isGallery = cardList.classList.contains('gallery-view');
+
+    if (isGallery) {
+      cardList.addEventListener('click', handleGalleryCardClicks);
+    } else {
+      cardList.removeEventListener('click', handleGalleryCardClicks);
+    }
+
+    // Slide gallery back into view
+    refs.gallery.classList.remove('slide-out');
+    refs.gallery.classList.add('slide-in');
+
+    // Change button text
+    refs.galleryViewSwitcher.innerHTML = `View as ${
+      isGallery ? 'list' : 'tiles'
+    }`;
+  }, 300);
 }
 
-// *****************************************************
+// *********************************
 
 function handleGalleryCardClicks(event) {
   event.preventDefault();

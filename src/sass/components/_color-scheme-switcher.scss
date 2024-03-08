@@ -1,0 +1,33 @@
+.color-scheme-switcher {
+  position: relative;
+  width: 100px;
+  // background-color: gray;
+  display: flex;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr;
+  border: none;
+  gap: 5px;
+}
+.switcher-legend {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+}
+
+.switcher-radio {
+  min-width: 24px;
+  border-radius: 10px;
+}
+
+.light {
+}
+
+.auto {
+}
+
+.dark {
+}
+
+.switcher-status {
+}

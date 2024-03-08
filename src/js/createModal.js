@@ -1,6 +1,6 @@
 import { getImagePaths } from './imagePaths';
 
-// *****************************************************
+// *********************************
 
 export default function createModal(project) {
   const {

@@ -7,14 +7,14 @@ function makePlaceholderUrl(resolution, message = null) {
   return baseUrl + query;
 }
 
-// *****************************************************
+// *********************************
 
 function getImageUrl(dir, name) {
   return new URL(`/images/projects/webp/${dir}/${name}.webp`, import.meta.url)
     .href;
 }
 
-// *****************************************************
+// *********************************
 
 export function getImagePaths(thumb) {
   const small = getImageUrl('small', thumb);

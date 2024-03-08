@@ -65,7 +65,7 @@ function onModalClose() {
   currentCloseButton.removeEventListener('click', onModalClose);
 }
 
-// *****************************************************
+// *********************************
 
 function handleBackdropClick(event) {
   const backdrop = document.querySelector('.current-modal');

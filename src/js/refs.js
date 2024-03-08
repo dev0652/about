@@ -7,8 +7,6 @@ export const refs = {
     'link[rel=stylesheet][media*=prefers-color-scheme][media*=dark]'
   ),
   switcherRadios: document.querySelectorAll('.switcher-radio'),
-  // colorSwitcher: document.querySelector('#color-switcher-checkbox'),
-  // colorSwitcherSlider: document.querySelector('.color-switcher-slider'),
 
   // Header
   header: document.querySelector('.header'),
@@ -20,7 +18,11 @@ export const refs = {
   sections: document.querySelectorAll('.section'),
   sectionTitles: document.querySelectorAll('.section-title'),
 
-  // Slider
+  // Projects
+  gallery: document.querySelector('#gallery'),
+  galleryViewSwitcher: document.querySelector('.projects-view-switch'),
+
+  // Sliding pages in mobile view
   footer: document.querySelector('.footer'),
   pagination: document.querySelector('.pagination'),
   // bullets: document.querySelectorAll('.pagination-bullet'),
