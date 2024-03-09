@@ -20,7 +20,6 @@ function clearColorScheme() {
 
 function getSystemScheme() {
   const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
-
   return darkSchemeMedia.matches ? 'dark' : 'light';
 }
 
@@ -40,14 +39,8 @@ function switchMedia(scheme) {
 // *********************************
 
 function setColorScheme(scheme) {
-  // Avoid color flashing by postponing the faded edges effect on main
-  const main = document.querySelector('main');
-  main.classList.remove('faded-edges');
-
-  const delay =
-    parseFloat(
-      getComputedStyle(document.body).getPropertyValue('transition-duration')
-    ) * 1000;
+  // Temporarily remove the faded edges effect on main to avoid color flashing during box-shadow transition
+  refs.main.classList.remove('faded-edges');
 
   // Do the switching
   if (scheme === 'auto') {
@@ -59,8 +52,13 @@ function setColorScheme(scheme) {
   switchMedia(scheme);
 
   // Turn faded edges effect back on
+  const delay =
+    parseFloat(
+      getComputedStyle(document.body).getPropertyValue('transition-duration')
+    ) * 1000;
+
   setTimeout(() => {
-    main.classList.add('faded-edges');
+    refs.main.classList.add('faded-edges');
   }, delay);
 }
 
