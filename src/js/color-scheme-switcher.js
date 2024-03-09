@@ -28,10 +28,6 @@ function setColorScheme(scheme) {
       getComputedStyle(document.body).getPropertyValue('transition-duration')
     ) * 1000;
 
-  setTimeout(() => {
-    main.classList.add('faded-edges');
-  }, delay);
-
   switchMedia(scheme);
 
   if (scheme === 'auto') {
@@ -39,6 +35,10 @@ function setColorScheme(scheme) {
   } else {
     saveColorScheme(scheme);
   }
+
+  setTimeout(() => {
+    main.classList.add('faded-edges');
+  }, delay);
 }
 
 // *********************************
@@ -122,7 +122,7 @@ function handleClicksOutsideMenu(event) {
   }
 }
 
-refs.switcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
+// refs.switcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
 
 // *********************************
 

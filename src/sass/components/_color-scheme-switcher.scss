@@ -100,14 +100,15 @@ fieldset.scheme-switcher {
   position: absolute;
 
   @media screen and (max-width: $tablet-1) {
-    right: 30vw;
+    right: -50vw;
+    margin-top: 1rem;
 
     transition: transform 600ms;
-    transform: translateX(-100vw);
+    transform: translateX(100vw);
   }
 
   @media screen and (min-width: $tablet) {
-    right: 0;
+    right: -10px; // makes up for right padding
 
     max-height: 0;
     overflow: hidden;
@@ -122,19 +123,34 @@ fieldset.scheme-switcher {
   width: max-content;
 
   @media screen and (max-width: $tablet-1) {
-    padding-left: 100vw;
+    // padding-left: 100vw;
+    padding-right: calc(50vw - 5px);
+
+    border: 2px solid var(--header-nav-link-color);
+    border-image: linear-gradient(
+        to right,
+
+        var(--header-nav-link-color),
+        var(--background-color)
+      )
+      30;
   }
 
   @media screen and (min-width: $tablet) {
-    width: 130px;
+    width: 150px;
     text-align: right;
 
     margin-top: 1rem;
-    padding: 10px;
+    padding: 20px 10px;
   }
 
-  border: 2px solid var(--header-nav-link-color);
   background-color: var(--scheme-switcher-dropdown-bg);
+
+  background: linear-gradient(
+    to bottom,
+    var(--background-color),
+    var(--scheme-switcher-dropdown-bg) 50%
+  );
 
   transition: color $scheme-switch-duration $scheme-switch-timing-function,
     background-color $scheme-switch-duration $scheme-switch-timing-function;
