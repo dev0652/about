@@ -132,7 +132,7 @@
     "stack": "Front-end",
     "role": null,
     "customer": null,
-    "description": "A website that allows users to find stock images by keyword using the Pixabay API"
+    "description": "A website that allows users to find stock images by keyword using the Pixabay API. Reacts to device/browser color scheme (light or dark)"
   },
   {
     "id": 10,
