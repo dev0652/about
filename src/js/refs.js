@@ -1,11 +1,13 @@
 export const refs = {
-  // Color schemes
+  // Linked stylesheets by color scheme
   lightStyles: document.querySelector(
     'link[rel=stylesheet][media*=prefers-color-scheme][media*=light]'
   ),
   darkStyles: document.querySelector(
     'link[rel=stylesheet][media*=prefers-color-scheme][media*=dark]'
   ),
+
+  // Color scheme switcher
   switcherRadios: document.querySelectorAll('.switcher-radio'),
   switcherDropdown: document.querySelector('.scheme-switcher-dropdown'),
   switcherCheckbox: document.querySelector('.scheme-switcher-menu-checkbox'),
@@ -26,7 +28,7 @@ export const refs = {
   galleryViewSwitcher: document.querySelector('.projects-view-switch'),
 
   // Sliding pages in mobile view
-  footer: document.querySelector('.footer'),
+  // footer: document.querySelector('.footer'),
   pagination: document.querySelector('.pagination'),
   // bullets: document.querySelectorAll('.pagination-bullet'),
   titlesInjectionTarget: document.querySelector('.mobile-headings'),
