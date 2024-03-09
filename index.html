@@ -25,16 +25,6 @@
   <!-- Color schemes -->
   <meta name="color-scheme" content="light dark" />
 
-  <script>
-    if (matchMedia('prefers-color-scheme: dark').media === 'not all') {
-      const lightCssLink =
-        '<link rel="stylesheet" href="./css/color-schemes/light.css" onload="document.documentElement.style.display=\'\'" />';
-
-      document.documentElement.style.display = 'none';
-      document.head.insertAdjacentHTML('beforeend', lightCssLink);
-    }
-  </script>
-
   <!-- Favicon -->
   <link
   type="image/x-icon"
