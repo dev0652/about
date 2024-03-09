@@ -2,8 +2,12 @@ fieldset.scheme-switcher {
   position: relative;
 
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 30px;
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: column;
+    gap: 10px;
+  }
 
   border: none;
 }
@@ -25,8 +29,13 @@ fieldset.scheme-switcher {
 }
 
 .scheme-switcher-icon {
-  height: 30px;
-  width: 30px;
+  height: 36px;
+  width: 36px;
+
+  @media screen and (min-width: $tablet) {
+    height: 30px;
+    width: 30px;
+  }
 
   color: var(--scheme-switcher-radio);
   fill: currentColor;
@@ -41,8 +50,19 @@ fieldset.scheme-switcher {
 
   &:has(.scheme-switcher-menu-checkbox:checked)
     .scheme-switcher-dropdown-wrapper {
-    max-height: max-content;
-    max-height: 200px;
+    @media screen and (max-width: $tablet-1) {
+      // opacity: 1;
+      transform: translateX(0);
+    }
+
+    @media screen and (min-width: $tablet) {
+      max-height: 200px;
+    }
+  }
+
+  @media screen and (max-width: $tablet-1) {
+    margin-top: 1rem;
+    margin-right: 10px;
   }
 }
 
@@ -62,7 +82,7 @@ fieldset.scheme-switcher {
   border: none;
   background-color: transparent;
 
-  .scheme-switcher-label-icon {
+  .scheme-switcher-radio-label-icon {
     fill: currentColor;
   }
 
@@ -78,20 +98,40 @@ fieldset.scheme-switcher {
 
 .scheme-switcher-dropdown-wrapper {
   position: absolute;
-  right: 0;
 
-  max-height: 0;
-  overflow: hidden;
+  @media screen and (max-width: $tablet-1) {
+    right: 30vw;
 
-  transition: max-height 300ms ease-in;
+    transition: transform 600ms;
+    transform: translateX(-100vw);
+  }
+
+  @media screen and (min-width: $tablet) {
+    right: 0;
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition: max-height 300ms ease-in;
+  }
 }
 
 .scheme-switcher-dropdown {
-  width: 130px;
-  text-align: right;
+  margin-top: 5px;
+  padding: 20px;
+  width: max-content;
 
-  margin-top: 1rem;
-  padding: 10px;
+  @media screen and (max-width: $tablet-1) {
+    padding-left: 100vw;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 130px;
+    text-align: right;
+
+    margin-top: 1rem;
+    padding: 10px;
+  }
 
   border: 2px solid var(--header-nav-link-color);
   background-color: var(--scheme-switcher-dropdown-bg);
@@ -100,16 +140,20 @@ fieldset.scheme-switcher {
     background-color $scheme-switch-duration $scheme-switch-timing-function;
 }
 
-.switcher-label {
+.switcher-radio-label {
   @extend %link !optional;
 
-  display: flex;
-  gap: 20px;
-  text-align: right;
-  justify-content: end;
-  align-items: center;
+  @media screen and (min-width: $tablet) {
+    display: flex;
 
-  text-transform: lowercase;
+    gap: 20px;
+    text-align: right;
+    justify-content: end;
+    align-items: center;
+
+    text-transform: lowercase;
+  }
+
   transition: color 300ms ease-in;
 
   &:has(.switcher-radio:checked) {
@@ -118,5 +162,11 @@ fieldset.scheme-switcher {
 
   & .scheme-switcher-icon {
     color: currentColor;
+  }
+}
+
+.switcher-radio-caption {
+  @media screen and (max-width: $tablet-1) {
+    display: none;
   }
 }
