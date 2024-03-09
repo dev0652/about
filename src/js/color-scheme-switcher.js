@@ -18,30 +18,10 @@ function clearColorScheme() {
 
 // *********************************
 
-function setColorScheme(scheme) {
-  // Avoid color flashing by postponing the faded edges effect on main
-  const main = document.querySelector('main');
-  main.classList.remove('faded-edges');
+function getSystemScheme() {
+  const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
 
-  const delay =
-    parseFloat(
-      getComputedStyle(document.body).getPropertyValue('transition-duration')
-    ) * 1000;
-
-  // Do the switching
-
-  if (scheme === 'auto') {
-    clearColorScheme();
-  } else {
-    saveColorScheme(scheme);
-  }
-
-  switchMedia(scheme);
-
-  // Turn faded edges effect back on
-  setTimeout(() => {
-    main.classList.add('faded-edges');
-  }, delay);
+  return darkSchemeMedia.matches ? 'dark' : 'light';
 }
 
 // *********************************
@@ -59,17 +39,36 @@ function switchMedia(scheme) {
 
 // *********************************
 
-const darkSChemeMedia = matchMedia('prefers-color-scheme: dark');
+function setColorScheme(scheme) {
+  // Avoid color flashing by postponing the faded edges effect on main
+  const main = document.querySelector('main');
+  main.classList.remove('faded-edges');
 
-function getSystemSCheme() {
-  return darkSChemeMedia.matches ? 'dark' : 'light';
+  const delay =
+    parseFloat(
+      getComputedStyle(document.body).getPropertyValue('transition-duration')
+    ) * 1000;
+
+  // Do the switching
+  if (scheme === 'auto') {
+    clearColorScheme();
+  } else {
+    saveColorScheme(scheme);
+  }
+
+  switchMedia(scheme);
+
+  // Turn faded edges effect back on
+  setTimeout(() => {
+    main.classList.add('faded-edges');
+  }, delay);
 }
 
 // *********************************
 
 function setupScheme() {
+  const systemScheme = getSystemScheme();
   const savedScheme = getSavedColorScheme();
-  const systemScheme = getSystemSCheme();
 
   if (!savedScheme || savedScheme === systemScheme) return;
 

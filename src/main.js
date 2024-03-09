@@ -1,4 +1,3 @@
-// import './js/color-scheme-switcher';
 import './js/checkDevice';
 
 import './js/projects';
