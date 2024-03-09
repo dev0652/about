@@ -3,7 +3,7 @@
   --blackish: #111111;
 
   --accent-primary: #2980b9;
-  --accent-secondary: LightSeaGreen;
+  --accent-secondary: var(--accent-primary);
 
   /* Body */
   --background-color: #0c090a;
