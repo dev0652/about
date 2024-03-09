@@ -30,7 +30,7 @@
   --scheme-switcher-bg-gradient-start: gray;
   --scheme-switcher-bg-gradient-end: var(--light-gray);
 
-  --scheme-switcher-dropdown-bg: whitesmoke;
+  --scheme-switcher-dropdown-bg: #f2f3f4;
 
   --scheme-switcher-radio: var(--header-nav-link-color);
   --scheme-switcher-radio-checked: var(--text-color);
