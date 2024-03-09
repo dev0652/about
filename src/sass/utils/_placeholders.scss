@@ -18,6 +18,14 @@
   overflow: hidden;
 }
 
+%stretchable {
+  transition: color 400ms, letter-spacing 400ms;
+
+  &:hover {
+    letter-spacing: 2px;
+  }
+}
+
 %link {
   color: gray;
 

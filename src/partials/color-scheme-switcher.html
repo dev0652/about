@@ -1,22 +1,55 @@
-<label class="color-scheme-switcher">
-  <input
-    type="checkbox"
-    name="color-scheme-switcher-checkbox"
-    class="color-scheme-switcher-checkbox"
-    id="color-scheme-switcher-checkbox"
-    aria-label="Color-scheme switcher"
-  />
+<fieldset class="scheme-switcher">
+  <legend class="switcher-legend">Color scheme</legend>
 
-  <span class="color-scheme-switcher-slider"></span>
+  <label class="switcher-radio-label" for="light">
+    <p class="switcher-radio-caption">Light</p>
 
-  <svg class="color-switcher-icons" width="18" height="18">
-    <use
-      class="color-switcher-icon-moon"
-      href="./images/symbol-defs.svg#icon-moon"
-    ></use>
-    <use
-      class="color-switcher-icon-sun"
-      href="./images/symbol-defs.svg#icon-sun"
-    ></use>
-  </svg>
-</label>
+    <input
+      class="switcher-radio light"
+      type="radio"
+      id="light"
+      name="color-scheme"
+      value="light"
+      aria-label="light"
+    />
+
+    <svg class="scheme-switcher-icon" width="32" height="32">
+      <use href="images/symbol-defs.svg#icon-sun-circled"></use>
+    </svg>
+  </label>
+
+  <label class="switcher-radio-label" for="auto">
+    <p class="switcher-radio-caption">Auto</p>
+
+    <input
+      class="switcher-radio auto"
+      type="radio"
+      id="auto"
+      name="color-scheme"
+      value="auto"
+      aria-label="auto"
+      checked
+    />
+
+    <svg class="scheme-switcher-icon" width="32" height="32">
+      <use href="images/symbol-defs.svg#icon-windows"></use>
+    </svg>
+  </label>
+
+  <label class="switcher-radio-label" for="dark">
+    <p class="switcher-radio-caption">Dark</p>
+
+    <input
+      class="switcher-radio dark"
+      type="radio"
+      id="dark"
+      name="color-scheme"
+      value="dark"
+      aria-label="dark"
+    />
+
+    <svg class="scheme-switcher-icon" width="32" height="32">
+      <use href="images/symbol-defs.svg#icon-cloud-circled"></use>
+    </svg>
+  </label>
+</fieldset>

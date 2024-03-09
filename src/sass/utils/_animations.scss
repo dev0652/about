@@ -18,6 +18,7 @@
   }
 }
 
+// Modal
 @keyframes slide-in-from-below {
   from {
     transform: translateY(100%);
@@ -27,6 +28,31 @@
   }
 }
 
+// Gallery
+// Slide out TO:
+@keyframes slide-out-to-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100vw);
+    // opacity: 0;
+  }
+}
+
+// Slide in FROM:
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(100vw);
+    // opacity: 0.5;
+  }
+  to {
+    transform: translateX(0);
+    // opacity: 1;
+  }
+}
+
+// misc
 @keyframes fade-in {
   from {
     opacity: 0;

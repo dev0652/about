@@ -1,30 +1,28 @@
 import { refs } from './refs';
 
-// #############################################################
+// *********************************
+// Color scheme switcher courtesy of Vadim Makeyev
+// *********************************
 
-function presetSwitcher() {
-  // Check if switcher position is saved in Local Storage
-  const isSaved = localStorage.getItem('dark-color-scheme');
-
-  if (!isSaved) return;
-  if (isSaved === 'false') return;
-
-  document.body.classList.add('dark');
-  refs.colorSwitcher.setAttribute('checked', '');
+function getSavedColorScheme() {
+  return localStorage.getItem('color-scheme');
 }
 
-function setColorScheme() {
+function saveColorScheme(scheme) {
+  return localStorage.setItem('color-scheme', scheme);
+}
+
+function clearColorScheme() {
+  return localStorage.removeItem('color-scheme');
+}
+
+// *********************************
+
+function setColorScheme(scheme) {
+  // Avoid color flashing by postponing the faded edges effect on main
   const main = document.querySelector('main');
   main.classList.remove('faded-edges');
 
-  if (refs.colorSwitcher.checked) {
-    if (!document.body.classList.contains('dark'))
-      document.body.classList.add('dark');
-  } else {
-    document.body.classList.remove('dark');
-  }
-
-  // Avoid color flashing by postponing the faded edges effect on main
   const delay =
     parseFloat(
       getComputedStyle(document.body).getPropertyValue('transition-duration')
@@ -33,30 +31,100 @@ function setColorScheme() {
   setTimeout(() => {
     main.classList.add('faded-edges');
   }, delay);
-}
 
-function updateLocalStorage(checkbox) {
-  // Save switcher position to Local Storage
-  localStorage.setItem('dark-color-scheme', checkbox.checked);
-}
+  switchMedia(scheme);
 
-// *********************************
-
-function activateColorSchemeSwitcher() {
-  presetSwitcher();
-  setColorScheme();
-
-  refs.colorSwitcher.addEventListener('change', onChange);
-  setTimeout(() => {
-    refs.colorSwitcherSlider.classList.add('animated');
-  }, 100);
-}
-
-function onChange(event) {
-  setColorScheme();
-  updateLocalStorage(event.currentTarget);
+  if (scheme === 'auto') {
+    clearColorScheme();
+  } else {
+    saveColorScheme(scheme);
+  }
 }
 
 // *********************************
 
-activateColorSchemeSwitcher();
+function switchMedia(scheme) {
+  let lightMedia;
+  let darkMedia;
+
+  if (scheme === ' auto') {
+    lightMedia = 'prefers-color-scheme: light';
+    darkMedia = 'prefers-color-scheme: dark';
+  } else {
+    lightMedia = scheme === 'light' ? 'all' : 'not all';
+    darkMedia = scheme === 'dark' ? 'all' : 'not all';
+  }
+
+  [...refs.lightStyles].forEach((styleLink) => {
+    styleLink.media = lightMedia;
+  });
+
+  [...refs.darkStyles].forEach((styleLink) => {
+    styleLink.media = darkMedia;
+  });
+}
+
+// *********************************
+
+const darkSChemeMedia = matchMedia('prefers-color-scheme: dark');
+
+function getSystemSCheme() {
+  return darkSChemeMedia.matches ? 'dark' : 'light';
+}
+
+// *********************************
+
+function setupScheme() {
+  const savedScheme = getSavedColorScheme();
+  const systemScheme = getSystemSCheme();
+
+  if (!savedScheme || savedScheme === systemScheme) return;
+
+  setColorScheme(savedScheme);
+}
+
+function presetSwitcher() {
+  const savedScheme = getSavedColorScheme();
+
+  if (savedScheme) {
+    const currentRadio = document.querySelector(
+      `.switcher-radio[value=${savedScheme}]`
+    );
+    currentRadio.setAttribute('checked', '');
+  }
+
+  [...refs.switcherRadios].forEach((radio) => {
+    const handleChangeRadio = (event) => {
+      setColorScheme(event.target.value);
+    };
+
+    radio.addEventListener('change', handleChangeRadio);
+  });
+}
+
+// *********************************
+
+// Listen to clicks outside of the color scheme switcher while menu is open
+function onSwitcherMenuToggle(event) {
+  if (event.target.checked) {
+    document.addEventListener('click', handleClicksOutsideMenu, { once: true });
+  } else {
+    document.removeEventListener('click', handleClicksOutsideMenu);
+  }
+}
+
+function handleClicksOutsideMenu(event) {
+  event.preventDefault();
+
+  // If clicked outside menu, close it
+  if (!refs.switcherDropdown.contains(event.target)) {
+    refs.switcherCheckbox.checked = false;
+  }
+}
+
+refs.switcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
+
+// *********************************
+
+setupScheme();
+presetSwitcher();

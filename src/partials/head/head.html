@@ -1,0 +1,61 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dev0652</title>
+  <meta
+    name="description"
+    content="Hey, I'm Mykhailo and this is my portfolio"
+  />
+
+  <!-- Color themes (Safari only) -->
+  <meta
+    name="theme-color"
+    media="(prefers-color-scheme: light)"
+    content="snow"
+  />
+  <meta
+    name="theme-color"
+    media="(prefers-color-scheme: dark)"
+    content="slateGray"
+  />
+
+  <!-- Color schemes -->
+  <meta name="color-scheme" content="light dark" />
+
+  <script>
+    if (matchMedia('prefers-color-scheme: dark').media === 'not all') {
+      const lightCssLink =
+        '<link rel="stylesheet" href="./css/color-schemes/light.css" onload="document.documentElement.style.display=\'\'" />';
+
+      document.documentElement.style.display = 'none';
+      document.head.insertAdjacentHTML('beforeend', lightCssLink);
+    }
+  </script>
+
+  <!-- Favicon -->
+  <load ="partials/head/favicon.html" />
+
+  <!-- Styles -->
+  <style>
+    @font-face {
+      font-family: 'Segoe WP';
+      font-style: normal;
+      font-weight: normal;
+      src: local('Segoe WP'), url('/fonts/SegoeWP.woff') format('woff');
+      font-display: swap;
+    }
+  </style>
+
+  <link
+    rel="stylesheet"
+    href="./css/color-schemes/light.css"
+    media="(prefers-color-scheme: light)"
+  />
+  <link
+    rel="stylesheet"
+    href="./css/color-schemes/dark.css"
+    media="(prefers-color-scheme: dark)"
+  />
+  <link rel="stylesheet" href="./sass/index.scss" />
+</head>
