@@ -1,6 +1,7 @@
-@import './color-variables.css';
-
 :root {
+  --dark-gray: #202024;
+  --blackish: #111111;
+
   --accent-primary: darkgoldenrod;
 
   /* Body */

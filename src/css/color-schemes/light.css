@@ -1,7 +1,8 @@
-@import './color-variables.css';
-
 :root {
-  --accent-primary: var(--lightblue);
+  --light-gray: #dcdcdc;
+  --blackish: #111111;
+
+  --accent-primary: #2980b9;
 
   /* Body */
   --background-color: snow;
