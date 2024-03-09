@@ -1,9 +1,9 @@
 export const refs = {
   // Color schemes
-  lightStyles: document.querySelectorAll(
+  lightStyles: document.querySelector(
     'link[rel=stylesheet][media*=prefers-color-scheme][media*=light]'
   ),
-  darkStyles: document.querySelectorAll(
+  darkStyles: document.querySelector(
     'link[rel=stylesheet][media*=prefers-color-scheme][media*=dark]'
   ),
   switcherRadios: document.querySelectorAll('.switcher-radio'),

@@ -1,6 +1,6 @@
 @import './color-variables.css';
 
-body {
+:root {
   --accent-primary: darkgoldenrod;
 
   /* Body */
@@ -8,6 +8,8 @@ body {
   --text-color: gainsboro;
 
   /* Header */
+  --header-bg-color: var(--background-color);
+
   --header-nav-link-color: gray;
   --header-nav-link-hover: silver;
   --header-nav-link-active: gainsboro;
@@ -17,7 +19,7 @@ body {
 
   /* Buttons */
   --button-text-color: var(--text-color);
-  /* --button-text-hover: var(--blackish); */
+  --button-text-hover: var(--blackish);
   --button-bg-hover: dimgray;
 
   --button-text-active: dimgray;
@@ -28,6 +30,9 @@ body {
   --scheme-switcher-bg-gradient-end: var(--dark-gray);
 
   --scheme-switcher-dropdown-bg: var(--dark-gray);
+
+  --scheme-switcher-radio: var(--header-nav-link-color);
+  --scheme-switcher-radio-checked: var(--text-color);
 
   /* Project title animation */
   --swaying-icon-color: gainsboro;

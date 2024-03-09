@@ -28,7 +28,7 @@ function setColorScheme(scheme) {
       getComputedStyle(document.body).getPropertyValue('transition-duration')
     ) * 1000;
 
-  switchMedia(scheme);
+  // Do the switching
 
   if (scheme === 'auto') {
     clearColorScheme();
@@ -36,6 +36,9 @@ function setColorScheme(scheme) {
     saveColorScheme(scheme);
   }
 
+  switchMedia(scheme);
+
+  // Turn faded edges effect back on
   setTimeout(() => {
     main.classList.add('faded-edges');
   }, delay);
@@ -44,24 +47,17 @@ function setColorScheme(scheme) {
 // *********************************
 
 function switchMedia(scheme) {
-  let lightMedia;
-  let darkMedia;
-
-  if (scheme === ' auto') {
-    lightMedia = 'prefers-color-scheme: light';
-    darkMedia = 'prefers-color-scheme: dark';
+  //
+  if (scheme === 'auto') {
+    refs.lightStyles.media = '(prefers-color-scheme: light)';
+    refs.darkStyles.media = '(prefers-color-scheme: dark)';
   } else {
-    lightMedia = scheme === 'light' ? 'all' : 'not all';
-    darkMedia = scheme === 'dark' ? 'all' : 'not all';
+    refs.lightStyles.media = scheme === 'light' ? 'all' : 'not all';
+    refs.darkStyles.media = scheme === 'dark' ? 'all' : 'not all';
   }
 
-  [...refs.lightStyles].forEach((styleLink) => {
-    styleLink.media = lightMedia;
-  });
-
-  [...refs.darkStyles].forEach((styleLink) => {
-    styleLink.media = darkMedia;
-  });
+  console.log('light Styles: ', refs.lightStyles);
+  console.log('dark Styles: ', refs.darkStyles);
 }
 
 // *********************************

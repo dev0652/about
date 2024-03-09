@@ -1,6 +1,6 @@
 @import './color-variables.css';
 
-body {
+:root {
   --accent-primary: var(--lightblue);
 
   /* Body */
