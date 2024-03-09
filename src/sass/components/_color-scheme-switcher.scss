@@ -173,7 +173,7 @@ fieldset.scheme-switcher {
   transition: color $td $tf, filter $td $tf;
 
   &:has(.switcher-radio:checked) {
-    color: var(--accent-primary);
+    color: var(--accent-secondary);
 
     &:hover {
       filter: brightness(1.3);
