@@ -104,10 +104,9 @@ function presetSwitcher() {
 
 // *********************************
 
+// Listen to clicks outside of the color scheme switcher while menu is open
 function onSwitcherMenuToggle(event) {
-  const checked = event.target.checked;
-
-  if (checked) {
+  if (event.target.checked) {
     document.addEventListener('click', handleClicksOutsideMenu, { once: true });
   } else {
     document.removeEventListener('click', handleClicksOutsideMenu);
@@ -115,14 +114,12 @@ function onSwitcherMenuToggle(event) {
 }
 
 function handleClicksOutsideMenu(event) {
-  const checkbox = refs.switcherCheckbox;
-  console.log('checkbox: ', checkbox);
-  const dropdown = refs.switcherDropdown;
+  event.preventDefault();
 
-  console.log('event.target: ', event.target);
-  console.log('event.target == dropdown: ', event.target === dropdown);
-
-  if (event.target !== dropdown) checkbox.checked = false;
+  // If clicked outside menu, close it
+  if (!refs.switcherDropdown.contains(event.target)) {
+    refs.switcherCheckbox.checked = false;
+  }
 }
 
 refs.switcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
