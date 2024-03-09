@@ -10,6 +10,7 @@ import { slider } from './swipe';
 import { createPagination } from './pagination';
 
 import { setTypewriterEffect } from './typing-animation';
+import { activateColorSchemeSwitcher } from './color-scheme-switcher';
 
 // *********************************
 
@@ -50,6 +51,7 @@ function doThingsOnLoad() {
 // *********************************
 
 function onFirstLoad() {
+  activateColorSchemeSwitcher();
   doThingsOnLoad();
 
   if (mediaQueryMobile.matches) {

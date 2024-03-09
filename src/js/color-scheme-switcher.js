@@ -118,6 +118,8 @@ function handleClicksOutsideMenu(event) {
 
 // *********************************
 
-setupScheme();
-presetSwitcher();
-refs.switcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
+export function activateColorSchemeSwitcher() {
+  setupScheme();
+  presetSwitcher();
+  refs.switcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
+}

@@ -7,8 +7,7 @@
     "start": "vite",
     "build": "vite build",
     "build-gh": "vite build --base=/about/",
-    "preview": "vite preview",
-    "preview-gh": "vite preview  --base=/about/"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
