@@ -38,25 +38,27 @@ function switchMedia(scheme) {
 
 // *********************************
 
+const delay =
+  parseFloat(
+    getComputedStyle(document.body).getPropertyValue('transition-duration')
+  ) * 1000;
+
 function setColorScheme(scheme) {
-  // Temporarily remove the faded edges effect on main to avoid color flashing during box-shadow transition
-  refs.main.classList.remove('faded-edges');
+  if (refs.main.classList.contains('faded-edges')) {
+    // Temporarily remove the faded edges effect on main to avoid color flashing during box-shadow transition
+    refs.main.classList.remove('faded-edges');
+  }
 
   // Do the switching
+  switchMedia(scheme);
+
   if (scheme === 'auto') {
     clearColorScheme();
   } else {
     saveColorScheme(scheme);
   }
 
-  switchMedia(scheme);
-
   // Turn faded edges effect back on
-  const delay =
-    parseFloat(
-      getComputedStyle(document.body).getPropertyValue('transition-duration')
-    ) * 1000;
-
   setTimeout(() => {
     refs.main.classList.add('faded-edges');
   }, delay);
@@ -73,6 +75,8 @@ function setupScheme() {
   setColorScheme(savedScheme);
 }
 
+// *********************************
+
 function presetSwitcher() {
   const savedScheme = getSavedColorScheme();
 
@@ -83,11 +87,11 @@ function presetSwitcher() {
     currentRadio.setAttribute('checked', '');
   }
 
-  [...refs.switcherRadios].forEach((radio) => {
-    const handleChangeRadio = (event) => {
-      setColorScheme(event.target.value);
-    };
+  const handleChangeRadio = (event) => {
+    setColorScheme(event.target.value);
+  };
 
+  [...refs.switcherRadios].forEach((radio) => {
     radio.addEventListener('change', handleChangeRadio);
   });
 }
