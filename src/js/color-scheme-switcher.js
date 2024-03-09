@@ -55,9 +55,6 @@ function switchMedia(scheme) {
     refs.lightStyles.media = scheme === 'light' ? 'all' : 'not all';
     refs.darkStyles.media = scheme === 'dark' ? 'all' : 'not all';
   }
-
-  console.log('light Styles: ', refs.lightStyles);
-  console.log('dark Styles: ', refs.darkStyles);
 }
 
 // *********************************
@@ -108,14 +105,12 @@ function onSwitcherMenuToggle(event) {
   document[method]('click', handleClicksOutsideMenu);
 }
 
+// If clicked outside menu, close it
 function handleClicksOutsideMenu(event) {
-  // If clicked outside menu, close it
   if (
     !refs.switcherDropdown.contains(event.target) &&
     !refs.switcherCheckboxLabel.contains(event.target)
   ) {
-    console.log('if satisfied');
-
     document.removeEventListener('click', handleClicksOutsideMenu);
     refs.switcherCheckbox.checked = false;
   }
