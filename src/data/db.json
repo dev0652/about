@@ -55,7 +55,7 @@
     "thumbFilename": "bookshelf",
     "type": "Study team project",
     "stack": "Front-end",
-    "role": "Team leader, repository owner",
+    "role": "Team lead, repository owner",
     "customer": null,
     "description": "Our team project for the JavaScript block. This a two-page web app with Firebase-based authorization that allows users to browse, review and buy popular books as well as add them to their shopping list. Unregistered users can add books to the shopping list that will only be available locally. Once logged in, a user's collection of books will be automatically saved in the cloud and can be accessed from anywhere. The website offers dark and light color themes."
   },
@@ -143,7 +143,7 @@
     "thumbFilename": "icecream",
     "type": "Study team project",
     "stack": "Front-end",
-    "role": "Team leader, repository owner",
+    "role": "Team lead, repository owner",
     "customer": null,
     "description": "Our first team project for the HTML/CSS block, with animations and a little bit of JS. I was responsible for the Products section as well as owning the project repository, merging pull requests and resolving conflicts"
   },
