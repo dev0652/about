@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dev0652</title>
+  <meta
+    name="description"
+    content="Hey, I'm Mykhailo and this is my portfolio"
+  />
 
-    <meta
-      name="description"
-      content="Hey, I'm Mykhailo and this is my portfolio"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: light)"
-      content="#1b1b1b"
-    />
+  <!-- Color themes (Safari only) -->
+  <meta
+    name="theme-color"
+    media="(prefers-color-scheme: light)"
+    content="snow"
+  />
+  <meta
+    name="theme-color"
+    media="(prefers-color-scheme: dark)"
+    content="slateGray"
+  />
 
-    <title>dev0652</title>
+  <!-- Color schemes -->
+  <meta name="color-scheme" content="light dark" />
 
-    <!-- Favicon -->
-    <link
+  <script>
+    if (matchMedia('prefers-color-scheme: dark').media === 'not all') {
+      const lightCssLink =
+        '<link rel="stylesheet" href="./css/color-schemes/light.css" onload="document.documentElement.style.display=\'\'" />';
+
+      document.documentElement.style.display = 'none';
+      document.head.insertAdjacentHTML('beforeend', lightCssLink);
+    }
+  </script>
+
+  <!-- Favicon -->
+  <link
   type="image/x-icon"
   rel="shortcut icon"
   href="/about/assets/favicon-df11693e.ico"
@@ -44,20 +62,7 @@
 />
 
 
-    <!-- Styles -->
-    
-
-    <!-- <link
-      rel="preload"
-      href="./sass/index.scss"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript><link rel="stylesheet" href="styles.css" /></noscript> -->
-    <script type="module" crossorigin src="/about/assets/index-d91ebf3d.js"></script>
-    <link rel="stylesheet" href="/about/assets/index-345bd677.css">
-  </head>
-
+  <!-- Styles -->
   <style>
     @font-face {
       font-family: 'Segoe WP';
@@ -68,11 +73,27 @@
     }
   </style>
 
+  <link
+    rel="stylesheet"
+    href="data:text/css;base64,QGltcG9ydCAnLi9jb2xvci12YXJpYWJsZXMuY3NzJzsKCmJvZHkgewogIC0tYWNjZW50LXByaW1hcnk6IHZhcigtLWxpZ2h0Ymx1ZSk7CgogIC8qIEJvZHkgKi8KICAtLWJhY2tncm91bmQtY29sb3I6IHNub3c7CiAgLS10ZXh0LWNvbG9yOiB2YXIoLS1ibGFja2lzaCk7CgogIC8qIEhlYWRlciAqLwogIC0taGVhZGVyLWJnLWNvbG9yOiB2YXIoLS1iYWNrZ3JvdW5kLWNvbG9yKTsKCiAgLS1oZWFkZXItbmF2LWxpbmstY29sb3I6IHNpbHZlcjsKICAtLWhlYWRlci1uYXYtbGluay1ob3ZlcjogZ3JheTsKICAtLWhlYWRlci1uYXYtbGluay1hY3RpdmU6IHZhcigtLXRleHQtY29sb3IpOwoKICAtLXBhZ2luYXRpb24tYnVsbGV0OiBncmF5OwogIC0tcGFnaW5hdGlvbi1idWxsZXQtY3VycmVudDogYmxhY2s7CgogIC8qIEJ1dHRvbnMgKi8KICAtLWJ1dHRvbi10ZXh0LWNvbG9yOiB2YXIoLS10ZXh0LWNvbG9yKTsKICAtLWJ1dHRvbi10ZXh0LWhvdmVyOiB2YXIoLS1ibGFja2lzaCk7CiAgLS1idXR0b24tYmctaG92ZXI6IHNpbHZlcjsKCiAgLS1idXR0b24tdGV4dC1hY3RpdmU6IHZhcigtLWJ1dHRvbi10ZXh0LWhvdmVyKTsKICAtLWJ1dHRvbi1iZy1hY3RpdmU6IGRhcmtncmF5OwoKICAvKiBUaGVtZSBzd2l0Y2hlciAqLwogIC0tc2NoZW1lLXN3aXRjaGVyLWJnLWdyYWRpZW50LXN0YXJ0OiBncmF5OwogIC0tc2NoZW1lLXN3aXRjaGVyLWJnLWdyYWRpZW50LWVuZDogdmFyKC0tbGlnaHQtZ3JheSk7CgogIC0tc2NoZW1lLXN3aXRjaGVyLWRyb3Bkb3duLWJnOiB3aGl0ZTsKCiAgLS1zY2hlbWUtc3dpdGNoZXItcmFkaW86IHZhcigtLWhlYWRlci1uYXYtbGluay1jb2xvcik7CiAgLS1zY2hlbWUtc3dpdGNoZXItcmFkaW8tY2hlY2tlZDogdmFyKC0tdGV4dC1jb2xvcik7CgogIC8qIFByb2plY3QgdGl0bGUgYW5pbWF0aW9uICovCiAgLS1zd2F5aW5nLWljb24tY29sb3I6IGdyYXk7CgogIC8qIFByb2plY3QgY2FyZCAqLwogIC0tbGlzdC1jYXJkLWltYWdlLXNoYWRvdzogdmFyKC0tbGlnaHQtZ3JheSk7CgogIC8qIE1vZGFsICovCiAgLS1tb2RhbC1iYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1iYWNrZ3JvdW5kLWNvbG9yKTsKICAtLW1vZGFsLWNsb3NlLWJhY2tncm91bmQtY29sb3I6IHNpbHZlcjsKCiAgLyogRm9ybSAqLwogIC0tZm9ybS1maWVsZC1iZy1jb2xvcjogd2hpdGU7Cn0K"
+    media="(prefers-color-scheme: light)"
+  />
+  <link
+    rel="stylesheet"
+    href="data:text/css;base64,QGltcG9ydCAnLi9jb2xvci12YXJpYWJsZXMuY3NzJzsKCmJvZHkgewogIC0tYWNjZW50LXByaW1hcnk6IGRhcmtnb2xkZW5yb2Q7CgogIC8qIEJvZHkgKi8KICAtLWJhY2tncm91bmQtY29sb3I6ICMwYzA5MGE7CiAgLS10ZXh0LWNvbG9yOiBnYWluc2Jvcm87CgogIC8qIEhlYWRlciAqLwogIC0taGVhZGVyLW5hdi1saW5rLWNvbG9yOiBncmF5OwogIC0taGVhZGVyLW5hdi1saW5rLWhvdmVyOiBzaWx2ZXI7CiAgLS1oZWFkZXItbmF2LWxpbmstYWN0aXZlOiBnYWluc2Jvcm87CgogIC0tcGFnaW5hdGlvbi1idWxsZXQ6IHNpbHZlcjsKICAtLXBhZ2luYXRpb24tYnVsbGV0LWN1cnJlbnQ6IHdoaXRlOwoKICAvKiBCdXR0b25zICovCiAgLS1idXR0b24tdGV4dC1jb2xvcjogdmFyKC0tdGV4dC1jb2xvcik7CiAgLyogLS1idXR0b24tdGV4dC1ob3ZlcjogdmFyKC0tYmxhY2tpc2gpOyAqLwogIC0tYnV0dG9uLWJnLWhvdmVyOiBkaW1ncmF5OwoKICAtLWJ1dHRvbi10ZXh0LWFjdGl2ZTogZGltZ3JheTsKICAtLWJ1dHRvbi1iZy1hY3RpdmU6IHZhcigtLWJsYWNraXNoKTsKCiAgLyogVGhlbWUgc3dpdGNoZXIgKi8KICAtLXNjaGVtZS1zd2l0Y2hlci1iZy1ncmFkaWVudC1zdGFydDogZ3JheTsKICAtLXNjaGVtZS1zd2l0Y2hlci1iZy1ncmFkaWVudC1lbmQ6IHZhcigtLWRhcmstZ3JheSk7CgogIC0tc2NoZW1lLXN3aXRjaGVyLWRyb3Bkb3duLWJnOiB2YXIoLS1kYXJrLWdyYXkpOwoKICAvKiBQcm9qZWN0IHRpdGxlIGFuaW1hdGlvbiAqLwogIC0tc3dheWluZy1pY29uLWNvbG9yOiBnYWluc2Jvcm87CgogIC8qIFByb2plY3QgY2FyZCAqLwogIC0tbGlzdC1jYXJkLWltYWdlLXNoYWRvdzogdHJhbnNwYXJlbnQ7CgogIC8qIE1vZGFsICovCiAgLS1tb2RhbC1iYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1ibGFja2lzaCk7CiAgLS1tb2RhbC1jbG9zZS1iYWNrZ3JvdW5kLWNvbG9yOiBncmF5OwoKICAvKiBGb3JtICovCiAgLS1mb3JtLWZpZWxkLWJnLWNvbG9yOiB2YXIoLS1ibGFja2lzaCk7Cn0K"
+    media="(prefers-color-scheme: dark)"
+  />
+  
+  <script type="module" crossorigin src="/about/assets/index-4f4300f1.js"></script>
+  <link rel="stylesheet" href="/about/assets/index-39247eaf.css">
+</head>
+
+
   <body>
     <header class="header">
   <div class="header-container">
+    <!--  -->
     <!-- Navigation -->
-
     <nav class="header-nav">
       <ul class="header-nav-list">
         <li class="nav-item">
@@ -95,36 +116,96 @@
       </ul>
     </nav>
 
+    <!-- Mobile headings injection target -->
     <div class="mobile-headings"></div>
 
-    <label class="color-scheme-switcher">
-  <input
-    type="checkbox"
-    name="color-scheme-switcher-checkbox"
-    class="color-scheme-switcher-checkbox"
-    id="color-scheme-switcher-checkbox"
-    aria-label="Color-scheme switcher"
-  />
+    <!-- Color scheme switcher button -->
+    <div class="scheme-switcher-menu-group">
+      <label
+        class="scheme-switcher-menu-label"
+        for="scheme-switcher-menu-checkbox"
+        >Color scheme
 
-  <span class="color-scheme-switcher-slider"></span>
+        <input
+          class="scheme-switcher-menu-checkbox"
+          type="checkbox"
+          id="scheme-switcher-menu-checkbox"
+          name="scheme-switcher-menu-checkbox"
+          aria-label="Color scheme switcher menu toggle"
+        />
 
-  <svg class="color-switcher-icons" width="18" height="18">
-    <use
-      class="color-switcher-icon-moon"
-      href="/about/assets/symbol-defs-e8d5ef6f.svg#icon-moon"
-    ></use>
-    <use
-      class="color-switcher-icon-sun"
-      href="/about/assets/symbol-defs-e8d5ef6f.svg#icon-sun"
-    ></use>
-  </svg>
-</label>
+        <svg class="scheme-switcher-radio-label-icon" width="32" height="32">
+          <use href="/about/assets/symbol-defs-06a9ae31.svg#icon-luminosity"></use>
+        </svg>
+      </label>
 
+      <div class="scheme-switcher-dropdown-wrapper">
+        <div class="scheme-switcher-dropdown">
+          <fieldset class="scheme-switcher">
+  <legend class="switcher-legend">Color scheme</legend>
+
+  <label class="switcher-radio-label" for="light">
+    <p class="switcher-radio-caption">Light</p>
+
+    <input
+      class="switcher-radio light"
+      type="radio"
+      id="light"
+      name="color-scheme"
+      value="light"
+      aria-label="light"
+    />
+
+    <svg class="scheme-switcher-icon" width="32" height="32">
+      <use href="/about/assets/symbol-defs-06a9ae31.svg#icon-sun-circled"></use>
+    </svg>
+  </label>
+
+  <label class="switcher-radio-label" for="auto">
+    <p class="switcher-radio-caption">Auto</p>
+
+    <input
+      class="switcher-radio auto"
+      type="radio"
+      id="auto"
+      name="color-scheme"
+      value="auto"
+      aria-label="auto"
+      checked
+    />
+
+    <svg class="scheme-switcher-icon" width="32" height="32">
+      <use href="/about/assets/symbol-defs-06a9ae31.svg#icon-windows"></use>
+    </svg>
+  </label>
+
+  <label class="switcher-radio-label" for="dark">
+    <p class="switcher-radio-caption">Dark</p>
+
+    <input
+      class="switcher-radio dark"
+      type="radio"
+      id="dark"
+      name="color-scheme"
+      value="dark"
+      aria-label="dark"
+    />
+
+    <svg class="scheme-switcher-icon" width="32" height="32">
+      <use href="/about/assets/symbol-defs-06a9ae31.svg#icon-cloud-circled"></use>
+    </svg>
+  </label>
+</fieldset>
+
+        </div>
+      </div>
+    </div>
+    <!--  -->
   </div>
 </header>
 
 
-    <main>
+    <main class="faded-edges">
       <div id="slider" class="swipe">
         <div class="swipe-wrap">
           <section class="section" id="about">
@@ -163,6 +244,7 @@
 
     <div class="section-content">
       <button type="button" class="projects-view-switch">Switch view</button>
+
       <div class="gallery" id="gallery"></div>
     </div>
   </div>
@@ -176,7 +258,7 @@
       <ul class="contacts-list">
         <li class="contacts-list-item">
           <svg class="contact-icon" width="36" height="36">
-            <use href="/about/assets/symbol-defs-e8d5ef6f.svg#icon-linkedin"></use>
+            <use href="/about/assets/symbol-defs-06a9ae31.svg#icon-linkedin"></use>
           </svg>
           <a
             class="contact-link"
@@ -189,7 +271,7 @@
 
         <li class="contacts-list-item">
           <svg class="contact-icon" width="36" height="36">
-            <use href="/about/assets/symbol-defs-e8d5ef6f.svg#icon-email"></use>
+            <use href="/about/assets/symbol-defs-06a9ae31.svg#icon-email-circled"></use>
           </svg>
           <a
             class="contact-link"
@@ -202,7 +284,7 @@
 
         <li class="contacts-list-item">
           <svg class="contact-icon" width="36" height="36">
-            <use href="/about/assets/symbol-defs-e8d5ef6f.svg#icon-github"></use>
+            <use href="/about/assets/symbol-defs-06a9ae31.svg#icon-github"></use>
           </svg>
           <a
             class="contact-link"
@@ -278,7 +360,7 @@
       aria-label="Close the modal window"
     >
       <svg class="popup-modal-close-button-icon" width="18" height="18">
-        <use href="/about/assets/symbol-defs-e8d5ef6f.svg#icon-x-close"></use>
+        <use href="/about/assets/symbol-defs-06a9ae31.svg#icon-x-close"></use>
       </svg>
     </button>
 
