@@ -9,6 +9,7 @@ export const refs = {
   switcherRadios: document.querySelectorAll('.switcher-radio'),
   switcherDropdown: document.querySelector('.scheme-switcher-dropdown'),
   switcherCheckbox: document.querySelector('.scheme-switcher-menu-checkbox'),
+  switcherCheckboxLabel: document.querySelector('.scheme-switcher-menu-label'),
 
   // Header
   header: document.querySelector('.header'),

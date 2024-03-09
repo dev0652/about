@@ -102,25 +102,27 @@ function presetSwitcher() {
 
 // Listen to clicks outside of the color scheme switcher while menu is open
 function onSwitcherMenuToggle(event) {
-  if (event.target.checked) {
-    document.addEventListener('click', handleClicksOutsideMenu, { once: true });
-  } else {
-    document.removeEventListener('click', handleClicksOutsideMenu);
-  }
+  const method = event.target.checked
+    ? 'addEventListener'
+    : 'removeEventListener';
+  document[method]('click', handleClicksOutsideMenu);
 }
 
 function handleClicksOutsideMenu(event) {
-  event.preventDefault();
-
   // If clicked outside menu, close it
-  if (!refs.switcherDropdown.contains(event.target)) {
+  if (
+    !refs.switcherDropdown.contains(event.target) &&
+    !refs.switcherCheckboxLabel.contains(event.target)
+  ) {
+    console.log('if satisfied');
+
+    document.removeEventListener('click', handleClicksOutsideMenu);
     refs.switcherCheckbox.checked = false;
   }
 }
-
-// refs.switcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
 
 // *********************************
 
 setupScheme();
 presetSwitcher();
+refs.switcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
