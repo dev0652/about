@@ -104,5 +104,30 @@ function presetSwitcher() {
 
 // *********************************
 
+function onSwitcherMenuToggle(event) {
+  const checked = event.target.checked;
+
+  if (checked) {
+    document.addEventListener('click', handleClicksOutsideMenu, { once: true });
+  } else {
+    document.removeEventListener('click', handleClicksOutsideMenu);
+  }
+}
+
+function handleClicksOutsideMenu(event) {
+  const checkbox = refs.switcherCheckbox;
+  console.log('checkbox: ', checkbox);
+  const dropdown = refs.switcherDropdown;
+
+  console.log('event.target: ', event.target);
+  console.log('event.target == dropdown: ', event.target === dropdown);
+
+  if (event.target !== dropdown) checkbox.checked = false;
+}
+
+refs.switcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
+
+// *********************************
+
 setupScheme();
 presetSwitcher();

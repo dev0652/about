@@ -7,7 +7,8 @@ export const refs = {
     'link[rel=stylesheet][media*=prefers-color-scheme][media*=dark]'
   ),
   switcherRadios: document.querySelectorAll('.switcher-radio'),
-  switcherButton: document.querySelector('.scheme-switcher-menu'),
+  switcherDropdown: document.querySelector('.scheme-switcher-dropdown'),
+  switcherCheckbox: document.querySelector('.scheme-switcher-menu-checkbox'),
 
   // Header
   header: document.querySelector('.header'),
