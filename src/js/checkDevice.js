@@ -51,7 +51,12 @@ function doThingsOnLoad() {
 // *********************************
 
 function onFirstLoad() {
-  activateColorSchemeSwitcher();
+  // activateColorSchemeSwitcher();
+
+  document.addEventListener('DOMContentLoaded', activateColorSchemeSwitcher, {
+    once: true,
+  });
+
   doThingsOnLoad();
 
   if (mediaQueryMobile.matches) {

@@ -1,8 +1,8 @@
-import { createPictureTag } from './imagePaths';
+import { makePictureTag } from './imagePaths';
 
 // *********************************
 
-export default function createCardMarkup(project) {
+export function createCardMarkup(project) {
   const {
     id,
     name,
@@ -10,7 +10,7 @@ export default function createCardMarkup(project) {
     link,
     livePage,
     thumbFileName,
-    isDarkThumbAvailable: isDark,
+    doesHaveDarkVersion,
     description,
     stack,
     role,
@@ -20,8 +20,19 @@ export default function createCardMarkup(project) {
 
   const technologiesList = technologies.join(', ');
 
-  const listPictureTag = createPictureTag(name, thumbFileName, 'list', isDark);
-  const tilePictureTag = createPictureTag(name, thumbFileName, 'tile', isDark);
+  const listPictureTag = makePictureTag(
+    name,
+    thumbFileName,
+    'list',
+    doesHaveDarkVersion
+  );
+
+  const tilePictureTag = makePictureTag(
+    name,
+    thumbFileName,
+    'tile',
+    doesHaveDarkVersion
+  );
 
   return /* html */ `
     <li class="project-card" tabindex="-1">

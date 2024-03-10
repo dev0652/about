@@ -40,7 +40,8 @@
   --swaying-icon-color: gainsboro;
 
   /* Project card */
-  --list-card-image-shadow: transparent;
+  --list-card-image-shadow: rgba(255, 255, 255, 0.2);
+  --tile-card-image-shadow: rgba(255, 255, 255, 0.2);
 
   /* Modal */
   --modal-background-color: var(--blackish);

@@ -1,4 +1,4 @@
-import { createPictureTag } from './imagePaths';
+import { makePictureTag } from './imagePaths';
 
 // *********************************
 
@@ -9,7 +9,7 @@ export function createCardModal(project) {
     link,
     livePage,
     thumbFileName,
-    isDarkThumbAvailable: isDark,
+    doesHaveDarkVersion: isDark,
     description,
     stack,
     role,
@@ -17,12 +17,7 @@ export function createCardModal(project) {
     technologies,
   } = project;
 
-  const modalPictureTag = createPictureTag(
-    name,
-    thumbFileName,
-    'modal',
-    isDark
-  );
+  const modalPictureTag = makePictureTag(name, thumbFileName, 'modal', isDark);
 
   const technologiesList = technologies.join(', ');
 

@@ -121,13 +121,15 @@
     margin-top: 5px; // to align evenly with .project-type
   }
 
-  @media screen and (min-width: $desktop) {
-    // width: 480px;
-    // height: 270px;
-  }
+  // background-color: red;
+
+  box-shadow: 0px 0px 4px var(--list-card-image-shadow),
+    0px 0px 4px var(--list-card-image-shadow);
+
+  background-size: cover;
+  background-position: center;
 }
 
-.list-card-image-block,
 .modal-image-block {
   box-shadow: 0px 1px 1px var(--list-card-image-shadow);
 }
@@ -247,6 +249,7 @@
   }
 
   width: 100%;
+  height: max-content;
   aspect-ratio: 16 / 9;
 
   @media screen and (min-width: $tablet) {
@@ -260,7 +263,6 @@
             $container-padding-desktop * 2
         ) / 3
     );
-    height: 190px;
   }
 
   @media screen and (min-width: $desktop-wide) {
@@ -270,7 +272,6 @@
             $container-padding-desktop * 2
         ) / 3
     );
-    height: 230px;
   }
 
   .tile-card-link {
@@ -294,26 +295,21 @@
   }
 }
 
+.project-card-picture-element {
+  height: 100%;
+  width: 100%;
+}
+
 .project-card-image {
-  .list-card & {
-    object-fit: contain;
-    object-position: top;
-    height: 100%;
-    width: 100%;
-  }
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 
-  .tile-card & {
-    height: 100%;
-    width: 100%;
-    object-position: center;
+  object-position: center;
 
-    @media screen and (max-width: $tablet-1) {
-      object-fit: contain;
-      height: auto;
-    }
+  // .list-card & {}
 
-    object-fit: cover;
-  }
+  // .tile-card & {}
 }
 
 // Card elements
@@ -334,7 +330,6 @@
 // Flip cards in gallery view
 
 .flip-card {
-  background-color: transparent;
   width: 100%;
   height: 100%;
   perspective: 2000px;
@@ -347,7 +342,9 @@
   text-align: center;
   transition: transform 600ms;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  box-shadow: 0px 0px 5px 0px var(--tile-card-image-shadow),
+    0px 0px 5px 0px var(--tile-card-image-shadow);
 }
 
 @media screen and (min-width: $tablet) {
@@ -365,15 +362,20 @@
 .flip-card-front,
 .flip-card-back {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .flip-card-front {
-  background-color: #bbb;
-  color: black;
+  // background-color: #bbb;
+  // background-color: gold;
+
+  color: var(--text-color);
 }
 
 .flip-card-back {

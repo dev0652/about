@@ -41,6 +41,7 @@
 
   /* Project card */
   --list-card-image-shadow: var(--light-gray);
+  --tile-card-image-shadow: rgba(0, 0, 0, 0.2);
 
   /* Modal */
   --modal-background-color: var(--background-color);

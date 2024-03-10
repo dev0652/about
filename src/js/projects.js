@@ -2,7 +2,7 @@ import projects from '/data/db.json' assert { type: 'json' };
 import { refs } from '/js/refs';
 
 import { openCardModal } from '/js/modal';
-import createCardMarkup from '/js/createCard';
+import { createCardMarkup } from '/js/createCard';
 
 // *********************************
 
@@ -15,7 +15,30 @@ const makeListMarkup = (projectsArray) => {
   </ul>`;
 };
 
-gallery.innerHTML = makeListMarkup(projects);
+// *********************************
+
+// Handle errors if image urls in picture tag's 'source' are broken
+function addEmgErrorHandlers() {
+  const images = document.querySelectorAll('.error-handleable');
+
+  images.forEach((image) => {
+    image.onerror = handler;
+  });
+
+  function handler(event) {
+    event.target.onerror = null;
+    const children = event.target.parentElement.children;
+
+    // Get both <source> child elements of the <img>'s parent <picture> element and replace their <srcset" value with placeholder image URL
+    [...children].forEach((child) => {
+      if (!child.nodeName === 'SOURCE') return;
+      child.srcset = fallBack;
+      child.sizes = '';
+    });
+  }
+}
+
+const fallBack = new URL(`/images/projects/fallback.svg`, import.meta.url).href;
 
 // *********************************
 
@@ -54,8 +77,6 @@ function switchView() {
   }, 300);
 }
 
-refs.galleryViewSwitcher.addEventListener('click', switchView);
-
 // *********************************
 
 function handleGalleryCardClicks(event) {
@@ -66,3 +87,9 @@ function handleGalleryCardClicks(event) {
   const id = event.target.dataset.id;
   openCardModal(id);
 }
+
+// *********************************
+
+gallery.innerHTML = makeListMarkup(projects);
+addEmgErrorHandlers();
+refs.galleryViewSwitcher.addEventListener('click', switchView);

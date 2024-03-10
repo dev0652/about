@@ -1,141 +1,149 @@
 // *********************************
 
-function makePlaceholderUrl(resolution, message = null, isDarkThumb = false) {
-  // https://placehold.co/600x400/2A3439/808080/webp?text=Image+pending
-  const baseUrl = 'https://placehold.co/';
-  const colors = isDarkThumb ? '/2A3439/808080' : '';
-  const extension = '/webp';
-  const parameter = message ? `?text=${message.split(' ').join('+')}` : '';
+// May cause server blocking due to too many requests
 
-  return baseUrl + resolution + colors + extension + parameter;
-}
+// function makePlaceholderUrl(resolution, message, doesHaveDarkVersion = false) {
+//   if (!message) message = resolution;
+
+//   // https://placehold.co/600x400/2A3439/808080/webp?text=Image+pending
+//   const baseUrl = 'https://placehold.co/';
+//   const colors = doesHaveDarkVersion ? '/2A3439/808080' : '';
+//   const extension = '/webp';
+//   const text = `?text=${message.split(' ').join('+')}`;
+
+//   return baseUrl + resolution + colors + extension + text;
+// }
+
+// const res = {small: '370x208', medium: '480x270', large1x: '960x540', large2x: '1920x1080'};
 
 // *********************************
 
-function getImageUrl(dir, name, isDarkThumb) {
-  const fileName = isDarkThumb ? name + '_dark' : name;
-  console.log('fileName: ', fileName);
+function getPlaceholderUrl(isDarkVersion = false) {
+  const baseName = 'placeholder';
+  const fileName = isDarkVersion ? baseName + '_dark' : baseName;
+
+  return new URL(`/images/projects/svg/${fileName}.svg`, import.meta.url).href;
+}
+
+const placeholderUrl = {
+  light: getPlaceholderUrl(),
+  dark: getPlaceholderUrl(true),
+};
+
+// *********************************
+
+const names = {
+  small: 'small',
+  medium: 'medium',
+  large1x: 'large1x',
+  large2x: 'large2x',
+};
+
+// *********************************
+
+function getImageUrl(dirName, fileName, isDark) {
+  const name = isDark ? fileName + '_dark' : fileName;
 
   return new URL(
-    `/images/projects/webp/${dir}/${fileName}.webp`,
+    `/images/projects/webp/${dirName}/${name}.webp`,
     import.meta.url
   ).href;
 }
 
-// *********************************
-
-const res = {
-  small: '370x208',
-  medium: '480x270',
-  large1x: '960x540',
-  large2x: '1920x1080',
-};
-
-const message = 'Image pending';
-
-function getImagePaths(fileName, isDarkThumb = false) {
-  //
-  const small = getImageUrl('small', fileName, isDarkThumb);
-  const medium = getImageUrl('medium', fileName, isDarkThumb);
-  const large1x = getImageUrl('large1x', fileName, isDarkThumb);
-  const large2x = getImageUrl('large2x', fileName, isDarkThumb);
-
-  const placeholderSmall = makePlaceholderUrl(res.small, message, isDarkThumb);
-  const placeholderMedium = makePlaceholderUrl(
-    res.large1x,
-    message,
-    isDarkThumb
-  );
-  const placeholderLarge1x = makePlaceholderUrl(
-    res.large1x,
-    message,
-    isDarkThumb
-  );
-  const placeholderLarge2x = makePlaceholderUrl(
-    res.large2x,
-    message,
-    isDarkThumb
-  );
-
+function getImagePaths(fileName, willCreateDark) {
   return {
-    small: fileName ? small : placeholderSmall,
-    medium: fileName ? medium : placeholderMedium,
-    large1x: fileName ? large1x : placeholderLarge1x,
-    large2x: fileName ? large2x : placeholderLarge2x,
+    [names.small]: getImageUrl(names.small, fileName, willCreateDark),
+    [names.medium]: getImageUrl(names.medium, fileName, willCreateDark),
+    [names.large1x]: getImageUrl(names.large1x, fileName, willCreateDark),
+    [names.large2x]: getImageUrl(names.large2x, fileName, willCreateDark),
   };
 }
 
 // *********************************
 
-const listSizes = '(max-width: 767px): 100vw, (max-width: 1279px) 450px, 490px';
-const tileSizes = '(min-width: 768px) 350px, (min-width: 1440px) 400px';
-const modalSizes =
-  '(max-width: 400px): 100vw, (min-width: 768px) 520px, (min-width: 1280px) 620px';
+const sizesString = {
+  list: '(max-width: 767px): 100vw, (max-width: 1279px) 450px, 490px',
+  tile: '(max-width: 400px): 100vw, (max-width: 1279px) 325px, 400px',
+  modal: '(max-width: 400px): 100vw, (max-width: 1279px) 520px, 620px',
+};
 
 // *********************************
 
-function createSourceTag(fileName, cardType, colorPreference, isDarkThumb) {
-  // cardType: 'list' | 'tile' | 'modal'
-  // colorPreference: 'light' | 'dark'
-  // isDarkThumb: boolean
+function makeSourceTag(
+  fileName,
+  imgLocation,
+  colorPreference,
+  doesHaveDarkVersion = false
+) {
+  let imageType = 'svg';
+  let sizes = '';
+  let srcset = placeholderUrl[colorPreference];
 
-  const paths = getImagePaths(fileName, isDarkThumb);
+  if (fileName) {
+    let willCreateDark;
 
-  let sizes;
+    if (colorPreference === 'light') {
+      willCreateDark = false;
+    } else if (doesHaveDarkVersion) {
+      willCreateDark = true;
+    } else {
+      willCreateDark = false;
+    }
 
-  switch (cardType) {
-    case 'list':
-      sizes = listSizes;
-      break;
-    case 'tile':
-      sizes = tileSizes;
-      break;
-    case 'modal':
-      sizes = modalSizes;
-  }
+    const paths = getImagePaths(fileName, willCreateDark);
 
-  return /* html */ `
-    <source
-      srcset="
+    imageType = 'webp';
+    sizes = sizesString[imgLocation];
+    srcset = `
         ${paths.small} 370w,
         ${paths.medium} 480w,
         ${paths.large1x} 960w,
-        ${paths.large2x} 1920w"
+        ${paths.large2x} 1920w
+        `;
+  }
+
+  return /* html */ `
+    <source  
+      srcset="${srcset}"
       sizes="${sizes}"
       media="(prefers-color-scheme: ${colorPreference})"
+      type="image/${imageType}"
     />
   `;
 }
 
-// *********************************
+// ***** Resulting function: ****************************
 
-export function createPictureTag(name, fileName, cardType, isDarkThumb) {
-  //
-  const sourceTagLight = createSourceTag(fileName, cardType, 'light');
-
-  const sourceTagDark = createSourceTag(
+export function makePictureTag(
+  projectName,
+  fileName,
+  imgLocation,
+  doesHaveDarkVersion
+) {
+  // fileName, imgLocation, colorPreference: 'light' | 'dark', doesHaveDarkVersion
+  const sourceTagLight = makeSourceTag(fileName, imgLocation, 'light');
+  const sourceTagDark = makeSourceTag(
     fileName,
-    cardType,
+    imgLocation,
     'dark',
-    isDarkThumb
+    doesHaveDarkVersion
   );
 
   const { medium, large1x } = getImagePaths(fileName);
 
   // Pick large1x for 'list' and 'modal', medium for 'tile'
-  const imgSrc = cardType === 'tile' ? medium : large1x;
+  const imgSrc = imgLocation === 'tile' ? medium : large1x;
 
-  const loadingMode = cardType === 'list' ? 'eager' : 'lazy';
+  const loadingMode = imgLocation === 'list' ? 'eager' : 'lazy';
 
   return /* html */ `
-    <picture class="project-card-image">
-
+    <picture class="project-card-picture-element">
       ${sourceTagLight}
       ${sourceTagDark}
 
-      <img
+      <img class="project-card-image error-handleable"
       src="${imgSrc}"
-      alt="${name} live page screenshot"
+      alt="${projectName} live page screenshot"
       loading="${loadingMode}"
       />
     </picture>
