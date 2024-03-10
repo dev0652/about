@@ -65,7 +65,7 @@
     animation: slide-in-from-below 600ms;
 
     @media screen and (min-width: $tablet) {
-      animation: emerge 600ms;
+      animation: modal-emerge 600ms;
     }
   }
 }
@@ -81,7 +81,7 @@
   }
 
   .email-backdrop:not(.is-hidden) & {
-    animation: emerge 400ms;
+    animation: modal-emerge 400ms;
   }
 }
 

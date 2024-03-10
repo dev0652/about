@@ -19,7 +19,9 @@
 }
 
 %stretchable {
-  transition: color 400ms, letter-spacing 400ms;
+  $td: 600ms;
+
+  transition: color $td, letter-spacing $td;
 
   &:hover {
     letter-spacing: 2px;

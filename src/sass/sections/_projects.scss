@@ -3,10 +3,18 @@
 
   &.slide-out {
     animation: slide-out-to-right $td ease-out forwards;
+
+    @media screen and (min-width: $desktop) {
+      animation: fade-out $td ease-out forwards;
+    }
   }
 
   &.slide-in {
     animation: slide-in-from-right $td ease-in forwards;
+
+    @media screen and (min-width: $desktop) {
+      animation: fade-in $td ease-out;
+    }
   }
 }
 
@@ -121,10 +129,7 @@
     margin-top: 5px; // to align evenly with .project-type
   }
 
-  // background-color: red;
-
-  box-shadow: 0px 0px 4px var(--list-card-image-shadow),
-    0px 0px 4px var(--list-card-image-shadow);
+  box-shadow: 1px 1px 5px var(--list-card-image-shadow);
 
   background-size: cover;
   background-position: center;
@@ -340,11 +345,10 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 600ms;
+  transition: transform 1s;
   transform-style: preserve-3d;
 
-  box-shadow: 0px 0px 5px 0px var(--tile-card-image-shadow),
-    0px 0px 5px 0px var(--tile-card-image-shadow);
+  border: 1px solid rgba(darkgray, 0.2);
 }
 
 @media screen and (min-width: $tablet) {
