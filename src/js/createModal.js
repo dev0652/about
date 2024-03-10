@@ -8,7 +8,7 @@ export default function createModal(project) {
     type,
     link,
     livePage,
-    thumbFilename,
+    thumbFileName,
     description,
     stack,
     role,
@@ -17,7 +17,7 @@ export default function createModal(project) {
   } = project;
 
   const { imgSmall, imgMedium, imgLarge1x, imgLarge2x } =
-    getImagePaths(thumbFilename);
+    getImagePaths(thumbFileName);
 
   const technologiesList = technologies.join(', ');
 

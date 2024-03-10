@@ -2,6 +2,63 @@ import { getImagePaths } from './imagePaths';
 
 // *********************************
 
+const listSizes = '(max-width: 767px): 100vw, (max-width: 1279px) 450px, 490px';
+const tileSizes = '(min-width: 768px) 350px, (min-width: 1440px) 400px';
+
+function createSourceTag(fileName, cardType, colorPreference) {
+  // cardType: 'list' | 'tile'
+  // colorPreference: 'light' | 'dark'
+
+  const isDark = colorPreference === 'dark';
+  const sizes = cardType === 'list' ? listSizes : tileSizes;
+
+  const suffix = isDark ? 'Dark' : '';
+
+  const propNameSmall = 'imgSmall' + suffix;
+  const propNameMedium = 'imgMedium' + suffix;
+  const propNameLarge1x = 'imgLarge1x' + suffix;
+  const propNameLarge2x = 'imgLarge2x' + suffix;
+
+  const paths = getImagePaths(fileName, isDark);
+
+  return /* html */ `
+    <source
+      srcset="
+      ${paths[propNameSmall]} 370w,
+      ${paths[propNameMedium]} 480w,
+      ${paths[propNameLarge1x]} 960w,
+      ${paths[propNameLarge2x]} 1920w"
+      sizes="${sizes}"
+      media="(prefers-color-scheme: ${colorPreference})"
+    />
+  `;
+}
+
+// *********************************
+
+function createPictureTag(name, fileName, cardType, isDark) {
+  const sourceLight = createSourceTag(fileName, cardType, 'light');
+  const sourceDark = isDark ? createSourceTag(fileName, cardType, 'dark') : '';
+  const { imgMedium, imgLarge1x } = getImagePaths(fileName);
+  const imgSrc = cardType === 'list' ? imgLarge1x : imgMedium;
+
+  return /* html */ `
+    <picture class="project-card-image">
+
+      ${sourceLight}
+      ${sourceDark}
+
+      <img
+      src="${imgSrc}"
+      alt="${name} live page screenshot"
+      loading="lazy"
+      />
+    </picture>
+  `;
+}
+
+// *********************************
+
 export default function createCardMarkup(project) {
   const {
     id,
@@ -9,7 +66,8 @@ export default function createCardMarkup(project) {
     type,
     link,
     livePage,
-    thumbFilename,
+    thumbFileName,
+    isDarkThumbAvailable: isDark,
     description,
     stack,
     role,
@@ -17,10 +75,10 @@ export default function createCardMarkup(project) {
     technologies,
   } = project;
 
-  const { imgSmall, imgMedium, imgLarge1x, imgLarge2x } =
-    getImagePaths(thumbFilename);
-
   const technologiesList = technologies.join(', ');
+
+  const listPictureTag = createPictureTag(name, thumbFileName, 'list', isDark);
+  const tilePictureTag = createPictureTag(name, thumbFileName, 'tile', isDark);
 
   return /* html */ `
     <li class="project-card" tabindex="-1">
@@ -29,19 +87,7 @@ export default function createCardMarkup(project) {
 
         <div class="list-card collapsible" id="collapsible-${name}">
           <div class="list-card-wrapper">
-            <div class="list-card-image-block">
-              <img
-                class="project-card-image"
-                srcset="
-                  ${imgSmall} 370w,
-                  ${imgMedium} 480w,
-                  ${imgLarge1x} 960w,
-                  ${imgLarge2x} 1920w"
-                sizes="(max-width: 767px): 100vw, (max-width: 1279px) 450px, 490px"
-                src="${imgLarge1x}"
-                alt="${name} live page screenshot"
-              />
-            </div>
+            <div class="list-card-image-block">${listPictureTag}</div>
 
             <div class="project-links-wrapper">
               <a
@@ -97,20 +143,7 @@ export default function createCardMarkup(project) {
             data-id="${id}"
           >
             <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  class="project-card-image"
-                  srcset="
-                    ${imgSmall} 370w,
-                    ${imgMedium} 480w,
-                    ${imgLarge1x} 960w,
-                    ${imgLarge2x} 1920w"
-                  sizes="(min-width: 768px) 350px, (min-width: 1440px) 400px"
-                  src="${imgMedium}"
-                  alt="${name} live page screenshot"
-                  loading="lazy"
-                />
-              </div>
+              <div class="flip-card-front"> ${tilePictureTag}</div>
 
               <div class="flip-card-back">
                 <h3 class="flip-card-project-name">${name}</h3>
@@ -130,7 +163,7 @@ export default function createCardMarkup(project) {
                              
               </div>
             </div>
-  </a>
+          </a>
 
         </div>
       </article>

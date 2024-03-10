@@ -1,4 +1,5 @@
 import { refs } from './refs';
+import { updateSourceMedia } from './updateSourceMedia';
 
 // *********************************
 // Color scheme switcher courtesy of Vadim Makeyev
@@ -44,6 +45,8 @@ const delay =
   ) * 1000;
 
 function setColorScheme(scheme) {
+  //   scheme: 'light' | 'dark'
+
   if (refs.main.classList.contains('faded-edges')) {
     // Temporarily remove the faded edges effect on main to avoid color flashing during box-shadow transition
     refs.main.classList.remove('faded-edges');
@@ -57,6 +60,8 @@ function setColorScheme(scheme) {
   } else {
     saveColorScheme(scheme);
   }
+
+  updateSourceMedia(scheme);
 
   // Turn faded edges effect back on
   setTimeout(() => {
