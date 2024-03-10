@@ -5,29 +5,22 @@ import { getImagePaths } from './imagePaths';
 const listSizes = '(max-width: 767px): 100vw, (max-width: 1279px) 450px, 490px';
 const tileSizes = '(min-width: 768px) 350px, (min-width: 1440px) 400px';
 
-function createSourceTag(fileName, cardType, colorPreference) {
+function createSourceTag(fileName, cardType, colorPreference, isDark) {
   // cardType: 'list' | 'tile'
   // colorPreference: 'light' | 'dark'
-
-  const isDark = colorPreference === 'dark';
-  const sizes = cardType === 'list' ? listSizes : tileSizes;
-
-  const suffix = isDark ? 'Dark' : '';
-
-  const propNameSmall = 'imgSmall' + suffix;
-  const propNameMedium = 'imgMedium' + suffix;
-  const propNameLarge1x = 'imgLarge1x' + suffix;
-  const propNameLarge2x = 'imgLarge2x' + suffix;
+  // isDark: boolean
 
   const paths = getImagePaths(fileName, isDark);
+
+  const sizes = cardType === 'list' ? listSizes : tileSizes;
 
   return /* html */ `
     <source
       srcset="
-      ${paths[propNameSmall]} 370w,
-      ${paths[propNameMedium]} 480w,
-      ${paths[propNameLarge1x]} 960w,
-      ${paths[propNameLarge2x]} 1920w"
+      ${paths.small} 370w,
+      ${paths.medium} 480w,
+      ${paths.large1x} 960w,
+      ${paths.large2x} 1920w"
       sizes="${sizes}"
       media="(prefers-color-scheme: ${colorPreference})"
     />
@@ -36,17 +29,27 @@ function createSourceTag(fileName, cardType, colorPreference) {
 
 // *********************************
 
-function createPictureTag(name, fileName, cardType, isDark) {
-  const sourceLight = createSourceTag(fileName, cardType, 'light');
-  const sourceDark = isDark ? createSourceTag(fileName, cardType, 'dark') : '';
+function createPictureTag(name, fileName, cardType, isDarkThumbAvailable) {
+  const sourceTagLight = createSourceTag(
+    fileName,
+    cardType,
+    'light',
+    isDarkThumbAvailable
+  );
+  const sourceTagDark = createSourceTag(
+    fileName,
+    cardType,
+    'dark',
+    isDarkThumbAvailable
+  );
   const { imgMedium, imgLarge1x } = getImagePaths(fileName);
   const imgSrc = cardType === 'list' ? imgLarge1x : imgMedium;
 
   return /* html */ `
     <picture class="project-card-image">
 
-      ${sourceLight}
-      ${sourceDark}
+      ${sourceTagLight}
+      ${sourceTagDark}
 
       <img
       src="${imgSrc}"

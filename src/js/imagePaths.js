@@ -12,6 +12,7 @@ function makePlaceholderUrl(resolution, message = null, isDark = false) {
 
 function getImageUrl(dir, name, isDark = false) {
   const fileName = isDark ? name + '_dark' : name;
+
   return new URL(
     `/images/projects/webp/${dir}/${fileName}.webp`,
     import.meta.url
@@ -23,13 +24,7 @@ function getImageUrl(dir, name, isDark = false) {
 const message = 'Image pending';
 
 export function getImagePaths(fileName, isDark = false) {
-  const suffix = isDark ? 'Dark' : '';
-
-  const propNameSmall = 'imgSmall' + suffix;
-  const propNameMedium = 'imgMedium' + suffix;
-  const propNameLarge1x = 'imgLarge1x' + suffix;
-  const propNameLarge2x = 'imgLarge2x' + suffix;
-
+  //
   const small = getImageUrl('small', fileName, isDark);
   const medium = getImageUrl('medium', fileName, isDark);
   const large1x = getImageUrl('large1x', fileName, isDark);
@@ -41,9 +36,9 @@ export function getImagePaths(fileName, isDark = false) {
   const placeholderLarge2x = makePlaceholderUrl('1920x1080', message, isDark);
 
   return {
-    [propNameSmall]: !fileName ? placeholderSmall : small,
-    [propNameMedium]: !fileName ? placeholderMedium : medium,
-    [propNameLarge1x]: !fileName ? placeholderLarge1x : large1x,
-    [propNameLarge2x]: !fileName ? placeholderLarge2x : large2x,
+    small: fileName ? small : placeholderSmall,
+    medium: fileName ? medium : placeholderMedium,
+    large1x: fileName ? large1x : placeholderLarge1x,
+    large2x: fileName ? large2x : placeholderLarge2x,
   };
 }
