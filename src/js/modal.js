@@ -1,5 +1,5 @@
 import projects from '/data/db';
-import createModal from './createModal';
+import { createCardModal } from './createCardModal';
 
 // ***** Tile card modal *********************************
 
@@ -9,9 +9,9 @@ const modalContentEl = modalPopUp.querySelector(
   '.modal-content-injection-target'
 );
 
-export function openModal(id) {
+export function openCardModal(id) {
   const selectedProject = projects.find((project) => project.id === +id);
-  modalContentEl.innerHTML = createModal(selectedProject);
+  modalContentEl.innerHTML = createCardModal(selectedProject);
 
   modalPopUp.classList.remove('is-hidden');
   modalPopUp.classList.add('current-modal');

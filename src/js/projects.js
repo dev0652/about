@@ -1,10 +1,12 @@
 import projects from '/data/db.json' assert { type: 'json' };
-import { refs } from './refs';
+import { refs } from '/js/refs';
 
-import { openModal } from '/js/modal';
-import createCardMarkup from './createCard';
+import { openCardModal } from '/js/modal';
+import createCardMarkup from '/js/createCard';
 
 // *********************************
+
+const gallery = refs.gallery;
 
 const makeListMarkup = (projectsArray) => {
   return `
@@ -13,41 +15,46 @@ const makeListMarkup = (projectsArray) => {
   </ul>`;
 };
 
-refs.gallery.innerHTML = makeListMarkup(projects);
+gallery.innerHTML = makeListMarkup(projects);
 
 // *********************************
 
-refs.galleryViewSwitcher.addEventListener('click', switchView);
+function slideGalleryOutOfView() {
+  gallery.classList.remove('slide-in');
+  gallery.classList.add('slide-out');
+}
+
+function slideGalleryIntoView() {
+  gallery.classList.remove('slide-out');
+  gallery.classList.add('slide-in');
+}
 
 function switchView() {
   const cardList = document.querySelector('.project-card-list');
 
   // Slide gallery out of view
-  refs.gallery.classList.remove('slide-in');
-  refs.gallery.classList.add('slide-out');
+  slideGalleryOutOfView();
 
-  // After slid-out animation has completed, swap gallery view
+  // Toggle gallery view after slide-out animation has finished
   setTimeout(() => {
     cardList.classList.toggle('gallery-view');
 
     const isGallery = cardList.classList.contains('gallery-view');
 
-    if (isGallery) {
-      cardList.addEventListener('click', handleGalleryCardClicks);
-    } else {
-      cardList.removeEventListener('click', handleGalleryCardClicks);
-    }
+    const method = isGallery ? 'addEventListener' : 'removeEventListener';
+    cardList[method]('click', handleGalleryCardClicks);
 
     // Slide gallery back into view
-    refs.gallery.classList.remove('slide-out');
-    refs.gallery.classList.add('slide-in');
+    slideGalleryIntoView();
 
-    // Change button text
+    // Update button text
     refs.galleryViewSwitcher.innerHTML = `View as ${
       isGallery ? 'list' : 'tiles'
     }`;
   }, 300);
 }
+
+refs.galleryViewSwitcher.addEventListener('click', switchView);
 
 // *********************************
 
@@ -57,5 +64,5 @@ function handleGalleryCardClicks(event) {
   if (!event.target.matches('.tile-card-link')) return;
 
   const id = event.target.dataset.id;
-  openModal(id);
+  openCardModal(id);
 }

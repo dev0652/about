@@ -1,14 +1,15 @@
-import { getImagePaths } from './imagePaths';
+import { createPictureTag } from './imagePaths';
 
 // *********************************
 
-export default function createModal(project) {
+export function createCardModal(project) {
   const {
     name,
     type,
     link,
     livePage,
     thumbFileName,
+    isDarkThumbAvailable: isDark,
     description,
     stack,
     role,
@@ -16,8 +17,12 @@ export default function createModal(project) {
     technologies,
   } = project;
 
-  const { imgSmall, imgMedium, imgLarge1x, imgLarge2x } =
-    getImagePaths(thumbFileName);
+  const modalPictureTag = createPictureTag(
+    name,
+    thumbFileName,
+    'modal',
+    isDark
+  );
 
   const technologiesList = technologies.join(', ');
 
@@ -51,19 +56,7 @@ export default function createModal(project) {
             <p class="technologies">${technologiesList}</p>
           </div>
 
-          <div class="modal-image-block">
-            <img
-              class="project-card-image"
-              srcset="
-                ${imgSmall} 370w,
-                ${imgMedium} 480w,
-                ${imgLarge1x} 960w,
-                ${imgLarge2x} 1920w"
-              sizes="(max-width: 400px): 100vw, (min-width: 768px) 520px, (min-width: 1280px) 620px"
-              src="${imgLarge1x}"
-              alt="${name} live page screenshot"
-            />
-          </div>
+          <div class="modal-image-block">${modalPictureTag}</div>
 
           <div class="modal-description">
             <p class="project-description">${description}</p>

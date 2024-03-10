@@ -1,65 +1,4 @@
-import { getImagePaths } from './imagePaths';
-
-// *********************************
-
-const listSizes = '(max-width: 767px): 100vw, (max-width: 1279px) 450px, 490px';
-const tileSizes = '(min-width: 768px) 350px, (min-width: 1440px) 400px';
-
-function createSourceTag(fileName, cardType, colorPreference, isDark) {
-  // cardType: 'list' | 'tile'
-  // colorPreference: 'light' | 'dark'
-  // isDark: boolean
-
-  const paths = getImagePaths(fileName, isDark);
-  console.log('createSourceTag fired: ');
-
-  const sizes = cardType === 'list' ? listSizes : tileSizes;
-
-  return /* html */ `
-    <source
-      srcset="
-        ${paths.small} 370w,
-        ${paths.medium} 480w,
-        ${paths.large1x} 960w,
-        ${paths.large2x} 1920w"
-      sizes="${sizes}"
-      media="(prefers-color-scheme: ${colorPreference})"
-    />
-  `;
-}
-
-// *********************************
-
-function createPictureTag(name, fileName, cardType, isDarkThumbAvailable) {
-  const sourceTagLight = createSourceTag(
-    fileName,
-    cardType,
-    'light',
-    isDarkThumbAvailable
-  );
-  const sourceTagDark = createSourceTag(
-    fileName,
-    cardType,
-    'dark',
-    isDarkThumbAvailable
-  );
-  const { imgMedium, imgLarge1x } = getImagePaths(fileName);
-  const imgSrc = cardType === 'list' ? imgLarge1x : imgMedium;
-
-  return /* html */ `
-    <picture class="project-card-image">
-
-      ${sourceTagLight}
-      ${sourceTagDark}
-
-      <img
-      src="${imgSrc}"
-      alt="${name} live page screenshot"
-      loading="lazy"
-      />
-    </picture>
-  `;
-}
+import { createPictureTag } from './imagePaths';
 
 // *********************************
 
@@ -162,9 +101,7 @@ export default function createCardMarkup(project) {
                   </div>
 
                   <p class="flip-card-prompt-to-click">Click to learn more</p> 
-                </div>
-
-                             
+                </div> 
               </div>
             </div>
           </a>
