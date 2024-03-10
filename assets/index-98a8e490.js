@@ -75,13 +75,13 @@
 
         </div>
       </article>
-  `}const U=document.querySelector(".popup-backdrop"),ma=U.querySelector(".popup-modal-close-button"),ga=U.querySelector(".modal-content-injection-target");function ha(e){const t=xe.find(s=>s.id===+e);ga.innerHTML=ua(t),U.classList.remove("is-hidden"),U.classList.add("current-modal"),ma.classList.add("current-close-button"),Se()}const Y=document.querySelector(".email-backdrop"),fa=Y.querySelector(".email-modal-close-button"),_a=Y.querySelector(".email-confirmation-text");function be(e){_a.innerHTML=e,Y.classList.remove("is-hidden"),Y.classList.add("current-modal"),fa.addEventListener("click",O),Se()}function Se(){document.documentElement.style.overflow="hidden",document.body.style.overflow="hidden",document.addEventListener("click",je),document.addEventListener("keydown",Le),document.querySelector(".current-close-button").addEventListener("click",O)}function O(){document.documentElement.style.removeProperty("overflow"),document.body.style.removeProperty("overflow"),document.removeEventListener("click",je),document.removeEventListener("keydown",Le);const e=document.querySelector(".current-modal");e.classList.add("is-hidden"),e.classList.remove("current-modal"),document.querySelector(".current-close-button").removeEventListener("click",O)}function je(e){const t=document.querySelector(".current-modal");e.target===t&&O()}function Le(e){e.key==="Escape"&&O()}const wa="(max-width: 767px): 100vw, (max-width: 1279px) 450px, 490px",va="(min-width: 768px) 350px, (min-width: 1440px) 400px";function pe(e,t,s,l){const o=ae(e,l),i=t==="list"?wa:va;return`
+  `}const U=document.querySelector(".popup-backdrop"),ma=U.querySelector(".popup-modal-close-button"),ga=U.querySelector(".modal-content-injection-target");function ha(e){const t=xe.find(s=>s.id===+e);ga.innerHTML=ua(t),U.classList.remove("is-hidden"),U.classList.add("current-modal"),ma.classList.add("current-close-button"),Se()}const Y=document.querySelector(".email-backdrop"),fa=Y.querySelector(".email-modal-close-button"),_a=Y.querySelector(".email-confirmation-text");function be(e){_a.innerHTML=e,Y.classList.remove("is-hidden"),Y.classList.add("current-modal"),fa.addEventListener("click",O),Se()}function Se(){document.documentElement.style.overflow="hidden",document.body.style.overflow="hidden",document.addEventListener("click",je),document.addEventListener("keydown",Le),document.querySelector(".current-close-button").addEventListener("click",O)}function O(){document.documentElement.style.removeProperty("overflow"),document.body.style.removeProperty("overflow"),document.removeEventListener("click",je),document.removeEventListener("keydown",Le);const e=document.querySelector(".current-modal");e.classList.add("is-hidden"),e.classList.remove("current-modal"),document.querySelector(".current-close-button").removeEventListener("click",O)}function je(e){const t=document.querySelector(".current-modal");e.target===t&&O()}function Le(e){e.key==="Escape"&&O()}const wa="(max-width: 767px): 100vw, (max-width: 1279px) 450px, 490px",va="(min-width: 768px) 350px, (min-width: 1440px) 400px";function pe(e,t,s,l){const o=ae(e,l);console.log("createSourceTag fired: ");const i=t==="list"?wa:va;return`
     <source
       srcset="
-      ${o.small} 370w,
-      ${o.medium} 480w,
-      ${o.large1x} 960w,
-      ${o.large2x} 1920w"
+        ${o.small} 370w,
+        ${o.medium} 480w,
+        ${o.large1x} 960w,
+        ${o.large2x} 1920w"
       sizes="${i}"
       media="(prefers-color-scheme: ${s})"
     />
