@@ -11,16 +11,17 @@ function createSourceTag(fileName, cardType, colorPreference, isDark) {
   // isDark: boolean
 
   const paths = getImagePaths(fileName, isDark);
+  console.log('createSourceTag fired: ');
 
   const sizes = cardType === 'list' ? listSizes : tileSizes;
 
   return /* html */ `
     <source
       srcset="
-      ${paths.small} 370w,
-      ${paths.medium} 480w,
-      ${paths.large1x} 960w,
-      ${paths.large2x} 1920w"
+        ${paths.small} 370w,
+        ${paths.medium} 480w,
+        ${paths.large1x} 960w,
+        ${paths.large2x} 1920w"
       sizes="${sizes}"
       media="(prefers-color-scheme: ${colorPreference})"
     />

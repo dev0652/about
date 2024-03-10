@@ -2,12 +2,8 @@ fieldset.scheme-switcher {
   position: relative;
 
   display: flex;
-  gap: 30px;
-
-  @media screen and (min-width: $tablet) {
-    flex-direction: column;
-    gap: 20px;
-  }
+  flex-direction: column;
+  gap: 20px;
 
   border: none;
 }
@@ -29,12 +25,12 @@ fieldset.scheme-switcher {
 }
 
 .scheme-switcher-icon {
-  height: 36px;
-  width: 36px;
+  min-height: 36px;
+  min-width: 36px;
 
   @media screen and (min-width: $tablet) {
-    height: 30px;
-    width: 30px;
+    min-height: 30px;
+    min-width: 30px;
   }
 
   color: var(--scheme-switcher-radio);
@@ -58,11 +54,6 @@ fieldset.scheme-switcher {
       max-height: 200px;
     }
   }
-
-  @media screen and (max-width: $tablet-1) {
-    margin-top: 1rem;
-    margin-right: 10px;
-  }
 }
 
 .scheme-switcher-menu-label {
@@ -72,6 +63,8 @@ fieldset.scheme-switcher {
   display: flex;
   align-items: center;
   gap: 10px;
+
+  margin-top: 1rem;
 
   text-transform: uppercase;
   font-size: 0.6rem;
@@ -98,12 +91,16 @@ fieldset.scheme-switcher {
 .scheme-switcher-dropdown-wrapper {
   position: absolute;
 
+  @media screen and (max-width: $mobile-wide-1) {
+    right: calc(($container-padding-mobile) * -1);
+  }
+
   @media screen and (max-width: $tablet-1) {
-    right: -50vw;
+    right: calc(($container-padding-mobile-wide) * -1);
     margin-top: 1rem;
 
     transition: transform 600ms;
-    transform: translateX(100vw);
+    transform: translateX(100%);
   }
 
   @media screen and (min-width: $tablet) {
@@ -117,38 +114,38 @@ fieldset.scheme-switcher {
 }
 
 .scheme-switcher-dropdown {
-  margin-top: 5px;
-  padding: 20px;
+  text-align: right;
+
+  padding: 20px 10px;
   width: max-content;
 
+  background-color: var(--scheme-switcher-dropdown-bg);
+
+  @media screen and (max-width: $mobile-wide-1) {
+    padding-right: $container-padding-mobile;
+  }
   @media screen and (max-width: $tablet-1) {
-    padding-right: calc(50vw - 5px);
+    padding-left: 60px;
+    padding-right: $container-padding-mobile-wide;
+  }
 
-    border: 2px solid var(--header-nav-link-color);
-    border-image: linear-gradient(
-        to right,
-
-        var(--header-nav-link-color),
-        var(--background-color)
-      )
-      30;
+  @media screen and (max-width: $tablet-1) {
+    background: linear-gradient(
+      to left,
+      var(--background-color),
+      var(--scheme-switcher-dropdown-bg) 50%
+    );
   }
 
   @media screen and (min-width: $tablet) {
     width: 150px;
-    text-align: right;
 
-    margin-top: 1rem;
-    padding: 20px 10px;
+    background: linear-gradient(
+      to bottom,
+      var(--background-color),
+      var(--scheme-switcher-dropdown-bg) 50%
+    );
   }
-
-  background-color: var(--scheme-switcher-dropdown-bg);
-
-  background: linear-gradient(
-    to bottom,
-    var(--background-color),
-    var(--scheme-switcher-dropdown-bg) 50%
-  );
 
   transition: color $scheme-switch-duration $scheme-switch-timing-function,
     background-color $scheme-switch-duration $scheme-switch-timing-function;
@@ -157,16 +154,14 @@ fieldset.scheme-switcher {
 .switcher-radio-label {
   @extend %link !optional;
 
-  @media screen and (min-width: $tablet) {
-    display: flex;
+  display: flex;
 
-    gap: 20px;
-    text-align: right;
-    justify-content: end;
-    align-items: center;
+  gap: 20px;
+  text-align: right;
+  justify-content: end;
+  align-items: center;
 
-    text-transform: lowercase;
-  }
+  text-transform: lowercase;
 
   $td: 200ms;
   $tf: ease-in;
@@ -185,10 +180,4 @@ fieldset.scheme-switcher {
   }
 
   cursor: pointer;
-}
-
-.switcher-radio-caption {
-  @media screen and (max-width: $tablet-1) {
-    display: none;
-  }
 }
