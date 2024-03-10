@@ -116,8 +116,8 @@ fieldset.scheme-switcher {
 .scheme-switcher-dropdown {
   text-align: right;
 
-  padding: 20px 10px;
   width: max-content;
+  padding: 20px 10px;
 
   background-color: var(--scheme-switcher-dropdown-bg);
 
@@ -138,7 +138,7 @@ fieldset.scheme-switcher {
   }
 
   @media screen and (min-width: $tablet) {
-    width: 150px;
+    padding-left: 70px;
 
     background: linear-gradient(
       to bottom,
