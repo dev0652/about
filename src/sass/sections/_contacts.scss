@@ -51,7 +51,7 @@
   height: var(--size);
   width: var(--size);
 
-  fill: var(--accent-primary);
+  fill: var(--accent-color);
   transition: fill $scheme-switch-duration $scheme-switch-timing-function;
 }
 

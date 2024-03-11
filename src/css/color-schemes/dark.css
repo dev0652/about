@@ -2,9 +2,10 @@
   --dark-gray: #202024;
   --blackish: #111111;
   --smoke-gray: #2a3439;
+  --light-blue: #2980b9;
 
-  --accent-primary: #2980b9;
-  --accent-secondary: DarkTurquoise;
+  /* Accent */
+  --accent-color: var(--light-blue);
 
   /* Body */
   --background-color: #0c090a;

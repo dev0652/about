@@ -1,9 +1,10 @@
 :root {
   --light-gray: #dcdcdc;
   --blackish: #111111;
+  --light-blue: #2980b9;
 
-  --accent-primary: #2980b9;
-  --accent-secondary: var(--accent-primary);
+  /* Accent */
+  --accent: var(--light-blue);
 
   /* Body */
   --background-color: snow;
@@ -41,7 +42,7 @@
 
   /* Project card */
   --list-card-image-shadow: var(--light-gray);
-  --flip-card-bg: var(--accent-primary);
+  --flip-card-bg: var(--accent-color);
   --flip-card-text: var(--background-color);
 
   /* Modal */
