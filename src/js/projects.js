@@ -38,7 +38,8 @@ function addEmgErrorHandlers() {
   }
 }
 
-const fallBack = new URL(`/images/projects/fallback.svg`, import.meta.url).href;
+const fallBack = new URL(`/images/projects/svg/fallback.svg`, import.meta.url)
+  .href;
 
 // *********************************
 
