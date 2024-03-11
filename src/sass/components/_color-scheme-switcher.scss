@@ -121,6 +121,9 @@ fieldset.scheme-switcher {
 
   background-color: var(--scheme-switcher-dropdown-bg);
 
+  transition: color $scheme-switch-duration $scheme-switch-timing-function,
+    background-color $scheme-switch-duration $scheme-switch-timing-function;
+
   @media screen and (max-width: $mobile-wide-1) {
     padding-right: $container-padding-mobile;
   }

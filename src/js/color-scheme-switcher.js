@@ -39,10 +39,13 @@ function switchMedia(scheme) {
 
 // *********************************
 
-const delay =
-  parseFloat(
-    getComputedStyle(document.body).getPropertyValue('transition-duration')
-  ) * 1000;
+export function getThemeSwitchTransition() {
+  return (
+    parseFloat(
+      getComputedStyle(document.body).getPropertyValue('transition-duration')
+    ) * 1000
+  );
+}
 
 function setColorScheme(scheme) {
   //   scheme: 'light' | 'dark'
@@ -66,7 +69,7 @@ function setColorScheme(scheme) {
   // Turn faded edges effect back on
   setTimeout(() => {
     refs.main.classList.add('faded-edges');
-  }, delay);
+  }, getThemeSwitchTransition());
 }
 
 // *********************************
