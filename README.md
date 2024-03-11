@@ -5,9 +5,9 @@ To all to whom these presents shall come, greetings =)
 This is my personal portfolio website created to showcase my projects and to give anyone interested a glimpse of my web-development skills.
 
 <picture>
-  <source media="(max-width: 767px) and (prefers-color-scheme: light)" srcset="./src/images/readme/mobile/screenshot_light_1x.webp 1x, ./src/images/readme/mobile/screenshot_light_2x.webp 2x">
+  <source media="(max-width: 767px) and (prefers-color-scheme: light)" srcset="./src/images/readme/mobile/screenshot_light.webp">
 
-   <source media="(max-width: 767px) and (prefers-color-scheme: dark)" srcset="./src/images/readme/mobile/screenshot_dark_1x.webp 1x, ./src/images/readme/mobile/screenshot_dark_2x.webp 2x">
+   <source media="(max-width: 767px) and (prefers-color-scheme: dark)" srcset="./src/images/readme/mobile/screenshot_dark.webp 2x">
 
    <source media="(prefers-color-scheme: light)" srcset="./src/images/readme/desktop/screenshot_light_1x.webp 1x, ./src/images/readme/desktop/screenshot_light_2x.webp 2x">
 
