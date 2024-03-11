@@ -53,9 +53,16 @@ function doThingsOnLoad() {
 function onFirstLoad() {
   // activateColorSchemeSwitcher();
 
-  document.addEventListener('DOMContentLoaded', activateColorSchemeSwitcher, {
-    once: true,
-  });
+  document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      activateColorSchemeSwitcher();
+      refs.main.classList.add('faded-edges');
+    },
+    {
+      once: true,
+    }
+  );
 
   doThingsOnLoad();
 

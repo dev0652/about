@@ -47,7 +47,7 @@ main {
     --spread: 10vh;
 
     @media screen and (max-width: $tablet-1) {
-      --spread: 5vh;
+      --spread: 7vh;
     }
 
     $spread: var(--spread);
