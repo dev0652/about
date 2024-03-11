@@ -21,11 +21,10 @@ Consider this an attempt to have the best of both worlds.
 
 ## Technologies
 
-As this website was supposed to be a SPA/landing at the beginning, I chose to go with vanilla JavaScript instead of React.
-
+- vanilla JavaScript
+- CSS and SaSS
 - Vite
-- EmailJS
-- SaSS
+- EmailJS, Swipe.js
 
 ## Features
 
@@ -43,9 +42,13 @@ Here are some of the features of this website:
 - images are served in webp format and have been optimized with Squoosh
 - images have been de-retinized in four different sizes which are loaded using `srcset` and `sizes` attributes
 
-### Color themes
+### Color schemes
 
-- light and dark color themes that can be switched manually or pick browsers current color theme
+The website features light and dark color schemes and a three-position theme switch. By default, the switch is set to 'auto', meaning that the website follows the system / browser current mode. If a dark or light color scheme is switched on manually, it will override the system setting. 
+
+- the color scheme choice is saved in localStorage and restored on next visit
+- th majority of images (including the ones in this readme.md) are also available in light and dark versions and react to the selected color scheme
+  
 
 ## Page load and best practices
 
@@ -57,4 +60,3 @@ Here are some of the features of this website:
   <img alt="A screenshot of my website's Lighthouse report with the following ratings: Performance: 100, Accessibility: 89, Best Practices: 100, SEO: 100." src="./src/images/readme/lighthouse_light.webp">
 </picture>
 
-The low Accessibility rating is due to background and foreground colors not having a sufficient contrast ratio.
