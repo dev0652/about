@@ -5,13 +5,13 @@ To all to whom these presents shall come, greetings =)
 This is my personal portfolio website created to showcase my projects and to give anyone interested a glimpse of my web-development skills.
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="./src/images/readme/mobile/screenshot_light_1x.webp 1x, ./src/images/readme/mobile/screenshot_light_2x.webp 2x">
+  <source media="(max-width: 767px) and (prefers-color-scheme: light)" srcset="./src/images/readme/mobile/screenshot_light_1x.webp 1x, ./src/images/readme/mobile/screenshot_light_2x.webp 2x">
 
-   <source media="(prefers-color-scheme: light) and (min-width: 768px)" srcset="./src/images/readme/desktop/screenshot_light_1x.webp 1x, ./src/images/readme/desktop/screenshot_light_2x.webp 2x">
+   <source media="(max-width: 767px) and (prefers-color-scheme: dark)" srcset="./src/images/readme/mobile/screenshot_dark_1x.webp 1x, ./src/images/readme/mobile/screenshot_dark_2x.webp 2x">
 
-   <source media="(prefers-color-scheme: dark)" srcset="./src/images/readme/mobile/screenshot_dark_1x.webp 1x, ./src/images/readme/mobile/screenshot_dark_2x.webp 2x">
+   <source media="(prefers-color-scheme: light)" srcset="./src/images/readme/desktop/screenshot_light_1x.webp 1x, ./src/images/readme/desktop/screenshot_light_2x.webp 2x">
 
-   <source media="(prefers-color-scheme: dark) and (min-width: 768px)" srcset="./src/images/readme/desktop/screenshot_dark_1x.webp 1x, ./src/images/readme/desktop/screenshot_dark_2x.webp 2x">
+   <source media="(prefers-color-scheme: dark)" srcset="./src/images/readme/desktop/screenshot_dark_1x.webp 1x, ./src/images/readme/desktop/screenshot_dark_2x.webp 2x">
 
   <img alt="A screenshot of my website's Projects page with the project gallery in list presentation. The first project card is expanded, revealing the live page screenshot, project description and links to its GitHub page and live page." src="./src/images/readme/screenshot_light_1x.webp">
 </picture>
