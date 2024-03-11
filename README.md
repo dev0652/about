@@ -23,7 +23,8 @@ Project cards can be viewed either as a list or a gallery - I couldn't decide wh
 - vanilla JavaScript
 - CSS and SaSS
 - Vite
-- EmailJS, Swipe.js
+- [EmailJS](https://www.emailjs.com/), [Swipe.js](https://github.com/lyfeyaj/swipe).
+
 
 ## Features
 
