@@ -125,6 +125,9 @@ fieldset.scheme-switcher {
     padding-right: $container-padding-mobile;
   }
   @media screen and (max-width: $tablet-1) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
     padding-left: 60px;
     padding-right: $container-padding-mobile-wide;
   }
@@ -133,7 +136,7 @@ fieldset.scheme-switcher {
     background: linear-gradient(
       to left,
       var(--background-color),
-      var(--scheme-switcher-dropdown-bg) 50%
+      var(--scheme-switcher-dropdown-bg)
     );
   }
 

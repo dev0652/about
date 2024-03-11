@@ -1,9 +1,10 @@
 :root {
   --dark-gray: #202024;
   --blackish: #111111;
+  --smoke-gray: #2a3439;
 
   --accent-primary: #2980b9;
-  --accent-secondary: var(--accent-primary);
+  --accent-secondary: DarkTurquoise;
 
   /* Body */
   --background-color: #0c090a;
@@ -41,6 +42,8 @@
 
   /* Project card */
   --list-card-image-shadow: transparent;
+  --flip-card-bg: #2a3439;
+  --flip-card-text: silver;
 
   /* Modal */
   --modal-background-color: var(--blackish);

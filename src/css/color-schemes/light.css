@@ -3,7 +3,7 @@
   --blackish: #111111;
 
   --accent-primary: #2980b9;
-  --accent-secondary: RoyalBlue;
+  --accent-secondary: var(--accent-primary);
 
   /* Body */
   --background-color: snow;
@@ -41,6 +41,8 @@
 
   /* Project card */
   --list-card-image-shadow: var(--light-gray);
+  --flip-card-bg: var(--accent-primary);
+  --flip-card-text: var(--background-color);
 
   /* Modal */
   --modal-background-color: var(--background-color);

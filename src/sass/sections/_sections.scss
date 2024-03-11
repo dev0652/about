@@ -1,15 +1,6 @@
 .section {
   z-index: $index-section; // in order for :before to take effect
 
-  // @media screen and (max-width: $tablet-1) {
-  //   // Swiper effect:
-  //   // min-width: 100vw;
-  //   // max-height: max-content;
-
-  //   margin-top: 15vh;
-  //   margin-bottom: 10vh;
-  // }
-
   @media screen and (min-width: $tablet) {
     margin: 100px 0;
 
@@ -21,14 +12,6 @@
   .section-title {
     text-transform: lowercase;
     user-select: none;
-
-    // @media screen and (max-width: $tablet-1) { // prev version
-    // display: inline-block;
-    // overflow-x: hidden;
-    // padding-left: $horizontal-offset;
-    // font-size: 4rem;
-    // margin-bottom: 40px;
-    // }
 
     @media screen and (max-width: $tablet-1) {
       visibility: hidden;

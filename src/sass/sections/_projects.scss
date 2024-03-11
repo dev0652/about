@@ -376,15 +376,12 @@
 }
 
 .flip-card-front {
-  // background-color: #bbb;
-  // background-color: gold;
-
   color: var(--text-color);
 }
 
 .flip-card-back {
-  background-color: var(--accent-primary);
-  color: var(--background-color);
+  background-color: var(--flip-card-bg);
+  color: var(--flip-card-text);
   transform: rotateY(180deg);
 
   text-align: left;
