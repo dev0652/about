@@ -20,7 +20,7 @@ This is my personal portfolio website created to showcase my projects and to giv
 
 The design of this website was inspired by Windows Phone Metro interface which I have always found clean and attractive.
 
-Project cards can be viewed either as a list or a gallery - I couldn't decide which I liked best so I decided to have the best of both worlds and keep both.
+Project cards can be viewed either as a list (which is so characteristic of  Metro UI) or a gallery - I couldn't decide which I liked best so I ended up keeping both.
 
 ## Technologies
 
