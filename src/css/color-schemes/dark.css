@@ -8,7 +8,7 @@
   --accent-color: var(--light-blue);
 
   /* Body */
-  --background-color: #0c090a;
+  --background-color: #0d1117; /* #0c090a */
   --text-color: gainsboro;
 
   /* Header */
@@ -51,5 +51,5 @@
   --modal-close-background-color: gray;
 
   /* Form */
-  --form-field-bg-color: var(--blackish);
+  --form-field-bg-color: rgba(0, 0, 0, 0.4);
 }
