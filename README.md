@@ -1,6 +1,6 @@
 # About Me
 
-To all to whom these presents shall come, greetings =)
+To all to whom these presents shall come, greetings :)
 
 This is my personal portfolio website created to showcase my projects and to give anyone interested a glimpse of my web-development skills.
 
@@ -20,14 +20,16 @@ This is my personal portfolio website created to showcase my projects and to giv
 
 The design of this website was inspired by Windows Phone Metro interface which I have always found clean and attractive.
 
-Project cards can be viewed either as a list or a gallery - I couldn't decide which I liked best so I decided to have the best of both worlds and keep both.
+This is especially noticeable on mobile devices, since the mobile version offers experience similar to Lumia devices, with navigation between 'screens' done by swiping and 'sliding headings'. However, additional pagination bullets have been added in the bottom of the page for the sake of intuitiveness.
+
+Project cards can be viewed either as a list (which is so characteristic of Metro UI) or a gallery - I couldn't decide which I liked best so I ended up keeping both.
 
 ## Technologies
 
 - vanilla JavaScript
 - CSS and SaSS
 - Vite
-- [EmailJS](https://www.emailjs.com/), [Swipe.js](https://github.com/lyfeyaj/swipe).
+- minimum libraries, only [EmailJS](https://www.emailjs.com/) and [Swipe.js](https://github.com/lyfeyaj/swipe).
 
 ## Features
 
@@ -47,16 +49,16 @@ The website is fully responsive, has 4 breakpoints and reacts to orientation cha
 ### Optimized
 
 - images are served in webp format and have been optimized with Squoosh
-- all images have 3 sets of extra de-retinized versions to save bandwidth and improve loading times on smaller screens
+- all images come with 3 extra de-retinized versions to save bandwidth and improve loading times on low-res screens
 
 ### Color schemes
 
 The website features light and dark color schemes and a three-position theme switch. By default, the switch is set to 'auto', meaning that the website follows the system / browser current mode. If a dark or light color scheme is switched on manually, it will override the system setting.
 
 - the color scheme choice is saved in localStorage and restored on next visit
-- th majority of images (including the ones in this readme.md) are also available in light and dark versions and react to the selected color scheme
+- the majority of images (including the ones in this readme.md) are also available in light and dark versions and respond to browser color scheme
 
-## Performance, accessibility and best practices
+## Lighthouse ratings
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="./src/images/readme/lighthouse_light.webp">
