@@ -4,7 +4,7 @@
   --light-blue: #2980b9;
 
   /* Accent */
-  --accent: var(--light-blue);
+  --accent-color: var(--light-blue);
 
   /* Body */
   --background-color: snow;
