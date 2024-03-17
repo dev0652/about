@@ -28,7 +28,40 @@
   justify-content: center;
 }
 
+// ***********************************
+
+.mobile-menu-toggle-checkbox {
+  appearance: none;
+}
+
 .mobile-menu-toggle-label {
+  // @extend %link !optional;
+
+  // &:hover {
+  //   color: gray;
+  // }
+
+  display: flex;
+
   position: absolute;
   right: 0;
+
+  & .mobile-menu-toggle-icon {
+    fill: currentColor;
+  }
+
+  &:has(.mobile-menu-toggle-checkbox:checked) {
+    color: var(--text-color);
+  }
+
+  &:not(:has(.mobile-menu-toggle-checkbox:checked)) {
+    color: dimgray;
+  }
+}
+
+.mobile-menu-toggle-icon {
+  $size: 20px;
+
+  height: $size;
+  width: $size;
 }

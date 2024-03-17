@@ -61,8 +61,6 @@ fieldset.scheme-switcher {
     text-transform: lowercase;
 
     overflow: hidden;
-
-    color: var(--text-color);
   }
 
   @media screen and (min-width: $tablet) {
@@ -79,6 +77,14 @@ fieldset.scheme-switcher {
     &:has(.scheme-switcher-menu-checkbox:checked) {
       letter-spacing: 3px;
     }
+  }
+
+  &:not(:has(.scheme-switcher-menu-checkbox:checked)) {
+    color: var(--scheme-switcher-label-inactive);
+  }
+
+  &:has(.scheme-switcher-menu-checkbox:checked) {
+    color: var(--text-color);
   }
 
   border: none;

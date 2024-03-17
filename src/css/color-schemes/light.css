@@ -38,14 +38,19 @@
   --scheme-switcher-bg-gradient-start: gray;
   --scheme-switcher-bg-gradient-end: var(--light-gray);
 
+  --scheme-switcher-label-inactive: var(--text-color);
+  @media screen and (min-width: 768px) {
+    --scheme-switcher-label-inactive: gray;
+  }
+
   --scheme-switcher-dropdown-bg: rgb(236, 235, 235);
   @media screen and (min-width: 768px) {
     --scheme-switcher-dropdown-bg: #f2f3f4;
   }
 
-  --scheme-switcher-radio: #2a3439;
+  --scheme-switcher-radio: var(--text-color);
   @media screen and (min-width: 768px) {
-    --scheme-switcher-dropdown-bg: gray;
+    --scheme-switcher-radio: gray;
   }
 
   /* Project title animation */
