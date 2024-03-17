@@ -8,8 +8,11 @@ fieldset.scheme-switcher {
   border: none;
 
   @media screen and (max-width: $tablet-1) {
+    width: 100%;
+
     flex-direction: row;
-    justify-content: center;
+    gap: 0;
+    justify-content: space-evenly;
   }
 }
 
@@ -28,7 +31,7 @@ fieldset.scheme-switcher {
   pointer-events: none;
 }
 
-.scheme-switcher-icon {
+.switcher-icon {
   min-height: 36px;
   min-width: 36px;
 
@@ -37,7 +40,7 @@ fieldset.scheme-switcher {
     min-width: 30px;
   }
 
-  color: var(--scheme-switcher-radio);
+  // color: var(--scheme-switcher-radio);
   fill: currentColor;
 
   cursor: pointer;
@@ -47,7 +50,6 @@ fieldset.scheme-switcher {
 
 .scheme-switcher-menu-label {
   @extend %link !optional;
-  @extend %stretchable !optional;
 
   display: flex;
   align-items: center;
@@ -59,6 +61,8 @@ fieldset.scheme-switcher {
     text-transform: lowercase;
 
     overflow: hidden;
+
+    color: var(--text-color);
   }
 
   @media screen and (min-width: $tablet) {
@@ -70,20 +74,22 @@ fieldset.scheme-switcher {
 
     user-select: none;
     cursor: pointer;
+
+    &:hover,
+    &:has(.scheme-switcher-menu-checkbox:checked) {
+      letter-spacing: 3px;
+    }
   }
 
   border: none;
   background-color: transparent;
 
-  transition: letter-spacing 300ms;
+  $td: 600ms;
+
+  transition: color $td, letter-spacing $td;
 
   .scheme-switcher-radio-label-icon {
     fill: currentColor;
-  }
-
-  &:hover,
-  &:has(.scheme-switcher-menu-checkbox:checked) {
-    letter-spacing: 3px;
   }
 }
 
@@ -117,7 +123,6 @@ fieldset.scheme-switcher {
     right: 0;
     z-index: -1;
 
-    background-color: maroon;
     transform: translateY(0); // controlled in header.scss
   }
 
@@ -164,6 +169,11 @@ fieldset.scheme-switcher {
 
   display: flex;
 
+  @media screen and (max-width: $tablet-1) {
+    flex-direction: column-reverse;
+    gap: 5px;
+  }
+
   gap: 20px;
   text-align: right;
   justify-content: end;
@@ -176,15 +186,17 @@ fieldset.scheme-switcher {
   $tf: ease-in;
   transition: color $td $tf, filter $td $tf;
 
+  color: var(--scheme-switcher-radio);
+
+  & .switcher-icon {
+    color: currentColor;
+  }
+
   &:has(.switcher-radio:checked) {
     color: var(--accent-color);
 
     &:hover {
       filter: brightness(1.3);
     }
-  }
-
-  & .scheme-switcher-icon {
-    color: currentColor;
   }
 }

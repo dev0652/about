@@ -24,7 +24,7 @@
   --pagination-bullet: gray;
   --pagination-bullet-current: black;
 
-  --mobile-menu-bg: silver;
+  --mobile-menu-bg: #f2f3f4;
 
   /* Buttons */
   --button-text-color: var(--text-color);
@@ -38,10 +38,15 @@
   --scheme-switcher-bg-gradient-start: gray;
   --scheme-switcher-bg-gradient-end: var(--light-gray);
 
-  --scheme-switcher-dropdown-bg: #f2f3f4;
+  --scheme-switcher-dropdown-bg: rgb(236, 235, 235);
+  @media screen and (min-width: 768px) {
+    --scheme-switcher-dropdown-bg: #f2f3f4;
+  }
 
-  --scheme-switcher-radio: var(--header-nav-link-color);
-  --scheme-switcher-radio-checked: var(--text-color);
+  --scheme-switcher-radio: #2a3439;
+  @media screen and (min-width: 768px) {
+    --scheme-switcher-dropdown-bg: gray;
+  }
 
   /* Project title animation */
   --swaying-icon-color: gray;
