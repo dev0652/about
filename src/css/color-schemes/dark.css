@@ -39,8 +39,7 @@
   --scheme-switcher-bg-gradient-start: gray;
   --scheme-switcher-bg-gradient-end: var(--dark-gray);
 
-  --scheme-switcher-dropdown-bg: var(--blackish);
-
+  --scheme-switcher-dropdown-bg: #0d1117;
   @media screen and (min-width: 768px) {
     --scheme-switcher-dropdown-bg: var(--dark-gray);
   }
