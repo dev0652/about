@@ -20,6 +20,8 @@
   --pagination-bullet: gray;
   --pagination-bullet-current: black;
 
+  --mobile-menu-bg: silver;
+
   /* Buttons */
   --button-text-color: var(--text-color);
   --button-text-hover: var(--blackish);

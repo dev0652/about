@@ -6,6 +6,11 @@ fieldset.scheme-switcher {
   gap: 20px;
 
   border: none;
+
+  @media screen and (max-width: $tablet-1) {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 .switcher-legend {
@@ -20,7 +25,6 @@ fieldset.scheme-switcher {
   max-height: 0;
   position: absolute;
   opacity: 0;
-  max-height: 0;
   pointer-events: none;
 }
 
@@ -41,38 +45,37 @@ fieldset.scheme-switcher {
 
 // ***********************************
 
-.scheme-switcher-menu-group {
-  position: relative;
-
-  &:has(.scheme-switcher-menu-checkbox:checked)
-    .scheme-switcher-dropdown-wrapper {
-    @media screen and (max-width: $tablet-1) {
-      transform: translateX(0);
-    }
-
-    @media screen and (min-width: $tablet) {
-      max-height: 200px;
-    }
-  }
-}
-
 .scheme-switcher-menu-label {
   @extend %link !optional;
   @extend %stretchable !optional;
 
   display: flex;
   align-items: center;
-  gap: 10px;
 
-  margin-top: 1rem;
+  @media screen and (max-width: $tablet-1) {
+    flex-direction: column-reverse;
 
-  text-transform: uppercase;
-  font-size: 0.6rem;
-  user-select: none;
-  cursor: pointer;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-top: 0.5rem; // to make up for nav links line-height
+    gap: 10px;
+
+    font-size: 0.6rem;
+    text-transform: uppercase;
+
+    user-select: none;
+    cursor: pointer;
+  }
 
   border: none;
   background-color: transparent;
+
+  transition: letter-spacing 300ms;
 
   .scheme-switcher-radio-label-icon {
     fill: currentColor;
@@ -84,24 +87,26 @@ fieldset.scheme-switcher {
   }
 }
 
+.switcher-menu-caption-wrapper {
+  @media screen and (max-width: $tablet-1) {
+    max-height: 0; // controlled in header.scss
+
+    transition: max-height 300ms;
+  }
+}
+
+.switcher-menu-caption {
+  @media screen and (max-width: $tablet-1) {
+    margin-top: 3px;
+  }
+}
+
 .scheme-switcher-menu-checkbox {
   appearance: none;
 }
 
 .scheme-switcher-dropdown-wrapper {
   position: absolute;
-
-  @media screen and (max-width: $mobile-wide-1) {
-    right: calc(($container-padding-mobile) * -1);
-  }
-
-  @media screen and (max-width: $tablet-1) {
-    right: calc(($container-padding-mobile-wide) * -1);
-    margin-top: 1rem;
-
-    transition: transform 600ms;
-    transform: translateX(100%);
-  }
 
   @media screen and (min-width: $tablet) {
     right: -10px; // makes up for right padding
@@ -127,6 +132,7 @@ fieldset.scheme-switcher {
   @media screen and (max-width: $mobile-wide-1) {
     padding-right: $container-padding-mobile;
   }
+
   @media screen and (max-width: $tablet-1) {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -168,6 +174,7 @@ fieldset.scheme-switcher {
   align-items: center;
 
   text-transform: lowercase;
+  cursor: pointer;
 
   $td: 200ms;
   $tf: ease-in;
@@ -184,6 +191,4 @@ fieldset.scheme-switcher {
   & .scheme-switcher-icon {
     color: currentColor;
   }
-
-  cursor: pointer;
 }

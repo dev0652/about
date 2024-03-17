@@ -21,6 +21,8 @@
   --pagination-bullet: silver;
   --pagination-bullet-current: white;
 
+  --mobile-menu-bg: #262627;
+
   /* Buttons */
   --button-text-color: var(--text-color);
   --button-text-hover: var(--blackish);

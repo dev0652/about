@@ -3,21 +3,26 @@
   <load ="partials/head/head.html" />
 
   <body>
-    <load ="partials/header.html" />
+    <load ="partials/page/header.html" />
 
     <main>
+      <div class="mobile-headings-wrapper">
+        <div class="mobile-sup-heading">My portfolio</div>
+
+        <div class="mobile-headings"></div>
+      </div>
+
       <div id="slider" class="swipe">
         <div class="swipe-wrap">
-          <load ="partials/about.html" />
-          <load ="partials/projects.html" />
-          <load ="partials/contacts.html" />
+          <load ="partials/sections/about.html" />
+          <load ="partials/sections/projects.html" />
+          <load ="partials/sections/contacts.html" />
         </div>
       </div>
     </main>
 
-    <footer class="footer">
-      <nav class="pagination" aria-label="Pagination navigation"></nav>
-    </footer>
+    <!-- Footer -->
+    <load ="partials/page/footer.html" />
 
     <!-- Modals -->
     <load ="partials/modals/modal.html" />

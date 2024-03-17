@@ -24,15 +24,16 @@
       </ul>
     </nav>
 
-    <!-- Mobile headings injection target -->
-    <div class="mobile-headings"></div>
-
-    <!-- Color scheme switcher button -->
-    <div class="scheme-switcher-menu-group">
+    <!-- Menus (color schemes + language) -->
+    <div class="header-menus">
+      <!-- Color theme switcher menu toggle (label + icon) -->
       <label
         class="scheme-switcher-menu-label"
         for="scheme-switcher-menu-checkbox"
-        >Color scheme
+      >
+        <div class="switcher-menu-caption-wrapper">
+          <p class="switcher-menu-caption">Color scheme</p>
+        </div>
 
         <input
           class="scheme-switcher-menu-checkbox"
@@ -40,6 +41,7 @@
           id="scheme-switcher-menu-checkbox"
           name="scheme-switcher-menu-checkbox"
           aria-label="Color scheme switcher menu toggle"
+          checked
         />
 
         <svg class="scheme-switcher-radio-label-icon" width="32" height="32">
@@ -47,12 +49,27 @@
         </svg>
       </label>
 
+      <!-- Color theme switcher menu toggle (label + icon) -->
       <div class="scheme-switcher-dropdown-wrapper">
         <div class="scheme-switcher-dropdown">
-          <load ="partials/color-scheme-switcher.html" />
+          <load ="partials/components/color-scheme-switcher.html" />
         </div>
       </div>
     </div>
-    <!--  -->
+
+    <!-- Menus toggle (mobile view)  -->
+    <label class="caption-toggle-label" for="caption-toggle-checkbox">
+      <input
+        class="caption-toggle-checkbox"
+        type="checkbox"
+        id="caption-toggle-checkbox"
+        name="caption-toggle-checkbox"
+        aria-label="Toggle menu icons captions"
+      />
+
+      <svg class="caption-toggle-icon" width="32" height="32">
+        <use href="images/symbol-defs.svg#icon-overflowdots"></use>
+      </svg>
+    </label>
   </div>
 </header>
