@@ -41,8 +41,15 @@
   }
 }
 
+.contact-icon-wrapper {
+  background-color: var(--accent-color);
+  padding: 10px;
+}
+
 .contact-icon {
   --size: 2rem;
+
+  // background-color: var(--background-color);
 
   @media screen and (min-width: $tablet) {
     --size: 2.2rem;
@@ -51,7 +58,7 @@
   height: var(--size);
   width: var(--size);
 
-  fill: var(--accent-color);
+  fill: var(--background-color);
   transition: fill $scheme-switch-duration $scheme-switch-timing-function;
 }
 

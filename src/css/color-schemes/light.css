@@ -7,8 +7,12 @@
   --accent-color: var(--light-blue);
 
   /* Body */
-  --background-color: snow;
   --text-color: var(--blackish);
+  --background-color: white;
+
+  @media screen and (min-width: 768px) {
+    --background-color: snow;
+  }
 
   /* Header */
   --header-bg-color: var(--background-color);
