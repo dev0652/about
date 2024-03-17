@@ -108,49 +108,45 @@ fieldset.scheme-switcher {
 .scheme-switcher-dropdown-wrapper {
   position: absolute;
 
+  overflow: hidden;
+  transition: max-height 300ms ease-in, transform 300ms ease-in;
+
+  @media screen and (max-width: $tablet-1) {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    background-color: maroon;
+    transform: translateY(0); // controlled in header.scss
+  }
+
   @media screen and (min-width: $tablet) {
-    right: -10px; // makes up for right padding
+    margin-top: 1rem;
+    width: 180px;
 
     max-height: 0;
-    overflow: hidden;
-
-    transition: max-height 300ms ease-in;
+    right: -10px; // makes up for right padding
   }
 }
 
 .scheme-switcher-dropdown {
-  text-align: right;
-
-  width: max-content;
-  padding: 20px 10px;
-
   background-color: var(--scheme-switcher-dropdown-bg);
 
   transition: color $scheme-switch-duration $scheme-switch-timing-function,
     background-color $scheme-switch-duration $scheme-switch-timing-function;
 
-  @media screen and (max-width: $mobile-wide-1) {
-    padding-right: $container-padding-mobile;
-  }
+  padding: 20px 10px;
 
   @media screen and (max-width: $tablet-1) {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    width: 100%;
 
-    padding-left: 60px;
-    padding-right: $container-padding-mobile-wide;
-  }
-
-  @media screen and (max-width: $tablet-1) {
-    background: linear-gradient(
-      to left,
-      var(--background-color),
-      var(--scheme-switcher-dropdown-bg)
-    );
+    display: flex;
+    justify-content: center;
   }
 
   @media screen and (min-width: $tablet) {
-    padding-left: 70px;
+    text-align: right;
 
     background: linear-gradient(
       to bottom,

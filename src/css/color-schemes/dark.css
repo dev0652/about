@@ -39,7 +39,11 @@
   --scheme-switcher-bg-gradient-start: gray;
   --scheme-switcher-bg-gradient-end: var(--dark-gray);
 
-  --scheme-switcher-dropdown-bg: var(--dark-gray);
+  --scheme-switcher-dropdown-bg: var(--blackish);
+
+  @media screen and (min-width: 768px) {
+    --scheme-switcher-dropdown-bg: var(--dark-gray);
+  }
 
   --scheme-switcher-radio: var(--header-nav-link-color);
   --scheme-switcher-radio-checked: var(--text-color);
