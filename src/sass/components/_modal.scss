@@ -35,21 +35,19 @@
   color: var(--text-color);
   background-color: var(--modal-background-color);
 
-  padding: 20px;
-
-  @media screen and (max-width: $tablet-1) {
-    padding-bottom: $unit-gap * 4;
-  }
+  padding: $unit-gap * 3 $unit-gap * 2;
 
   @media screen and (min-width: $tablet) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); // centering
 
-    padding: 40px;
+    padding: $unit-gap * 4;
     height: fit-content;
   }
 }
+
+//
 
 // Tile card modal
 .popup-modal {
@@ -115,11 +113,39 @@
   }
 
   overflow-y: auto;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 
-  max-height: calc(90vh - 200px);
+  // max-height: calc(90vh - 160px);
+  margin-bottom: 15px;
 
-  margin-bottom: $unit-gap * 2;
+  @media screen and (min-width: $tablet) {
+    max-height: calc(90vh - 200px);
+    margin-bottom: $unit-gap * 2;
+  }
+
+  /* For browsers that support `scrollbar-*` properties */
+  // @supports (scrollbar-color: auto) {
+  //   scrollbar-color: var(--text-color) var(--background-color);
+  //   scrollbar-width: thin;
+  // }
+
+  /* Otherwise, use `::-webkit-scrollbar-*` pseudo-elements */
+  @supports selector(::-webkit-scrollbar) {
+    // padding-right: 10px;
+
+    // Scrollbar background:
+    &::-webkit-scrollbar {
+      width: 6px;
+      background-color: #161f37;
+      // border-radius: 20px;
+    }
+
+    // Draggable scrolling handle:
+    &::-webkit-scrollbar-thumb {
+      background-color: #434d67;
+      // border-radius: 20px;
+    }
+  }
 }
 
 .summary-columns-wrapper {
@@ -173,17 +199,11 @@
 // Close button
 
 .popup-modal-close-button {
-  position: fixed;
+  position: absolute;
 
-  top: 30px;
-  right: 30px;
-  padding: 2px;
-
-  @media screen and (min-width: $tablet) {
-    top: 24px;
-    right: 24px;
-    padding: 6px;
-  }
+  top: 24px;
+  right: 24px;
+  padding: 6px;
 
   display: flex;
   justify-content: center;
