@@ -79,6 +79,7 @@
     &:has(.scheme-switcher-menu-checkbox:checked) {
       & .scheme-switcher-dropdown-wrapper {
         max-height: 200px;
+        height: fit-content;
       }
     }
   }

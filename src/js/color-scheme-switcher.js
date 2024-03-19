@@ -50,15 +50,9 @@ export function getThemeSwitchTransition() {
 function setColorScheme(scheme) {
   //   scheme: 'light' | 'dark'
 
-  if (refs.main.classList.contains('faded-edges')) {
-    console.log(
-      ' main contains faded-edges: ',
-      refs.main.classList.contains('faded-edges')
-    );
-
-    // Temporarily remove the faded edges effect on main to avoid color flashing during box-shadow transition
+  // Temporarily remove the faded edges effect on main to avoid color flashing during box-shadow transition
+  if (refs.main.classList.contains('faded-edges'))
     refs.main.classList.remove('faded-edges');
-  }
 
   // Do the switching
   switchMedia(scheme);
