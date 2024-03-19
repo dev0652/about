@@ -236,12 +236,12 @@
     display: flex;
 
     flex-direction: column;
-    gap: $single-gap * 1.5;
+    gap: $unit-gap * 1.5;
 
     @media screen and (min-width: $tablet) {
       flex-direction: row;
       flex-wrap: wrap;
-      gap: $single-gap;
+      gap: $unit-gap;
     }
   }
 }
@@ -258,13 +258,13 @@
   aspect-ratio: 16 / 9;
 
   @media screen and (min-width: $tablet) {
-    width: calc(($tablet - $single-gap - $container-padding-tablet * 2) / 2);
+    width: calc(($tablet - $unit-gap - $container-padding-tablet * 2) / 2);
   }
 
   @media screen and (min-width: $desktop) {
     width: calc(
       (
-          $desktop - $horizontal-offset * 2 - $single-gap * 2 -
+          $desktop - $horizontal-offset * 2 - $unit-gap * 2 -
             $container-padding-desktop * 2
         ) / 3
     );
@@ -273,7 +273,7 @@
   @media screen and (min-width: $desktop-wide) {
     width: calc(
       (
-          $desktop-wide - $horizontal-offset * 2 - $single-gap * 2 -
+          $desktop-wide - $horizontal-offset * 2 - $unit-gap * 2 -
             $container-padding-desktop * 2
         ) / 3
     );

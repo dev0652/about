@@ -12,8 +12,8 @@
 
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 
     background-color: rgba(#303234, 0.8);
     backdrop-filter: blur(2px);
@@ -28,8 +28,9 @@
   position: absolute;
   bottom: 0;
 
-  overflow-y: auto;
-  overflow-x: hidden;
+  // overflow-y: auto;
+  // overflow-x: hidden;
+  overflow: hidden;
 
   color: var(--text-color);
   background-color: var(--modal-background-color);
@@ -37,7 +38,7 @@
   padding: 20px;
 
   @media screen and (max-width: $tablet-1) {
-    padding-bottom: $single-gap * 4;
+    padding-bottom: $unit-gap * 4;
   }
 
   @media screen and (min-width: $tablet) {
@@ -45,15 +46,15 @@
     left: 50%;
     transform: translate(-50%, -50%); // centering
 
-    height: max-content;
     padding: 40px;
+    height: fit-content;
   }
 }
 
 // Tile card modal
 .popup-modal {
   @media screen and (min-width: $tablet) {
-    width: 600px;
+    width: 650px;
     max-height: 90vh;
   }
 
@@ -97,10 +98,10 @@
 // Injected content
 
 .modal-title {
-  margin-bottom: $single-gap;
+  margin-bottom: $unit-gap;
 
   @media screen and (min-width: $tablet) {
-    margin-bottom: $single-gap * 2;
+    margin-bottom: $unit-gap * 2;
   }
 }
 
@@ -112,6 +113,13 @@
   @media screen and (min-width: $desktop) {
     gap: 20px;
   }
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  max-height: calc(90vh - 200px);
+
+  margin-bottom: $unit-gap * 2;
 }
 
 .summary-columns-wrapper {
@@ -129,10 +137,10 @@
 
 .modal-project-links-wrapper {
   display: flex;
-  gap: $single-gap;
+  gap: $unit-gap;
 
   @media screen and (min-width: $tablet) {
-    gap: $single-gap * 3;
+    gap: $unit-gap * 3;
   }
 
   @media screen and (min-width: $desktop) {
@@ -165,7 +173,7 @@
 // Close button
 
 .popup-modal-close-button {
-  position: absolute;
+  position: fixed;
 
   top: 30px;
   right: 30px;
