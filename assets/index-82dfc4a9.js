@@ -31,61 +31,60 @@
       />
     </picture>
   `}function ja(e){const{name:t,type:s,link:l,livePage:o,thumbFileName:i,doesHaveDarkVersion:u,description:c,stack:b,role:h,customer:x,technologies:F}=e,X=te(t,i,"modal",u),D=F.join(", ");return`
-      <article>
-        <h2 class="modal-title">${t}</h2>
+    <article class="modal-card">
+      <h2 class="modal-title">${t}</h2>
 
-        <div class="modal-content-wrapper">
+      <div class="modal-content-wrapper">
 
-          <div class="modal-summary">
-            <div class="summary-columns-wrapper">
-              <div class="summary-column">
-                <p class="type"><span class="field-type">Project type:</span> ${s}</p>
+        <div class="modal-summary">
+          <div class="summary-columns-wrapper">
+            <div class="summary-column">
+              <p class="type"><span class="field-type">Project type:</span> ${s}</p>
 
-                <p class="stack"><span class="field-type">Stack:</span> ${b}</p>
-              </div>
-
-              <div class="summary-column">
-                <p class="role"
-                style="${!h&&"display: none"}">
-                  <span class="field-type">Role:</span> ${h}
-                </p>
-
-                <p class="customer"
-                style="${!x&&"display: none"}">
-                  <span class="field-type">Customer:</span> ${x}
-                </p>
-              </div>
+              <p class="stack"><span class="field-type">Stack:</span> ${b}</p>
             </div>
 
-            <p class="technologies">${D}</p>
+            <div class="summary-column">
+              <p class="role"
+              style="${!h&&"display: none"}">
+                <span class="field-type">Role:</span> ${h}
+              </p>
+
+              <p class="customer"
+              style="${!x&&"display: none"}">
+                <span class="field-type">Customer:</span> ${x}
+              </p>
+            </div>
           </div>
 
-          <div class="modal-image-block">${X}</div>
-
-          <div class="modal-description">
-            <p class="project-description">${c}</p>
-          </div>
-          
-          <div class="modal-project-links-wrapper">
-            <a
-              class="modal-project-link"
-              href="${l}"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GitHub</a
-            >
-
-            <a
-              class="modal-project-link"
-              href="${o}"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Live page</a
-            >
-          </div>
-
+          <p class="technologies">${D}</p>
         </div>
-      </article>
+
+        <div class="modal-image-block">${X}</div>
+
+        <div class="modal-description">
+          <p class="project-description">${c}</p>
+        </div>
+      </div>
+
+      <div class="modal-project-links-wrapper">
+        <a
+          class="modal-project-link"
+          href="${l}"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
+
+        <a
+          class="modal-project-link"
+          href="${o}"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Live page</a
+        >
+      </div>
+    </article>
   `}const O=document.querySelector(".popup-backdrop"),Sa=O.querySelector(".popup-modal-close-button"),Za=O.querySelector(".modal-content-injection-target");function Fa(e){const t=ke.find(s=>s.id===+e);Za.innerHTML=ja(t),O.classList.remove("is-hidden"),O.classList.add("current-modal"),Sa.classList.add("current-close-button"),xe()}const U=document.querySelector(".email-backdrop"),Ia=U.querySelector(".email-modal-close-button"),Ea=U.querySelector(".email-confirmation-text");function ue(e){Ea.innerHTML=e,U.classList.remove("is-hidden"),U.classList.add("current-modal"),Ia.addEventListener("click",C),xe()}function xe(){document.documentElement.style.overflow="hidden",document.body.style.overflow="hidden",document.addEventListener("click",Le),document.addEventListener("keydown",je),document.querySelector(".current-close-button").addEventListener("click",C)}function C(){document.documentElement.style.removeProperty("overflow"),document.body.style.removeProperty("overflow"),document.removeEventListener("click",Le),document.removeEventListener("keydown",je);const e=document.querySelector(".current-modal");e.classList.add("is-hidden"),e.classList.remove("current-modal"),document.querySelector(".current-close-button").removeEventListener("click",C)}function Le(e){const t=document.querySelector(".current-modal");e.target===t&&C()}function je(e){e.key==="Escape"&&C()}function Ba(e){const{id:t,name:s,type:l,link:o,livePage:i,thumbFileName:u,doesHaveDarkVersion:c,description:b,stack:h,role:x,customer:F,technologies:X}=e,D=X.join(", "),J=te(s,u,"list",c),V=te(s,u,"tile",c);return`
     <li class="project-card" tabindex="-1">
       <article class="fade-in">
