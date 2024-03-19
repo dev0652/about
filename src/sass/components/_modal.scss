@@ -124,26 +124,38 @@
   }
 
   /* For browsers that support `scrollbar-*` properties */
-  // @supports (scrollbar-color: auto) {
-  //   scrollbar-color: var(--text-color) var(--background-color);
-  //   scrollbar-width: thin;
-  // }
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-color: var(--text-color) transparent;
+    scrollbar-width: thin;
+  }
 
   /* Otherwise, use `::-webkit-scrollbar-*` pseudo-elements */
   @supports selector(::-webkit-scrollbar) {
-    // padding-right: 10px;
+    $unit: 4px;
+
+    // Entire background:
+    &::-webkit-scrollbar {
+      width: $unit * 3;
+      background-color: transparent;
+    }
 
     // Scrollbar background:
-    &::-webkit-scrollbar {
-      width: 6px;
-      background-color: #161f37;
-      // border-radius: 20px;
+    &::-webkit-scrollbar-track {
+      background-color: var(--modal-scrollbar-bg);
+      background-clip: padding-box;
+      border-left: $unit * 2 solid transparent;
     }
 
     // Draggable scrolling handle:
     &::-webkit-scrollbar-thumb {
-      background-color: #434d67;
-      // border-radius: 20px;
+      background-color: var(--modal-scrollbar-thumb);
+
+      &:hover {
+        background-color: var(--text-color);
+      }
+
+      background-clip: padding-box;
+      border-left: $unit * 2 solid transparent; /* Transparent border together with `background-clip: padding-box` does the trick */
     }
   }
 }

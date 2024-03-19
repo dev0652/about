@@ -65,6 +65,8 @@
   /* Modal */
   --modal-background-color: var(--blackish);
   --modal-close-background-color: gray;
+  --modal-scrollbar-bg: #161f37;
+  --modal-scrollbar-thumb: #434d67;
 
   /* Form */
   --form-field-bg-color: rgba(0, 0, 0, 0.4);

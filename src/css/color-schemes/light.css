@@ -64,6 +64,8 @@
   /* Modal */
   --modal-background-color: var(--background-color);
   --modal-close-background-color: silver;
+  --modal-scrollbar-bg: gainsboro;
+  --modal-scrollbar-thumb: gray;
 
   /* Form */
   --form-field-bg-color: white;
