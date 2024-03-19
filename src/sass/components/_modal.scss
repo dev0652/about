@@ -31,7 +31,7 @@
   overflow: hidden;
 
   color: var(--text-color);
-  background-color: var(--modal-background-color);
+  background-color: var(--background-color);
 
   padding: $unit-gap * 3 $unit-gap * 2;
 
@@ -131,7 +131,7 @@
   @supports selector(::-webkit-scrollbar) {
     $unit: 4px;
 
-    // Entire background:
+    // Entire scrollbar element:
     &::-webkit-scrollbar {
       width: $unit * 3;
       background-color: transparent;
@@ -224,7 +224,7 @@
 
   &:hover,
   &:focus-visible {
-    background-color: var(--modal-close-background-color);
+    background-color: var(--modal-close-button-bg);
   }
 
   &:active {

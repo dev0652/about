@@ -63,8 +63,7 @@
   --flip-card-text: silver;
 
   /* Modal */
-  --modal-background-color: var(--blackish);
-  --modal-close-background-color: gray;
+  --modal-close-button-bg: gray;
   --modal-scrollbar-bg: #161f37;
   --modal-scrollbar-thumb: #434d67;
 

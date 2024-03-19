@@ -62,8 +62,7 @@
   --flip-card-text: var(--background-color);
 
   /* Modal */
-  --modal-background-color: var(--background-color);
-  --modal-close-background-color: silver;
+  --modal-close-button-bg: silver;
   --modal-scrollbar-bg: gainsboro;
   --modal-scrollbar-thumb: gray;
 
