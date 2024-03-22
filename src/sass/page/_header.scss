@@ -42,12 +42,6 @@
 
     flex-direction: row-reverse;
     justify-content: center;
-
-    &:has(.caption-toggle-checkbox:checked) {
-      & .switcher-menu-caption-wrapper {
-        max-height: 30px;
-      }
-    }
   }
 
   @media screen and (min-width: $tablet) {
@@ -62,27 +56,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 100%;
-
     padding: 10px;
-
-    &:has(.scheme-switcher-menu-checkbox:checked) {
-      & .scheme-switcher-dropdown-wrapper {
-        transform: translateY(-100%);
-      }
-    }
   }
 
   @media screen and (min-width: $tablet) {
     position: relative;
-
-    &:has(.scheme-switcher-menu-checkbox:checked) {
-      & .scheme-switcher-dropdown-wrapper {
-        max-height: 200px;
-        height: fit-content;
-      }
-    }
   }
+
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  // background-color: beige;
 }
 
 // *****************************

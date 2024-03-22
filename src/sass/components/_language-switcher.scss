@@ -1,6 +1,5 @@
-.scheme-switcher-menu-label {
+.language-menu-label {
   @extend %link !optional;
-  position: relative;
 
   display: flex;
   align-items: center;
@@ -13,7 +12,7 @@
 
     overflow: hidden;
 
-    &:not(:has(.scheme-switcher-menu-checkbox:checked)) {
+    &:not(:has(.language-menu-checkbox:checked)) {
       color: var(--scheme-switcher-label-inactive);
     }
   }
@@ -29,7 +28,7 @@
     cursor: pointer;
 
     &:hover,
-    &:has(.scheme-switcher-menu-checkbox:checked) {
+    &:has(.language-menu-checkbox:checked) {
       letter-spacing: 3px;
       color: var(--text-color);
     }
@@ -42,14 +41,14 @@
 
   transition: color $td, letter-spacing $td;
 
-  .scheme-switcher-label-icon {
+  .language-menu-label-icon {
     fill: currentColor;
   }
 }
 
 // ***********************************
 
-.switcher-menu-caption-wrapper {
+.language-menu-caption-wrapper {
   @media screen and (max-width: $tablet-1) {
     transition: max-height 300ms;
 
@@ -61,34 +60,19 @@
   }
 }
 
-.switcher-menu-caption {
+.language-menu-caption {
   @media screen and (max-width: $tablet-1) {
     margin-top: 3px;
   }
 }
 
-.scheme-switcher-menu-checkbox {
+.language-menu-checkbox {
   appearance: none;
-}
-
-.switcher-icon {
-  min-height: 36px;
-  min-width: 36px;
-
-  @media screen and (min-width: $tablet) {
-    min-height: 30px;
-    min-width: 30px;
-  }
-
-  // color: var(--scheme-switcher-radio);
-  fill: currentColor;
-
-  cursor: pointer;
 }
 
 // ***********************************
 
-.scheme-switcher-dropdown-wrapper {
+.language-switcher-dropdown-wrapper {
   position: absolute;
 
   overflow: hidden;
@@ -102,29 +86,28 @@
 
     transform: translateY(0);
 
-    .header-menus:has(.scheme-switcher-menu-checkbox:checked) & {
+    .header-menus:has(.language-menu-checkbox:checked) & {
       transform: translateY(-100%);
     }
   }
 
   @media screen and (min-width: $tablet) {
     margin-top: 1rem;
-    width: 180px;
+    width: 100px;
 
     top: 100%;
-    // right: -10px; // makes up for right padding
-    left: -10px;
+    right: -10px; // makes up for right padding
 
     max-height: 0;
 
-    .header-menus:has(.scheme-switcher-menu-checkbox:checked) & {
+    .header-menus:has(.language-menu-checkbox:checked) & {
       max-height: 200px;
       height: fit-content;
     }
   }
 }
 
-.scheme-switcher-dropdown {
+.language-switcher-dropdown {
   transition: color $scheme-switch-duration $scheme-switch-timing-function,
     background-color $scheme-switch-duration $scheme-switch-timing-function;
 
@@ -140,7 +123,7 @@
   }
 
   @media screen and (min-width: $tablet) {
-    text-align: right;
+    // text-align: right;
 
     background: linear-gradient(
       to bottom,
@@ -152,7 +135,7 @@
 
 // ***********************************
 
-fieldset.scheme-switcher {
+fieldset.language-switcher {
   position: relative;
 
   display: flex;
@@ -170,14 +153,14 @@ fieldset.scheme-switcher {
   }
 }
 
-.scheme-switcher-legend {
+.language-switcher-legend {
   position: absolute;
   opacity: 0;
   max-height: 0;
   pointer-events: none;
 }
 
-.scheme-switcher-radio {
+.language-switcher-radio {
   appearance: none;
   max-height: 0;
   position: absolute;
@@ -185,22 +168,22 @@ fieldset.scheme-switcher {
   pointer-events: none;
 }
 
-.scheme-switcher-radio-label {
+.language-switcher-radio-label {
   @extend %link !optional;
 
-  display: flex;
+  // display: flex;
 
-  @media screen and (max-width: $tablet-1) {
-    flex-direction: column-reverse;
-    gap: 5px;
-  }
+  // @media screen and (max-width: $tablet-1) {
+  //   flex-direction: column-reverse;
+  //   gap: 5px;
+  // }
 
-  gap: 20px;
-  text-align: right;
-  justify-content: end;
-  align-items: center;
+  // gap: 20px;
+  text-align: center;
+  // justify-content: end;
+  // align-items: center;
 
-  text-transform: lowercase;
+  text-transform: uppercase;
   cursor: pointer;
 
   $td: 200ms;
@@ -209,11 +192,11 @@ fieldset.scheme-switcher {
 
   color: var(--scheme-switcher-radio);
 
-  & .switcher-icon {
+  & .language-switcher-icon {
     color: currentColor;
   }
 
-  &:has(.scheme-switcher-radio:checked) {
+  &:has(.language-switcher-radio:checked) {
     color: var(--accent-color);
 
     &:hover {

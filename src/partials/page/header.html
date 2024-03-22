@@ -5,58 +5,44 @@
     <nav class="header-nav">
       <ul class="header-nav-list">
         <li class="nav-item">
-          <a class="header-nav-link active" href="#about" data-id="about"
+          <a
+            class="header-nav-link active"
+            href="#about"
+            data-id="about"
+            data-i18n-key="about"
             >About me</a
           >
         </li>
 
         <li class="nav-item">
-          <a class="header-nav-link" href="#projects" data-id="projects"
+          <a
+            class="header-nav-link"
+            href="#projects"
+            data-id="projects"
+            data-i18n-key="projects"
             >Projects</a
           >
         </li>
 
         <li class="nav-item">
-          <a class="header-nav-link" href="#contacts" data-id="contacts"
+          <a
+            class="header-nav-link"
+            href="#contacts"
+            data-id="contacts"
+            data-i18n-key="contacts"
             >Contacts</a
           >
         </li>
       </ul>
     </nav>
 
-    <!-- Menus (color schemes + language) -->
+    <!-- Color scheme and language menus -->
     <div class="header-menus">
-      <!-- Color theme switcher menu toggle (label + icon) -->
-      <label
-        class="scheme-switcher-menu-label"
-        for="scheme-switcher-menu-checkbox"
-      >
-        <div class="switcher-menu-caption-wrapper">
-          <p class="switcher-menu-caption">Color scheme</p>
-        </div>
-
-        <input
-          class="scheme-switcher-menu-checkbox"
-          type="checkbox"
-          id="scheme-switcher-menu-checkbox"
-          name="scheme-switcher-menu-checkbox"
-          aria-label="Color scheme switcher menu toggle"
-        />
-
-        <svg class="scheme-switcher-radio-label-icon" width="32" height="32">
-          <use href="images/symbol-defs.svg#icon-luminosity"></use>
-        </svg>
-      </label>
-
-      <!-- Color theme switcher menu toggle (label + icon) -->
-      <div class="scheme-switcher-dropdown-wrapper">
-        <div class="scheme-switcher-dropdown">
-          <load ="partials/components/color-scheme-switcher.html" />
-        </div>
-      </div>
+      <load ="partials/components/color-scheme-menu.html" />
+      <load ="partials/components/language-menu.html" />
     </div>
 
-    <!-- Menus toggle (mobile view)  -->
+    <!-- Mobile menu captions toggle  -->
     <label class="caption-toggle-label" for="caption-toggle-checkbox">
       <input
         class="caption-toggle-checkbox"
@@ -70,5 +56,8 @@
         <use href="images/symbol-defs.svg#icon-overflowdots"></use>
       </svg>
     </label>
+
+
+    </div>
   </div>
 </header>

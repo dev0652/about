@@ -11,6 +11,7 @@ import { createPagination } from './pagination';
 
 import { setTypewriterEffect } from './typing-animation';
 import { activateColorSchemeSwitcher } from './color-scheme-switcher';
+import { activateLanguageSwitcher } from './i18n';
 
 // *********************************
 
@@ -57,6 +58,7 @@ function onFirstLoad() {
     'DOMContentLoaded',
     () => {
       activateColorSchemeSwitcher();
+      activateLanguageSwitcher();
       refs.main.classList.add('faded-edges');
     },
     {

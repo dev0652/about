@@ -26,19 +26,6 @@ function getSystemScheme() {
 
 // *********************************
 
-function switchMedia(scheme) {
-  //
-  if (scheme === 'auto') {
-    refs.lightStyles.media = '(prefers-color-scheme: light)';
-    refs.darkStyles.media = '(prefers-color-scheme: dark)';
-  } else {
-    refs.lightStyles.media = scheme === 'light' ? 'all' : 'not all';
-    refs.darkStyles.media = scheme === 'dark' ? 'all' : 'not all';
-  }
-}
-
-// *********************************
-
 export function getThemeSwitchTransition() {
   return (
     parseFloat(
@@ -55,8 +42,15 @@ function setColorScheme(scheme) {
     refs.main.classList.remove('faded-edges');
 
   // Do the switching
-  switchMedia(scheme);
+  if (scheme === 'auto') {
+    refs.lightStyles.media = '(prefers-color-scheme: light)';
+    refs.darkStyles.media = '(prefers-color-scheme: dark)';
+  } else {
+    refs.lightStyles.media = scheme === 'light' ? 'all' : 'not all';
+    refs.darkStyles.media = scheme === 'dark' ? 'all' : 'not all';
+  }
 
+  // Save changes to local storage
   if (scheme === 'auto') {
     clearColorScheme();
   } else {
@@ -89,17 +83,15 @@ function presetSwitcher() {
 
   if (savedScheme) {
     const currentRadio = document.querySelector(
-      `.switcher-radio[value=${savedScheme}]`
+      `.scheme-switcher-radio[value=${savedScheme}]`
     );
     currentRadio.setAttribute('checked', '');
   }
 
-  const handleChangeRadio = (event) => {
-    setColorScheme(event.target.value);
-  };
-
-  [...refs.switcherRadios].forEach((radio) => {
-    radio.addEventListener('change', handleChangeRadio);
+  [...refs.schemeSwitcherRadios].forEach((radio) => {
+    radio.addEventListener('change', (event) => {
+      setColorScheme(event.target.value);
+    });
   });
 }
 
@@ -116,11 +108,11 @@ function onSwitcherMenuToggle(event) {
 // If clicked outside menu, close it
 function handleClicksOutsideMenu(event) {
   if (
-    !refs.switcherDropdown.contains(event.target) &&
-    !refs.switcherCheckboxLabel.contains(event.target)
+    !refs.schemeSwitcherDropdown.contains(event.target) &&
+    !refs.schemeSwitcherCheckboxLabel.contains(event.target)
   ) {
     document.removeEventListener('click', handleClicksOutsideMenu);
-    refs.switcherCheckbox.checked = false;
+    refs.schemeSwitcherCheckbox.checked = false;
   }
 }
 
@@ -129,5 +121,5 @@ function handleClicksOutsideMenu(event) {
 export function activateColorSchemeSwitcher() {
   setupScheme();
   presetSwitcher();
-  refs.switcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
+  refs.schemeSwitcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
 }

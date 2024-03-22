@@ -38,8 +38,8 @@ $transition-timing-function: linear;
 $bullet-td: 600ms;
 
 // Color theme switching transitions
-$scheme-switch-duration: 100ms;
-$scheme-switch-timing-function: linear;
+$scheme-switch-duration: 200ms;
+$scheme-switch-timing-function: ease-in;
 
 // Container
 $container-padding-mobile: 10px;
