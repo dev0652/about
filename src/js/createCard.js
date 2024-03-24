@@ -2,23 +2,44 @@ import { makePictureTag } from './imagePaths';
 
 // *********************************
 
+export function getLocalizedField(field) {
+  const locale = window.locale ? window.locale : 'en';
+
+  if (!field) return null;
+  return field[locale] ? field[locale] : field.en;
+}
+
+export const loadingError = {
+  en: 'Error loading project',
+  uk: 'Помилка завантаження проекту',
+};
+
+// *********************************
+
 export function createCardMarkup(project) {
+  //
+  const locale = window.locale ? window.locale : 'en';
+  if (!project) return loadingError[locale];
+
   const {
     id,
     name,
-    type,
+    type: projType,
     link,
     livePage,
     thumbFileName,
     doesHaveDarkVersion,
-    description,
+    description: projDescription,
     stack,
-    role,
+    role: projRole,
     customer,
     technologies,
   } = project;
 
   const technologiesList = technologies.join(', ');
+  const type = getLocalizedField(projType);
+  const role = getLocalizedField(projRole);
+  const description = getLocalizedField(projDescription);
 
   const listPictureTag = makePictureTag(
     name,
@@ -59,25 +80,26 @@ export function createCardMarkup(project) {
                 target="_blank"
                 rel="noopener noreferrer"
                 tabindex="-1"
+                data-i18n-key="live-page"
                 >Live page</a
               >
             </div>
 
             <div class="list-card-summary">
               <div class="summary-items-wrapper">
-                  <p class="type"><span class="field-type">Type:</span> ${type}</p>
+                  <p class="type"><span class="field-type"  data-i18n-key="type">Type</span><span class="field-type">:</span> ${type}</p>
 
                   <p class="customer"
                   style="${!customer && 'display: none'}">
-                    <span class="field-type">Customer:</span> ${customer}
+                    <span class="field-type" data-i18n-key="customer">Customer</span><span class="field-type">:</span> ${customer}
                   </p>
 
                   <p class="role"
                   style="${!role && 'display: none'}">
-                    <span class="field-type">Role:</span> ${role}
+                    <span class="field-type" data-i18n-key="role">Role</span><span class="field-type">:</span> ${role}
                   </p>
 
-                  <p class="stack"><span class="field-type">Stack:</span> ${stack}</p>
+                  <p class="stack"><span class="field-type" data-i18n-key="stack">Stack</span><span class="field-type">:</span> ${stack}</p>
               </div>
 
               <p class="technologies">${technologiesList}</p>
@@ -104,14 +126,14 @@ export function createCardMarkup(project) {
 
                 <div class="tile-card-project-summary">
                   <div>
-                    <p class="type"><span class="field-type">Type:</span> ${type}</p>
+                    <p class="type"><span class="field-type"  data-i18n-key="type">Type</span><span class="field-type">:</span> ${type}</p>
 
-                    <p class="stack"><span class="field-type">Stack:</span> ${stack}</p>
+                    <p class="stack"><span class="field-type" data-i18n-key="stack">Stack</span><span class="field-type">:</span> ${stack}</p>
 
-                    <p class="technologies"><span class="field-type">Technologies:</span> ${technologiesList}</p>
+                    <p class="technologies"><span class="field-type" data-i18n-key="technologies">Technologies</span><span class="field-type">:</span> ${technologiesList}</p>
                   </div>
 
-                  <p class="flip-card-prompt-to-click">Click to learn more</p> 
+                  <p class="flip-card-prompt-to-click" data-i18n-key="flip-card-prompt">Click to learn more</p> 
                 </div> 
               </div>
             </div>

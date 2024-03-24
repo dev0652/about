@@ -8,7 +8,7 @@ import { createCardMarkup } from '/js/createCard';
 
 const gallery = refs.gallery;
 
-const makeListMarkup = (projectsArray) => {
+export const makeListMarkup = (projectsArray) => {
   return `
   <ul class="project-card-list">
     ${projectsArray.map((item) => createCardMarkup(item)).join('')}
@@ -18,7 +18,7 @@ const makeListMarkup = (projectsArray) => {
 // *********************************
 
 // Handle errors if image urls in picture tag's 'source' are broken
-function addEmgErrorHandlers() {
+function addImgErrorHandlers() {
   const images = document.querySelectorAll('.error-handleable');
 
   images.forEach((image) => {
@@ -91,6 +91,12 @@ function handleGalleryCardClicks(event) {
 
 // *********************************
 
-gallery.innerHTML = makeListMarkup(projects);
-addEmgErrorHandlers();
+export function renderGallery() {
+  gallery.innerHTML = makeListMarkup(projects);
+}
+
+// *********************************
+
+renderGallery();
+addImgErrorHandlers();
 refs.galleryViewSwitcher.addEventListener('click', switchView);

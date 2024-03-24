@@ -1,6 +1,8 @@
+import translations from '/data/translations.json' assert { type: 'json' };
+
 // *********************************
 
-// May cause server blocking due to too many requests
+// !!! May cause server blocking due to too many requests
 
 // function makePlaceholderUrl(resolution, message, doesHaveDarkVersion = false) {
 //   if (!message) message = resolution;
@@ -131,10 +133,20 @@ export function makePictureTag(
 
   const { medium, large1x } = getImagePaths(fileName);
 
-  // Pick large1x for 'list' and 'modal', medium for 'tile'
+  // Pick large1x for 'list' & 'modal', and medium for 'tile'
   const imgSrc = imgLocation === 'tile' ? medium : large1x;
 
   const loadingMode = imgLocation === 'list' ? 'eager' : 'lazy';
+
+  const defaultAltText = 'live page screenshot';
+  const locale = window.locale ? window.locale : 'en';
+  const altText = translations
+    ? translations[locale]['project-image-alt-text']
+    : defaultAltText;
+  const altArr = [projectName, altText];
+  if (locale === 'uk') altArr.reverse();
+
+  const alt = altArr.join(' ');
 
   return /* html */ `
     <picture class="project-card-picture-element">
@@ -143,7 +155,7 @@ export function makePictureTag(
 
       <img class="project-card-image error-handleable"
       src="${imgSrc}"
-      alt="${projectName} live page screenshot"
+      alt="${alt}"
       loading="${loadingMode}"
       />
     </picture>

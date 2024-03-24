@@ -1,14 +1,14 @@
-import { refs } from './refs';
+import { renderGallery } from '/js/projects';
+import { refs } from '/js/refs';
 import translations from '/data/translations.json' assert { type: 'json' };
 
 // *********************************
 
-const gallery = refs.gallery;
-const langCheckbox = document.querySelector('.language-menu-checkbox');
+// const langCheckbox = document.querySelector('.language-menu-checkbox');
 
-export function getLocale() {
-  return navigator.userLanguage || navigator.language; //returns value like 'en-us'
-}
+// export function getLocale() {
+//   return navigator.userLanguage || navigator.language; //returns value like 'en-us'
+// }
 
 // document.addEventListener('DOMContentLoaded', () => {
 //     // Find all elements that have the key attribute
@@ -16,32 +16,30 @@ export function getLocale() {
 //   document.querySelectorAll('[data-i18n-key]').forEach(translateElement);
 // });
 
-function translateElement(element, locale) {
+function translateElement(element) {
+  const locale = window.locale ? window.locale : 'en';
+
   const key = element.getAttribute('data-i18n-key');
   const translation = translations[locale][key];
   element.innerText = translation;
 }
 
-// function switchLanguage(locale) {
-//   // const locale = getLocale();
-//   const english = locale === 'en' || locale.startsWith('en-');
-//   const isLangSupported = locale === 'uk' || english;
-
-//   if (!isLangSupported) return;
-
-//   const key = element.getAttribute('data-i18n-key');
-//   const translation = translations[locale][key];
-//   element.innerText = translation;
-// }
-
 function switchLanguage(event) {
-  const locale = event.target.value;
+  window.locale = event.target.value;
 
-  refs.langSwitcherMenuCaption.setAttribute('data-i18n-key', locale);
+  document.body.style.opacity = 0;
 
-  document.querySelectorAll('[data-i18n-key]').forEach((element) => {
-    translateElement(element, locale);
-  });
+  setTimeout(() => {
+    renderGallery();
+
+    document.querySelectorAll('[data-i18n-key]').forEach((element) => {
+      translateElement(element);
+    });
+
+    refs.langSwitcherMenuCaption.setAttribute('data-i18n-key', window.locale);
+
+    document.body.style.removeProperty('opacity');
+  }, 300);
 }
 
 // *********************************
@@ -58,6 +56,11 @@ function presetLanguageSwitcher() {
 
   [...refs.langSwitcherRadios].forEach((radio) => {
     radio.addEventListener('change', switchLanguage);
+  });
+
+  window.locale.addEventListener('change', (e) => {
+    console.log('e: ', e);
+    console.log('changed');
   });
 }
 

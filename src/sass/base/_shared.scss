@@ -25,7 +25,7 @@ body {
 
   transition: background-color $scheme-switch-duration
       $scheme-switch-timing-function,
-    color $scheme-switch-duration $scheme-switch-timing-function;
+    color $scheme-switch-duration $scheme-switch-timing-function, opacity 300ms;
 
   --blurOffset: 20vh; // default for mobile, is reset via JS
   --bottomBlurOffset: 50px; // default, mobile only, will be reset via JS
