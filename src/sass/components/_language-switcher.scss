@@ -25,17 +25,20 @@
 
   @media screen and (min-width: $tablet) {
     margin-top: 0.5rem; // to make up for nav links line-height
-    gap: 10px;
+    gap: 0.5rem;
 
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
 
     user-select: none;
     cursor: pointer;
 
+    &:hover .language-menu-label-icon {
+      transform: scale(1.1);
+    }
+
     &:hover,
     &:has(.language-menu-checkbox:checked) {
-      letter-spacing: 3px;
       color: var(--text-color);
     }
 
@@ -43,10 +46,7 @@
       outline: 3px solid var(--text-color);
       outline-offset: 2px;
     }
-  }
 
-  @media screen and (min-width: $tablet) {
-    width: 150px;
     align-self: flex-end;
   }
 
@@ -55,10 +55,12 @@
 
   $td: 600ms;
 
-  transition: color $td, letter-spacing $td;
+  transition: color $td;
 
   .language-menu-label-icon {
     fill: currentColor;
+
+    transition: transform $td;
   }
 }
 
@@ -128,8 +130,7 @@
   }
 
   @media screen and (min-width: $desktop) {
-    // width: 180px;
-    // left: -10px;
+    width: 130px;
     right: -10px; // makes up for right padding
   }
 }

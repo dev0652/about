@@ -53,9 +53,9 @@
 
 .header-menus {
   display: flex;
+  align-items: center;
 
   @media screen and (max-width: $tablet-1) {
-    align-items: center;
     justify-content: center;
     gap: 20px;
 
@@ -70,13 +70,9 @@
   }
 
   @media screen and (min-width: $desktop) {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    gap: 30px;
 
-    gap: 20px;
-
-    background-color: beige;
+    // background-color: beige;
   }
 }
 
