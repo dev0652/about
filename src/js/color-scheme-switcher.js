@@ -110,10 +110,14 @@ function onSwitcherMenuToggle(event) {
     refs.schemeSwitcherRadios.forEach((radio) => {
       radio.removeAttribute('tabIndex');
     });
+
+    event.target.setAttribute('aria-expanded', true);
   } else {
     refs.schemeSwitcherRadios.forEach((radio) => {
       radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed
     });
+
+    event.target.setAttribute('aria-expanded', false);
   }
 }
 
@@ -125,6 +129,7 @@ function handleClicksOutsideSwitcherMenu(event) {
   ) {
     document.removeEventListener('click', handleClicksOutsideSwitcherMenu);
     refs.schemeSwitcherCheckbox.checked = false;
+    refs.schemeSwitcherCheckbox.setAttribute('aria-expanded', false);
 
     refs.schemeSwitcherRadios.forEach((radio) => {
       radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed

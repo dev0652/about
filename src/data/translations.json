@@ -5,7 +5,7 @@
     "contacts": "Контакти",
     "my-portfolio": "Моє портфоліо",
 
-    "colorScheme": "Колірна схема",
+    "colorScheme": "Тема",
     "light": "Світла",
     "dark": "Темна",
     "auto": "Авто",
@@ -33,7 +33,8 @@
     "form-title": "Залиште своє повідомлення",
     "placeholder-name": "Як до вас звертатись?",
     "placeholder-email": "Ваша пошта (необов'язково)",
-    "placeholder-message": "Ваше повідомлення"
+    "placeholder-message": "Ваше повідомлення",
+    "send-button-text": "Надіслати"
   },
 
   "en": {
@@ -42,7 +43,7 @@
     "contacts": "Contacts",
     "my-portfolio": "My portfolio",
 
-    "colorScheme": "Color scheme",
+    "colorScheme": "Theme",
     "light": "Light",
     "dark": "Dark",
     "auto": "Auto",
@@ -71,8 +72,8 @@
     "placeholder-name": "With whom do I have the pleasure?",
     "placeholder-email": "Your email (optional)",
     "placeholder-message": "Your message",
+    "send-button-text": "Send",
 
-    "": "",
     "": "",
     "": "",
     "": "",

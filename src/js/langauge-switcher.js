@@ -86,10 +86,6 @@ function presetLanguageSwitcher() {
       `.language-switcher-radio[value=${window.locale}]`
     );
     currentRadio.setAttribute('checked', '');
-
-    // document.querySelectorAll('[data-loc]').forEach(translateElement);
-
-    // refs.langSwitcherMenuCaption.setAttribute('data-loc', window.locale);
   }
 
   [...refs.langSwitcherRadios].forEach((radio) => {
@@ -110,10 +106,14 @@ function onLanguageMenuToggle(event) {
     refs.langSwitcherRadios.forEach((radio) => {
       radio.removeAttribute('tabIndex');
     });
+
+    event.target.setAttribute('aria-expanded', false);
   } else {
     refs.langSwitcherRadios.forEach((radio) => {
       radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed
     });
+
+    event.target.setAttribute('aria-expanded', false);
   }
 }
 
@@ -125,6 +125,7 @@ function handleClicksOutsideLangMenu(event) {
   ) {
     document.removeEventListener('click', handleClicksOutsideLangMenu);
     refs.langSwitcherCheckbox.checked = false;
+    refs.langSwitcherCheckbox.setAttribute('aria-expanded', false);
 
     refs.langSwitcherRadios.forEach((radio) => {
       radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed

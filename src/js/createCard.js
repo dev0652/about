@@ -62,7 +62,7 @@ export function createCardMarkup(project) {
   return /* html */ `
     <li class="project-card" tabindex="-1">
       <article class="fade-in">
-        <h2 class="card-title collapsible-toggle" aria-expanded="false" aria-controls="collapsible-${name}" tabindex="0" data-id="${name}">${name}</h2>
+        <h2 class="card-title collapsible-toggle" aria-expanded="false" aria-controls="collapsible-${name}" tabindex="0" data-id="${name}" lang="en">${name}</h2>
 
         <div class="list-card collapsible" id="collapsible-${name}">
           <div class="list-card-wrapper">
@@ -75,6 +75,7 @@ export function createCardMarkup(project) {
                 target="_blank"
                 rel="noopener noreferrer"
                 tabindex="-1"
+                lang="en"
                 >GitHub</a
               >
 
@@ -102,10 +103,10 @@ export function createCardMarkup(project) {
                     <span class="field-type">${roleFieldName}</span><span class="field-type">:</span> ${role}
                   </p>
 
-                  <p class="stack"><span class="field-type">${stackFieldName}</span><span class="field-type">:</span> ${stack}</p>
+                  <p class="stack"><span class="field-type">${stackFieldName}</span><span class="field-type">:</span> <span lang="en">${stack}</span></p>
               </div>
 
-              <p class="technologies">${technologiesList}</p>
+              <p class="technologies" lang="en">${technologiesList}</p>
             </div>
 
             <div class="list-card-description">
@@ -131,9 +132,9 @@ export function createCardMarkup(project) {
                   <div>
                     <p class="type"><span class="field-type">${typeFieldName}</span><span class="field-type">:</span> ${type}</p>
 
-                    <p class="stack"><span class="field-type">${stackFieldName}</span><span class="field-type">:</span> ${stack}</p>
+                    <p class="stack"><span class="field-type">${stackFieldName}</span><span class="field-type">:</span> <span lang="en">${stack}</span></p>
 
-                    <p class="technologies"><span class="field-type">${technologiesFieldName}</span><span class="field-type">:</span> ${technologiesList}</p>
+                    <p class="technologies"><span class="field-type">${technologiesFieldName}</span><span class="field-type">:</span> <span lang="en">${technologiesList}</span></p>
                   </div>
 
                   <p class="flip-card-prompt-to-click">${flipCardPrompt}</p> 

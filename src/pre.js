@@ -1,4 +1,3 @@
-// import { translateElement, translatePlaceholder } from './js/i18n';
 import translations from '/data/translations.json' assert { type: 'json' };
 
 // *********************************
