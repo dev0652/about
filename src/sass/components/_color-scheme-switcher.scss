@@ -131,9 +131,13 @@
 
   @media screen and (min-width: $tablet) {
     margin-top: 1rem;
-
     top: 100%;
-    left: -100%;
+    // left: calc(-1 * (50% + 150px / 2));
+    right: 0;
+    right: 52px;
+
+    width: 150px;
+
     max-height: 0;
 
     .header-menus:has(.scheme-switcher-menu-checkbox:checked) & {
