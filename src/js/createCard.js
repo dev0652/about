@@ -80,7 +80,7 @@ export function createCardMarkup(project) {
               >
 
               <a
-                class="project-link"
+                class="project-link live-page-link"
                 href="${livePage}"
                 target="_blank"
                 rel="noopener noreferrer"

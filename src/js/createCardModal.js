@@ -87,7 +87,7 @@ export function createCardModal(project) {
         >
 
         <a
-          class="modal-project-link"
+          class="modal-project-link live-page-link"
           href="${livePage}"
           target="_blank"
           rel="noopener noreferrer"
