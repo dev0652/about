@@ -5,16 +5,18 @@ import { updateSourceMedia } from './updateSourceMedia';
 // Color scheme switcher courtesy of Vadim Makeyev
 // *********************************
 
+const colorSchemeKey = 'color-scheme';
+
 function getSavedColorScheme() {
-  return localStorage.getItem('color-scheme');
+  return localStorage.getItem(colorSchemeKey);
 }
 
 function saveColorScheme(scheme) {
-  return localStorage.setItem('color-scheme', scheme);
+  return localStorage.setItem(colorSchemeKey, scheme);
 }
 
 function clearColorScheme() {
-  return localStorage.removeItem('color-scheme');
+  return localStorage.removeItem(colorSchemeKey);
 }
 
 // *********************************
@@ -102,17 +104,31 @@ function onSwitcherMenuToggle(event) {
   const method = event.target.checked
     ? 'addEventListener'
     : 'removeEventListener';
-  document[method]('click', handleClicksOutsideMenu);
+  document[method]('click', handleClicksOutsideSwitcherMenu);
+
+  if (event.target.checked) {
+    refs.schemeSwitcherRadios.forEach((radio) => {
+      radio.removeAttribute('tabIndex');
+    });
+  } else {
+    refs.schemeSwitcherRadios.forEach((radio) => {
+      radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed
+    });
+  }
 }
 
 // If clicked outside menu, close it
-function handleClicksOutsideMenu(event) {
+function handleClicksOutsideSwitcherMenu(event) {
   if (
     !refs.schemeSwitcherDropdown.contains(event.target) &&
     !refs.schemeSwitcherCheckboxLabel.contains(event.target)
   ) {
-    document.removeEventListener('click', handleClicksOutsideMenu);
+    document.removeEventListener('click', handleClicksOutsideSwitcherMenu);
     refs.schemeSwitcherCheckbox.checked = false;
+
+    refs.schemeSwitcherRadios.forEach((radio) => {
+      radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed
+    });
   }
 }
 

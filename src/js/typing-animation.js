@@ -6,7 +6,8 @@ export const setTypewriterEffect = function (id) {
   const titleEl = sectionEl.querySelector(titleId);
   const contentEl = sectionEl.querySelector('.section-content');
 
-  const text = titleEl.innerHTML;
+  const text = titleEl.innerHTML; // write content to variable before wiping
+  // Animate default section title on first load
 
   titleEl.innerHTML = '';
 
@@ -26,6 +27,3 @@ export const setTypewriterEffect = function (id) {
 
   typeWriter();
 };
-
-// Animate default section title on first load
-// setTypewriterEffect('about');

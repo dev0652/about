@@ -1,66 +1,99 @@
-import { renderGallery } from '/js/projects';
 import { refs } from '/js/refs';
 import translations from '/data/translations.json' assert { type: 'json' };
+import { renderGallery } from '/js/projects';
+
+import { mediaQueryMobile } from './checkDevice';
+import { populateTitles, titles } from './mobileTitles';
+import { translateElement, translatePlaceholder } from '../pre';
 
 // *********************************
-
-// const langCheckbox = document.querySelector('.language-menu-checkbox');
 
 // export function getLocale() {
 //   return navigator.userLanguage || navigator.language; //returns value like 'en-us'
 // }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     // Find all elements that have the key attribute
+const languageKey = 'language';
 
-//   document.querySelectorAll('[data-i18n-key]').forEach(translateElement);
-// });
-
-function translateElement(element) {
-  const locale = window.locale ? window.locale : 'en';
-
-  const key = element.getAttribute('data-i18n-key');
-  const translation = translations[locale][key];
-  element.innerText = translation;
+function getSavedLanguage() {
+  return localStorage.getItem(languageKey);
 }
 
-function switchLanguage(event) {
-  window.locale = event.target.value;
+function saveLanguage(locale) {
+  return localStorage.setItem(languageKey, locale);
+}
 
-  document.body.style.opacity = 0;
+// *********************************
+
+// export function translateElement(element) {
+//   const locale = window.locale ? window.locale : 'en';
+//   const key = element.getAttribute('data-loc');
+//   element.innerText = translations[locale][key];
+// }
+
+// export function translatePlaceholder(element) {
+//   const locale = window.locale ? window.locale : 'en';
+//   const key = element.getAttribute('data-loc-plc');
+//   element.placeholder = translations[locale][key];
+// }
+
+// *********************************
+
+function switchLanguage(event) {
+  const locale = event.target.value;
+  window.locale = locale;
+
+  const savedLang = getSavedLanguage();
+  const prevLang = savedLang ? savedLang : 'en';
+  saveLanguage(locale); // Local storage
+
+  document.body.style.opacity = 0; // fade effect
 
   setTimeout(() => {
+    // Populate the mobile titles array with translated titles:
+    if (mediaQueryMobile.matches) {
+      const getPreviousTitle = (title) =>
+        translations[prevLang][title].toLowerCase();
+
+      const getTranslatedTitle = (title) =>
+        translations[locale][title].toLowerCase();
+
+      refs.sections.forEach((section) => {
+        const index = titles.indexOf(getPreviousTitle(section.id));
+        titles.splice(index, 1, getTranslatedTitle(section.id));
+      });
+
+      populateTitles(titles);
+    }
+
+    // Re-render the gallery based on updated window.locale:
     renderGallery();
 
-    document.querySelectorAll('[data-i18n-key]').forEach((element) => {
-      translateElement(element);
-    });
+    // Translate static HTML:
+    document.querySelectorAll('[data-loc]').forEach(translateElement);
+    document.querySelectorAll('[data-loc-plc]').forEach(translatePlaceholder);
 
-    refs.langSwitcherMenuCaption.setAttribute('data-i18n-key', window.locale);
+    // refs.langSwitcherMenuCaption.setAttribute('data-loc', window.locale);
 
-    document.body.style.removeProperty('opacity');
+    document.body.style.removeProperty('opacity'); // fade effect
   }, 300);
 }
 
 // *********************************
 
 function presetLanguageSwitcher() {
-  // const savedLang = getSavedColorScheme();
+  if (window.locale !== 'en') {
+    const currentRadio = document.querySelector(
+      `.language-switcher-radio[value=${window.locale}]`
+    );
+    currentRadio.setAttribute('checked', '');
 
-  // if (savedLang) {
-  //   const currentRadio = document.querySelector(
-  //     `.scheme-switcher-radio[value=${savedScheme}]`
-  //   );
-  //   currentRadio.setAttribute('checked', '');
-  // }
+    // document.querySelectorAll('[data-loc]').forEach(translateElement);
+
+    // refs.langSwitcherMenuCaption.setAttribute('data-loc', window.locale);
+  }
 
   [...refs.langSwitcherRadios].forEach((radio) => {
     radio.addEventListener('change', switchLanguage);
-  });
-
-  window.locale.addEventListener('change', (e) => {
-    console.log('e: ', e);
-    console.log('changed');
   });
 }
 
@@ -71,17 +104,31 @@ function onLanguageMenuToggle(event) {
   const method = event.target.checked
     ? 'addEventListener'
     : 'removeEventListener';
-  document[method]('click', handleClicksOutsideMenu);
+  document[method]('click', handleClicksOutsideLangMenu);
+
+  if (event.target.checked) {
+    refs.langSwitcherRadios.forEach((radio) => {
+      radio.removeAttribute('tabIndex');
+    });
+  } else {
+    refs.langSwitcherRadios.forEach((radio) => {
+      radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed
+    });
+  }
 }
 
 // If clicked outside menu, close it
-function handleClicksOutsideMenu(event) {
+function handleClicksOutsideLangMenu(event) {
   if (
     !refs.langSwitcherDropdown.contains(event.target) &&
     !refs.langSwitcherCheckboxLabel.contains(event.target)
   ) {
-    document.removeEventListener('click', handleClicksOutsideMenu);
+    document.removeEventListener('click', handleClicksOutsideLangMenu);
     refs.langSwitcherCheckbox.checked = false;
+
+    refs.langSwitcherRadios.forEach((radio) => {
+      radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed
+    });
   }
 }
 

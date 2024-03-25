@@ -1,6 +1,9 @@
-import { getLocalizedField, loadingError } from '/js/createCard';
 import { makePictureTag } from '/js/imagePaths';
-import translations from '/data/translations.json' assert { type: 'json' };
+import {
+  getLocalizedField,
+  getLocalizedFieldName,
+  loadingError,
+} from '/js/createCard';
 
 // *********************************
 
@@ -15,7 +18,7 @@ export function createCardModal(project) {
     link,
     livePage,
     thumbFileName,
-    doesHaveDarkVersion: isDark,
+    hasDarkVersion: hasDark,
     description: projDescription,
     stack,
     role: projRole,
@@ -23,24 +26,19 @@ export function createCardModal(project) {
     technologies,
   } = project;
 
-  const modalPictureTag = makePictureTag(name, thumbFileName, 'modal', isDark);
+  const modalPictureTag = makePictureTag(name, thumbFileName, 'modal', hasDark);
 
   const technologiesList = technologies.join(', ');
+
   const type = getLocalizedField(projType);
   const role = getLocalizedField(projRole);
   const description = getLocalizedField(projDescription);
 
-  const typeFieldName = translations
-    ? translations[locale]['project-type']
-    : 'Project type';
-  const stackFieldName = translations ? translations[locale].stack : 'Stack';
-  const roleFieldName = translations ? translations[locale].role : 'Role';
-  const customerFieldName = translations
-    ? translations[locale].customer
-    : 'Customer';
-  const livePageButtonText = translations
-    ? translations[locale]['live-page']
-    : 'Live page';
+  const typeFieldName = getLocalizedFieldName('project-type');
+  const stackFieldName = getLocalizedFieldName('stack');
+  const roleFieldName = getLocalizedFieldName('role');
+  const customerFieldName = getLocalizedFieldName('customer');
+  const livePageButtonText = getLocalizedFieldName('live-page');
 
   return /* html */ `
     <article class="modal-card">

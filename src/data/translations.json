@@ -3,12 +3,14 @@
     "about": "Про мене",
     "projects": "Проекти",
     "contacts": "Контакти",
+    "my-portfolio": "Моє портфоліо",
 
     "colorScheme": "Колірна схема",
     "light": "Світла",
     "dark": "Темна",
     "auto": "Авто",
-    "language": "Мова",
+
+    "language": "Мова сайту",
     "en": "англ",
     "uk": "укр",
 
@@ -22,22 +24,29 @@
     "flip-card-prompt": "Клацніть, щоб побачити більше",
     "project-image-alt-text": "Скріншот живої сторінки проекту",
 
-    "about-description-par-1": "Привіт! Мене звати Михайло, я - веб-розробник.",
-    "about-description-par-2": "Я пишу на JavaScript та React, а також трохи на Node.js + MongoDB. Крім того, зараз я вивчаю TypeScript, Next.js та React Native.",
-    "about-description-par-3": "Мені подобається подорожувати, їздити на мотоциклі та проводити час з цікавими людьми.",
-    "about-description-par-4.1": "Заходьте до мене на",
-    "about-description-par-4.2": "та додавайтесь в контакти, а якщо будуть запитання - сміливо пишіть :)"
+    "about-par-1": "Привіт! Мене звати Михайло, я - веб-розробник.",
+    "about-par-2": "Я пишу на JavaScript та React, а також трохи на Node.js + MongoDB. Крім того, зараз я вивчаю TypeScript, Next.js та React Native.",
+    "about-par-3": "Мені подобається подорожувати, їздити на мотоциклі та проводити час з цікавими людьми.",
+    "about-par-4.1": "Заходьте до мене на",
+    "about-par-4.2": "та додавайтесь в контакти, а якщо будуть запитання - сміливо пишіть :)",
+
+    "form-title": "Залиште своє повідомлення",
+    "placeholder-name": "Як до вас звертатись?",
+    "placeholder-email": "Ваша пошта (необов'язково)",
+    "placeholder-message": "Ваше повідомлення"
   },
 
   "en": {
     "about": "About",
     "projects": "Projects",
     "contacts": "Contacts",
+    "my-portfolio": "My portfolio",
 
     "colorScheme": "Color scheme",
     "light": "Light",
     "dark": "Dark",
     "auto": "Auto",
+
     "language": "Language",
     "en": "eng",
     "uk": "ukr",
@@ -52,16 +61,17 @@
     "flip-card-prompt": "Click to learn more",
     "project-image-alt-text": "live page screenshot",
 
-    "about-description-par-1": "Hi, I'm Mykhailo, a web developer from Ukraine",
-    "about-description-par-2": "I code in JavaScript and React with a little bit of Node.js + MongoDB. Also, at the moment I'm learning TypeScript, Next.js and React Native.",
-    "about-description-par-3": "I enjoy going places, motorcycling and spending time with good people.",
-    "about-description-par-4.1": "Please check my",
-    "about-description-par-4.2": "for details and feel free to get in touch.",
+    "about-par-1": "Hi, I'm Mykhailo, a web developer from Ukraine",
+    "about-par-2": "I code in JavaScript and React with a little bit of Node.js + MongoDB. Also, at the moment I'm learning TypeScript, Next.js and React Native.",
+    "about-par-3": "I enjoy going places, motorcycling and spending time with good people.",
+    "about-par-4.1": "Please check my",
+    "about-par-4.2": "for details and feel free to get in touch.",
 
-    "": "",
-    "": "",
-    "": "",
-    "": "",
+    "form-title": "Drop me a line",
+    "placeholder-name": "With whom do I have the pleasure?",
+    "placeholder-email": "Your email (optional)",
+    "placeholder-message": "Your message",
+
     "": "",
     "": "",
     "": "",

@@ -1,14 +1,21 @@
 import { refs } from './refs';
+import translations from '/data/translations.json' assert { type: 'json' };
 
 // ***********************************
 
 const sectionsNodeList = refs.sections;
 const sections = Array.from(sectionsNodeList);
-const titles = sections.map((section) => section.id.toLowerCase());
+
+export const titles = sections.map(
+  (section) => {
+    const locale = window.locale ? window.locale : 'en';
+    return translations[locale][section.id].toLowerCase();
+  } // mutated elsewhere
+);
 
 // ***********************************
 
-function populateTitles(titlesArray) {
+export function populateTitles(titlesArray) {
   refs.titlesInjectionTarget.innerHTML = '';
 
   titlesArray.forEach((title) => {
@@ -37,6 +44,7 @@ function setActiveTitleById(id) {
       }
     }
   }
+
   populateTitles(titles);
 }
 

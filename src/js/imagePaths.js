@@ -4,12 +4,12 @@ import translations from '/data/translations.json' assert { type: 'json' };
 
 // !!! May cause server blocking due to too many requests
 
-// function makePlaceholderUrl(resolution, message, doesHaveDarkVersion = false) {
+// function makePlaceholderUrl(resolution, message, hasDarkVersion = false) {
 //   if (!message) message = resolution;
 
 //   // https://placehold.co/600x400/2A3439/808080/webp?text=Image+pending
 //   const baseUrl = 'https://placehold.co/';
-//   const colors = doesHaveDarkVersion ? '/2A3439/808080' : '';
+//   const colors = hasDarkVersion ? '/2A3439/808080' : '';
 //   const extension = '/webp';
 //   const text = `?text=${message.split(' ').join('+')}`;
 
@@ -64,7 +64,7 @@ function getImagePaths(fileName, willCreateDark) {
 // *********************************
 
 const sizesString = {
-  list: '(max-width: 767px): 100vw, (max-width: 1279px) 450px, 490px',
+  list: '(max-width: 767px): 100vw, (max-width: 1279px) 550px, 600px',
   tile: '(max-width: 400px): 100vw, (max-width: 1279px) 325px, 400px',
   modal: '(max-width: 400px): 100vw, (max-width: 1279px) 520px, 620px',
 };
@@ -75,7 +75,7 @@ function makeSourceTag(
   fileName,
   imgLocation,
   colorPreference,
-  doesHaveDarkVersion = false
+  hasDarkVersion = false
 ) {
   let imageType = 'svg';
   let sizes = '';
@@ -86,7 +86,7 @@ function makeSourceTag(
 
     if (colorPreference === 'light') {
       willCreateDark = false;
-    } else if (doesHaveDarkVersion) {
+    } else if (hasDarkVersion) {
       willCreateDark = true;
     } else {
       willCreateDark = false;
@@ -120,15 +120,15 @@ export function makePictureTag(
   projectName,
   fileName,
   imgLocation,
-  doesHaveDarkVersion
+  hasDarkVersion
 ) {
-  // fileName, imgLocation, colorPreference: 'light' | 'dark', doesHaveDarkVersion
+  // fileName, imgLocation, colorPreference: 'light' | 'dark', hasDarkVersion
   const sourceTagLight = makeSourceTag(fileName, imgLocation, 'light');
   const sourceTagDark = makeSourceTag(
     fileName,
     imgLocation,
     'dark',
-    doesHaveDarkVersion
+    hasDarkVersion
   );
 
   const { medium, large1x } = getImagePaths(fileName);

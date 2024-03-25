@@ -5,7 +5,7 @@
     "link": "https://github.com/dev0652/barber",
     "livePage": "https://barbercourse.kyiv.ua/",
     "technologies": ["HTML", "SaSS", "JavaScript", "EMailJS", "Vite", "Git"],
-    "doesHaveDarkVersion": false,
+    "hasDarkVersion": false,
     "thumbFileName": "barber",
     "type": {
       "en": "Commercial project",
@@ -36,7 +36,7 @@
       "Node.js",
       "MongoDB"
     ],
-    "doesHaveDarkVersion": true,
+    "hasDarkVersion": true,
     "thumbFileName": "zenbit2",
     "type": {
       "en": "Test",
@@ -56,7 +56,7 @@
     "link": "https://github.com/dev0652/fighters-nodejs",
     "livePage": "https://dev0652.github.io/binary-hw-nodejs/",
     "technologies": ["HTML", "SaSS", "JavaScript", "React", "Node.js", "Git"],
-    "doesHaveDarkVersion": false,
+    "hasDarkVersion": false,
     "thumbFileName": "fighters",
     "type": {
       "en": "Test",
@@ -76,7 +76,7 @@
     "link": "https://github.com/dev0652/bookshelf",
     "livePage": "https://dev0652.github.io/bookshelf/",
     "technologies": ["HTML", "SaSS", "JavaScript", "Git"],
-    "doesHaveDarkVersion": true,
+    "hasDarkVersion": true,
     "thumbFileName": "bookshelf",
     "type": {
       "en": "Study team project",
@@ -109,7 +109,7 @@
       "Vite",
       "Git"
     ],
-    "doesHaveDarkVersion": false,
+    "hasDarkVersion": false,
     "thumbFileName": "drinkmaster",
     "type": {
       "en": "Study team project",
@@ -132,7 +132,7 @@
     "link": "https://github.com/dev0652/swift-car-rental",
     "livePage": "https://dev0652.github.io/swift-car-rental/",
     "technologies": ["React", "Styled components"],
-    "doesHaveDarkVersion": true,
+    "hasDarkVersion": true,
     "thumbFileName": "car-rental",
     "type": {
       "en": "Test",
@@ -152,7 +152,7 @@
     "link": "https://github.com/dev0652/goit-react-hw-08-phonebook",
     "livePage": "https://dev0652.github.io/goit-react-hw-08-phonebook",
     "technologies": ["React", "Styled components"],
-    "doesHaveDarkVersion": true,
+    "hasDarkVersion": true,
     "thumbFileName": "phonebook",
     "type": {
       "en": "Study project",
@@ -172,7 +172,7 @@
     "link": "https://github.com/dev0652/goit-react-hw-05-movies",
     "livePage": "https://dev0652.github.io/goit-react-hw-05-movies",
     "technologies": ["React", "React Router"],
-    "doesHaveDarkVersion": true,
+    "hasDarkVersion": true,
     "thumbFileName": "movies",
     "type": {
       "en": "Study project",
@@ -192,7 +192,7 @@
     "link": "https://github.com/dev0652/pixabay-search",
     "livePage": "https://dev0652.github.io/pixabay-search/",
     "technologies": ["HTML", "SaSS", "JavaScript"],
-    "doesHaveDarkVersion": true,
+    "hasDarkVersion": true,
     "thumbFileName": "pixabay",
     "type": {
       "en": "Study project",
@@ -212,7 +212,7 @@
     "link": "https://github.com/dev0652/icecream",
     "livePage": "https://dev0652.github.io/icecream/",
     "technologies": ["HTML", "SaSS", "JavaScript", "Git"],
-    "doesHaveDarkVersion": false,
+    "hasDarkVersion": false,
     "thumbFileName": "icecream",
     "type": {
       "en": "Study team project",
@@ -235,7 +235,7 @@
     "link": "https://github.com/dev0652/webstudio",
     "livePage": "https://dev0652.github.io/webstudio/",
     "technologies": ["HTML", "SaSS", "JavaScript"],
-    "doesHaveDarkVersion": true,
+    "hasDarkVersion": true,
     "thumbFileName": "webstudio",
     "type": {
       "en": "Study project",
@@ -255,7 +255,7 @@
     "link": "https://github.com/dev0652/barbershop",
     "livePage": "https://dev0652.github.io/barbershop/",
     "technologies": ["HTML", "SaSS", "JavaScript"],
-    "doesHaveDarkVersion": true,
+    "hasDarkVersion": true,
     "thumbFileName": "barbershop",
     "type": {
       "en": "Study project",
@@ -275,7 +275,7 @@
     "link": "https://github.com/dev0652/britlex",
     "livePage": "https://dev0652.github.io/britlex/",
     "technologies": ["HTML", "SaSS"],
-    "doesHaveDarkVersion": true,
+    "hasDarkVersion": true,
     "thumbFileName": "britlex",
     "type": {
       "en": "Study project",

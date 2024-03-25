@@ -45,6 +45,10 @@
     top: -50px;
   }
 
+  @media screen and (min-width: $desktop) and (max-width: $desktop-wide-1) {
+    right: 0;
+  }
+
   border: none;
   background-color: transparent;
   transition: color $scheme-switch-duration;
@@ -96,7 +100,6 @@
   }
 
   .project-card-list.gallery-view & {
-    // display: none;
     @extend %visually-hidden;
   }
 }
@@ -108,8 +111,10 @@
   opacity: 0;
   overflow: hidden;
 
+  height: max-content;
+
   $duration: 400ms;
-  $function: ease-in; // don't change
+  $function: ease-in; // don't change!
 
   transition: max-height $duration $function, opacity $duration $function;
 
@@ -131,8 +136,10 @@
 
   box-shadow: 1px 1px 5px var(--list-card-image-shadow);
 
-  background-size: cover;
-  background-position: center;
+  @media screen and (min-width: $desktop) {
+    aspect-ratio: 16/9;
+    align-self: center; // as a grid element
+  }
 }
 
 .modal-image-block {
@@ -216,16 +223,21 @@
   }
 
   @media screen and (min-width: $desktop) {
-    grid-template-columns: 50% 1fr;
+    grid-template-columns: 1fr 45%;
 
     grid-template-areas:
-      ' image summary'
-      ' image description'
-      ' image buttons';
+      'image summary'
+      'image description'
+      'image buttons';
   }
 
   @media screen and (min-width: $desktop-wide) {
     grid-template-columns: 50% 1fr 5%;
+
+    grid-template-areas:
+      'image summary'
+      'image description'
+      'image buttons';
   }
 }
 
@@ -308,13 +320,9 @@
 .project-card-image {
   height: 100%;
   width: 100%;
+
   object-fit: cover;
-
   object-position: center;
-
-  // .list-card & {}
-
-  // .tile-card & {}
 }
 
 // Card elements

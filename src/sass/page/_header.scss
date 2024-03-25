@@ -52,10 +52,12 @@
 // *****************************
 
 .header-menus {
+  display: flex;
+
   @media screen and (max-width: $tablet-1) {
-    display: flex;
     align-items: center;
     justify-content: center;
+    gap: 20px;
 
     width: 100%;
     padding: 10px;
@@ -63,16 +65,19 @@
 
   @media screen and (min-width: $tablet) {
     position: relative;
+    gap: 15px;
+    justify-content: space-between;
   }
 
   @media screen and (min-width: $desktop) {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-  }
+    justify-content: flex-end;
 
-  // background-color: beige;
+    gap: 20px;
+
+    background-color: beige;
+  }
 }
 
 // *****************************
@@ -93,7 +98,6 @@
 
 .caption-toggle-icon {
   fill: currentColor;
-  // background-color: magenta;
 }
 
 .caption-toggle-checkbox {
