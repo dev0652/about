@@ -302,10 +302,7 @@
     &:before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
+      inset: 0;
 
       z-index: $index-tile-card-link-pseudo;
     }
@@ -374,10 +371,7 @@
 .flip-card-front,
 .flip-card-back {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;

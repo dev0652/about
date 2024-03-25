@@ -68,28 +68,28 @@
 }
 
 // Email dialog modal
-.email-modal {
-  @media screen and (min-width: $tablet) {
-    padding: 50px;
-  }
+// .email-modal {
+//   @media screen and (min-width: $tablet) {
+//     padding: 50px;
+//   }
 
-  @media screen and (min-width: $desktop) {
-    padding: 50px 70px;
-  }
+//   @media screen and (min-width: $desktop) {
+//     padding: 50px 70px;
+//   }
 
-  .email-backdrop:not(.is-hidden) & {
-    animation: modal-emerge 400ms;
-  }
-}
+//   .email-backdrop:not(.is-hidden) & {
+//     animation: modal-emerge 400ms;
+//   }
+// }
 
 // Content injection div inside .modal
 
 // .modal-content-injection-target {}
 
-.email-confirmation-text {
-  font-size: 1.5rem;
-  margin-bottom: 40px;
-}
+// .email-confirmation-text {
+//   font-size: 1.5rem;
+//   margin-bottom: 40px;
+// }
 
 // Injected content
 
@@ -250,15 +250,15 @@
   }
 }
 
-.email-modal-close-button {
-  @extend %button !optional;
+// .email-modal-close-button {
+//   @extend %button !optional;
 
-  font-size: 1.5rem;
+//   font-size: 1.5rem;
 
-  @media screen and (min-width: $tablet) {
-    $horizontal-padding: 70px;
+//   @media screen and (min-width: $tablet) {
+//     $horizontal-padding: 70px;
 
-    padding-left: $horizontal-padding;
-    padding-right: $horizontal-padding;
-  }
-}
+//     padding-left: $horizontal-padding;
+//     padding-right: $horizontal-padding;
+//   }
+// }
