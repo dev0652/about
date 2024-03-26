@@ -31,10 +31,15 @@ function titleClickHandler(event) {
   if (expandedCard) {
     const expandedCardCollapsible = expandedCard.querySelector('.collapsible');
     const expandedCardTitle = expandedCard.querySelector('.collapsible-toggle');
+    const expandedCardLinks = expandedCard.querySelectorAll('.project-link');
 
     expandedCardTitle.classList.remove('content-expanded');
     expandedCardTitle.ariaExpanded = 'false';
     expandedCardCollapsible.style.maxHeight = null;
+
+    expandedCardLinks.forEach((cardLink) => {
+      cardLink.tabIndex = '-1'; // disables focus on links when card is collapsed;
+    });
   }
 
   // 4.

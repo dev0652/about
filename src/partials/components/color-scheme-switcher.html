@@ -1,16 +1,19 @@
-<fieldset class="scheme-switcher">
-  <legend class="switcher-legend">Color scheme</legend>
+<fieldset class="scheme-switcher" id="scheme-switcher" role="menu">
+  <legend class="scheme-switcher-legend" data-loc="colorScheme">
+    Color scheme
+  </legend>
 
-  <label class="switcher-radio-label" for="light">
-    <p class="switcher-radio-caption">Light</p>
+  <label class="scheme-switcher-radio-label" for="light" role="menuitem">
+    <p class="scheme-switcher-radio-caption" data-loc="light">Light</p>
 
     <input
-      class="switcher-radio light"
+      class="scheme-switcher-radio light"
       type="radio"
       id="light"
       name="color-scheme"
       value="light"
       aria-label="light"
+      tabindex="-1"
     />
 
     <svg class="switcher-icon" width="32" height="32">
@@ -18,16 +21,17 @@
     </svg>
   </label>
 
-  <label class="switcher-radio-label" for="auto">
-    <p class="switcher-radio-caption">Auto</p>
+  <label class="scheme-switcher-radio-label" for="auto" role="menuitem">
+    <p class="scheme-switcher-radio-caption" data-loc="auto">Auto</p>
 
     <input
-      class="switcher-radio auto"
+      class="scheme-switcher-radio auto"
       type="radio"
       id="auto"
       name="color-scheme"
       value="auto"
       aria-label="auto"
+      tabindex="-1"
       checked
     />
 
@@ -36,16 +40,17 @@
     </svg>
   </label>
 
-  <label class="switcher-radio-label" for="dark">
-    <p class="switcher-radio-caption">Dark</p>
+  <label class="scheme-switcher-radio-label" for="dark" role="menuitem">
+    <p class="scheme-switcher-radio-caption" data-loc="dark">Dark</p>
 
     <input
-      class="switcher-radio dark"
+      class="scheme-switcher-radio dark"
       type="radio"
       id="dark"
       name="color-scheme"
       value="dark"
       aria-label="dark"
+      tabindex="-1"
     />
 
     <svg class="switcher-icon" width="32" height="32">

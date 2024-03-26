@@ -1,7 +1,7 @@
 <!-- Contacts from -->
 
 <div class="contact-form-wrapper">
-  <p class="contact-form-title">Drop me a line</p>
+  <p class="contact-form-title" data-loc="form-title">Drop me a line</p>
 
   <form class="contact-form" id="contact-form" autocomplete="off">
     <label>
@@ -12,6 +12,7 @@
         required
         id="name"
         placeholder="With whom do I have the pleasure?"
+        data-loc-plc="placeholder-name"
       />
     </label>
 
@@ -22,6 +23,7 @@
         name="from_email"
         id="email"
         placeholder="Your email (optional)"
+        data-loc-plc="placeholder-email"
       />
     </label>
 
@@ -31,12 +33,19 @@
         name="message"
         required
         id="message"
-        placeholder="Your message"
         rows="5"
         autocomplete="off"
+        placeholder="Your message"
+        data-loc-plc="placeholder-message"
       ></textarea>
     </label>
 
-    <button class="contact-form-button" type="submit">Submit</button>
+    <button
+      class="contact-form-button"
+      type="submit"
+      data-loc="send-button-text"
+    >
+      Send
+    </button>
   </form>
 </div>

@@ -35,13 +35,12 @@
   margin-left: auto;
 
   @media screen and (max-width: $tablet-1) {
-    // position: static;
     margin-bottom: 1rem;
   }
 
   @media screen and (min-width: $tablet) {
     position: absolute;
-    right: $horizontal-offset;
+    right: 0;
     top: -50px;
   }
 
@@ -96,7 +95,6 @@
   }
 
   .project-card-list.gallery-view & {
-    // display: none;
     @extend %visually-hidden;
   }
 }
@@ -108,8 +106,10 @@
   opacity: 0;
   overflow: hidden;
 
+  height: max-content;
+
   $duration: 400ms;
-  $function: ease-in; // don't change
+  $function: ease-in; // don't change!
 
   transition: max-height $duration $function, opacity $duration $function;
 
@@ -131,8 +131,10 @@
 
   box-shadow: 1px 1px 5px var(--list-card-image-shadow);
 
-  background-size: cover;
-  background-position: center;
+  @media screen and (min-width: $desktop) {
+    aspect-ratio: 16/9;
+    align-self: center; // as a grid element
+  }
 }
 
 .modal-image-block {
@@ -165,6 +167,12 @@
   @media screen and (min-width: $tablet) and (max-width: $desktop-1) {
     width: auto;
   }
+}
+
+.live-page-link {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .list-card-summary {
@@ -216,16 +224,21 @@
   }
 
   @media screen and (min-width: $desktop) {
-    grid-template-columns: 50% 1fr;
+    grid-template-columns: 1fr 45%;
 
     grid-template-areas:
-      ' image summary'
-      ' image description'
-      ' image buttons';
+      'image summary'
+      'image description'
+      'image buttons';
   }
 
   @media screen and (min-width: $desktop-wide) {
-    grid-template-columns: 50% 1fr 10%;
+    grid-template-columns: 50% 1fr 5%;
+
+    grid-template-areas:
+      'image summary'
+      'image description'
+      'image buttons';
   }
 }
 
@@ -262,21 +275,11 @@
   }
 
   @media screen and (min-width: $desktop) {
-    width: calc(
-      (
-          $desktop - $horizontal-offset * 2 - $unit-gap * 2 -
-            $container-padding-desktop * 2
-        ) / 3
-    );
+    width: calc(($desktop - $horizontal-offset * 2 - $unit-gap * 2) / 3);
   }
 
   @media screen and (min-width: $desktop-wide) {
-    width: calc(
-      (
-          $desktop-wide - $horizontal-offset * 2 - $unit-gap * 2 -
-            $container-padding-desktop * 2
-        ) / 3
-    );
+    width: calc(($desktop-wide - $horizontal-offset * 2 - $unit-gap * 2) / 3);
   }
 
   .tile-card-link {
@@ -290,10 +293,7 @@
     &:before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
+      inset: 0;
 
       z-index: $index-tile-card-link-pseudo;
     }
@@ -308,13 +308,9 @@
 .project-card-image {
   height: 100%;
   width: 100%;
+
   object-fit: cover;
-
   object-position: center;
-
-  // .list-card & {}
-
-  // .tile-card & {}
 }
 
 // Card elements
@@ -366,10 +362,7 @@
 .flip-card-front,
 .flip-card-back {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;

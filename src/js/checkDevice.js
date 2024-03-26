@@ -11,10 +11,11 @@ import { createPagination } from './pagination';
 
 import { setTypewriterEffect } from './typing-animation';
 import { activateColorSchemeSwitcher } from './color-scheme-switcher';
+import { activateLanguageSwitcher } from './langauge-switcher';
 
 // *********************************
 
-const mediaQueryMobile = window.matchMedia('(max-width: 767px)');
+export const mediaQueryMobile = window.matchMedia('(max-width: 767px)');
 
 // *********************************
 
@@ -48,15 +49,24 @@ function doThingsOnLoad() {
   changeTextAreaSize();
 }
 
+function setLocale() {
+  // Check local storage for saved language setting
+  const savedLanguage = localStorage.getItem('language');
+  // Preset window.locale global variable
+  window.locale = savedLanguage ? savedLanguage : 'en';
+  console.log('window.locale in setLocale: ', window.locale);
+}
+
 // *********************************
 
 function onFirstLoad() {
-  // activateColorSchemeSwitcher();
+  // setLocale();
 
   document.addEventListener(
     'DOMContentLoaded',
     () => {
       activateColorSchemeSwitcher();
+      activateLanguageSwitcher();
       refs.main.classList.add('faded-edges');
     },
     {
@@ -93,4 +103,3 @@ function onScreenChange(event) {
 // *********************************
 
 onFirstLoad();
-// document.addEventListener('DOMContentLoaded', onFirstLoad);

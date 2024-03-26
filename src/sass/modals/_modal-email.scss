@@ -1,0 +1,64 @@
+.email-dialog {
+  height: fit-content;
+  margin-top: auto;
+
+  background-color: var(--scheme-switcher-dropdown-bg);
+  color: var(--text-color);
+
+  animation: slide-in-from-below 400ms;
+  transition: all 0.7s 400ms;
+  // transition-behavior: allow-discrete;
+
+  @media screen and (min-width: $tablet) {
+    margin-top: unset;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); // centering
+
+    animation: modal-emerge 400ms;
+  }
+
+  &::backdrop {
+    background-color: rgba(#303234, 0.8);
+    backdrop-filter: blur(2px);
+  }
+}
+
+.email-dialog-form {
+  padding: 4rem 2rem;
+
+  @media screen and (max-width: $tablet-1) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding: 50px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 50px 70px;
+  }
+}
+
+.email-dialog-text {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.email-dialog-button {
+  @extend %button !optional;
+
+  font-size: 1.5rem;
+
+  @media screen and (max-width: $tablet-1) {
+    align-self: center;
+  }
+
+  $horizontal-padding: 70px;
+
+  padding-left: $horizontal-padding;
+  padding-right: $horizontal-padding;
+}

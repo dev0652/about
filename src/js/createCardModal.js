@@ -1,25 +1,44 @@
-import { makePictureTag } from './imagePaths';
+import { makePictureTag } from '/js/imagePaths';
+import {
+  getLocalizedField,
+  getLocalizedFieldName,
+  loadingError,
+} from '/js/createCard';
 
 // *********************************
 
 export function createCardModal(project) {
+  //
+  const locale = window.locale ? window.locale : 'en';
+  if (!project) return loadingError[locale];
+
   const {
     name,
-    type,
+    type: projType,
     link,
     livePage,
     thumbFileName,
-    doesHaveDarkVersion: isDark,
-    description,
+    hasDarkVersion: hasDark,
+    description: projDescription,
     stack,
-    role,
+    role: projRole,
     customer,
     technologies,
   } = project;
 
-  const modalPictureTag = makePictureTag(name, thumbFileName, 'modal', isDark);
+  const modalPictureTag = makePictureTag(name, thumbFileName, 'modal', hasDark);
 
   const technologiesList = technologies.join(', ');
+
+  const type = getLocalizedField(projType);
+  const role = getLocalizedField(projRole);
+  const description = getLocalizedField(projDescription);
+
+  const typeFieldName = getLocalizedFieldName('project-type');
+  const stackFieldName = getLocalizedFieldName('stack');
+  const roleFieldName = getLocalizedFieldName('role');
+  const customerFieldName = getLocalizedFieldName('customer');
+  const livePageButtonText = getLocalizedFieldName('live-page');
 
   return /* html */ `
     <article class="modal-card">
@@ -30,20 +49,20 @@ export function createCardModal(project) {
         <div class="modal-summary">
           <div class="summary-columns-wrapper">
             <div class="summary-column">
-              <p class="type"><span class="field-type">Project type:</span> ${type}</p>
+              <p class="type"><span class="field-type">${typeFieldName}</span><span class="field-type">:</span> ${type}</p>
 
-              <p class="stack"><span class="field-type">Stack:</span> ${stack}</p>
+              <p class="stack"><span class="field-type">${stackFieldName}</span><span class="field-type">:</span> ${stack}</p>
             </div>
 
             <div class="summary-column">
               <p class="role"
               style="${!role && 'display: none'}">
-                <span class="field-type">Role:</span> ${role}
+                <span class="field-type">${roleFieldName}</span><span class="field-type">:</span> ${role}
               </p>
 
               <p class="customer"
               style="${!customer && 'display: none'}">
-                <span class="field-type">Customer:</span> ${customer}
+                <span class="field-type">${customerFieldName}</span><span class="field-type">:</span> ${customer}
               </p>
             </div>
           </div>
@@ -68,11 +87,11 @@ export function createCardModal(project) {
         >
 
         <a
-          class="modal-project-link"
+          class="modal-project-link live-page-link"
           href="${livePage}"
           target="_blank"
           rel="noopener noreferrer"
-          >Live page</a
+          >${livePageButtonText}</a
         >
       </div>
     </article>

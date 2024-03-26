@@ -16,6 +16,7 @@
 // Header
 @import 'page/header';
 @import 'components/color-scheme-switcher';
+@import 'components/language-switcher';
 @import 'components/pagination';
 
 // Sections
@@ -28,7 +29,8 @@
 @import 'page/footer';
 
 // Modal window
-@import 'components/modal';
+@import 'modals/modal';
+@import 'modals/modal-email';
 
 // Form
 @import 'components/form';

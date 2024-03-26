@@ -8,10 +8,21 @@ export const refs = {
   ),
 
   // Color scheme switcher
-  switcherRadios: document.querySelectorAll('.switcher-radio'),
-  switcherDropdown: document.querySelector('.scheme-switcher-dropdown'),
-  switcherCheckbox: document.querySelector('.scheme-switcher-menu-checkbox'),
-  switcherCheckboxLabel: document.querySelector('.scheme-switcher-menu-label'),
+  schemeSwitcherRadios: document.querySelectorAll('.scheme-switcher-radio'),
+  schemeSwitcherDropdown: document.querySelector('.scheme-switcher-dropdown'),
+  schemeSwitcherCheckbox: document.querySelector(
+    '.scheme-switcher-menu-checkbox'
+  ),
+  schemeSwitcherCheckboxLabel: document.querySelector(
+    '.scheme-switcher-menu-label'
+  ),
+
+  // Language switcher
+  langSwitcherRadios: document.querySelectorAll('.language-switcher-radio'),
+  langSwitcherDropdown: document.querySelector('.language-switcher-dropdown'),
+  langSwitcherCheckbox: document.querySelector('.language-menu-checkbox'),
+  langSwitcherCheckboxLabel: document.querySelector('.language-menu-label'),
+  langSwitcherMenuCaption: document.querySelector('.language-menu-caption'),
 
   // Header
   header: document.querySelector('.header'),

@@ -1,9 +1,10 @@
-.scheme-switcher-menu-label {
+.language-menu-label {
   @extend %link !optional;
-  position: relative;
 
   display: flex;
   align-items: center;
+
+  align-self: end;
 
   @media screen and (max-width: $tablet-1) {
     flex-direction: column-reverse;
@@ -13,11 +14,11 @@
 
     overflow: hidden;
 
-    &:not(:has(.scheme-switcher-menu-checkbox:checked)) {
+    &:not(:has(.language-menu-checkbox:checked)) {
       color: var(--scheme-switcher-label-inactive);
     }
 
-    &:has(.scheme-switcher-menu-checkbox:checked) {
+    &:has(.language-menu-checkbox:checked) {
       color: var(--text-color);
     }
   }
@@ -32,19 +33,21 @@
     user-select: none;
     cursor: pointer;
 
-    &:hover .scheme-switcher-label-icon {
+    &:hover .language-menu-label-icon {
       transform: scale(1.1);
     }
 
     &:hover,
-    &:has(.scheme-switcher-menu-checkbox:checked) {
+    &:has(.language-menu-checkbox:checked) {
       color: var(--text-color);
     }
 
-    &:has(.scheme-switcher-menu-checkbox:focus-visible) {
+    &:has(.language-menu-checkbox:focus-visible) {
       outline: 3px solid var(--text-color);
       outline-offset: 2px;
     }
+
+    align-self: flex-end;
   }
 
   border: none;
@@ -54,7 +57,7 @@
 
   transition: color $td;
 
-  .scheme-switcher-label-icon {
+  .language-menu-label-icon {
     fill: currentColor;
 
     transition: transform $td;
@@ -63,7 +66,7 @@
 
 // ***********************************
 
-.switcher-menu-caption-wrapper {
+.language-menu-caption-wrapper {
   @media screen and (max-width: $tablet-1) {
     transition: max-height 300ms;
 
@@ -75,7 +78,7 @@
   }
 }
 
-.switcher-menu-caption {
+.language-menu-caption {
   @media screen and (max-width: $tablet-1) {
     margin-top: 3px;
   }
@@ -85,32 +88,13 @@
   }
 }
 
-.scheme-switcher-menu-checkbox {
+.language-menu-checkbox {
   appearance: none;
-}
-
-.switcher-icon {
-  // min-height: 36px;
-  // min-width: 36px;
-
-  @media screen and (max-width: $tablet-1) {
-    display: none;
-  }
-
-  @media screen and (min-width: $tablet) {
-    min-height: 30px;
-    min-width: 30px;
-  }
-
-  // color: var(--scheme-switcher-radio);
-  fill: currentColor;
-
-  cursor: pointer;
 }
 
 // ***********************************
 
-.scheme-switcher-dropdown-wrapper {
+.language-switcher-dropdown-wrapper {
   position: absolute;
 
   overflow: hidden;
@@ -124,35 +108,34 @@
 
     transform: translateY(0);
 
-    .header-menus:has(.scheme-switcher-menu-checkbox:checked) & {
+    .header-menus:has(.language-menu-checkbox:checked) & {
       transform: translateY(-100%);
     }
   }
 
   @media screen and (min-width: $tablet) {
     margin-top: 1rem;
+
     top: 100%;
-    // left: calc(-1 * (50% + 150px / 2));
+    right: -10px; // makes up for right padding
     right: 0;
-    right: 52px;
 
-    width: 150px;
-
+    width: 100px;
     max-height: 0;
 
-    .header-menus:has(.scheme-switcher-menu-checkbox:checked) & {
+    .header-menus:has(.language-menu-checkbox:checked) & {
       max-height: 200px;
       height: fit-content;
     }
   }
 
   @media screen and (min-width: $desktop) {
-    width: 160px;
-    left: -10px;
+    width: 130px;
+    right: -10px; // makes up for right padding
   }
 }
 
-.scheme-switcher-dropdown {
+.language-switcher-dropdown {
   transition: color $scheme-switch-duration $scheme-switch-timing-function,
     background-color $scheme-switch-duration $scheme-switch-timing-function;
 
@@ -168,7 +151,7 @@
   }
 
   @media screen and (min-width: $tablet) {
-    text-align: right;
+    // text-align: right;
 
     background: linear-gradient(
       to bottom,
@@ -180,7 +163,7 @@
 
 // ***********************************
 
-fieldset.scheme-switcher {
+fieldset.language-switcher {
   position: relative;
 
   display: flex;
@@ -196,7 +179,7 @@ fieldset.scheme-switcher {
   }
 }
 
-.scheme-switcher-legend {
+.language-switcher-legend {
   font-size: 2.5rem;
   text-transform: lowercase;
   margin-bottom: 30px;
@@ -209,7 +192,7 @@ fieldset.scheme-switcher {
   }
 }
 
-.scheme-switcher-radio {
+.language-switcher-radio {
   appearance: none;
 
   @media screen and (max-width: $tablet-1) {
@@ -235,13 +218,14 @@ fieldset.scheme-switcher {
   }
 }
 
-.scheme-switcher-radio-label {
+.language-switcher-radio-label {
   @extend %link !optional;
 
-  display: flex;
-  align-items: center;
+  // display: flex;
 
   @media screen and (max-width: $tablet-1) {
+    display: flex;
+    align-items: center;
     flex-direction: row-reverse;
     justify-content: start;
 
@@ -249,13 +233,15 @@ fieldset.scheme-switcher {
     gap: 2rem;
 
     font-size: 2rem;
+    text-transform: lowercase;
   }
 
-  gap: 20px;
-  text-align: right;
-  justify-content: end;
+  // gap: 20px;
+  text-align: center;
+  // justify-content: end;
+  // align-items: center;
 
-  text-transform: lowercase;
+  text-transform: uppercase;
   cursor: pointer;
 
   $td: 200ms;
@@ -264,11 +250,11 @@ fieldset.scheme-switcher {
 
   color: var(--scheme-switcher-radio);
 
-  & .switcher-icon {
+  & .language-switcher-icon {
     color: currentColor;
   }
 
-  &:has(.scheme-switcher-radio:checked) {
+  &:has(.language-switcher-radio:checked) {
     color: var(--accent-color);
 
     &:hover {
@@ -276,7 +262,7 @@ fieldset.scheme-switcher {
     }
   }
 
-  &:has(.scheme-switcher-radio:focus-visible) {
+  &:has(.language-switcher-radio:focus-visible) {
     outline: 3px solid var(--text-color);
     outline-offset: 2px;
   }

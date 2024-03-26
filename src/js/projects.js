@@ -3,12 +3,13 @@ import { refs } from '/js/refs';
 
 import { openCardModal } from '/js/modal';
 import { createCardMarkup } from '/js/createCard';
-
+import translations from '/data/translations.json' assert { type: 'json' };
 // *********************************
 
 const gallery = refs.gallery;
+const modeDescriptor = refs.galleryViewSwitcher.querySelector('.view-mode');
 
-const makeListMarkup = (projectsArray) => {
+export const makeListMarkup = (projectsArray) => {
   return `
   <ul class="project-card-list">
     ${projectsArray.map((item) => createCardMarkup(item)).join('')}
@@ -18,7 +19,7 @@ const makeListMarkup = (projectsArray) => {
 // *********************************
 
 // Handle errors if image urls in picture tag's 'source' are broken
-function addEmgErrorHandlers() {
+function addImgErrorHandlers() {
   const images = document.querySelectorAll('.error-handleable');
 
   images.forEach((image) => {
@@ -72,9 +73,9 @@ function switchView() {
     slideGalleryIntoView();
 
     // Update button text
-    refs.galleryViewSwitcher.innerHTML = `View as ${
-      isGallery ? 'list' : 'tiles'
-    }`;
+    const mode = isGallery ? 'list' : 'tiles';
+    modeDescriptor.setAttribute('data-loc', mode);
+    modeDescriptor.innerText = translations[window.locale][mode];
   }, 300);
 }
 
@@ -91,6 +92,12 @@ function handleGalleryCardClicks(event) {
 
 // *********************************
 
-gallery.innerHTML = makeListMarkup(projects);
-addEmgErrorHandlers();
+export function renderGallery() {
+  gallery.innerHTML = makeListMarkup(projects);
+}
+
+// *********************************
+
+renderGallery();
+addImgErrorHandlers();
 refs.galleryViewSwitcher.addEventListener('click', switchView);

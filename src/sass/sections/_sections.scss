@@ -25,6 +25,13 @@
     }
   }
 
+  .section-container {
+    @media screen and (min-width: $desktop) {
+      padding-left: $horizontal-offset;
+      padding-right: $horizontal-offset;
+    }
+  }
+
   .section-content {
     $first-animation-duration: 1.5s;
 
@@ -33,9 +40,6 @@
     @media screen and (min-width: $tablet) {
       animation: fade-in $first-animation-duration 1s both;
     }
-
-    padding-left: $horizontal-offset;
-    padding-right: $horizontal-offset;
 
     @media screen and (max-width: $tablet-1) {
       margin-bottom: 10vh;

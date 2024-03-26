@@ -5,16 +5,18 @@ import { updateSourceMedia } from './updateSourceMedia';
 // Color scheme switcher courtesy of Vadim Makeyev
 // *********************************
 
+const colorSchemeKey = 'color-scheme';
+
 function getSavedColorScheme() {
-  return localStorage.getItem('color-scheme');
+  return localStorage.getItem(colorSchemeKey);
 }
 
 function saveColorScheme(scheme) {
-  return localStorage.setItem('color-scheme', scheme);
+  return localStorage.setItem(colorSchemeKey, scheme);
 }
 
 function clearColorScheme() {
-  return localStorage.removeItem('color-scheme');
+  return localStorage.removeItem(colorSchemeKey);
 }
 
 // *********************************
@@ -22,19 +24,6 @@ function clearColorScheme() {
 function getSystemScheme() {
   const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
   return darkSchemeMedia.matches ? 'dark' : 'light';
-}
-
-// *********************************
-
-function switchMedia(scheme) {
-  //
-  if (scheme === 'auto') {
-    refs.lightStyles.media = '(prefers-color-scheme: light)';
-    refs.darkStyles.media = '(prefers-color-scheme: dark)';
-  } else {
-    refs.lightStyles.media = scheme === 'light' ? 'all' : 'not all';
-    refs.darkStyles.media = scheme === 'dark' ? 'all' : 'not all';
-  }
 }
 
 // *********************************
@@ -55,8 +44,15 @@ function setColorScheme(scheme) {
     refs.main.classList.remove('faded-edges');
 
   // Do the switching
-  switchMedia(scheme);
+  if (scheme === 'auto') {
+    refs.lightStyles.media = '(prefers-color-scheme: light)';
+    refs.darkStyles.media = '(prefers-color-scheme: dark)';
+  } else {
+    refs.lightStyles.media = scheme === 'light' ? 'all' : 'not all';
+    refs.darkStyles.media = scheme === 'dark' ? 'all' : 'not all';
+  }
 
+  // Save changes to local storage
   if (scheme === 'auto') {
     clearColorScheme();
   } else {
@@ -89,17 +85,15 @@ function presetSwitcher() {
 
   if (savedScheme) {
     const currentRadio = document.querySelector(
-      `.switcher-radio[value=${savedScheme}]`
+      `.scheme-switcher-radio[value=${savedScheme}]`
     );
     currentRadio.setAttribute('checked', '');
   }
 
-  const handleChangeRadio = (event) => {
-    setColorScheme(event.target.value);
-  };
-
-  [...refs.switcherRadios].forEach((radio) => {
-    radio.addEventListener('change', handleChangeRadio);
+  [...refs.schemeSwitcherRadios].forEach((radio) => {
+    radio.addEventListener('change', (event) => {
+      setColorScheme(event.target.value);
+    });
   });
 }
 
@@ -110,17 +104,36 @@ function onSwitcherMenuToggle(event) {
   const method = event.target.checked
     ? 'addEventListener'
     : 'removeEventListener';
-  document[method]('click', handleClicksOutsideMenu);
+  document[method]('click', handleClicksOutsideSwitcherMenu);
+
+  if (event.target.checked) {
+    refs.schemeSwitcherRadios.forEach((radio) => {
+      radio.removeAttribute('tabIndex');
+    });
+
+    event.target.setAttribute('aria-expanded', true);
+  } else {
+    refs.schemeSwitcherRadios.forEach((radio) => {
+      radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed
+    });
+
+    event.target.setAttribute('aria-expanded', false);
+  }
 }
 
 // If clicked outside menu, close it
-function handleClicksOutsideMenu(event) {
+function handleClicksOutsideSwitcherMenu(event) {
   if (
-    !refs.switcherDropdown.contains(event.target) &&
-    !refs.switcherCheckboxLabel.contains(event.target)
+    !refs.schemeSwitcherDropdown.contains(event.target) &&
+    !refs.schemeSwitcherCheckboxLabel.contains(event.target)
   ) {
-    document.removeEventListener('click', handleClicksOutsideMenu);
-    refs.switcherCheckbox.checked = false;
+    document.removeEventListener('click', handleClicksOutsideSwitcherMenu);
+    refs.schemeSwitcherCheckbox.checked = false;
+    refs.schemeSwitcherCheckbox.setAttribute('aria-expanded', false);
+
+    refs.schemeSwitcherRadios.forEach((radio) => {
+      radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed
+    });
   }
 }
 
@@ -129,5 +142,5 @@ function handleClicksOutsideMenu(event) {
 export function activateColorSchemeSwitcher() {
   setupScheme();
   presetSwitcher();
-  refs.switcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
+  refs.schemeSwitcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
 }

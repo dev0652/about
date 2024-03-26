@@ -23,19 +23,19 @@ export function openCardModal(id) {
 
 // ***** Email dialog modal ******************************
 
-const modalEmail = document.querySelector('.email-backdrop');
-const closeDialogButton = modalEmail.querySelector('.email-modal-close-button');
-const modalEmailText = modalEmail.querySelector('.email-confirmation-text');
+// const modalEmail = document.querySelector('.email-backdrop');
+// const closeDialogButton = modalEmail.querySelector('.email-modal-close-button');
+// const modalEmailText = modalEmail.querySelector('.email-confirmation-text');
 
-export function openEmailModal(message) {
-  modalEmailText.innerHTML = message;
+// export function openEmailModal(message) {
+//   modalEmailText.innerHTML = message;
 
-  modalEmail.classList.remove('is-hidden');
-  modalEmail.classList.add('current-modal');
-  closeDialogButton.addEventListener('click', onModalClose);
+//   modalEmail.classList.remove('is-hidden');
+//   modalEmail.classList.add('current-modal');
+//   closeDialogButton.addEventListener('click', onModalClose);
 
-  onModalOpen();
-}
+//   onModalOpen();
+// }
 
 // ***** Do for all modals ********************************
 

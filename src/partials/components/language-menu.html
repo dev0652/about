@@ -1,0 +1,29 @@
+<!-- Language switcher group -->
+<label class="language-menu-label" for="language-menu-checkbox">
+  <div class="language-menu-caption-wrapper">
+    <p class="language-menu-caption" data-loc="language">Language</p>
+  </div>
+
+  <input
+    class="language-menu-checkbox"
+    type="checkbox"
+    id="language-menu-checkbox"
+    name="language-menu-checkbox"
+    aria-label="Toggle the language switcher menu"
+    aria-controls="language-switcher"
+    aria-haspopup="menu"
+    aria-expanded="false"
+  />
+
+  <svg class="language-menu-label-icon" width="32" height="32">
+    <use href="images/symbol-defs.svg#icon-globe"></use>
+  </svg>
+</label>
+
+<!-- Language switcher dropdown menu -->
+<div class="language-switcher-dropdown-wrapper">
+  <div class="language-switcher-dropdown">
+    <load ="partials/components/language-switcher.html" />
+  </div>
+</div>
+<!-- End of language switcher group -->
