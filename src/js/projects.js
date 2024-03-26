@@ -3,10 +3,11 @@ import { refs } from '/js/refs';
 
 import { openCardModal } from '/js/modal';
 import { createCardMarkup } from '/js/createCard';
-
+import translations from '/data/translations.json' assert { type: 'json' };
 // *********************************
 
 const gallery = refs.gallery;
+const modeDescriptor = refs.galleryViewSwitcher.querySelector('.view-mode');
 
 export const makeListMarkup = (projectsArray) => {
   return `
@@ -72,9 +73,9 @@ function switchView() {
     slideGalleryIntoView();
 
     // Update button text
-    refs.galleryViewSwitcher.innerHTML = `View as ${
-      isGallery ? 'list' : 'tiles'
-    }`;
+    const mode = isGallery ? 'list' : 'tiles';
+    modeDescriptor.setAttribute('data-loc', mode);
+    modeDescriptor.innerText = translations[window.locale][mode];
   }, 300);
 }
 

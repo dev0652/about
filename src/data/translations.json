@@ -34,7 +34,11 @@
     "placeholder-name": "Як до вас звертатись?",
     "placeholder-email": "Ваша пошта (необов'язково)",
     "placeholder-message": "Ваше повідомлення",
-    "send-button-text": "Надіслати"
+    "send-button-text": "Надіслати",
+
+    "gallery-view-as": "Показати",
+    "list": "списком",
+    "tiles": "плитками"
   },
 
   "en": {
@@ -74,7 +78,10 @@
     "placeholder-message": "Your message",
     "send-button-text": "Send",
 
-    "": "",
+    "gallery-view-as": "view as",
+    "list": "list",
+    "tiles": "tiles",
+
     "": "",
     "": "",
     "": "",

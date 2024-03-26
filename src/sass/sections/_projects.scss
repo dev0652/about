@@ -35,18 +35,13 @@
   margin-left: auto;
 
   @media screen and (max-width: $tablet-1) {
-    // position: static;
     margin-bottom: 1rem;
   }
 
   @media screen and (min-width: $tablet) {
     position: absolute;
-    right: $horizontal-offset;
-    top: -50px;
-  }
-
-  @media screen and (min-width: $desktop) and (max-width: $desktop-wide-1) {
     right: 0;
+    top: -50px;
   }
 
   border: none;
@@ -280,21 +275,11 @@
   }
 
   @media screen and (min-width: $desktop) {
-    width: calc(
-      (
-          $desktop - $horizontal-offset * 2 - $unit-gap * 2 -
-            $container-padding-desktop * 2
-        ) / 3
-    );
+    width: calc(($desktop - $horizontal-offset * 2 - $unit-gap * 2) / 3);
   }
 
   @media screen and (min-width: $desktop-wide) {
-    width: calc(
-      (
-          $desktop-wide - $horizontal-offset * 2 - $unit-gap * 2 -
-            $container-padding-desktop * 2
-        ) / 3
-    );
+    width: calc(($desktop-wide - $horizontal-offset * 2 - $unit-gap * 2) / 3);
   }
 
   .tile-card-link {
