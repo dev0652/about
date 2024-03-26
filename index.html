@@ -60,10 +60,11 @@
   href="/about/assets/apple-touch-icon-1a74ebfa.png"
 />
 
-  <script type="module" crossorigin src="/about/assets/index-28a330ff.js"></script>
-  <link rel="stylesheet" href="/about/assets/index-173707b8.css">
+  <script type="module" crossorigin src="/about/assets/index-4a24628f.js"></script>
+  <link rel="stylesheet" href="/about/assets/index-febe87c5.css">
 </head>
 
+  
 
   <body>
     <header class="header">
@@ -73,113 +74,194 @@
     <nav class="header-nav">
       <ul class="header-nav-list">
         <li class="nav-item">
-          <a class="header-nav-link active" href="#about" data-id="about"
+          <a
+            class="header-nav-link active"
+            href="#about"
+            data-id="about"
+            data-loc="about"
             >About me</a
           >
         </li>
 
         <li class="nav-item">
-          <a class="header-nav-link" href="#projects" data-id="projects"
+          <a
+            class="header-nav-link"
+            href="#projects"
+            data-id="projects"
+            data-loc="projects"
             >Projects</a
           >
         </li>
 
         <li class="nav-item">
-          <a class="header-nav-link" href="#contacts" data-id="contacts"
+          <a
+            class="header-nav-link"
+            href="#contacts"
+            data-id="contacts"
+            data-loc="contacts"
             >Contacts</a
           >
         </li>
       </ul>
     </nav>
 
-    <!-- Menus (color schemes + language) -->
+    <!-- Color scheme and language menus -->
     <div class="header-menus">
-      <!-- Color theme switcher menu toggle (label + icon) -->
-      <label
-        class="scheme-switcher-menu-label"
-        for="scheme-switcher-menu-checkbox"
-      >
-        <div class="switcher-menu-caption-wrapper">
-          <p class="switcher-menu-caption">Color scheme</p>
-        </div>
+      <!-- Color scheme switcher group -->
+<label class="scheme-switcher-menu-label" for="scheme-switcher-menu-checkbox">
+  <div class="switcher-menu-caption-wrapper">
+    <p class="switcher-menu-caption" data-loc="colorScheme">Color scheme</p>
+  </div>
 
-        <input
-          class="scheme-switcher-menu-checkbox"
-          type="checkbox"
-          id="scheme-switcher-menu-checkbox"
-          name="scheme-switcher-menu-checkbox"
-          aria-label="Color scheme switcher menu toggle"
-        />
+  <input
+    class="scheme-switcher-menu-checkbox"
+    type="checkbox"
+    id="scheme-switcher-menu-checkbox"
+    name="scheme-switcher-menu-checkbox"
+    aria-label="Toggle the color scheme switcher menu"
+    aria-controls="scheme-switcher"
+    aria-haspopup="menu"
+    aria-expanded="false"
+  />
 
-        <svg class="scheme-switcher-radio-label-icon" width="32" height="32">
-          <use href="/about/assets/symbol-defs-dcfd9aad.svg#icon-luminosity"></use>
-        </svg>
-      </label>
+  <svg class="scheme-switcher-label-icon" width="32" height="32">
+    <use href="/about/assets/symbol-defs-e1881694.svg#icon-luminosity"></use>
+  </svg>
+</label>
 
-      <!-- Color theme switcher menu toggle (label + icon) -->
-      <div class="scheme-switcher-dropdown-wrapper">
-        <div class="scheme-switcher-dropdown">
-          <fieldset class="scheme-switcher">
-  <legend class="switcher-legend">Color scheme</legend>
+<!-- Color theme switcher dropdown menu -->
+<div class="scheme-switcher-dropdown-wrapper">
+  <div class="scheme-switcher-dropdown">
+    <fieldset class="scheme-switcher" id="scheme-switcher" role="menu">
+  <legend class="scheme-switcher-legend" data-loc="colorScheme">
+    Color scheme
+  </legend>
 
-  <label class="switcher-radio-label" for="light">
-    <p class="switcher-radio-caption">Light</p>
+  <label class="scheme-switcher-radio-label" for="light" role="menuitem">
+    <p class="scheme-switcher-radio-caption" data-loc="light">Light</p>
 
     <input
-      class="switcher-radio light"
+      class="scheme-switcher-radio light"
       type="radio"
       id="light"
       name="color-scheme"
       value="light"
       aria-label="light"
+      tabindex="-1"
     />
 
     <svg class="switcher-icon" width="32" height="32">
-      <use href="/about/assets/symbol-defs-dcfd9aad.svg#icon-sun-circled"></use>
+      <use href="/about/assets/symbol-defs-e1881694.svg#icon-sun-circled"></use>
     </svg>
   </label>
 
-  <label class="switcher-radio-label" for="auto">
-    <p class="switcher-radio-caption">Auto</p>
+  <label class="scheme-switcher-radio-label" for="auto" role="menuitem">
+    <p class="scheme-switcher-radio-caption" data-loc="auto">Auto</p>
 
     <input
-      class="switcher-radio auto"
+      class="scheme-switcher-radio auto"
       type="radio"
       id="auto"
       name="color-scheme"
       value="auto"
       aria-label="auto"
+      tabindex="-1"
       checked
     />
 
     <svg class="switcher-icon" width="32" height="32">
-      <use href="/about/assets/symbol-defs-dcfd9aad.svg#icon-adjust"></use>
+      <use href="/about/assets/symbol-defs-e1881694.svg#icon-adjust"></use>
     </svg>
   </label>
 
-  <label class="switcher-radio-label" for="dark">
-    <p class="switcher-radio-caption">Dark</p>
+  <label class="scheme-switcher-radio-label" for="dark" role="menuitem">
+    <p class="scheme-switcher-radio-caption" data-loc="dark">Dark</p>
 
     <input
-      class="switcher-radio dark"
+      class="scheme-switcher-radio dark"
       type="radio"
       id="dark"
       name="color-scheme"
       value="dark"
       aria-label="dark"
+      tabindex="-1"
     />
 
     <svg class="switcher-icon" width="32" height="32">
-      <use href="/about/assets/symbol-defs-dcfd9aad.svg#icon-moon-circled"></use>
+      <use href="/about/assets/symbol-defs-e1881694.svg#icon-moon-circled"></use>
     </svg>
   </label>
 </fieldset>
 
-        </div>
-      </div>
+  </div>
+</div>
+<!-- End of color scheme switcher group -->
+
+      <!-- Language switcher group -->
+<label class="language-menu-label" for="language-menu-checkbox">
+  <div class="language-menu-caption-wrapper">
+    <p class="language-menu-caption" data-loc="language">Language</p>
+  </div>
+
+  <input
+    class="language-menu-checkbox"
+    type="checkbox"
+    id="language-menu-checkbox"
+    name="language-menu-checkbox"
+    aria-label="Toggle the language switcher menu"
+    aria-controls="language-switcher"
+    aria-haspopup="menu"
+    aria-expanded="false"
+  />
+
+  <svg class="language-menu-label-icon" width="32" height="32">
+    <use href="/about/assets/symbol-defs-e1881694.svg#icon-globe"></use>
+  </svg>
+</label>
+
+<!-- Language switcher dropdown menu -->
+<div class="language-switcher-dropdown-wrapper">
+  <div class="language-switcher-dropdown">
+    <fieldset class="language-switcher" id="language-switcher" role="menu">
+  <legend class="language-switcher-legend" data-loc="language">Language</legend>
+
+  <label class="language-switcher-radio-label" for="en" role="menuitem">
+    <p class="language-switcher-radio-caption" data-loc="en">Eng</p>
+
+    <input
+      class="language-switcher-radio"
+      type="radio"
+      id="en"
+      name="language"
+      value="en"
+      aria-label="English"
+      tabindex="-1"
+      checked
+    />
+  </label>
+
+  <label class="language-switcher-radio-label" for="uk" role="menuitem">
+    <p class="language-switcher-radio-caption" data-loc="uk">Ukr</p>
+
+    <input
+      class="language-switcher-radio"
+      type="radio"
+      id="uk"
+      name="language"
+      value="uk"
+      aria-label="Ukrainian"
+      tabindex="-1"
+    />
+  </label>
+</fieldset>
+
+  </div>
+</div>
+<!-- End of language switcher group -->
+
     </div>
 
-    <!-- Menus toggle (mobile view)  -->
+    <!-- Mobile menu captions toggle  -->
     <label class="caption-toggle-label" for="caption-toggle-checkbox">
       <input
         class="caption-toggle-checkbox"
@@ -190,16 +272,21 @@
       />
 
       <svg class="caption-toggle-icon" width="32" height="32">
-        <use href="/about/assets/symbol-defs-dcfd9aad.svg#icon-overflowdots"></use>
+        <use href="/about/assets/symbol-defs-e1881694.svg#icon-overflowdots"></use>
       </svg>
     </label>
+
+
+    </div>
   </div>
 </header>
 
 
     <main>
       <div class="mobile-headings-wrapper">
-        <div class="mobile-sup-heading">My portfolio</div>
+        <div class="mobile-sup-heading" data-loc="my-portfolio">
+          My portfolio
+        </div>
 
         <div class="mobile-headings"></div>
       </div>
@@ -207,29 +294,34 @@
       <div id="slider" class="swipe">
         <div class="swipe-wrap">
           <section class="section" id="about">
-  <div class="container">
-    <h2 class="section-title" id="about-title">About me</h2>
+  <div class="container section-container">
+    <h2 class="section-title" id="about-title" data-loc="about">About me</h2>
 
     <div class="section-content">
       <div class="about-description">
-        <p>Hi, I'm Mykhailo, a web developer from Ukraine.</p>
-        <p>
+        <p data-loc="about-par-1">
+          Hi, I'm Mykhailo, a web developer from Ukraine.
+        </p>
+        <p data-loc="about-par-2">
           I code in JavaScript and React with a little bit of Node.js + MongoDB.
           Also, at the moment I'm learning TypeScript, Next.js and React Native.
         </p>
-        <p>
+        <p data-loc="about-par-3">
           I enjoy going places, motorcycling and spending time with good people.
         </p>
         <p>
-          Please check my
+          <span data-loc="about-par-4.1">Please check my</span>
           <a
             class="description-link"
             href="https://www.linkedin.com/in/diuzhenko/"
             target="_blank"
             rel="noopener noreferrer"
+            lang="en"
             >LinkedIn</a
           >
-          for details and feel free to get in touch.
+          <span data-loc="about-par-4.2"
+            >for details and feel free to get in touch.</span
+          >
         </p>
       </div>
     </div>
@@ -237,11 +329,16 @@
 </section>
 
           <section class="section" id="projects">
-  <div class="container">
-    <h2 class="section-title" id="projects-title">Projects</h2>
+  <div class="container section-container">
+    <h2 class="section-title" id="projects-title" data-loc="projects">
+      Projects
+    </h2>
 
     <div class="section-content">
-      <button type="button" class="projects-view-switch">Switch view</button>
+      <button type="button" class="projects-view-switch">
+        <span data-loc="gallery-view-as">View as</span>
+        <span class="view-mode" data-loc="tiles">tiles</span>
+      </button>
 
       <div class="gallery" id="gallery"></div>
     </div>
@@ -249,15 +346,17 @@
 </section>
 
           <section class="section" id="contacts">
-  <div class="container">
-    <h2 class="section-title" id="contacts-title">Contacts</h2>
+  <div class="container section-container">
+    <h2 class="section-title" id="contacts-title" data-loc="contacts">
+      Contacts
+    </h2>
 
     <div class="section-content contacts-section-content-wrapper">
       <ul class="contacts-list">
         <li class="contacts-list-item">
           <div class="contact-icon-wrapper">
             <svg class="contact-icon" width="36" height="36">
-              <use href="/about/assets/symbol-defs-dcfd9aad.svg#icon-linkedin-filled"></use>
+              <use href="/about/assets/symbol-defs-e1881694.svg#icon-linkedin-filled"></use>
             </svg>
           </div>
 
@@ -273,7 +372,7 @@
         <li class="contacts-list-item">
           <div class="contact-icon-wrapper">
             <svg class="contact-icon" width="36" height="36">
-              <use href="/about/assets/symbol-defs-dcfd9aad.svg#icon-email-filled"></use>
+              <use href="/about/assets/symbol-defs-e1881694.svg#icon-email-filled"></use>
             </svg>
           </div>
 
@@ -289,7 +388,7 @@
         <li class="contacts-list-item">
           <div class="contact-icon-wrapper">
             <svg class="contact-icon" width="36" height="36">
-              <use href="/about/assets/symbol-defs-dcfd9aad.svg#icon-github"></use>
+              <use href="/about/assets/symbol-defs-e1881694.svg#icon-github"></use>
             </svg>
           </div>
 
@@ -306,7 +405,7 @@
       <!-- Contacts from -->
 
 <div class="contact-form-wrapper">
-  <p class="contact-form-title">Drop me a line</p>
+  <p class="contact-form-title" data-loc="form-title">Drop me a line</p>
 
   <form class="contact-form" id="contact-form" autocomplete="off">
     <label>
@@ -317,6 +416,7 @@
         required
         id="name"
         placeholder="With whom do I have the pleasure?"
+        data-loc-plc="placeholder-name"
       />
     </label>
 
@@ -327,6 +427,7 @@
         name="from_email"
         id="email"
         placeholder="Your email (optional)"
+        data-loc-plc="placeholder-email"
       />
     </label>
 
@@ -336,13 +437,20 @@
         name="message"
         required
         id="message"
-        placeholder="Your message"
         rows="5"
         autocomplete="off"
+        placeholder="Your message"
+        data-loc-plc="placeholder-message"
       ></textarea>
     </label>
 
-    <button class="contact-form-button" type="submit">Submit</button>
+    <button
+      class="contact-form-button"
+      type="submit"
+      data-loc="send-button-text"
+    >
+      Send
+    </button>
   </form>
 </div>
 
@@ -374,7 +482,7 @@
       />
 
       <svg class="mobile-menu-toggle-icon" width="32" height="32">
-        <use href="/about/assets/symbol-defs-dcfd9aad.svg#icon-equalizer"></use>
+        <use href="/about/assets/symbol-defs-e1881694.svg#icon-equalizer"></use>
       </svg>
     </label>
   </div>
@@ -390,7 +498,7 @@
       aria-label="Close the modal window"
     >
       <svg class="popup-modal-close-button-icon" width="18" height="18">
-        <use href="/about/assets/symbol-defs-dcfd9aad.svg#icon-x-close"></use>
+        <use href="/about/assets/symbol-defs-e1881694.svg#icon-x-close"></use>
       </svg>
     </button>
 
@@ -398,7 +506,7 @@
   </div>
 </div>
 
-    <div class="modal-backdrop email-backdrop is-hidden">
+    <!-- <div class="modal-backdrop email-backdrop is-hidden">
   <div class="modal email-modal">
     <div class="email-confirmation-text"></div>
 
@@ -410,7 +518,15 @@
       OK
     </button>
   </div>
-</div>
+</div> -->
+
+<dialog class="email-dialog">
+  <form class="email-dialog-form" method="dialog">
+    <div class="email-dialog-text"></div>
+
+    <button class="email-dialog-button">OK</button>
+  </form>
+</dialog>
 
 
     
