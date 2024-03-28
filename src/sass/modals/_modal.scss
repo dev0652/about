@@ -15,6 +15,10 @@
     width: 100vw;
     height: 100vh;
 
+    @media screen and (max-width: $tablet-1) {
+      height: 100dvh;
+    }
+
     background-color: rgba(#303234, 0.8);
     backdrop-filter: blur(2px);
 
