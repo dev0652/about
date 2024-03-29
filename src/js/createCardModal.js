@@ -3,7 +3,7 @@ import {
   getLocalizedField,
   getLocalizedFieldName,
   loadingError,
-} from '/js/createCard';
+} from '/js/localization';
 
 // *********************************
 

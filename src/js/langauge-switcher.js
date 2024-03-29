@@ -8,10 +8,6 @@ import { translateElement, translatePlaceholder } from '../pre';
 
 // *********************************
 
-// export function getLocale() {
-//   return navigator.userLanguage || navigator.language; //returns value like 'en-us'
-// }
-
 const languageKey = 'language';
 
 function getSavedLanguage() {
@@ -24,23 +20,10 @@ function saveLanguage(locale) {
 
 // *********************************
 
-// export function translateElement(element) {
-//   const locale = window.locale ? window.locale : 'en';
-//   const key = element.getAttribute('data-loc');
-//   element.innerText = translations[locale][key];
-// }
-
-// export function translatePlaceholder(element) {
-//   const locale = window.locale ? window.locale : 'en';
-//   const key = element.getAttribute('data-loc-plc');
-//   element.placeholder = translations[locale][key];
-// }
-
-// *********************************
-
 function switchLanguage(event) {
   const locale = event.target.value;
   window.locale = locale;
+  document.documentElement.lang = locale;
 
   const savedLang = getSavedLanguage();
   const prevLang = savedLang ? savedLang : 'en';

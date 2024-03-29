@@ -6,6 +6,7 @@ const savedLanguage = localStorage.getItem('language');
 window.locale = savedLanguage ? savedLanguage : 'en'; // Preset global variable
 
 if (window.locale !== 'en') {
+  document.documentElement.lang = window.locale;
   document.querySelectorAll('[data-loc]').forEach(translateElement);
   document.querySelectorAll('[data-loc-plc]').forEach(translatePlaceholder);
 }

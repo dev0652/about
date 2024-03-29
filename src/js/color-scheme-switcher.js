@@ -2,12 +2,12 @@ import { refs } from './refs';
 import { updateSourceMedia } from './updateSourceMedia';
 
 // *********************************
-// Color scheme switcher courtesy of Vadim Makeyev
+// Original color scheme switcher solution courtesy of Vadim Makeyev
 // *********************************
 
 const colorSchemeKey = 'color-scheme';
 
-function getSavedColorScheme() {
+export function getSavedColorScheme() {
   return localStorage.getItem(colorSchemeKey);
 }
 
@@ -36,8 +36,10 @@ export function getThemeSwitchTransition() {
   );
 }
 
+// *********************************
+
 function setColorScheme(scheme) {
-  //   scheme: 'light' | 'dark'
+  // scheme: 'light' | 'dark'
 
   // Temporarily remove the faded edges effect on main to avoid color flashing during box-shadow transition
   if (refs.main.classList.contains('faded-edges'))

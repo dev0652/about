@@ -1,5 +1,7 @@
+// *********************************
 // Solution courtesy of Lars Magnus
 // https://larsmagnus.co/blog/how-to-make-images-react-to-light-and-dark-mode
+// *********************************
 
 // Make <picture> <source> elements with media="(prefers-color-scheme:)" respect custom theme preference overrides. Otherwise the `media` preference will respond to the OS-level setting
 

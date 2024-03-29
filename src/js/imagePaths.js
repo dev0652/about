@@ -1,3 +1,4 @@
+import { getSavedColorScheme } from '/js/color-scheme-switcher';
 import translations from '/data/translations.json' assert { type: 'json' };
 
 // *********************************
@@ -74,23 +75,20 @@ const sizesString = {
 function makeSourceTag(
   fileName,
   imgLocation,
-  colorPreference,
+  colorScheme,
   hasDarkVersion = false
 ) {
   let imageType = 'svg';
   let sizes = '';
-  let srcset = placeholderUrl[colorPreference];
+  let srcset = placeholderUrl[colorScheme];
+  let media = `(prefers-color-scheme: ${colorScheme})`;
+  let dataMedia = '';
+
+  const isModal = imgLocation === 'modal';
 
   if (fileName) {
-    let willCreateDark;
-
-    if (colorPreference === 'light') {
-      willCreateDark = false;
-    } else if (hasDarkVersion) {
-      willCreateDark = true;
-    } else {
-      willCreateDark = false;
-    }
+    const willCreateDark =
+      colorScheme === 'dark' && hasDarkVersion ? true : false;
 
     const paths = getImagePaths(fileName, willCreateDark);
 
@@ -102,13 +100,23 @@ function makeSourceTag(
         ${paths.large1x} 960w,
         ${paths.large2x} 1920w
         `;
+
+    if (isModal) {
+      const savedScheme = getSavedColorScheme();
+
+      if (savedScheme) {
+        dataMedia = `(prefers-color-scheme: ${colorScheme})`;
+        media = savedScheme === colorScheme ? 'all' : 'none';
+      }
+    }
   }
 
   return /* html */ `
     <source  
       srcset="${srcset}"
       sizes="${sizes}"
-      media="(prefers-color-scheme: ${colorPreference})"
+      media="${media}"
+      data-media="${dataMedia}"
       type="image/${imageType}"
     />
   `;
@@ -122,7 +130,7 @@ export function makePictureTag(
   imgLocation,
   hasDarkVersion
 ) {
-  // fileName, imgLocation, colorPreference: 'light' | 'dark', hasDarkVersion
+  // fileName, imgLocation, colorPreference: 'light' | 'dark', hasDarkVersion = false
   const sourceTagLight = makeSourceTag(fileName, imgLocation, 'light');
   const sourceTagDark = makeSourceTag(
     fileName,
@@ -134,9 +142,13 @@ export function makePictureTag(
   const { medium, large1x } = getImagePaths(fileName);
 
   // Pick large1x for 'list' & 'modal', and medium for 'tile'
-  const imgSrc = imgLocation === 'tile' ? medium : large1x;
+  let imgSrc = large1x;
+  let loadingMode = 'eager';
 
-  const loadingMode = imgLocation === 'list' ? 'eager' : 'lazy';
+  if (imgLocation === 'tile') {
+    loadingMode = 'lazy';
+    imgSrc = medium;
+  }
 
   const defaultAltText = 'live page screenshot';
   const locale = window.locale ? window.locale : 'en';
