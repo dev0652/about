@@ -53,6 +53,8 @@
 
 // Tile card modal
 .popup-modal {
+  max-height: 100%;
+
   @media screen and (min-width: $tablet) {
     width: 650px;
     max-height: 90vh;
@@ -114,10 +116,10 @@
     gap: 20px;
   }
 
-  overflow-y: auto;
-  // overflow-x: hidden;
+  max-height: 70dvh;
 
-  // max-height: calc(90vh - 160px);
+  overflow-y: auto;
+
   margin-bottom: 15px;
 
   @media screen and (min-width: $tablet) {
