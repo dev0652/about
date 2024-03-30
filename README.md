@@ -35,30 +35,38 @@ Project cards can be viewed either as a list (which is so characteristic of Metr
 
 Here are some of the features of this website:
 
-### Responsive
+### Responsive layout
 
 The website is fully responsive, has 4 breakpoints and reacts to orientation change
+
+### Color schemes
+
+The website features light and dark color schemes and a three-position theme switch. By default, the switch is set to 'auto', meaning that the website follows the system / browser current mode. If a dark or light color scheme is switched on manually, it will override the system setting.
+
+- the selected color scheme is saved in localStorage and restored on next visit
+- the majority of images (including the ones in this readme.md) are also available in light and dark versions and respond to the change of a color scheme
+
+### Localization
+
+The website comes in two languages, English and Ukrainian. The selected language is written to local storage and restored on next visit.
 
 ### Keyboard-accessible and screen-reader-friendly
 
 - all controls are focusable and keyboard-accessible
 - all images have `alt`s
 - interactive elements without text have proper `aria-label`s
-- project cards in list mode have `aria-expanded` attributes
+- project cards in 'list' presentation have `aria-expanded` attributes
 
-### Optimized
+### Mobile-friendly
+
+Not only doest the website have responsive layout, it also allows one-handed operation in mobile mode, with color scheme and language menus moved to the bottom pop-up panel, which, too, was inspired by Lumia phones.
+
+### Optimization
 
 - images are served in webp format and have been optimized with Squoosh
 - all images come with 3 extra de-retinized versions to save bandwidth and improve loading times on low-res screens
 
-### Color schemes
-
-The website features light and dark color schemes and a three-position theme switch. By default, the switch is set to 'auto', meaning that the website follows the system / browser current mode. If a dark or light color scheme is switched on manually, it will override the system setting.
-
-- the color scheme choice is saved in localStorage and restored on next visit
-- the majority of images (including the ones in this readme.md) are also available in light and dark versions and respond to browser color scheme
-
-## Lighthouse ratings
+Lighthouse ratings:
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="./src/images/readme/lighthouse_light.webp">
