@@ -75,7 +75,7 @@
     "name": "Bookshelf",
     "link": "https://github.com/dev0652/bookshelf",
     "livePage": "https://dev0652.github.io/bookshelf/",
-    "technologies": ["HTML", "SaSS", "JavaScript", "Git"],
+    "technologies": ["HTML", "SaSS", "JavaScript", "REST API", "Git"],
     "hasDarkVersion": true,
     "thumbFileName": "bookshelf",
     "type": {
@@ -131,7 +131,13 @@
     "name": "Car Rental",
     "link": "https://github.com/dev0652/swift-car-rental",
     "livePage": "https://dev0652.github.io/swift-car-rental/",
-    "technologies": ["React", "Styled components"],
+    "technologies": [
+      "React",
+      "React Router",
+      "Redux",
+      "REST API",
+      "Styled components"
+    ],
     "hasDarkVersion": true,
     "thumbFileName": "car-rental",
     "type": {
@@ -142,8 +148,8 @@
     "role": null,
     "customer": null,
     "description": {
-      "en": "Simple and lightweight car rental website developed as a test assignment for a job interview.",
-      "uk": "Простий і легковагий веб-сайт для прокату автомобілів, розроблений як тестове завдання для співбесіди."
+      "en": "Simple car rental website developed as a test assignment for a job interview. It makes use of such libraries as React Helmet, React Select, React Icons, Lodash",
+      "uk": "Простий сайт з прокату автомобілів, розроблений як тестове завдання для співбесіди. Використовуються такі бібліотеки як React Helmet, React Select, React Icons, Lodash"
     }
   },
   {
@@ -151,7 +157,7 @@
     "name": "Phonebook",
     "link": "https://github.com/dev0652/goit-react-hw-08-phonebook",
     "livePage": "https://dev0652.github.io/goit-react-hw-08-phonebook",
-    "technologies": ["React", "Styled components"],
+    "technologies": ["React", "React Router", "REST API", "Styled components"],
     "hasDarkVersion": true,
     "thumbFileName": "phonebook",
     "type": {
@@ -162,8 +168,8 @@
     "role": null,
     "customer": null,
     "description": {
-      "en": "A minimalist contacts app with authorization whose design was inspired by the React Router tutorial.",
-      "uk": "Мінімалістичний веб-додаток для додавання та перегляду контактів з авторизацією, дизайн якого був запозичений з туторіалу на сайті React Router."
+      "en": "A minimalist contacts app with authorization whose design was inspired by the React Router tutorial. It makes use of such libraries as Axios, Notiflix, React Helmet, React Hot Toast, Persist",
+      "uk": "Мінімалістичний веб-додаток для додавання та перегляду контактів з авторизацією, дизайн якого був запозичений з туторіалу на сайті React Router. Використовуються такі бібліотеки як Axios, Notiflix, React Helmet, React Hot Toast, Persist"
     }
   },
   {
@@ -171,7 +177,7 @@
     "name": "Movie database",
     "link": "https://github.com/dev0652/goit-react-hw-05-movies",
     "livePage": "https://dev0652.github.io/goit-react-hw-05-movies",
-    "technologies": ["React", "React Router"],
+    "technologies": ["React", "React Router", "REST API", "Styled components"],
     "hasDarkVersion": true,
     "thumbFileName": "movies",
     "type": {
@@ -191,7 +197,7 @@
     "name": "Pixabay Image Search",
     "link": "https://github.com/dev0652/pixabay-search",
     "livePage": "https://dev0652.github.io/pixabay-search/",
-    "technologies": ["HTML", "SaSS", "JavaScript"],
+    "technologies": ["HTML", "SaSS", "JavaScript", "REST API"],
     "hasDarkVersion": true,
     "thumbFileName": "pixabay",
     "type": {
@@ -234,7 +240,7 @@
     "name": "Web studio",
     "link": "https://github.com/dev0652/webstudio",
     "livePage": "https://dev0652.github.io/webstudio/",
-    "technologies": ["HTML", "SaSS", "JavaScript"],
+    "technologies": ["HTML", "SaSS"],
     "hasDarkVersion": true,
     "thumbFileName": "webstudio",
     "type": {
@@ -254,7 +260,7 @@
     "name": "Barbershop",
     "link": "https://github.com/dev0652/barbershop",
     "livePage": "https://dev0652.github.io/barbershop/",
-    "technologies": ["HTML", "SaSS", "JavaScript"],
+    "technologies": ["HTML", "SaSS"],
     "hasDarkVersion": true,
     "thumbFileName": "barbershop",
     "type": {
