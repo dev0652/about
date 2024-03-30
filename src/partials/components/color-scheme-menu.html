@@ -1,11 +1,11 @@
 <!-- Color scheme switcher group -->
-<label class="scheme-switcher-menu-label" for="scheme-switcher-menu-checkbox">
-  <div class="switcher-menu-caption-wrapper">
-    <p class="switcher-menu-caption" data-loc="colorScheme">Theme</p>
+<label class="menu-label menu-label-scheme" for="scheme-switcher-menu-checkbox">
+  <div class="menu-caption-wrapper">
+    <p class="menu-caption" data-loc="colorScheme">Theme</p>
   </div>
 
   <input
-    class="scheme-switcher-menu-checkbox"
+    class="menu-checkbox scheme-switcher-menu-checkbox"
     type="checkbox"
     id="scheme-switcher-menu-checkbox"
     name="scheme-switcher-menu-checkbox"
@@ -15,14 +15,14 @@
     aria-expanded="false"
   />
 
-  <svg class="scheme-switcher-label-icon" width="32" height="32">
+  <svg class="menu-label-icon menu-label-icon-scheme" width="32" height="32">
     <use href="images/symbol-defs.svg#icon-luminosity"></use>
   </svg>
 </label>
 
 <!-- Color theme switcher dropdown menu -->
-<div class="scheme-switcher-dropdown-wrapper">
-  <div class="scheme-switcher-dropdown">
+<div class="dropdown-wrapper dropdown-wrapper-scheme">
+  <div class="switcher-dropdown scheme-switcher-dropdown">
     <load ="partials/components/color-scheme-switcher.html" />
   </div>
 </div>

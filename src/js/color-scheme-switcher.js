@@ -2,7 +2,7 @@ import { refs } from './refs';
 import { updateSourceMedia } from './updateSourceMedia';
 
 // *********************************
-// Original color scheme switcher solution courtesy of Vadim Makeyev
+// Original color scheme switcher courtesy of Vadim Makeyev
 // *********************************
 
 const colorSchemeKey = 'color-scheme';

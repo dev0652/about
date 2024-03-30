@@ -13,15 +13,13 @@ export const refs = {
   schemeSwitcherCheckbox: document.querySelector(
     '.scheme-switcher-menu-checkbox'
   ),
-  schemeSwitcherCheckboxLabel: document.querySelector(
-    '.scheme-switcher-menu-label'
-  ),
+  schemeSwitcherCheckboxLabel: document.querySelector('.menu-label-scheme'),
 
   // Language switcher
   langSwitcherRadios: document.querySelectorAll('.language-switcher-radio'),
   langSwitcherDropdown: document.querySelector('.language-switcher-dropdown'),
   langSwitcherCheckbox: document.querySelector('.language-menu-checkbox'),
-  langSwitcherCheckboxLabel: document.querySelector('.language-menu-label'),
+  langSwitcherCheckboxLabel: document.querySelector('.menu-label-language'),
   langSwitcherMenuCaption: document.querySelector('.language-menu-caption'),
 
   // Header
