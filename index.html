@@ -60,8 +60,8 @@
   href="/about/assets/apple-touch-icon-1a74ebfa.png"
 />
 
-  <script type="module" crossorigin src="/about/assets/index-e8691d1c.js"></script>
-  <link rel="stylesheet" href="/about/assets/index-e72a1ca5.css">
+  <script type="module" crossorigin src="/about/assets/index-e144f217.js"></script>
+  <link rel="stylesheet" href="/about/assets/index-eb12770b.css">
 </head>
 
   
@@ -108,13 +108,13 @@
     <!-- Color scheme and language menus -->
     <div class="header-menus">
       <!-- Color scheme switcher group -->
-<label class="scheme-switcher-menu-label" for="scheme-switcher-menu-checkbox">
-  <div class="switcher-menu-caption-wrapper">
-    <p class="switcher-menu-caption" data-loc="colorScheme">Theme</p>
+<label class="menu-label menu-label-scheme" for="scheme-switcher-menu-checkbox">
+  <div class="menu-caption-wrapper">
+    <p class="menu-caption" data-loc="colorScheme">Theme</p>
   </div>
 
   <input
-    class="scheme-switcher-menu-checkbox"
+    class="menu-checkbox scheme-switcher-menu-checkbox"
     type="checkbox"
     id="scheme-switcher-menu-checkbox"
     name="scheme-switcher-menu-checkbox"
@@ -124,24 +124,28 @@
     aria-expanded="false"
   />
 
-  <svg class="scheme-switcher-label-icon" width="32" height="32">
+  <svg class="menu-label-icon menu-label-icon-scheme" width="32" height="32">
     <use href="/about/assets/symbol-defs-e1881694.svg#icon-luminosity"></use>
   </svg>
 </label>
 
 <!-- Color theme switcher dropdown menu -->
-<div class="scheme-switcher-dropdown-wrapper">
-  <div class="scheme-switcher-dropdown">
-    <fieldset class="scheme-switcher" id="scheme-switcher" role="menu">
-  <legend class="scheme-switcher-legend" data-loc="colorScheme">
+<div class="dropdown-wrapper dropdown-wrapper-scheme">
+  <div class="switcher-dropdown scheme-switcher-dropdown">
+    <fieldset class="switcher scheme-switcher" id="scheme-switcher" role="menu">
+  <legend class="switcher-legend scheme-switcher-legend" data-loc="colorScheme">
     Color scheme
   </legend>
 
-  <label class="scheme-switcher-radio-label" for="light" role="menuitem">
+  <label
+    class="switcher-radio-label scheme-switcher-radio-label"
+    for="light"
+    role="menuitem"
+  >
     <p class="scheme-switcher-radio-caption" data-loc="light">Light</p>
 
     <input
-      class="scheme-switcher-radio light"
+      class="switcher-radio scheme-switcher-radio light"
       type="radio"
       id="light"
       name="color-scheme"
@@ -155,11 +159,15 @@
     </svg>
   </label>
 
-  <label class="scheme-switcher-radio-label" for="auto" role="menuitem">
+  <label
+    class="switcher-radio-label scheme-switcher-radio-label"
+    for="auto"
+    role="menuitem"
+  >
     <p class="scheme-switcher-radio-caption" data-loc="auto">Auto</p>
 
     <input
-      class="scheme-switcher-radio auto"
+      class="switcher-radio scheme-switcher-radio auto"
       type="radio"
       id="auto"
       name="color-scheme"
@@ -174,11 +182,15 @@
     </svg>
   </label>
 
-  <label class="scheme-switcher-radio-label" for="dark" role="menuitem">
+  <label
+    class="switcher-radio-label scheme-switcher-radio-label"
+    for="dark"
+    role="menuitem"
+  >
     <p class="scheme-switcher-radio-caption" data-loc="dark">Dark</p>
 
     <input
-      class="scheme-switcher-radio dark"
+      class="switcher-radio scheme-switcher-radio dark"
       type="radio"
       id="dark"
       name="color-scheme"
@@ -198,13 +210,13 @@
 <!-- End of color scheme switcher group -->
 
       <!-- Language switcher group -->
-<label class="language-menu-label" for="language-menu-checkbox">
-  <div class="language-menu-caption-wrapper">
-    <p class="language-menu-caption" data-loc="language">Language</p>
+<label class="menu-label menu-label-language" for="language-menu-checkbox">
+  <div class="menu-caption-wrapper">
+    <p class="menu-caption" data-loc="language">Language</p>
   </div>
 
   <input
-    class="language-menu-checkbox"
+    class="menu-checkbox language-menu-checkbox"
     type="checkbox"
     id="language-menu-checkbox"
     name="language-menu-checkbox"
@@ -214,22 +226,28 @@
     aria-expanded="false"
   />
 
-  <svg class="language-menu-label-icon" width="32" height="32">
+  <svg class="menu-label-icon menu-label-icon-language" width="32" height="32">
     <use href="/about/assets/symbol-defs-e1881694.svg#icon-globe"></use>
   </svg>
 </label>
 
 <!-- Language switcher dropdown menu -->
-<div class="language-switcher-dropdown-wrapper">
-  <div class="language-switcher-dropdown">
-    <fieldset class="language-switcher" id="language-switcher" role="menu">
-  <legend class="language-switcher-legend" data-loc="language">Language</legend>
+<div class="dropdown-wrapper dropdown-wrapper-language">
+  <div class="switcher-dropdown language-switcher-dropdown">
+    <fieldset class="switcher language-switcher" id="language-switcher" role="menu">
+  <legend class="switcher-legend language-switcher-legend" data-loc="language">
+    Language
+  </legend>
 
-  <label class="language-switcher-radio-label" for="en" role="menuitem">
+  <label
+    class="switcher-radio-label language-switcher-radio-label"
+    for="en"
+    role="menuitem"
+  >
     <p class="language-switcher-radio-caption" data-loc="en">Eng</p>
 
     <input
-      class="language-switcher-radio"
+      class="switcher-radio language-switcher-radio"
       type="radio"
       id="en"
       name="language"
@@ -240,11 +258,15 @@
     />
   </label>
 
-  <label class="language-switcher-radio-label" for="uk" role="menuitem">
+  <label
+    class="switcher-radio-label language-switcher-radio-label"
+    for="uk"
+    role="menuitem"
+  >
     <p class="language-switcher-radio-caption" data-loc="uk">Ukr</p>
 
     <input
-      class="language-switcher-radio"
+      class="switcher-radio language-switcher-radio"
       type="radio"
       id="uk"
       name="language"
