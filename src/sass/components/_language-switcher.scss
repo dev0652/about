@@ -7,6 +7,12 @@
 }
 
 .dropdown-wrapper-language {
+  @media screen and (max-width: $tablet-1) {
+    .header-menus:has(.language-menu-checkbox:checked) & {
+      transform: translateY(-100%);
+    }
+  }
+
   @media screen and (min-width: $tablet) {
     width: 100px;
 
@@ -24,9 +30,6 @@
 
 .switcher.language-switcher {
   align-items: center;
-}
-
-.language-switcher-dropdown {
 }
 
 .language-switcher-radio-label {

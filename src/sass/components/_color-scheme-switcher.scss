@@ -3,6 +3,12 @@
 }
 
 .dropdown-wrapper-scheme {
+  @media screen and (max-width: $tablet-1) {
+    .header-menus:has(.scheme-switcher-menu-checkbox:checked) & {
+      transform: translateY(-100%);
+    }
+  }
+
   @media screen and (min-width: $tablet) {
     right: 52px;
     width: 150px;
@@ -19,7 +25,7 @@
   }
 }
 
-.scheme-switcher-dropdown {
+.dropdown-scheme {
   @media screen and (min-width: $tablet) {
     // text-align: right;
     text-align: left;
@@ -30,9 +36,12 @@
 .scheme-switcher-radio-label {
   gap: 20px;
   text-align: right;
-  justify-content: end;
 
   text-transform: lowercase;
+
+  @media screen and (min-width: $tablet) {
+    justify-content: end;
+  }
 
   & .switcher-icon {
     color: currentColor;

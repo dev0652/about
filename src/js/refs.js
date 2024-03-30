@@ -9,7 +9,7 @@ export const refs = {
 
   // Color scheme switcher
   schemeSwitcherRadios: document.querySelectorAll('.scheme-switcher-radio'),
-  schemeSwitcherDropdown: document.querySelector('.scheme-switcher-dropdown'),
+  schemeSwitcherDropdown: document.querySelector('.dropdown-scheme'),
   schemeSwitcherCheckbox: document.querySelector(
     '.scheme-switcher-menu-checkbox'
   ),
@@ -17,7 +17,7 @@ export const refs = {
 
   // Language switcher
   langSwitcherRadios: document.querySelectorAll('.language-switcher-radio'),
-  langSwitcherDropdown: document.querySelector('.language-switcher-dropdown'),
+  langSwitcherDropdown: document.querySelector('.dropdown-language'),
   langSwitcherCheckbox: document.querySelector('.language-menu-checkbox'),
   langSwitcherCheckboxLabel: document.querySelector('.menu-label-language'),
   langSwitcherMenuCaption: document.querySelector('.language-menu-caption'),
@@ -37,9 +37,7 @@ export const refs = {
   galleryViewSwitcher: document.querySelector('.projects-view-switch'),
 
   // Sliding pages in mobile view
-  // footer: document.querySelector('.footer'),
   pagination: document.querySelector('.pagination'),
-  // bullets: document.querySelectorAll('.pagination-bullet'),
   titlesInjectionTarget: document.querySelector('.mobile-headings'),
 
   // Contact form
