@@ -60,8 +60,8 @@
   href="/about/assets/apple-touch-icon-1a74ebfa.png"
 />
 
-  <script type="module" crossorigin src="/about/assets/index-8543699c.js"></script>
-  <link rel="stylesheet" href="/about/assets/index-416977eb.css">
+  <script type="module" crossorigin src="/about/assets/index-a8a3723e.js"></script>
+  <link rel="stylesheet" href="/about/assets/index-7cc12862.css">
 </head>
 
   
@@ -122,10 +122,11 @@
     aria-controls="scheme-switcher"
     aria-haspopup="menu"
     aria-expanded="false"
+    data-menu-name="scheme"
   />
 
   <svg class="menu-label-icon menu-label-icon-scheme" width="32" height="32">
-    <use href="/about/assets/symbol-defs-e1881694.svg#icon-luminosity"></use>
+    <use href="/about/assets/symbol-defs-b087c83d.svg#icon-luminosity"></use>
   </svg>
 </label>
 
@@ -155,7 +156,7 @@
     />
 
     <svg class="switcher-icon" width="32" height="32">
-      <use href="/about/assets/symbol-defs-e1881694.svg#icon-sun-circled"></use>
+      <use href="/about/assets/symbol-defs-b087c83d.svg#icon-sun-circled"></use>
     </svg>
   </label>
 
@@ -178,7 +179,7 @@
     />
 
     <svg class="switcher-icon" width="32" height="32">
-      <use href="/about/assets/symbol-defs-e1881694.svg#icon-adjust"></use>
+      <use href="/about/assets/symbol-defs-b087c83d.svg#icon-adjust"></use>
     </svg>
   </label>
 
@@ -200,7 +201,7 @@
     />
 
     <svg class="switcher-icon" width="32" height="32">
-      <use href="/about/assets/symbol-defs-e1881694.svg#icon-moon-circled"></use>
+      <use href="/about/assets/symbol-defs-b087c83d.svg#icon-moon-circled"></use>
     </svg>
   </label>
 </fieldset>
@@ -224,10 +225,11 @@
     aria-controls="language-switcher"
     aria-haspopup="menu"
     aria-expanded="false"
+    data-menu-name="language"
   />
 
   <svg class="menu-label-icon menu-label-icon-language" width="32" height="32">
-    <use href="/about/assets/symbol-defs-e1881694.svg#icon-globe"></use>
+    <use href="/about/assets/symbol-defs-b087c83d.svg#icon-globe"></use>
   </svg>
 </label>
 
@@ -281,6 +283,41 @@
 </div>
 <!-- End of language switcher group -->
 
+      <!-- Fullscreen switcher group -->
+<label class="menu-label menu-label-fullscreen" for="fullscreen-menu-checkbox">
+  <div class="menu-caption-wrapper">
+    <p class="menu-caption" data-loc="fullscreen-caption">Full screen</p>
+  </div>
+
+  <input
+    class="menu-checkbox fullscreen-menu-checkbox"
+    type="checkbox"
+    id="fullscreen-menu-checkbox"
+    name="fullscreen-menu-checkbox"
+    aria-label="Toggle the full screen switcher menu"
+    aria-controls="fullscreen-switcher"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    data-menu-name="fullscreen"
+  />
+
+  <svg
+    class="menu-label-icon menu-label-icon-fullscreen"
+    width="32"
+    height="32"
+  >
+    <use href="/about/assets/symbol-defs-b087c83d.svg#icon-expand"></use>
+  </svg>
+</label>
+
+<!-- Language switcher dropdown menu -->
+<div class="dropdown-wrapper dropdown-wrapper-fullscreen">
+  <div class="dropdown dropdown-fullscreen">
+    ENOENT: no such file or directory, open '/home/runner/work/about/about/src/partials/components/fullscreen.html'
+  </div>
+</div>
+<!-- End of fullscreen switcher group -->
+
     </div>
 
     <!-- Mobile menu captions toggle  -->
@@ -294,7 +331,7 @@
       />
 
       <svg class="caption-toggle-icon" width="32" height="32">
-        <use href="/about/assets/symbol-defs-e1881694.svg#icon-overflowdots"></use>
+        <use href="/about/assets/symbol-defs-b087c83d.svg#icon-overflowdots"></use>
       </svg>
     </label>
 
@@ -376,51 +413,57 @@
     <div class="section-content contacts-section-content-wrapper">
       <ul class="contacts-list">
         <li class="contacts-list-item">
-          <div class="contact-icon-wrapper">
-            <svg class="contact-icon" width="36" height="36">
-              <use href="/about/assets/symbol-defs-e1881694.svg#icon-linkedin-filled"></use>
-            </svg>
-          </div>
-
           <a
             class="contact-link"
             href="https://www.linkedin.com/in/diuzhenko/"
             target="_blank"
             rel="noopener noreferrer"
-            >linkedin.com/in/diuzhenko</a
           >
+            <div class="contact-link-icon-wrapper">
+              <svg class="contact-link-icon" width="36" height="36">
+                <use href="/about/assets/symbol-defs-b087c83d.svg#icon-linkedin-filled"></use>
+              </svg>
+            </div>
+
+            <p class="contact-link-text">linkedin.com/in/diuzhenko</p>
+            <p class="contact-link-mobile-caption">linkedin</p>
+          </a>
         </li>
 
         <li class="contacts-list-item">
-          <div class="contact-icon-wrapper">
-            <svg class="contact-icon" width="36" height="36">
-              <use href="/about/assets/symbol-defs-e1881694.svg#icon-email-filled"></use>
-            </svg>
-          </div>
-
           <a
             class="contact-link"
             href="mailto:m.dyuzhenko@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
-            >m.dyuzhenko@gmail.com</a
           >
+            <div class="contact-link-icon-wrapper">
+              <svg class="contact-link-icon" width="36" height="36">
+                <use href="/about/assets/symbol-defs-b087c83d.svg#icon-email-filled"></use>
+              </svg>
+            </div>
+
+            <p class="contact-link-text">m.dyuzhenko@gmail.com</p>
+            <p class="contact-link-mobile-caption">e-mail</p>
+          </a>
         </li>
 
         <li class="contacts-list-item">
-          <div class="contact-icon-wrapper">
-            <svg class="contact-icon" width="36" height="36">
-              <use href="/about/assets/symbol-defs-e1881694.svg#icon-github"></use>
-            </svg>
-          </div>
-
           <a
             class="contact-link"
             href="https://github.com/dev0652"
             target="_blank"
             rel="noopener noreferrer"
-            >github.com/dev0652</a
           >
+            <div class="contact-link-icon-wrapper">
+              <svg class="contact-link-icon" width="36" height="36">
+                <use href="/about/assets/symbol-defs-b087c83d.svg#icon-github"></use>
+              </svg>
+            </div>
+
+            <p class="contact-link-text">github.com/dev0652</p>
+            <p class="contact-link-mobile-caption">github</p>
+          </a>
         </li>
       </ul>
 
@@ -504,7 +547,7 @@
       />
 
       <svg class="mobile-menu-toggle-icon" width="32" height="32">
-        <use href="/about/assets/symbol-defs-e1881694.svg#icon-equalizer"></use>
+        <use href="/about/assets/symbol-defs-b087c83d.svg#icon-equalizer"></use>
       </svg>
     </label>
   </div>
@@ -520,7 +563,7 @@
       aria-label="Close the modal window"
     >
       <svg class="popup-modal-close-button-icon" width="18" height="18">
-        <use href="/about/assets/symbol-defs-e1881694.svg#icon-x-close"></use>
+        <use href="/about/assets/symbol-defs-b087c83d.svg#icon-x-close"></use>
       </svg>
     </button>
 
