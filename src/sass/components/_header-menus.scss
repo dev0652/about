@@ -1,3 +1,26 @@
+.header-menus {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: $tablet-1) {
+    justify-content: center;
+    gap: 1rem;
+
+    width: 100%;
+    padding: 15px 10px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    position: relative;
+    gap: 15px;
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: $desktop) {
+    gap: 30px;
+  }
+}
+
 .menu-label {
   @extend %link !optional;
 
@@ -6,6 +29,9 @@
 
   @media screen and (max-width: $tablet-1) {
     flex-direction: column-reverse;
+
+    width: 70px;
+    width: 70px;
 
     font-size: 0.8rem;
     text-transform: lowercase;
@@ -65,6 +91,7 @@
     transition: max-height 300ms;
 
     max-height: 0;
+    max-width: 100%;
 
     .header-container:has(.caption-toggle-checkbox:checked) & {
       max-height: 30px;
@@ -75,6 +102,10 @@
 .menu-caption {
   @media screen and (max-width: $tablet-1) {
     margin-top: 3px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   @media screen and (min-width: $tablet) and (max-width: $desktop-1) {
@@ -180,7 +211,6 @@ fieldset.switcher {
     margin-top: 0.5rem;
 
     &:checked {
-      // background-color: blue;
       outline: 6px solid var(--text-color);
       outline-offset: -15px;
     }

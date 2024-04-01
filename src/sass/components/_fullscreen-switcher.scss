@@ -1,0 +1,43 @@
+.menu-label-fullscreen {
+  align-self: end;
+
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.dropdown-wrapper-fullscreen {
+  @media screen and (max-width: $tablet-1) {
+    .header-menus:has(.fullscreen-menu-checkbox:checked) & {
+      transform: translateY(-100%);
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 100px;
+
+    .header-menus:has(.fullscreen-menu-checkbox:checked) & {
+      max-height: 200px;
+      height: fit-content;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 130px;
+    right: -10px; // makes up for right padding
+  }
+}
+
+.switcher.fullscreen-switcher {
+  align-items: center;
+}
+
+.fullscreen-switcher-radio-label {
+  @media screen and (max-width: $tablet-1) {
+    text-transform: lowercase;
+  }
+
+  text-align: center;
+
+  text-transform: uppercase;
+}

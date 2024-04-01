@@ -61,6 +61,18 @@ The website comes in two languages, English and Ukrainian. The selected language
 
 Not only doest the website have responsive layout, it also allows one-handed operation in mobile mode, with color scheme and language menus moved to the bottom pop-up panel, which, too, was inspired by Lumia phones.
 
+<picture>
+  <source media="(max-width: 767px) and (prefers-color-scheme: light)" srcset="./src/images/readme/mobile/screenshot_light.webp">
+
+   <source media="(max-width: 767px) and (prefers-color-scheme: dark)" srcset="./src/images/readme/mobile/screenshot_dark.webp 2x">
+
+   <source media="(prefers-color-scheme: light)" srcset="./src/images/readme/desktop/screenshot_light_1x.webp 1x, ./src/images/readme/desktop/screenshot_light_2x.webp 2x">
+
+   <source media="(prefers-color-scheme: dark)" srcset="./src/images/readme/desktop/screenshot_dark_1x.webp 1x, ./src/images/readme/desktop/screenshot_dark_2x.webp 2x">
+
+  <img alt="A screenshot of my website's Projects page with the project gallery in list presentation. The first project card is expanded, revealing the live page screenshot, project description and links to its GitHub page and live page." src="./src/images/readme/screenshot_light_1x.webp">
+</picture>
+
 ### Optimization
 
 - images are served in webp format and have been optimized with Squoosh

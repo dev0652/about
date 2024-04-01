@@ -12,6 +12,7 @@ import { createPagination } from './pagination';
 import { setTypewriterEffect } from './typing-animation';
 import { activateColorSchemeSwitcher } from './color-scheme-switcher';
 import { activateLanguageSwitcher } from './langauge-switcher';
+import { activateFullscreenSwitcher } from './fullScreen';
 
 // *********************************
 
@@ -42,6 +43,8 @@ function doThingsOnLoad() {
   if (mediaQueryMobile.matches) {
     const paginationList = document.querySelector('.pagination-list');
     if (!paginationList) createPagination();
+
+    activateFullscreenSwitcher();
   } else {
     addHeaderNavListeners();
   }
@@ -49,13 +52,13 @@ function doThingsOnLoad() {
   changeTextAreaSize();
 }
 
-function setLocale() {
-  // Check local storage for saved language setting
-  const savedLanguage = localStorage.getItem('language');
-  // Preset window.locale global variable
-  window.locale = savedLanguage ? savedLanguage : 'en';
-  console.log('window.locale in setLocale: ', window.locale);
-}
+// function setLocale() {
+//   // Check local storage for saved language setting
+//   const savedLanguage = localStorage.getItem('language');
+//   // Preset window.locale global variable
+//   window.locale = savedLanguage ? savedLanguage : 'en';
+//   console.log('window.locale in setLocale: ', window.locale);
+// }
 
 // *********************************
 

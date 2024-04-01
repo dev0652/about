@@ -1,3 +1,4 @@
+import { onHeaderMenuToggle } from './headerMenus';
 import { refs } from './refs';
 import { updateSourceMedia } from './updateSourceMedia';
 
@@ -101,48 +102,8 @@ function presetSwitcher() {
 
 // *********************************
 
-// Listen to clicks outside of the color scheme switcher while menu is open
-function onSwitcherMenuToggle(event) {
-  const method = event.target.checked
-    ? 'addEventListener'
-    : 'removeEventListener';
-  document[method]('click', handleClicksOutsideSwitcherMenu);
-
-  if (event.target.checked) {
-    refs.schemeSwitcherRadios.forEach((radio) => {
-      radio.removeAttribute('tabIndex');
-    });
-
-    event.target.setAttribute('aria-expanded', true);
-  } else {
-    refs.schemeSwitcherRadios.forEach((radio) => {
-      radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed
-    });
-
-    event.target.setAttribute('aria-expanded', false);
-  }
-}
-
-// If clicked outside menu, close it
-function handleClicksOutsideSwitcherMenu(event) {
-  if (
-    !refs.schemeSwitcherDropdown.contains(event.target) &&
-    !refs.schemeSwitcherCheckboxLabel.contains(event.target)
-  ) {
-    document.removeEventListener('click', handleClicksOutsideSwitcherMenu);
-    refs.schemeSwitcherCheckbox.checked = false;
-    refs.schemeSwitcherCheckbox.setAttribute('aria-expanded', false);
-
-    refs.schemeSwitcherRadios.forEach((radio) => {
-      radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed
-    });
-  }
-}
-
-// *********************************
-
 export function activateColorSchemeSwitcher() {
   setupScheme();
   presetSwitcher();
-  refs.schemeSwitcherCheckbox.addEventListener('change', onSwitcherMenuToggle);
+  refs.schemeSwitcherCheckbox.addEventListener('change', onHeaderMenuToggle);
 }

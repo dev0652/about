@@ -14,6 +14,12 @@
   }
 
   color-scheme: light dark;
+
+  &:fullscreen {
+    section {
+      background-color: inherit;
+    }
+  }
 }
 
 body {
@@ -30,16 +36,16 @@ body {
   --blurOffset: 20vh; // default for mobile, is reset via JS
   --bottomBlurOffset: 50px; // default, mobile only, will be reset via JS
 
+  @media screen and (max-width: $tablet-1) {
+    padding-bottom: var(--bottomBlurOffset);
+  }
+
   @media screen and (min-width: $tablet) {
     --blurOffset: 5.1375rem; // default, is reset via JS
   }
 
   @media screen and (min-width: $desktop) {
     --blurOffset: 4.4rem; // default, is reset via JS
-  }
-
-  @media screen and (max-width: $tablet-1) {
-    padding-bottom: var(--bottomBlurOffset);
   }
 
   padding-top: var(--blurOffset);

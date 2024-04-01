@@ -51,33 +51,6 @@
 
 // *****************************
 
-.header-menus {
-  display: flex;
-  align-items: center;
-
-  @media screen and (max-width: $tablet-1) {
-    justify-content: center;
-    gap: 2rem;
-
-    width: 100%;
-    padding: 15px 10px;
-  }
-
-  @media screen and (min-width: $tablet) {
-    position: relative;
-    gap: 15px;
-    justify-content: space-between;
-  }
-
-  @media screen and (min-width: $desktop) {
-    gap: 30px;
-
-    // background-color: beige;
-  }
-}
-
-// *****************************
-
 .caption-toggle-label {
   @extend %link !optional;
 

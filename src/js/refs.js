@@ -16,11 +16,23 @@ export const refs = {
   schemeSwitcherCheckboxLabel: document.querySelector('.menu-label-scheme'),
 
   // Language switcher
-  langSwitcherRadios: document.querySelectorAll('.language-switcher-radio'),
-  langSwitcherDropdown: document.querySelector('.dropdown-language'),
-  langSwitcherCheckbox: document.querySelector('.language-menu-checkbox'),
-  langSwitcherCheckboxLabel: document.querySelector('.menu-label-language'),
-  langSwitcherMenuCaption: document.querySelector('.language-menu-caption'),
+  languageSwitcherRadios: document.querySelectorAll('.language-switcher-radio'),
+  languageSwitcherDropdown: document.querySelector('.dropdown-language'),
+  languageSwitcherCheckbox: document.querySelector('.language-menu-checkbox'),
+  languageSwitcherCheckboxLabel: document.querySelector('.menu-label-language'),
+  languageSwitcherMenuCaption: document.querySelector('.language-menu-caption'),
+
+  // Fullscreen mode switcher
+  fullscreenSwitcherRadios: document.querySelectorAll(
+    '.fullscreen-switcher-radio'
+  ),
+  fullscreenSwitcherDropdown: document.querySelector('.dropdown-fullscreen'),
+  fullscreenSwitcherCheckbox: document.querySelector(
+    '.fullscreen-menu-checkbox'
+  ),
+  fullscreenSwitcherCheckboxLabel: document.querySelector(
+    '.menu-label-fullscreen'
+  ),
 
   // Header
   header: document.querySelector('.header'),

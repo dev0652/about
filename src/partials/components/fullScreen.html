@@ -1,0 +1,49 @@
+<fieldset
+  class="switcher fullscreen-switcher"
+  id="fullscreen-switcher"
+  role="menu"
+>
+  <legend
+    class="switcher-legend fullscreen-switcher-legend"
+    data-loc="fullscreen"
+  >
+    Full screen
+  </legend>
+
+  <label
+    class="switcher-radio-label fullscreen-switcher-radio-label"
+    for="fullscreen-on"
+    role="menuitem"
+  >
+    <p class="fullscreen-switcher-radio-caption" data-loc="on">On</p>
+
+    <input
+      class="switcher-radio fullscreen-switcher-radio"
+      type="radio"
+      id="fullscreen-on"
+      name="fullscreen"
+      value="on"
+      aria-label="Enable full screen mode"
+      tabindex="-1"
+    />
+  </label>
+
+  <label
+    class="switcher-radio-label fullscreen-switcher-radio-label"
+    for="fullscreen-off"
+    role="menuitem"
+  >
+    <p class="fullscreen-switcher-radio-caption" data-loc="off">Off</p>
+
+    <input
+      class="switcher-radio fullscreen-switcher-radio"
+      type="radio"
+      id="fullscreen-off"
+      name="fullscreen"
+      value="off"
+      aria-label="Disable full screen mode"
+      tabindex="-1"
+      checked
+    />
+  </label>
+</fieldset>

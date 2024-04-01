@@ -4,11 +4,13 @@
     overflow: hidden;
     visibility: hidden;
   }
+
   .swipe-wrap {
     position: relative;
     overflow: hidden;
     // display: flex;
   }
+
   .swipe-wrap > .section {
     float: left; // omg
     width: 100%;
