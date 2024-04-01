@@ -4,7 +4,7 @@
 
   @media screen and (max-width: $tablet-1) {
     justify-content: center;
-    gap: 1rem;
+    gap: 5px;
 
     width: 100%;
     padding: 15px 10px;
@@ -30,13 +30,17 @@
   @media screen and (max-width: $tablet-1) {
     flex-direction: column-reverse;
 
-    width: 70px;
-    width: 70px;
-
     font-size: 0.8rem;
     text-transform: lowercase;
 
     overflow: hidden;
+
+    width: 3.2rem;
+
+    .header-container:has(.caption-toggle-checkbox:checked) & {
+      // max-width: 70px;
+      width: 4.5rem;
+    }
 
     &:not(:has(.menu-checkbox:checked)) {
       color: var(--scheme-switcher-label-inactive);
@@ -76,7 +80,7 @@
   }
 
   $td: 600ms;
-  transition: color $td;
+  transition: color $td, width $td;
 
   .menu-label-icon {
     fill: currentColor;
