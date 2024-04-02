@@ -12,7 +12,7 @@ import { createPagination } from './pagination';
 import { setTypewriterEffect } from './typing-animation';
 import { activateColorSchemeSwitcher } from './color-scheme-switcher';
 import { activateLanguageSwitcher } from './langauge-switcher';
-// import { activateFullscreenSwitcher } from './fullScreen';
+import { activateFullscreenSwitcher } from './fullScreen';
 
 // *********************************
 
@@ -43,7 +43,7 @@ function doThingsOnLoad() {
   if (mediaQueryMobile.matches) {
     const paginationList = document.querySelector('.pagination-list');
     if (!paginationList) createPagination();
-    // activateFullscreenSwitcher();
+    activateFullscreenSwitcher();
   } else {
     addHeaderNavListeners();
   }
