@@ -43,7 +43,6 @@ function doThingsOnLoad() {
   if (mediaQueryMobile.matches) {
     const paginationList = document.querySelector('.pagination-list');
     if (!paginationList) createPagination();
-
     activateFullscreenSwitcher();
   } else {
     addHeaderNavListeners();
