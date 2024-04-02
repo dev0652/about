@@ -60,7 +60,7 @@
   href="/about/assets/apple-touch-icon-1a74ebfa.png"
 />
 
-  <script type="module" crossorigin src="/about/assets/index-6087af66.js"></script>
+  <script type="module" crossorigin src="/about/assets/index-985a18e9.js"></script>
   <link rel="stylesheet" href="/about/assets/index-1d69b088.css">
 </head>
 
@@ -283,7 +283,90 @@
 </div>
 <!-- End of language switcher group -->
 
-      ENOENT: no such file or directory, open '/home/runner/work/about/about/src/partials/components/fullscreen-menu.html'
+      <!-- Fullscreen switcher group -->
+<label class="menu-label menu-label-fullscreen" for="fullscreen-menu-checkbox">
+  <div class="menu-caption-wrapper">
+    <p class="menu-caption" data-loc="fullscreen-caption">Full screen</p>
+  </div>
+
+  <input
+    class="menu-checkbox fullscreen-menu-checkbox"
+    type="checkbox"
+    id="fullscreen-menu-checkbox"
+    name="fullscreen-menu-checkbox"
+    aria-label="Toggle the full screen mode menu"
+    aria-controls="fullscreen-switcher"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    data-menu-name="fullscreen"
+  />
+
+  <svg
+    class="menu-label-icon menu-label-icon-fullscreen"
+    width="32"
+    height="32"
+  >
+    <use href="/about/assets/symbol-defs-b087c83d.svg#icon-expand"></use>
+  </svg>
+</label>
+
+<!-- Fullscreen switcher dropdown menu -->
+<div class="dropdown-wrapper dropdown-wrapper-fullscreen">
+  <div class="dropdown dropdown-fullscreen">
+    <fieldset
+  class="switcher fullscreen-switcher"
+  id="fullscreen-switcher"
+  role="menu"
+>
+  <legend
+    class="switcher-legend fullscreen-switcher-legend"
+    data-loc="fullscreen"
+  >
+    Full screen
+  </legend>
+
+  <label
+    class="switcher-radio-label fullscreen-switcher-radio-label"
+    for="fullscreen-on"
+    role="menuitem"
+  >
+    <p class="fullscreen-switcher-radio-caption" data-loc="on">On</p>
+
+    <input
+      class="switcher-radio fullscreen-switcher-radio"
+      type="radio"
+      id="fullscreen-on"
+      name="fullscreen"
+      value="on"
+      aria-label="Enable full screen mode"
+      tabindex="-1"
+    />
+  </label>
+
+  <label
+    class="switcher-radio-label fullscreen-switcher-radio-label"
+    for="fullscreen-off"
+    role="menuitem"
+  >
+    <p class="fullscreen-switcher-radio-caption" data-loc="off">Off</p>
+
+    <input
+      class="switcher-radio fullscreen-switcher-radio"
+      type="radio"
+      id="fullscreen-off"
+      name="fullscreen"
+      value="off"
+      aria-label="Disable full screen mode"
+      tabindex="-1"
+      checked
+    />
+  </label>
+</fieldset>
+
+  </div>
+</div>
+<!-- End of fullscreen switcher group -->
+
     </div>
 
     <!-- Mobile menu captions toggle  -->
