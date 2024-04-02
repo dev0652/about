@@ -66,8 +66,8 @@ function switchView() {
 
     const isGallery = cardList.classList.contains('gallery-view');
 
-    const method = isGallery ? 'addEventListener' : 'removeEventListener';
-    cardList[method]('click', handleGalleryCardClicks);
+    const method = isGallery ? 'add' : 'remove';
+    cardList[`${method}EventListener`]('click', handleGalleryCardClicks);
 
     // Slide gallery back into view
     slideGalleryIntoView();

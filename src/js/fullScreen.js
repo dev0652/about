@@ -3,44 +3,24 @@ import { onHeaderMenuToggle } from './headerMenus';
 
 // *********************************
 
-export function toggleFullscreen(event) {
-  if (
-    event.target.value === 'on' &&
-    event.isTrusted &&
-    !document.fullscreenElement
-  ) {
+const fullScreenOffRadio = document.querySelector(
+  `.fullscreen-switcher-radio[value="off"]`
+);
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
     document.documentElement
       .requestFullscreen({ navigationUI: 'hide' })
-      .then((res) => console.log(res))
-      .catch((err) => {
-        alert(
-          `Error attempting to enable fullscreen mode: ${err.message} (${err.name})`
-        );
-      });
+      .catch(onFullScreenReject);
   } else {
     document.exitFullscreen();
-
-    const fullScreenOffRadio = document.querySelector(
-      `.fullscreen-switcher-radio[value="off"]`
-    );
-    fullScreenOffRadio.setAttribute('checked', '');
   }
 }
 
-function onFullScreenExit() {
-  if (!document.fullscreenElement) {
-    // refs.fullscreenSwitcherRadios;
-    console.log(
-      'refs.fullscreenSwitcherRadios: ',
-      refs.fullscreenSwitcherRadios
-    );
-
-    document.documentElement.removeEventListener(
-      'fullscreenchange',
-      onFullScreenExit
-    );
-  }
-}
+const onFullScreenReject = (err) => {
+  const text = `Error attempting to enable fullscreen mode: ${err.message} (${err.name})`;
+  alert(text);
+};
 
 // *********************************
 
