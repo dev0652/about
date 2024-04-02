@@ -3,9 +3,9 @@ import { onHeaderMenuToggle } from './headerMenus';
 
 // *********************************
 
-const fullScreenOffRadio = document.querySelector(
-  `.fullscreen-switcher-radio[value="off"]`
-);
+// const fullScreenOffRadio = document.querySelector(
+//   `.fullscreen-switcher-radio[value="off"]`
+// );
 
 function toggleFullscreen() {
   if (!document.fullscreenElement) {
