@@ -13,7 +13,16 @@ This is my personal portfolio website created to showcase my projects and to giv
 
    <source media="(prefers-color-scheme: dark)" srcset="./src/images/readme/desktop/screenshot_dark_1x.webp 1x, ./src/images/readme/desktop/screenshot_dark_2x.webp 2x">
 
-  <img alt="A screenshot of my website's Projects page with the project gallery in list presentation. The first project card is expanded, revealing the live page screenshot, project description and links to its GitHub page and live page." src="./src/images/readme/screenshot_light_1x.webp">
+  <img alt="A screenshot of my website's Projects page with the project gallery in list presentation. The first project card is expanded, revealing the live page screenshot, project description and links to its GitHub page and live page." src="./src/images/readme/desktop/screenshot_light_2x.webp">
+</picture>
+
+<picture>
+
+   <source media="(min-width: 768px) and (prefers-color-scheme: light)" srcset="./src/images/readme/desktop/screenshot_mobile_light_1x.webp 1x, ./src/images/readme/desktop/screenshot_mobile_light_2x.webp 2x">
+
+   <source media="(min-width: 768px) and (prefers-color-scheme: dark)" srcset="./src/images/readme/desktop/screenshot_mobile_dark_1x.webp 1x, ./src/images/readme/desktop/screenshot_mobile_dark_2x.webp 2x">
+
+  <img alt="Screenshot of all three pages in mobile presentation along one another: 'About', 'Projects' and 'Contacts'. It demonstrates some of the ways in which the mobile version is different from the desktop one, namely, it features a vertical layout and a bottom menu, and modals are sliding out from the bottom of the screen." src="">
 </picture>
 
 ## Design
@@ -37,7 +46,7 @@ Here are some of the features of this website:
 
 ### Responsive layout
 
-The website is fully responsive, has 4 breakpoints and reacts to orientation change
+The website is fully responsive, has 4 breakpoints and reacts to orientation change.
 
 ### Color schemes
 
@@ -61,16 +70,15 @@ The website comes in two languages, English and Ukrainian. The selected language
 
 Not only doest the website have responsive layout, it also allows one-handed operation in mobile mode, with color scheme and language menus moved to the bottom pop-up panel, which, too, was inspired by Lumia phones.
 
+Mobile mode also features a full-screen-view toggle for better experience.
+
 <picture>
-  <source media="(max-width: 767px) and (prefers-color-scheme: light)" srcset="./src/images/readme/mobile/screenshot_light.webp">
 
-   <source media="(max-width: 767px) and (prefers-color-scheme: dark)" srcset="./src/images/readme/mobile/screenshot_dark.webp 2x">
+   <source media="(prefers-color-scheme: light)" srcset="./src/images/readme/mobile-menu/mobile-menu_light_1x.webp 1x, ./src/images/readme/mobile-menu/mobile-menu_light_2x.webp 2x">
 
-   <source media="(prefers-color-scheme: light)" srcset="./src/images/readme/desktop/screenshot_light_1x.webp 1x, ./src/images/readme/desktop/screenshot_light_2x.webp 2x">
+   <source media="(prefers-color-scheme: dark)" srcset="./src/images/readme/mobile-menu/mobile-menu_dark_1x.webp 1x, ./src/images/readme/mobile-menu/mobile-menu_dark_2x.webp 2x">
 
-   <source media="(prefers-color-scheme: dark)" srcset="./src/images/readme/desktop/screenshot_dark_1x.webp 1x, ./src/images/readme/desktop/screenshot_dark_2x.webp 2x">
-
-  <img alt="A screenshot of my website's Projects page with the project gallery in list presentation. The first project card is expanded, revealing the live page screenshot, project description and links to its GitHub page and live page." src="./src/images/readme/screenshot_light_1x.webp">
+  <img alt="A screenshot of my website's Projects page with the project gallery in list presentation. The first project card is expanded, revealing the live page screenshot, project description and links to its GitHub page and live page." src="./src/images/readme/mobile-menu/mobile-menu_light_2x.webp">
 </picture>
 
 ### Optimization
@@ -81,9 +89,9 @@ Not only doest the website have responsive layout, it also allows one-handed ope
 Lighthouse ratings:
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="./src/images/readme/lighthouse_light.webp">
+  <source media="(prefers-color-scheme: light)" srcset="./src/images/readme/lighthouse/lighthouse_light.webp">
 
-   <source media="(prefers-color-scheme: dark)" srcset="./src/images/readme/lighthouse_dark.webp">
+   <source media="(prefers-color-scheme: dark)" srcset="./src/images/readme/lighthouse/lighthouse_dark.webp">
 
-  <img alt="A screenshot of my website's Lighthouse report with the following ratings: Performance: 100, Accessibility: 95, Best Practices: 100, SEO: 100." src="./src/images/readme/lighthouse_light.webp">
+  <img alt="A screenshot of my website's Lighthouse report with the following ratings: Performance: 100, Accessibility: 95, Best Practices: 100, SEO: 100." src="./src/images/readme/lighthouse/lighthouse_light.webp">
 </picture>

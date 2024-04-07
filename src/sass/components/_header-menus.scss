@@ -198,32 +198,6 @@ fieldset.switcher {
   }
 }
 
-.switcher-radio {
-  appearance: none;
-
-  @media screen and (max-width: $tablet-1) {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    border: 4px solid var(--switcher-label-mobile-inactive);
-
-    margin-top: 0.5rem;
-
-    &:checked {
-      border-color: var(--text-color);
-      outline: 6px solid var(--text-color);
-      outline-offset: -15px;
-    }
-  }
-
-  @media screen and (min-width: $tablet) {
-    max-height: 0;
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
-}
-
 .switcher-radio-label {
   @extend %link !optional;
 
@@ -268,5 +242,34 @@ fieldset.switcher {
   &:has(.switcher-radio:focus-visible) {
     outline: 3px solid var(--text-color);
     outline-offset: 2px;
+  }
+}
+
+.switcher-radio {
+  appearance: none;
+
+  @media screen and (max-width: $tablet-1) {
+    $size: 1.5rem;
+    $outline: calc($size * 0.23);
+
+    height: $size;
+    width: $size;
+
+    border-radius: 50%;
+    border: 4px solid currentColor;
+
+    margin-top: $outline;
+
+    &:checked {
+      outline: $outline solid var(--text-color);
+      outline-offset: -1rem; // dot in the middle :)
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    max-height: 0;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
   }
 }
