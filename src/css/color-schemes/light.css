@@ -3,6 +3,8 @@
   --blackish: #111111;
   --light-blue: #2980b9;
 
+  --smoke-gray: #2a3439;
+
   /* Accent */
   --accent-color: var(--light-blue);
 
@@ -41,11 +43,13 @@
   --switcher-label-mobile-inactive: dimgray;
 
   --scheme-switcher-dropdown-bg: rgb(236, 235, 235);
+
   @media screen and (min-width: 768px) {
     --scheme-switcher-dropdown-bg: #f2f3f4;
   }
 
-  --scheme-switcher-radio: var(--text-color);
+  --scheme-switcher-radio: dimgray;
+
   @media screen and (min-width: 768px) {
     --scheme-switcher-radio: gray;
   }

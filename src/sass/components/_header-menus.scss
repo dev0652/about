@@ -232,10 +232,10 @@ fieldset.switcher {
 
     @media screen and (min-width: $tablet) {
       color: var(--accent-color);
-    }
 
-    &:hover {
-      filter: brightness(1.3);
+      &:hover {
+        filter: brightness(1.3);
+      }
     }
   }
 
@@ -256,11 +256,12 @@ fieldset.switcher {
     width: $size;
 
     border-radius: 50%;
-    border: 4px solid currentColor;
+    border: 4px solid var(--scheme-switcher-radio);
 
     margin-top: $outline;
 
     &:checked {
+      // border-color: var(--scheme-switcher-radio);
       outline: $outline solid var(--text-color);
       outline-offset: -1rem; // dot in the middle :)
     }

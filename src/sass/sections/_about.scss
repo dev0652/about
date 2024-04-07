@@ -28,10 +28,10 @@
 }
 
 .description-link {
+  color: var(--accent-color);
+
   @media screen and (min-width: $tablet) {
     position: relative;
-
-    color: var(--accent-color);
 
     &:hover,
     &:focus-visible {
@@ -57,9 +57,5 @@
       left: 0;
       width: 100%;
     }
-  }
-
-  .about-link-icon {
-    fill: currentColor;
   }
 }
