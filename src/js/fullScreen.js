@@ -3,17 +3,17 @@ import { onHeaderMenuToggle } from './headerMenus';
 
 // *********************************
 
-// const fullScreenOffRadio = document.querySelector(
-//   `.fullscreen-switcher-radio[value="off"]`
-// );
-
-function toggleFullscreen() {
-  if (!document.fullscreenElement) {
+function toggleFullscreen(event) {
+  if (event.target.value === 'on') {
     document.documentElement
       .requestFullscreen({ navigationUI: 'hide' })
-      .catch(onFullScreenReject);
+      .catch(onFullScreenReject)
+      .finally(
+        document.addEventListener('fullscreenchange', onFullScreenChange)
+      );
   } else {
     document.exitFullscreen();
+    document.removeEventListener('fullscreenchange', onFullScreenChange);
   }
 }
 
@@ -33,4 +33,15 @@ export function activateFullscreenSwitcher() {
     'change',
     onHeaderMenuToggle
   );
+}
+
+function onFullScreenChange() {
+  if (!document.fullscreenElement) {
+    const fullScreenOffRadio = document.querySelector(
+      `.fullscreen-switcher-radio[value="off"]`
+    );
+
+    fullScreenOffRadio.checked = true;
+    document.removeEventListener('fullscreenchange', onFullScreenChange);
+  }
 }
