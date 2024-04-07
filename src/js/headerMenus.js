@@ -20,7 +20,8 @@ export function onHeaderMenuToggle(event) {
   function handleClicksOutsideMenu(event) {
     if (
       !dropdown.contains(event.target) &&
-      !checkboxLabel.contains(event.target)
+      !checkboxLabel.contains(event.target) &&
+      !document.querySelector('.caption-toggle-label').contains(event.target)
     ) {
       document.removeEventListener('click', handleClicksOutsideMenu);
       checkbox.checked = false;
