@@ -18,9 +18,9 @@ This is my personal portfolio website created to showcase my projects and to giv
 
 <picture>
 
-   <source media="(min-width: 768px) and (prefers-color-scheme: light)" srcset="./src/images/readme/desktop/screenshot_mobile_light_1x.webp 1x, ./src/images/readme/desktop/screenshot_mobile_light_2x.webp 2x">
+   <source media="(prefers-color-scheme: light)" srcset="./src/images/readme/desktop/screenshot_mobile_light_1x.webp 1x, ./src/images/readme/desktop/screenshot_mobile_light_2x.webp 2x">
 
-   <source media="(min-width: 768px) and (prefers-color-scheme: dark)" srcset="./src/images/readme/desktop/screenshot_mobile_dark_1x.webp 1x, ./src/images/readme/desktop/screenshot_mobile_dark_2x.webp 2x">
+   <source media="(prefers-color-scheme: dark)" srcset="./src/images/readme/desktop/screenshot_mobile_dark_1x.webp 1x, ./src/images/readme/desktop/screenshot_mobile_dark_2x.webp 2x">
 
   <img alt="Screenshot of all three pages in mobile presentation along one another: 'About', 'Projects' and 'Contacts'. It demonstrates some of the ways in which the mobile version is different from the desktop one, namely, it features a vertical layout and a bottom menu, and modals are sliding out from the bottom of the screen." src="">
 </picture>
