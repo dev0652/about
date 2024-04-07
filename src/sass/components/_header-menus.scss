@@ -35,15 +35,10 @@
 
     overflow: hidden;
 
-    width: 3.2rem;
-
-    .header-container:has(.caption-toggle-checkbox:checked) & {
-      // max-width: 70px;
-      width: 4.5rem;
-    }
+    width: 4rem;
 
     &:not(:has(.menu-checkbox:checked)) {
-      color: var(--scheme-switcher-label-inactive);
+      color: var(--switcher-label-mobile-inactive);
     }
 
     &:has(.menu-checkbox:checked) {
@@ -84,7 +79,7 @@
 
   .menu-label-icon {
     fill: currentColor;
-    transition: transform $td;
+    transition: transform $td, fill $td;
   }
 }
 
@@ -210,11 +205,12 @@ fieldset.switcher {
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    border: 4px solid var(--text-color);
+    border: 4px solid var(--switcher-label-mobile-inactive);
 
     margin-top: 0.5rem;
 
     &:checked {
+      border-color: var(--text-color);
       outline: 6px solid var(--text-color);
       outline-offset: -15px;
     }
@@ -254,10 +250,15 @@ fieldset.switcher {
 
   & .switcher-icon {
     color: currentColor;
+    transition: fill $td $tf;
   }
 
   &:has(.switcher-radio:checked) {
-    color: var(--accent-color);
+    color: var(--text-color);
+
+    @media screen and (min-width: $tablet) {
+      color: var(--accent-color);
+    }
 
     &:hover {
       filter: brightness(1.3);

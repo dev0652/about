@@ -39,10 +39,7 @@
   --scheme-switcher-bg-gradient-start: gray;
   --scheme-switcher-bg-gradient-end: var(--dark-gray);
 
-  --scheme-switcher-label-inactive: var(--text-color);
-  @media screen and (min-width: 768px) {
-    --scheme-switcher-label-inactive: darkgray;
-  }
+  --switcher-label-mobile-inactive: darkgray;
 
   --scheme-switcher-dropdown-bg: #0d1117;
   @media screen and (min-width: 768px) {
