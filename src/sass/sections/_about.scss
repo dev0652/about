@@ -21,13 +21,45 @@
   @media screen and (min-width: $desktop-wide) {
     max-width: 50vw;
   }
+
+  & > p {
+    vertical-align: middle;
+  }
 }
 
 .description-link {
-  color: var(--accent-color);
+  @media screen and (min-width: $tablet) {
+    position: relative;
 
-  &:hover,
-  &:focus {
-    color: lightslategray;
+    color: var(--accent-color);
+
+    &:hover,
+    &:focus-visible {
+      filter: brightness(1.3);
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -2px;
+      right: 0;
+
+      width: 0;
+      height: 2px;
+      background-color: currentColor;
+
+      $td: 500ms;
+      transition: width $td, left $td, background-color $td;
+    }
+
+    &:hover::after {
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  .about-link-icon {
+    fill: currentColor;
   }
 }
