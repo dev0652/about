@@ -23,9 +23,7 @@ export const refs = {
   languageSwitcherMenuCaption: document.querySelector('.language-menu-caption'),
 
   // Fullscreen mode switcher
-  fullscreenSwitcherRadios: document.querySelectorAll(
-    '.fullscreen-switcher-radio'
-  ),
+
   fullscreenSwitcherDropdown: document.querySelector('.dropdown-fullscreen'),
   fullscreenSwitcherCheckbox: document.querySelector(
     '.fullscreen-menu-checkbox'

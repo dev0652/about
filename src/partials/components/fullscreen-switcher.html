@@ -11,39 +11,30 @@
   </legend>
 
   <label
-    class="switcher-radio-label fullscreen-switcher-radio-label"
-    for="fullscreen-on"
+    class="switcher-radio-label fullscreen-switcher-label"
+    for="fullscreen-switcher-checkbox"
     role="menuitem"
   >
-    <p class="fullscreen-switcher-radio-caption" data-loc="on">On</p>
-
     <input
-      class="switcher-radio fullscreen-switcher-radio"
-      type="radio"
-      id="fullscreen-on"
-      name="fullscreen"
-      value="on"
-      aria-label="Enable full screen mode"
-      tabindex="-1"
+      type="checkbox"
+      name="fullscreen-switcher-checkbox"
+      class="fullscreen-switcher-checkbox"
+      id="fullscreen-switcher-checkbox"
+      aria-label="Toggle full screen mode"
     />
-  </label>
 
-  <label
-    class="switcher-radio-label fullscreen-switcher-radio-label"
-    for="fullscreen-off"
-    role="menuitem"
-  >
-    <p class="fullscreen-switcher-radio-caption" data-loc="off">Off</p>
+    <p class="fullscreen-switcher-caption fullscreen-switcher-on" data-loc="on">
+      On
+    </p>
+    <p
+      class="fullscreen-switcher-caption fullscreen-switcher-off"
+      data-loc="off"
+    >
+      Off
+    </p>
 
-    <input
-      class="switcher-radio fullscreen-switcher-radio"
-      type="radio"
-      id="fullscreen-off"
-      name="fullscreen"
-      value="off"
-      aria-label="Disable full screen mode"
-      tabindex="-1"
-      checked
-    />
+    <div class="fs-slider-wrapper">
+      <div class="fs-slider"></div>
+    </div>
   </label>
 </fieldset>

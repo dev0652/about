@@ -4,7 +4,7 @@ import { onHeaderMenuToggle } from './headerMenus';
 // *********************************
 
 function toggleFullscreen(event) {
-  if (event.target.value === 'on') {
+  if (event.target.checked === true) {
     document.documentElement
       .requestFullscreen({ navigationUI: 'hide' })
       .catch(onFullScreenReject)
@@ -24,10 +24,10 @@ const onFullScreenReject = (err) => {
 
 // *********************************
 
+const fsSwitcher = document.querySelector('#fullscreen-switcher-checkbox');
+
 export function activateFullscreenSwitcher() {
-  [...refs.fullscreenSwitcherRadios].forEach((radio) => {
-    radio.addEventListener('change', toggleFullscreen);
-  });
+  // fsSwitcher.addEventListener('change', toggleFullscreen);
 
   refs.fullscreenSwitcherCheckbox.addEventListener(
     'change',
@@ -37,11 +37,8 @@ export function activateFullscreenSwitcher() {
 
 function onFullScreenChange() {
   if (!document.fullscreenElement) {
-    const fullScreenOffRadio = document.querySelector(
-      `.fullscreen-switcher-radio[value="off"]`
-    );
+    fsSwitcher.checked = false;
 
-    fullScreenOffRadio.checked = true;
     document.removeEventListener('fullscreenchange', onFullScreenChange);
   }
 }
