@@ -347,7 +347,7 @@
   border: 1px solid rgba(darkgray, 0.2);
 }
 
-@media (hover: hover) and (pointer: coarse) {
+@media (hover: hover) and (pointer: fine) {
   .flip-card:hover .flip-card-inner,
   .flip-card:focus-visible .flip-card-inner {
     transform: rotateY(180deg);
