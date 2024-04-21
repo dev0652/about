@@ -12,6 +12,32 @@
     body:has(.mobile-menu-toggle-checkbox:checked) & {
       transform: translateY(0);
     }
+
+    &:not(:has(.menu-checkbox:checked)) {
+      // overflow: visible;
+
+      &:before {
+        content: '';
+        position: absolute;
+
+        $blur-offset: 7vh;
+
+        left: 0;
+        top: calc($blur-offset * -1);
+
+        width: 100vw;
+        height: $blur-offset;
+
+        pointer-events: none;
+        z-index: $index-main-pseudos;
+
+        background: linear-gradient(
+          to top,
+          var(--background-color),
+          transparent
+        );
+      }
+    }
   }
 
   @media screen and (min-width: $tablet) {

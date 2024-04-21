@@ -132,24 +132,24 @@
 
     transform: translateY(0);
 
-    // &:before {
-    //   // works when 'overflow' is set to 'visible' in the specific menu's stylesheet
-    //   content: '';
-    //   position: absolute;
+    &:before {
+      // works when 'overflow' is set to 'visible' in the specific menu's stylesheet
+      content: '';
+      position: absolute;
 
-    //   $blur-offset: 7vh;
+      $blur-offset: 7vh;
 
-    //   left: 0;
-    //   top: calc($blur-offset * -1);
+      left: 0;
+      top: calc($blur-offset * -1);
 
-    //   width: 100vw;
-    //   height: $blur-offset;
+      width: 100vw;
+      height: $blur-offset;
 
-    //   pointer-events: none;
-    //   z-index: $index-main-pseudos;
+      pointer-events: none;
+      z-index: $index-main-pseudos;
 
-    //   background: linear-gradient(to top, var(--background-color), transparent);
-    // }
+      background: linear-gradient(to top, var(--background-color), transparent);
+    }
   }
 
   @media screen and (min-width: $tablet) {
