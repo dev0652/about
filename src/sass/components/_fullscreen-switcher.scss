@@ -22,7 +22,7 @@
 $slider-width: 4rem;
 $slider-height: 1.5rem;
 $slider-grip-width: 1.25rem;
-$slider-border-width: 2px;
+$slider-border-width: 3px;
 
 .fullscreen-switcher-label {
   display: flex;
@@ -85,6 +85,7 @@ $slider-border-width: 2px;
 
   border: $slider-border-width solid var(--text-color);
   padding: $slider-border-width;
+  // padding: calc($slider-border-width - 1px);
 
   background-color: var(--accent-color);
   background-clip: content-box;
@@ -99,13 +100,13 @@ $slider-border-width: 2px;
     transform: translateY(-50%);
     left: calc($slider-border-width * -1);
 
-    height: calc($slider-height + $slider-border-width * 4);
+    height: calc($slider-height + $slider-border-width * 3);
     width: $slider-grip-width;
 
-    border: calc($slider-border-width + 1px) solid
-      var(--switcher-menu-dropdown-bg);
+    border: calc($slider-border-width) solid var(--switcher-menu-dropdown-bg);
 
     background-color: var(--text-color);
+    background-clip: content-box;
 
     transition: transform 300ms;
   }
