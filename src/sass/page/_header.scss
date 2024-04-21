@@ -5,7 +5,7 @@
   z-index: $index-header;
 
   @media screen and (max-width: $tablet-1) {
-    bottom: 50px; // footer height
+    bottom: 49.5px; // footer height
 
     transform: translateY(100%);
 
