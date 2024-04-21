@@ -26,14 +26,12 @@ const onFullScreenReject = (err) => {
 
 export function activateFullscreenSwitcher() {
   refs.fullscreenSwitcherCheckbox.addEventListener('change', toggleFullscreen);
-
   refs.fullscreenMenuCheckbox.addEventListener('change', onHeaderMenuToggle);
 }
 
 function onFullScreenChange() {
   if (!document.fullscreenElement) {
-    fsSwitcher.checked = false;
-
+    refs.fullscreenSwitcherCheckbox.checked = false;
     document.removeEventListener('fullscreenchange', onFullScreenChange);
   }
 }
