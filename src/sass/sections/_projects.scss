@@ -347,7 +347,7 @@
   border: 1px solid rgba(darkgray, 0.2);
 }
 
-@media screen and (min-width: $tablet) {
+@media (hover: hover) {
   .flip-card:hover .flip-card-inner,
   .flip-card:focus-visible .flip-card-inner {
     transform: rotateY(180deg);
