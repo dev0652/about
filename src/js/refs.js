@@ -8,28 +8,28 @@ export const refs = {
   ),
 
   // Color scheme switcher
-  schemeSwitcherRadios: document.querySelectorAll('.scheme-switcher-radio'),
-  schemeSwitcherDropdown: document.querySelector('.dropdown-scheme'),
-  schemeSwitcherCheckbox: document.querySelector(
-    '.scheme-switcher-menu-checkbox'
-  ),
-  schemeSwitcherCheckboxLabel: document.querySelector('.menu-label-scheme'),
+  schemeMenuInputs: document.querySelectorAll('.scheme-switcher-radio'),
+  schemeMenuDropdown: document.querySelector('.dropdown-scheme'),
+  schemeMenuCheckbox: document.querySelector('.scheme-switcher-menu-checkbox'),
+  schemeMenuCheckboxLabel: document.querySelector('.menu-label-scheme'),
 
   // Language switcher
-  languageSwitcherRadios: document.querySelectorAll('.language-switcher-radio'),
-  languageSwitcherDropdown: document.querySelector('.dropdown-language'),
-  languageSwitcherCheckbox: document.querySelector('.language-menu-checkbox'),
-  languageSwitcherCheckboxLabel: document.querySelector('.menu-label-language'),
-  languageSwitcherMenuCaption: document.querySelector('.language-menu-caption'),
+  languageMenuInputs: document.querySelectorAll('.language-switcher-radio'),
+  languageMenuDropdown: document.querySelector('.dropdown-language'),
+  languageMenuCheckbox: document.querySelector('.language-menu-checkbox'),
+  languageMenuCheckboxLabel: document.querySelector('.menu-label-language'),
+  languageMenuCaption: document.querySelector('.language-menu-caption'),
 
   // Fullscreen mode switcher
-
-  fullscreenSwitcherDropdown: document.querySelector('.dropdown-fullscreen'),
-  fullscreenSwitcherCheckbox: document.querySelector(
-    '.fullscreen-menu-checkbox'
+  fullscreenMenuInputs: document.querySelectorAll(
+    '.fullscreen-switcher-checkbox'
   ),
-  fullscreenSwitcherCheckboxLabel: document.querySelector(
-    '.menu-label-fullscreen'
+  fullscreenMenuDropdown: document.querySelector('.dropdown-fullscreen'),
+  fullscreenMenuCheckbox: document.querySelector('.fullscreen-menu-checkbox'),
+  fullscreenMenuCheckboxLabel: document.querySelector('.menu-label-fullscreen'),
+
+  fullscreenSwitcherCheckbox: document.querySelector(
+    '.fullscreen-switcher-checkbox'
   ),
 
   // Header

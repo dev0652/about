@@ -10,6 +10,7 @@
   @media screen and (max-width: $tablet-1) {
     .header-menus:has(.language-menu-checkbox:checked) & {
       transform: translateY(-100%);
+      overflow: visible;
     }
   }
 

@@ -131,6 +131,25 @@
     z-index: -1;
 
     transform: translateY(0);
+
+    &:before {
+      // works when 'overflow' is set to 'visible' in the specific menu's stylesheet
+      content: '';
+      position: absolute;
+
+      $blur-offset: 7vh;
+
+      left: 0;
+      top: calc($blur-offset * -1);
+
+      width: 100vw;
+      height: $blur-offset;
+
+      pointer-events: none;
+      z-index: $index-main-pseudos;
+
+      background: linear-gradient(to top, var(--background-color), transparent);
+    }
   }
 
   @media screen and (min-width: $tablet) {
@@ -147,7 +166,7 @@
   transition: color $scheme-switch-duration $scheme-switch-timing-function,
     background-color $scheme-switch-duration $scheme-switch-timing-function;
 
-  background-color: var(--scheme-switcher-dropdown-bg);
+  background-color: var(--switcher-menu-dropdown-bg);
 
   padding: 20px 10px;
 
@@ -162,7 +181,7 @@
     background: linear-gradient(
       to bottom,
       var(--background-color),
-      var(--scheme-switcher-dropdown-bg) 50%
+      var(--switcher-menu-dropdown-bg) 50%
     );
   }
 }
@@ -205,13 +224,16 @@ fieldset.switcher {
   align-items: center;
 
   @media screen and (max-width: $tablet-1) {
-    flex-direction: row-reverse;
     justify-content: start;
 
     width: 100%;
     gap: 2rem;
 
     font-size: 1.7rem;
+
+    &:not(.fullscreen-switcher-label) {
+      flex-direction: row-reverse;
+    }
   }
 
   cursor: pointer;
@@ -220,7 +242,7 @@ fieldset.switcher {
   $tf: ease-in;
   transition: color $td $tf, filter $td $tf;
 
-  color: var(--scheme-switcher-radio);
+  color: var(--switcher-menu-radio);
 
   & .switcher-icon {
     color: currentColor;
@@ -256,12 +278,12 @@ fieldset.switcher {
     width: $size;
 
     border-radius: 50%;
-    border: 4px solid var(--scheme-switcher-radio);
+    border: 4px solid var(--switcher-menu-radio);
 
     margin-top: $outline;
 
     &:checked {
-      // border-color: var(--scheme-switcher-radio);
+      // border-color: var(--switcher-menu-radio);
       outline: $outline solid var(--text-color);
       outline-offset: -1rem; // dot in the middle :)
     }

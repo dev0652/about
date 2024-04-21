@@ -93,7 +93,7 @@ function presetSwitcher() {
     currentRadio.setAttribute('checked', '');
   }
 
-  [...refs.schemeSwitcherRadios].forEach((radio) => {
+  [...refs.schemeMenuInputs].forEach((radio) => {
     radio.addEventListener('change', (event) => {
       setColorScheme(event.target.value);
     });
@@ -105,5 +105,5 @@ function presetSwitcher() {
 export function activateColorSchemeSwitcher() {
   setupScheme();
   presetSwitcher();
-  refs.schemeSwitcherCheckbox.addEventListener('change', onHeaderMenuToggle);
+  refs.schemeMenuCheckbox.addEventListener('change', onHeaderMenuToggle);
 }

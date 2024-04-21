@@ -5,10 +5,11 @@ import { refs } from '/js/refs';
 export function onHeaderMenuToggle(event) {
   const menuName = event.target.dataset.menuName;
 
-  const radios = refs[`${menuName}SwitcherRadios`];
-  const dropdown = refs[`${menuName}SwitcherDropdown`];
-  const checkboxLabel = refs[`${menuName}SwitcherCheckboxLabel`];
-  const checkbox = refs[`${menuName}SwitcherCheckbox`];
+  const dropdown = refs[`${menuName}MenuDropdown`];
+  const checkboxLabel = refs[`${menuName}MenuCheckboxLabel`];
+  const checkbox = refs[`${menuName}MenuCheckbox`];
+
+  const menuInputs = refs[`${menuName}MenuInputs`];
 
   // Listen to clicks outside of a switcher menu while it is open:
   const method = event.target.checked
@@ -27,22 +28,22 @@ export function onHeaderMenuToggle(event) {
       checkbox.checked = false;
       checkbox.setAttribute('aria-expanded', false);
 
-      radios.forEach((radio) => {
-        radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed
+      menuInputs.forEach((input) => {
+        input.tabIndex = '-1'; // disables focus on input buttons when menu is collapsed
       });
     }
   }
 
   // Make menu items keyboard-focusable when menu is shown and set aria-expanded attribute on the checkbox:
   if (event.target.checked) {
-    radios.forEach((radio) => {
-      radio.removeAttribute('tabIndex');
+    menuInputs.forEach((input) => {
+      input.removeAttribute('tabIndex');
     });
 
     event.target.setAttribute('aria-expanded', false);
   } else {
-    radios.forEach((radio) => {
-      radio.tabIndex = '-1'; // disables focus on radio buttons when menu is collapsed
+    menuInputs.forEach((input) => {
+      input.tabIndex = '-1'; // disables focus on input buttons when menu is collapsed
     });
 
     event.target.setAttribute('aria-expanded', false);

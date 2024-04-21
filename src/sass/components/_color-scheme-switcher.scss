@@ -6,6 +6,7 @@
   @media screen and (max-width: $tablet-1) {
     .header-menus:has(.scheme-switcher-menu-checkbox:checked) & {
       transform: translateY(-100%);
+      overflow: visible;
     }
   }
 

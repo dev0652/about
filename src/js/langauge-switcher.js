@@ -56,7 +56,7 @@ function switchLanguage(event) {
     document.querySelectorAll('[data-loc]').forEach(translateElement);
     document.querySelectorAll('[data-loc-plc]').forEach(translatePlaceholder);
 
-    // refs.languageSwitcherMenuCaption.setAttribute('data-loc', window.locale);
+    // refs.languageMenuCaption.setAttribute('data-loc', window.locale);
 
     document.body.style.removeProperty('opacity'); // fade effect
   }, 300);
@@ -72,7 +72,7 @@ function presetLanguageSwitcher() {
     currentRadio.setAttribute('checked', '');
   }
 
-  [...refs.languageSwitcherRadios].forEach((radio) => {
+  [...refs.languageMenuInputs].forEach((radio) => {
     radio.addEventListener('change', switchLanguage);
   });
 }
@@ -81,5 +81,5 @@ function presetLanguageSwitcher() {
 
 export function activateLanguageSwitcher() {
   presetLanguageSwitcher();
-  refs.languageSwitcherCheckbox.addEventListener('change', onHeaderMenuToggle);
+  refs.languageMenuCheckbox.addEventListener('change', onHeaderMenuToggle);
 }

@@ -36,22 +36,18 @@
   --button-text-active: var(--button-text-hover);
   --button-bg-active: darkgray;
 
-  /* Theme switcher */
-  --scheme-switcher-bg-gradient-start: gray;
-  --scheme-switcher-bg-gradient-end: var(--light-gray);
-
+  /* Switcher menus */
   --switcher-label-mobile-inactive: dimgray;
-
-  --scheme-switcher-dropdown-bg: rgb(236, 235, 235);
+  --switcher-menu-dropdown-bg: rgb(236, 235, 235);
 
   @media screen and (min-width: 768px) {
-    --scheme-switcher-dropdown-bg: #f2f3f4;
+    --switcher-menu-dropdown-bg: #f2f3f4;
   }
 
-  --scheme-switcher-radio: dimgray;
+  --switcher-menu-radio: dimgray;
 
   @media screen and (min-width: 768px) {
-    --scheme-switcher-radio: gray;
+    --switcher-menu-radio: gray;
   }
 
   /* Project title animation */
