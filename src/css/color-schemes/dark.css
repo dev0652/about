@@ -20,7 +20,7 @@
 
   --header-nav-link-color: gray;
   --header-nav-link-hover: silver;
-  --header-nav-link-active: gainsboro;
+  --header-nav-link-active: var(--text-color);
 
   --pagination-bullet: silver;
   --pagination-bullet-current: white;
