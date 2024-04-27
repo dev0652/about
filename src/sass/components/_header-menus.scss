@@ -12,12 +12,12 @@
 
   @media screen and (min-width: $tablet) {
     position: relative;
-    gap: 15px;
+    gap: 30px;
     justify-content: space-between;
   }
 
   @media screen and (min-width: $desktop) {
-    gap: 30px;
+    gap: 50px;
   }
 }
 
@@ -168,7 +168,7 @@
 
   background-color: var(--switcher-menu-dropdown-bg);
 
-  padding: 20px 10px;
+  padding: 20px;
 
   @media screen and (max-width: $tablet-1) {
     width: 100%;
