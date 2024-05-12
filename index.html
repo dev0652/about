@@ -60,8 +60,8 @@
   href="/about/assets/apple-touch-icon-1a74ebfa.png"
 />
 
-  <script type="module" crossorigin src="/about/assets/index-beeaadd3.js"></script>
-  <link rel="stylesheet" href="/about/assets/index-60c243d6.css">
+  <script type="module" crossorigin src="/about/assets/index-ca81577f.js"></script>
+  <link rel="stylesheet" href="/about/assets/index-4704e578.css">
 </head>
 
   
@@ -123,6 +123,7 @@
     aria-haspopup="menu"
     aria-expanded="false"
     data-menu-name="scheme"
+    data-loc-aria="scheme-switcher-menu-checkbox"
   />
 
   <svg class="menu-label-icon menu-label-icon-scheme" width="32" height="32">
@@ -152,6 +153,7 @@
       name="color-scheme"
       value="light"
       aria-label="light"
+      data-loc-aria="scheme-switcher-radio-light"
       tabindex="-1"
     />
 
@@ -174,6 +176,7 @@
       name="color-scheme"
       value="auto"
       aria-label="auto"
+      data-loc-aria="scheme-switcher-radio-auto"
       tabindex="-1"
       checked
     />
@@ -197,6 +200,7 @@
       name="color-scheme"
       value="dark"
       aria-label="dark"
+      data-loc-aria="scheme-switcher-radio-dark"
       tabindex="-1"
     />
 
@@ -226,6 +230,7 @@
     aria-haspopup="menu"
     aria-expanded="false"
     data-menu-name="language"
+    data-loc-aria="language-menu-checkbox"
   />
 
   <svg class="menu-label-icon menu-label-icon-language" width="32" height="32">
@@ -255,6 +260,7 @@
       name="language"
       value="en"
       aria-label="English"
+      data-loc-aria="language-switcher-radio-eng"
       tabindex="-1"
       checked
     />
@@ -274,6 +280,7 @@
       name="language"
       value="uk"
       aria-label="Ukrainian"
+      data-loc-aria="language-switcher-radio-ukr"
       tabindex="-1"
     />
   </label>
@@ -299,6 +306,7 @@
     aria-haspopup="menu"
     aria-expanded="false"
     data-menu-name="fullscreen"
+    data-loc-aria="fullscreen-menu-checkbox"
   />
 
   <svg
@@ -336,6 +344,7 @@
       class="fullscreen-switcher-checkbox"
       id="fullscreen-switcher-checkbox"
       aria-label="Toggle full screen mode"
+      data-loc-aria="fullscreen-switcher-checkbox"
     />
 
     <p class="fullscreen-switcher-caption fullscreen-switcher-on" data-loc="on">
@@ -360,14 +369,15 @@
 
     </div>
 
-    <!-- Mobile menu captions toggle  -->
+    <!-- Mobile menu captions toggle (three dots)  -->
     <label class="caption-toggle-label" for="caption-toggle-checkbox">
       <input
         class="caption-toggle-checkbox"
         type="checkbox"
         id="caption-toggle-checkbox"
         name="caption-toggle-checkbox"
-        aria-label="Toggle menu icons captions"
+        aria-label="Toggle captions for mobile menu icons"
+        data-loc-aria="caption-toggle-checkbox"
       />
 
       <svg class="caption-toggle-icon" width="32" height="32">
@@ -572,19 +582,20 @@
     <footer class="footer">
   <div class="footer-container">
     <!-- Pagination injection target -->
-    <nav class="pagination" aria-label="Pagination navigation"></nav>
+    <nav
+      class="pagination"
+      aria-label="Pagination navigation"
+      data-loc-aria="pagination"
+    ></nav>
 
-    <!-- Mobile menu captions toggle (three dots) -->
-    <label
-      class="mobile-menu-toggle-label"
-      for="mobile-menu-toggle-checkbox"
-      aria-label="Toggle settings menu"
-    >
+    <!-- Mobile menu toggle (settings icon) -->
+    <label class="mobile-menu-toggle-label" for="mobile-menu-toggle-checkbox">
       <input
         class="mobile-menu-toggle-checkbox"
         type="checkbox"
         id="mobile-menu-toggle-checkbox"
-        aria-label="mobile-menu menu icons captions"
+        aria-label="Toggle mobile menu"
+        data-loc-aria="mobile-menu-toggle-checkbox"
       />
 
       <svg class="mobile-menu-toggle-icon" width="32" height="32">
@@ -602,6 +613,7 @@
       type="button"
       class="popup-modal-close-button"
       aria-label="Close the modal window"
+      data-loc-aria="popup-modal-close-button"
     >
       <svg class="popup-modal-close-button-icon" width="18" height="18">
         <use href="/about/assets/symbol-defs-b087c83d.svg#icon-x-close"></use>
@@ -612,21 +624,7 @@
   </div>
 </div>
 
-    <!-- <div class="modal-backdrop email-backdrop is-hidden">
-  <div class="modal email-modal">
-    <div class="email-confirmation-text"></div>
-
-    <button
-      type="button"
-      class="email-modal-close-button"
-      aria-label="Close the dialog window"
-    >
-      OK
-    </button>
-  </div>
-</div> -->
-
-<dialog class="email-dialog">
+    <dialog class="email-dialog">
   <form class="email-dialog-form" method="dialog">
     <div class="email-dialog-text"></div>
 
