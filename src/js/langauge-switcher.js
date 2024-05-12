@@ -4,7 +4,11 @@ import { renderGallery } from '/js/projects';
 
 import { mediaQueryMobile } from './checkDevice';
 import { populateTitles, titles } from './mobileTitles';
-import { translateElement, translatePlaceholder } from '../pre';
+import {
+  translateElement,
+  translatePlaceholder,
+  translateAriaLAbel,
+} from '../pre';
 import { onHeaderMenuToggle } from './headerMenus';
 
 // *********************************
@@ -55,6 +59,7 @@ function switchLanguage(event) {
     // Translate static HTML:
     document.querySelectorAll('[data-loc]').forEach(translateElement);
     document.querySelectorAll('[data-loc-plc]').forEach(translatePlaceholder);
+    document.querySelectorAll('[data-loc-aria]').forEach(translateAriaLAbel);
 
     // refs.languageMenuCaption.setAttribute('data-loc', window.locale);
 

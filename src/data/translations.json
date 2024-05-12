@@ -43,7 +43,35 @@
     "fullscreen": "На весь екран",
     "fullscreen-caption": "повноекр.",
     "on": "увімкн.",
-    "off": "вимкн."
+    "off": "вимкн.",
+
+    "loadingError": "При завантаженні проекту сталася помилка",
+
+    "email": {
+      "successMessage": "Повідомлення надіслано",
+      "errorMessage": "Вибачте, при надсиланні повідомлення сталася помилка"
+    },
+
+    "ariaLabels": {
+      "scheme-switcher-menu-checkbox": "Відкрити або закрити меню вибору колірної схеми",
+      "scheme-switcher-radio-light": "світла",
+      "scheme-switcher-radio-auto": "авто",
+      "scheme-switcher-radio-dark": "темна",
+
+      "fullscreen-menu-checkbox": "Відкрити або закрити меню повноекранного режиму",
+      "fullscreen-switcher-checkbox": "Перемкнути повноекранний режим",
+
+      "language-menu-checkbox": "Відкрити або закрити меню вибору мови",
+      "": "",
+      "language-switcher-radio-eng": "англійська",
+      "language-switcher-radio-ukr": "українська",
+
+      "pagination": "Індикатор пагінації",
+      "mobile-menu-toggle-checkbox": "Відкрити або закрити мобільне меню",
+      "caption-toggle-checkbox": "Показати або приховати підписи для іконок мобільного меню",
+
+      "popup-modal-close-button": "Закрити модальне вікно"
+    }
   },
 
   "en": {
@@ -90,6 +118,34 @@
     "fullscreen": "Full screen",
     "fullscreen-caption": "Full screen",
     "on": "On",
-    "off": "Off"
+    "off": "Off",
+
+    "loadingError": "Error loading project",
+
+    "email": {
+      "successMessage": "Your message has been successfully sent",
+      "errorMessage": "Sorry, there was an error sending your message"
+    },
+
+    "ariaLabels": {
+      "scheme-switcher-menu-checkbox": "Toggle the color scheme switcher menu",
+      "scheme-switcher-radio-light": "light",
+      "scheme-switcher-radio-auto": "auto",
+      "scheme-switcher-radio-dark": "dark",
+
+      "fullscreen-menu-checkbox": "Toggle the full screen mode menu",
+      "fullscreen-switcher-checkbox": "Toggle full screen mode",
+
+      "language-menu-checkbox": "Toggle the language switcher menu",
+      "": "",
+      "language-switcher-radio-eng": "English",
+      "language-switcher-radio-ukr": "Ukrainian",
+
+      "pagination": "Pagination navigation",
+      "mobile-menu-toggle-checkbox": "Toggle mobile menu",
+      "caption-toggle-checkbox": "Toggle captions for mobile menu icons",
+
+      "popup-modal-close-button": "Close the modal window"
+    }
   }
 }

@@ -45,7 +45,10 @@
 .email-dialog-text {
   font-size: 1.5rem;
   margin-bottom: 40px;
-  text-align: center;
+
+  @media screen and (max-width: $tablet-1) {
+    text-align: center;
+  }
 }
 
 .email-dialog-button {

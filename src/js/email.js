@@ -1,5 +1,7 @@
 import emailjs from '@emailjs/browser';
-// import { openEmailModal } from './modal';
+import translations from '/data/translations.json' assert { type: 'json' };
+
+// *********************************
 
 emailjs.init('E8FZeR5jYUP13UDEy');
 
@@ -10,16 +12,18 @@ form.addEventListener('submit', formSubmitHandler);
 function formSubmitHandler(event) {
   event.preventDefault();
 
+  const locale = window.locale ? window.locale : 'en';
+  const { successMessage, errorMessage } = translations[locale].email;
+
   emailjs
     .sendForm('default_service', 'contact_form', '#contact-form')
     .then(
       function (response) {
-        if (response.status === 200)
-          openEmailModal('Your message has been successfully sent');
+        if (response.status === 200) openEmailModal(successMessage);
       },
       function (error) {
         console.error('error: ', error);
-        openEmailModal('Sorry, there was an error sending your message');
+        openEmailModal(errorMessage);
       }
     )
     .finally(function () {
