@@ -1,3 +1,5 @@
+import { constants } from '/constants';
+
 import { makePictureTag } from '/js/imagePaths';
 import { getLocalizedField, getLocalizedFieldName } from '/js/localization';
 
@@ -5,9 +7,11 @@ import translations from '/data/translations.json' assert { type: 'json' };
 
 // *********************************
 
+const { englishLocaleCode } = constants;
+
 export function createCardMarkup(project) {
   //
-  const locale = window.locale ? window.locale : 'en';
+  const locale = window.locale ? window.locale : englishLocaleCode;
   if (!project) return translations[locale].loadingError;
 
   const {

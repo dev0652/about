@@ -4,6 +4,8 @@ To all to whom these presents shall come, greetings :)
 
 This is my personal portfolio website created to showcase my projects and to give anyone interested a glimpse of my web-development skills.
 
+The website is live on [GitHub Pages](https://dev0652.github.io/about/).
+
 <picture>
   <source media="(max-width: 767px) and (prefers-color-scheme: light)" srcset="./src/images/readme/mobile/screenshot_light.webp">
 
@@ -55,9 +57,11 @@ The website features light and dark color schemes and a three-position theme swi
 - the selected color scheme is saved in localStorage and restored on next visit
 - the majority of images (including the ones in this readme.md) are also available in light and dark versions and respond to the change of a color scheme
 
-### Localization
+### Localization / i18n
 
 The website comes in two languages, English and Ukrainian. The selected language is written to local storage and restored on next visit.
+
+All image `alt`s and `aria-label`s are also localized.
 
 ### Keyboard-accessible and screen-reader-friendly
 

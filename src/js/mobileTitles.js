@@ -1,14 +1,17 @@
-import { refs } from './refs';
+import { constants } from '/constants';
+import { refs } from '/js/refs';
 import translations from '/data/translations.json' assert { type: 'json' };
 
 // ***********************************
+
+const { englishLocaleCode } = constants;
 
 const sectionsNodeList = refs.sections;
 const sections = Array.from(sectionsNodeList);
 
 export const titles = sections.map(
-  (section) => {
-    const locale = window.locale ? window.locale : 'en';
+  section => {
+    const locale = window.locale ? window.locale : englishLocaleCode;
     return translations[locale][section.id].toLowerCase();
   } // mutated elsewhere
 );
@@ -18,7 +21,7 @@ export const titles = sections.map(
 export function populateTitles(titlesArray) {
   refs.titlesInjectionTarget.innerHTML = '';
 
-  titlesArray.forEach((title) => {
+  titlesArray.forEach(title => {
     const element = document.createElement('span');
     element.classList.add('mobile-section-title');
     element.innerHTML = title;

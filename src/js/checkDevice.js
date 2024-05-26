@@ -1,6 +1,7 @@
 import { refs } from './refs';
+import { constants } from '/constants';
+
 import {
-  // adjustBodyOffsets,
   setCurrentSection,
   restoreSectionVisibility,
   addHeaderNavListeners,
@@ -11,14 +12,12 @@ import { createPagination } from './pagination';
 
 import { setTypewriterEffect } from './typing-animation';
 import { activateColorSchemeSwitcher } from './color-scheme-switcher';
-import { activateLanguageSwitcher } from './langauge-switcher';
+import { activateLanguageSwitcher } from './language-switcher';
 import { activateFullscreenSwitcher } from './fullScreen';
 
 // *********************************
 
-export const mediaQueryMobile = window.matchMedia('(max-width: 767px)');
-
-// *********************************
+const { mediaQueryMobile } = constants;
 
 function getCurrentSectionIndex() {
   let currentSectionIndex = 0;
@@ -47,23 +46,13 @@ function doThingsOnLoad() {
   } else {
     addHeaderNavListeners();
   }
-  // adjustBodyOffsets(mediaQueryMobile.matches);
+
   changeTextAreaSize();
 }
-
-// function setLocale() {
-//   // Check local storage for saved language setting
-//   const savedLanguage = localStorage.getItem('language');
-//   // Preset window.locale global variable
-//   window.locale = savedLanguage ? savedLanguage : 'en';
-//   console.log('window.locale in setLocale: ', window.locale);
-// }
 
 // *********************************
 
 function onFirstLoad() {
-  // setLocale();
-
   document.addEventListener(
     'DOMContentLoaded',
     () => {

@@ -1,11 +1,15 @@
+import { constants } from '/constants';
+
 import translations from '/data/translations.json' assert { type: 'json' };
 
 // *********************************
 
-const savedLanguage = localStorage.getItem('language');
-window.locale = savedLanguage ? savedLanguage : 'en'; // Preset global variable
+const { englishLocaleCode } = constants;
 
-if (window.locale !== 'en') {
+const savedLanguage = localStorage.getItem('language');
+window.locale = savedLanguage ? savedLanguage : englishLocaleCode;
+
+if (window.locale !== englishLocaleCode) {
   document.documentElement.lang = window.locale;
   document.querySelectorAll('[data-loc]').forEach(translateElement);
   document.querySelectorAll('[data-loc-plc]').forEach(translatePlaceholder);
@@ -13,21 +17,21 @@ if (window.locale !== 'en') {
 }
 
 export function translateElement(element) {
-  const locale = window.locale ? window.locale : 'en';
+  const locale = window.locale ? window.locale : englishLocaleCode;
 
   const key = element.getAttribute('data-loc');
   element.innerText = translations[locale][key];
 }
 
 export function translatePlaceholder(element) {
-  const locale = window.locale ? window.locale : 'en';
+  const locale = window.locale ? window.locale : englishLocaleCode;
 
   const key = element.getAttribute('data-loc-plc');
   element.placeholder = translations[locale][key];
 }
 
 export function translateAriaLAbel(element) {
-  const locale = window.locale ? window.locale : 'en';
+  const locale = window.locale ? window.locale : englishLocaleCode;
 
   const key = element.getAttribute('data-loc-aria');
   element.ariaLabel = translations[locale].ariaLabels[key];

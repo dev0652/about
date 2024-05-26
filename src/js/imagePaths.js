@@ -1,25 +1,10 @@
 import { getSavedColorScheme } from '/js/color-scheme-switcher';
 import translations from '/data/translations.json' assert { type: 'json' };
+import { constants } from '/constants';
 
 // *********************************
 
-// !!! May cause server blocking due to too many requests
-
-// function makePlaceholderUrl(resolution, message, hasDarkVersion = false) {
-//   if (!message) message = resolution;
-
-//   // https://placehold.co/600x400/2A3439/808080/webp?text=Image+pending
-//   const baseUrl = 'https://placehold.co/';
-//   const colors = hasDarkVersion ? '/2A3439/808080' : '';
-//   const extension = '/webp';
-//   const text = `?text=${message.split(' ').join('+')}`;
-
-//   return baseUrl + resolution + colors + extension + text;
-// }
-
-// const res = {small: '370x208', medium: '480x270', large1x: '960x540', large2x: '1920x1080'};
-
-// *********************************
+const { englishLocaleCode } = constants;
 
 function getPlaceholderUrl(isDarkVersion = false) {
   const baseName = 'placeholder';
@@ -151,7 +136,7 @@ export function makePictureTag(
   }
 
   const defaultAltText = 'live page screenshot';
-  const locale = window.locale ? window.locale : 'en';
+  const locale = window.locale ? window.locale : englishLocaleCode;
   const altText = translations
     ? translations[locale]['project-image-alt-text']
     : defaultAltText;
