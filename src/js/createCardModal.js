@@ -6,11 +6,11 @@ import { constants } from '/constants';
 
 // *********************************
 
-const { englishLocaleCode } = constants;
+const { LOCALE_ENG } = constants;
 
 export function createCardModal(project) {
   //
-  const locale = window.locale ? window.locale : englishLocaleCode;
+  const locale = window.locale ? window.locale : LOCALE_ENG;
 
   if (!project) return translations[locale].loadingError;
 

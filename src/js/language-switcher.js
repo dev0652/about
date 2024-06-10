@@ -12,16 +12,16 @@ import translations from '/data/translations.json' assert { type: 'json' };
 
 // *********************************
 
-const { languageKey, mediaQueryMobile, englishLocaleCode } = constants;
+const { LS_LANGUAGE_KEY, MEDIA_QUERY_MOBILE, LOCALE_ENG } = constants;
 
 // *********************************
 
 function getSavedLanguage() {
-  return localStorage.getItem(languageKey);
+  return localStorage.getItem(LS_LANGUAGE_KEY);
 }
 
 function saveLanguage(locale) {
-  return localStorage.setItem(languageKey, locale);
+  return localStorage.setItem(LS_LANGUAGE_KEY, locale);
 }
 
 // *********************************
@@ -46,9 +46,9 @@ function translateMobileTitles(locale, prevLang) {
 
 function translateContent(locale) {
   const savedLang = getSavedLanguage();
-  const prevLang = savedLang ? savedLang : englishLocaleCode;
+  const prevLang = savedLang ? savedLang : LOCALE_ENG;
 
-  if (mediaQueryMobile.matches) translateMobileTitles(locale, prevLang);
+  if (MEDIA_QUERY_MOBILE.matches) translateMobileTitles(locale, prevLang);
 
   renderGallery();
   translateStaticHTML();
@@ -72,7 +72,7 @@ function switchLanguage(event) {
 }
 
 function presetLanguageSwitcher() {
-  if (window.locale !== englishLocaleCode) {
+  if (window.locale !== LOCALE_ENG) {
     const currentRadio = document.querySelector(
       `.language-switcher-radio[value=${window.locale}]`
     );

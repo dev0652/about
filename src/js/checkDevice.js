@@ -15,9 +15,11 @@ import { activateColorSchemeSwitcher } from './color-scheme-switcher';
 import { activateLanguageSwitcher } from './language-switcher';
 import { activateFullscreenSwitcher } from './fullScreen';
 
+import { translateStaticHTML } from '/js/localization';
+
 // *********************************
 
-const { mediaQueryMobile } = constants;
+const { MEDIA_QUERY_MOBILE, LOCALE_ENG, LS_LANGUAGE_KEY } = constants;
 
 function getCurrentSectionIndex() {
   let currentSectionIndex = 0;
@@ -38,8 +40,17 @@ function changeTextAreaSize() {
 
 // *********************************
 
+function handleLocale() {
+  const savedLanguage = localStorage.getItem(LS_LANGUAGE_KEY);
+  window.locale = savedLanguage ? savedLanguage : LOCALE_ENG;
+}
+
+function applyTranslations() {
+  if (window.locale !== LOCALE_ENG) translateStaticHTML();
+}
+
 function doThingsOnLoad() {
-  if (mediaQueryMobile.matches) {
+  if (MEDIA_QUERY_MOBILE.matches) {
     const paginationList = document.querySelector('.pagination-list');
     if (!paginationList) createPagination();
     activateFullscreenSwitcher();
@@ -56,6 +67,9 @@ function onFirstLoad() {
   document.addEventListener(
     'DOMContentLoaded',
     () => {
+      handleLocale();
+      applyTranslations();
+
       activateColorSchemeSwitcher();
       activateLanguageSwitcher();
       refs.main.classList.add('faded-edges');
@@ -67,13 +81,13 @@ function onFirstLoad() {
 
   doThingsOnLoad();
 
-  if (mediaQueryMobile.matches) {
+  if (MEDIA_QUERY_MOBILE.matches) {
     slider.initialize();
   } else {
     setTypewriterEffect('about');
   }
 
-  mediaQueryMobile.addEventListener('change', onScreenChange);
+  MEDIA_QUERY_MOBILE.addEventListener('change', onScreenChange);
 }
 
 function onScreenChange(event) {

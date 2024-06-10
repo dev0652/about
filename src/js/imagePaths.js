@@ -4,7 +4,7 @@ import { constants } from '/constants';
 
 // *********************************
 
-const { englishLocaleCode } = constants;
+const { LOCALE_ENG } = constants;
 
 function getPlaceholderUrl(isDarkVersion = false) {
   const baseName = 'placeholder';
@@ -136,7 +136,7 @@ export function makePictureTag(
   }
 
   const defaultAltText = 'live page screenshot';
-  const locale = window.locale ? window.locale : englishLocaleCode;
+  const locale = window.locale ? window.locale : LOCALE_ENG;
   const altText = translations
     ? translations[locale]['project-image-alt-text']
     : defaultAltText;

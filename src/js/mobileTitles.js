@@ -4,14 +4,14 @@ import translations from '/data/translations.json' assert { type: 'json' };
 
 // ***********************************
 
-const { englishLocaleCode } = constants;
+const { LOCALE_ENG } = constants;
 
 const sectionsNodeList = refs.sections;
 const sections = Array.from(sectionsNodeList);
 
 export const titles = sections.map(
   section => {
-    const locale = window.locale ? window.locale : englishLocaleCode;
+    const locale = window.locale ? window.locale : LOCALE_ENG;
     return translations[locale][section.id].toLowerCase();
   } // mutated elsewhere
 );

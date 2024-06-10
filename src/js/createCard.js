@@ -7,11 +7,11 @@ import translations from '/data/translations.json' assert { type: 'json' };
 
 // *********************************
 
-const { englishLocaleCode } = constants;
+const { LOCALE_ENG } = constants;
 
 export function createCardMarkup(project) {
   //
-  const locale = window.locale ? window.locale : englishLocaleCode;
+  const locale = window.locale ? window.locale : LOCALE_ENG;
   if (!project) return translations[locale].loadingError;
 
   const {
