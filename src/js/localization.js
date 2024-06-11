@@ -90,5 +90,7 @@ export function applyTranslations() {
   setLocale();
 
   if (window.locale !== LOCALE_ENG) translateStaticHTML();
-  document.body.style.visibility = 'visible';
+
+  // document.body.style.visibility = 'visible';
+  document.body.classList.remove('hidden-to-avoid-content-flashing');
 }
