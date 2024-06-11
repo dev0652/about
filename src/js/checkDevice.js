@@ -64,7 +64,12 @@ function setNavigationElements() {
   } else addHeaderNavListeners();
 }
 
-export function onFirstLoad() {
+function setSectionBehavior() {
+  if (MEDIA_QUERY_MOBILE.matches) slider.initialize();
+  else setTypewriterEffect();
+}
+
+function doOnFirstLoad() {
   applyTranslations();
   setupColorScheme();
 
@@ -79,9 +84,4 @@ export function onFirstLoad() {
   MEDIA_QUERY_MOBILE.addEventListener('change', onScreenChange);
 }
 
-export function setSectionBehavior() {
-  if (MEDIA_QUERY_MOBILE.matches) slider.initialize();
-  else setTypewriterEffect();
-}
-
-onFirstLoad();
+doOnFirstLoad();
