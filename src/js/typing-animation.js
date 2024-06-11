@@ -1,4 +1,4 @@
-export const setTypewriterEffect = function (id) {
+export const setTypewriterEffect = function (id = 'about') {
   const sectionId = `#${id}`;
   const titleId = `#${id}-title`;
 
@@ -6,24 +6,17 @@ export const setTypewriterEffect = function (id) {
   const titleEl = sectionEl.querySelector(titleId);
   const contentEl = sectionEl.querySelector('.section-content');
 
-  const text = titleEl.innerHTML; // write content to variable before wiping
-  // Animate default section title on first load
-
+  const text = titleEl.innerHTML;
   titleEl.innerHTML = '';
 
-  const timeout = 100;
+  const delay = 100;
+  contentEl.style.animationDelay = delay * text.length;
 
-  contentEl.style.animationDelay = timeout * text.length;
+  for (let i = 0; i < text.length; i++) {
+    const timeout = delay * (i + 1);
 
-  let i = 0;
-
-  function typeWriter() {
-    if (i < text.length) {
+    setTimeout(() => {
       titleEl.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeWriter, timeout);
-    }
+    }, timeout);
   }
-
-  typeWriter();
 };

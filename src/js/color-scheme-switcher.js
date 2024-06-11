@@ -64,7 +64,7 @@ function setColorScheme(scheme) {
 
   updateSourceMedia(scheme);
 
-  // Turn faded edges effect back on
+  // Turn faded edges effect (back) on
   setTimeout(() => {
     refs.main.classList.add('faded-edges');
   }, getThemeSwitchTransition());
@@ -72,7 +72,7 @@ function setColorScheme(scheme) {
 
 // *********************************
 
-function setupScheme() {
+export function setupColorScheme() {
   const systemScheme = getSystemScheme();
   const savedScheme = getSavedColorScheme();
 
@@ -93,8 +93,8 @@ function presetSwitcher() {
     currentRadio.setAttribute('checked', '');
   }
 
-  [...refs.schemeMenuInputs].forEach((radio) => {
-    radio.addEventListener('change', (event) => {
+  [...refs.schemeMenuInputs].forEach(radio => {
+    radio.addEventListener('change', event => {
       setColorScheme(event.target.value);
     });
   });
@@ -103,7 +103,6 @@ function presetSwitcher() {
 // *********************************
 
 export function activateColorSchemeSwitcher() {
-  setupScheme();
   presetSwitcher();
   refs.schemeMenuCheckbox.addEventListener('change', onHeaderMenuToggle);
 }

@@ -28,7 +28,7 @@ function getCurrentSectionId(sectionIndex) {
 function setActiveBullet(index) {
   const bullets = document.querySelectorAll('.pagination-bullet');
 
-  bullets.forEach((bullet) => {
+  bullets.forEach(bullet => {
     if (+bullet.dataset.id === index) {
       bullet.classList.add('current');
       bullet.setAttribute('aria-current', true);
@@ -56,6 +56,7 @@ function initialize(startSlide = 0) {
   };
 
   const sliderEl = document.getElementById('slider');
+
   window.mySwipe = new Swipe(sliderEl, options);
 
   setActiveBullet(startSlide);

@@ -8,9 +8,15 @@ const {
   LOC_ATTRIBUTE_TEXT,
   LOC_ATTRIBUTE_PLC,
   LOC_ATTRIBUTE_ARIA,
+  LS_LANGUAGE_KEY,
 } = constants;
 
 // *********************************
+
+function setLocale() {
+  const savedLanguage = localStorage.getItem(LS_LANGUAGE_KEY);
+  window.locale = savedLanguage ? savedLanguage : LOCALE_ENG;
+}
 
 function getLocale() {
   return window.locale ? window.locale : LOCALE_ENG;
@@ -76,4 +82,13 @@ export function translateStaticHTML() {
   ];
 
   localizationAttributes.forEach(translateElementByAttribute);
+}
+
+// *********************************
+
+export function applyTranslations() {
+  setLocale();
+
+  if (window.locale !== LOCALE_ENG) translateStaticHTML();
+  document.body.style.visibility = 'visible';
 }

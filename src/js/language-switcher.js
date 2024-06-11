@@ -72,10 +72,13 @@ function switchLanguage(event) {
 }
 
 function presetLanguageSwitcher() {
-  if (window.locale !== LOCALE_ENG) {
+  if (!window.locale) console.error("No 'locale' property set on window yet");
+
+  if (window.locale && window.locale !== LOCALE_ENG) {
     const currentRadio = document.querySelector(
       `.language-switcher-radio[value=${window.locale}]`
     );
+
     currentRadio.setAttribute('checked', '');
   }
 
