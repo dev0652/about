@@ -2,7 +2,7 @@ import { setTypewriterEffect } from './typing-animation';
 import { refs } from './refs';
 import { constants } from '../constants';
 
-import * as throttle from 'lodash.throttle';
+import throttle from 'lodash.throttle';
 
 // ***********************************
 
