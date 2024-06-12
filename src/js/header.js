@@ -4,7 +4,6 @@ import { refs } from './refs';
 // ***********************************
 
 export function addHeaderNavListeners() {
-  console.log('addHeaderNavListeners fired');
   refs.headerNavLinks.forEach(link => {
     link.addEventListener('click', handleNavLinkClick);
   });
