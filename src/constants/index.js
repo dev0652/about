@@ -9,4 +9,6 @@ export const constants = {
   LOC_ATTRIBUTE_TEXT: 'data-loc',
   LOC_ATTRIBUTE_PLC: 'data-loc-plc',
   LOC_ATTRIBUTE_ARIA: 'data-loc-aria',
+
+  TYPING_ANIMATION_INTERVAL: 100,
 };

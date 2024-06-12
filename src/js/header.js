@@ -1,11 +1,17 @@
 import { setTypewriterEffect } from './typing-animation';
 import { refs } from './refs';
+import { constants } from '../constants';
+
+import * as throttle from 'lodash.throttle';
 
 // ***********************************
 
+const { TYPING_ANIMATION_INTERVAL: interval } = constants;
+
 export function addHeaderNavListeners() {
   refs.headerNavLinks.forEach(link => {
-    link.addEventListener('click', handleNavLinkClick);
+    const timer = link.innerText.length * interval * 3;
+    link.addEventListener('click', throttle(handleNavLinkClick, timer));
   });
 }
 
