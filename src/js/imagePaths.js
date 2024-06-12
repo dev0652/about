@@ -3,11 +3,21 @@ import { constants } from '/constants';
 
 const { LOCALE_ENG } = constants;
 
+function makeURLfromPath(path) {
+  return new URL(path, import.meta.url).href;
+}
+
 function getPlaceholderUrl(isDarkVersion = false) {
   const baseName = 'placeholder';
   const fileName = isDarkVersion ? baseName + '_dark' : baseName;
+  const path = `/images/projects/svg/${fileName}.svg`;
+  return makeURLfromPath(path);
+}
 
-  return new URL(`/images/projects/svg/${fileName}.svg`, import.meta.url).href;
+function getImageUrl(dirName, fileName, isDark) {
+  const name = isDark ? fileName + '_dark' : fileName;
+  const path = `/images/projects/webp/${dirName}/${name}.webp`;
+  return makeURLfromPath(path);
 }
 
 const placeholderUrl = {
@@ -15,29 +25,16 @@ const placeholderUrl = {
   dark: getPlaceholderUrl(true),
 };
 
-const names = {
-  small: 'small',
-  medium: 'medium',
-  large1x: 'large1x',
-  large2x: 'large2x',
-};
-
-function getImageUrl(dirName, fileName, isDark) {
-  const name = isDark ? fileName + '_dark' : fileName;
-
-  return new URL(
-    `/images/projects/webp/${dirName}/${name}.webp`,
-    import.meta.url
-  ).href;
-}
+const { IMAGE_SIZE_NAMES } = constants;
 
 function getImagePaths(fileName, willCreateDark) {
-  return {
-    [names.small]: getImageUrl(names.small, fileName, willCreateDark),
-    [names.medium]: getImageUrl(names.medium, fileName, willCreateDark),
-    [names.large1x]: getImageUrl(names.large1x, fileName, willCreateDark),
-    [names.large2x]: getImageUrl(names.large2x, fileName, willCreateDark),
-  };
+  const pathsObj = {};
+
+  for (const key in IMAGE_SIZE_NAMES) {
+    pathsObj[key] = getImageUrl(key, fileName, willCreateDark);
+  }
+
+  return pathsObj;
 }
 
 const sizesString = {

@@ -12,4 +12,11 @@ export const constants = {
   LOC_ATTRIBUTE_ARIA: 'data-loc-aria',
 
   TYPING_ANIMATION_INTERVAL: 100,
+
+  IMAGE_SIZE_NAMES: {
+    small: 'small',
+    medium: 'medium',
+    large1x: 'large1x',
+    large2x: 'large2x',
+  },
 };
