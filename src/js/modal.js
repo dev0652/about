@@ -10,7 +10,7 @@ const modalContentEl = modalPopUp.querySelector(
 );
 
 export function openCardModal(id) {
-  const selectedProject = projects.find((project) => project.id === +id);
+  const selectedProject = projects.find(project => project.id === +id);
   modalContentEl.innerHTML = createCardModal(selectedProject);
 
   modalPopUp.classList.remove('is-hidden');
@@ -64,8 +64,6 @@ function onModalClose() {
   const currentCloseButton = document.querySelector('.current-close-button');
   currentCloseButton.removeEventListener('click', onModalClose);
 }
-
-// *********************************
 
 function handleBackdropClick(event) {
   const backdrop = document.querySelector('.current-modal');

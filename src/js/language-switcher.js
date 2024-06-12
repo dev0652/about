@@ -10,11 +10,7 @@ import { translateStaticHTML } from '/js/localization';
 
 import translations from '/data/translations.json' assert { type: 'json' };
 
-// *********************************
-
 const { LS_LANGUAGE_KEY, MEDIA_QUERY_MOBILE, LOCALE_ENG } = constants;
-
-// *********************************
 
 function getSavedLanguage() {
   return localStorage.getItem(LS_LANGUAGE_KEY);
@@ -23,8 +19,6 @@ function getSavedLanguage() {
 function saveLanguage(locale) {
   localStorage.setItem(LS_LANGUAGE_KEY, locale);
 }
-
-// *********************************
 
 function setLocale(locale) {
   window.locale = locale;
@@ -88,8 +82,6 @@ function presetLanguageSwitcher() {
     radio.addEventListener('change', switchLanguage);
   });
 }
-
-// *********************************
 
 export function activateLanguageSwitcher() {
   presetLanguageSwitcher();

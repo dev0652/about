@@ -2,6 +2,7 @@ export const constants = {
   MEDIA_QUERY_MOBILE: window.matchMedia('(max-width: 767px)'),
 
   LS_LANGUAGE_KEY: 'language',
+  LS_COLOR_SCHEME_KEY: 'color-scheme',
 
   LOCALE_ENG: 'en',
   LOCALE_UKR: 'uk',

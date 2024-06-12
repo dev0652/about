@@ -4,8 +4,6 @@ import { constants } from '../constants';
 
 import throttle from 'lodash.throttle';
 
-// ***********************************
-
 const { TYPING_ANIMATION_INTERVAL: interval } = constants;
 
 export function addHeaderNavListeners() {
@@ -20,54 +18,46 @@ export function addHeaderNavListeners() {
   });
 }
 
-function handleNavLinkClick(event) {
-  event.preventDefault();
-  const { id } = event.target.dataset;
+function displayCurrentSection(section, id, isCurrent) {
+  section.style.display = isCurrent ? 'block' : 'none';
+  if (isCurrent) setTypewriterEffect(id);
+}
 
-  // Display the desired section and hide the others
+function displayOnlyCurrentSectionById(id) {
   refs.sections.forEach(section => {
     const isCurrent = section.id === id;
-    section.style.display = isCurrent ? 'block' : 'none';
-
-    if (isCurrent) setTypewriterEffect(id);
+    displayCurrentSection(section, id, isCurrent);
   });
+}
 
-  // Set all link inactive
+function displayOnlyCurrentSectionByIndex(currentSectionIndex) {
+  refs.sections.forEach((section, index) => {
+    const { id } = section;
+    const isCurrent = index === currentSectionIndex;
+    displayCurrentSection(section, id, isCurrent);
+  });
+}
+
+function setAllLinksInactive() {
   refs.headerNavLinks.forEach(link => {
     link.classList.remove('active');
     link.removeAttribute('aria-current');
   });
-
-  // Make the clicked link active
-  event.target.classList.add('active');
-  event.target.setAttribute('aria-current', true);
 }
 
-// *********************************
+function makeCurrentLinkActive(link) {
+  link.classList.add('active');
+  link.setAttribute('aria-current', true);
+}
 
-// export function adjustBodyOffsets(isMobile) {
-//   const { height } = refs.header.getBoundingClientRect();
-//   const headerHeight = `${height}px`;
+function handleNavLinkClick(event) {
+  event.preventDefault();
+  const { id } = event.target.dataset;
 
-//   // Adjust body height to make up for the height of the fixed header
-//   document.body.style.paddingTop = headerHeight;
-//   document.body.style.setProperty('--blurOffset', headerHeight);
-//   document.documentElement.style.scrollPaddingTop = headerHeight;
-
-//   if (isMobile) {
-//     const { height } = refs.footer.getBoundingClientRect();
-//     const footerHeight = `${height}px`;
-
-//     document.body.style.paddingBottom = footerHeight;
-//     // document.body.style.setProperty('--bottomBlurOffset', footerHeight);
-//     document.documentElement.style.scrollPaddingBottom = footerHeight;
-//   } else {
-//     document.body.style.removeProperty('padding-bottom');
-//     document.documentElement.style.removeProperty('scroll-padding-bottom');
-//   }
-// }
-
-// ***********************************
+  displayOnlyCurrentSectionById(id);
+  setAllLinksInactive();
+  makeCurrentLinkActive(event.target);
+}
 
 export function restoreSectionVisibility() {
   refs.sections.forEach(section => {
@@ -75,23 +65,19 @@ export function restoreSectionVisibility() {
   });
 }
 
-// ***********************************
+function setCurrentSectionNavLinkActive(currentSectionIndex) {
+  refs.headerNavLinks.forEach((link, index) => {
+    const method = index === currentSectionIndex ? 'add' : 'remove';
+    link.classList[method]('active');
+  });
+}
 
 export function setCurrentSection() {
   // Get the current section's index
   const currentSectionIndex = window.mySwipe.getPos();
 
-  // Set active the current section's corresponding nav link
-  refs.headerNavLinks.forEach((link, index) => {
-    const method = index === currentSectionIndex ? 'add' : 'remove';
-    link.classList[method]('active');
-  });
+  setCurrentSectionNavLinkActive(currentSectionIndex);
 
   // Display the current section and hide the others
-  refs.sections.forEach((section, index) => {
-    const isCurrent = index === currentSectionIndex;
-    section.style.display = isCurrent ? 'block' : 'none';
-
-    if (isCurrent) setTypewriterEffect(section.id);
-  });
+  displayOnlyCurrentSectionByIndex(currentSectionIndex);
 }

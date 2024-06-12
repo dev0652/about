@@ -1,33 +1,20 @@
+import { constants } from '../constants';
 import { onHeaderMenuToggle } from './headerMenus';
 import { refs } from './refs';
 import { updateSourceMedia } from './updateSourceMedia';
 
-// *********************************
-// Original color scheme switcher courtesy of Vadim Makeyev
-// *********************************
+// Based on the color scheme switcher solution by Vadim Makeyev
 
-const colorSchemeKey = 'color-scheme';
+const { LS_COLOR_SCHEME_KEY } = constants;
 
 export function getSavedColorScheme() {
-  return localStorage.getItem(colorSchemeKey);
+  return localStorage.getItem(LS_COLOR_SCHEME_KEY);
 }
-
-function saveColorScheme(scheme) {
-  return localStorage.setItem(colorSchemeKey, scheme);
-}
-
-function clearColorScheme() {
-  return localStorage.removeItem(colorSchemeKey);
-}
-
-// *********************************
 
 function getSystemScheme() {
   const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
   return darkSchemeMedia.matches ? 'dark' : 'light';
 }
-
-// *********************************
 
 export function getThemeSwitchTransition() {
   return (
@@ -37,16 +24,12 @@ export function getThemeSwitchTransition() {
   );
 }
 
-// *********************************
-
-function setColorScheme(scheme) {
-  // scheme: 'light' | 'dark'
-
-  // Temporarily remove the faded edges effect on main to avoid color flashing during box-shadow transition
+function removeFadedEdgesEffect() {
   if (refs.main.classList.contains('faded-edges'))
     refs.main.classList.remove('faded-edges');
+}
 
-  // Do the switching
+function changeMetaStyleLinks(scheme) {
   if (scheme === 'auto') {
     refs.lightStyles.media = '(prefers-color-scheme: light)';
     refs.darkStyles.media = '(prefers-color-scheme: dark)';
@@ -54,23 +37,28 @@ function setColorScheme(scheme) {
     refs.lightStyles.media = scheme === 'light' ? 'all' : 'not all';
     refs.darkStyles.media = scheme === 'dark' ? 'all' : 'not all';
   }
+}
 
-  // Save changes to local storage
-  if (scheme === 'auto') {
-    clearColorScheme();
-  } else {
-    saveColorScheme(scheme);
-  }
+function saveSchemeSetting(scheme) {
+  if (scheme === 'auto') localStorage.removeItem(LS_COLOR_SCHEME_KEY);
+  else localStorage.setItem(LS_COLOR_SCHEME_KEY, scheme);
+}
 
-  updateSourceMedia(scheme);
-
-  // Turn faded edges effect (back) on
+function addFadedEdgesEffect() {
   setTimeout(() => {
     refs.main.classList.add('faded-edges');
   }, getThemeSwitchTransition());
 }
 
-// *********************************
+function setColorScheme(scheme) {
+  // scheme: 'light' | 'dark'
+
+  removeFadedEdgesEffect();
+  changeMetaStyleLinks(scheme);
+  saveSchemeSetting(scheme);
+  updateSourceMedia(scheme);
+  addFadedEdgesEffect();
+}
 
 export function setupColorScheme() {
   const systemScheme = getSystemScheme();
@@ -80,8 +68,6 @@ export function setupColorScheme() {
 
   setColorScheme(savedScheme);
 }
-
-// *********************************
 
 function presetSwitcher() {
   const savedScheme = getSavedColorScheme();
@@ -99,8 +85,6 @@ function presetSwitcher() {
     });
   });
 }
-
-// *********************************
 
 export function activateColorSchemeSwitcher() {
   presetSwitcher();

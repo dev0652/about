@@ -47,8 +47,8 @@
   width: 100vw;
   // height: var(--blurOffset);
 
-  transition: background-color $scheme-switch-duration
-      $scheme-switch-timing-function,
+  transition:
+    background-color $scheme-switch-duration $scheme-switch-timing-function,
     color $scheme-switch-duration $scheme-switch-timing-function,
     transform 200ms;
 
@@ -75,8 +75,6 @@
   }
 }
 
-// *****************************
-
 .caption-toggle-label {
   @extend %link !optional;
 
@@ -98,8 +96,6 @@
 .caption-toggle-checkbox {
   appearance: none;
 }
-
-// *****************************
 
 .mobile-headings-wrapper {
   @extend .container !optional;
@@ -145,8 +141,6 @@
     color: var(--header-nav-link-active);
   }
 }
-
-// *****************************
 
 .header-nav {
   @media screen and (max-width: $tablet-1) {

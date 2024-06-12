@@ -2,8 +2,6 @@ import { getSavedColorScheme } from '/js/color-scheme-switcher';
 import translations from '/data/translations.json' assert { type: 'json' };
 import { constants } from '/constants';
 
-// *********************************
-
 const { LOCALE_ENG } = constants;
 
 function getPlaceholderUrl(isDarkVersion = false) {
@@ -18,16 +16,12 @@ const placeholderUrl = {
   dark: getPlaceholderUrl(true),
 };
 
-// *********************************
-
 const names = {
   small: 'small',
   medium: 'medium',
   large1x: 'large1x',
   large2x: 'large2x',
 };
-
-// *********************************
 
 function getImageUrl(dirName, fileName, isDark) {
   const name = isDark ? fileName + '_dark' : fileName;
@@ -47,15 +41,11 @@ function getImagePaths(fileName, willCreateDark) {
   };
 }
 
-// *********************************
-
 const sizesString = {
   list: '(max-width: 767px): 100vw, (max-width: 1279px) 550px, 600px',
   tile: '(max-width: 400px): 100vw, (max-width: 1279px) 325px, 400px',
   modal: '(max-width: 400px): 100vw, (max-width: 1279px) 520px, 620px',
 };
-
-// *********************************
 
 function makeSourceTag(
   fileName,

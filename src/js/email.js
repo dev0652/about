@@ -4,8 +4,6 @@ import emailjs from '@emailjs/browser';
 
 import translations from '/data/translations.json' assert { type: 'json' };
 
-// *********************************
-
 const { LOCALE_ENG } = constants;
 
 emailjs.init('E8FZeR5jYUP13UDEy');

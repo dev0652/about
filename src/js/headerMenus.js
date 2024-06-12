@@ -1,7 +1,5 @@
 import { refs } from '/js/refs';
 
-// *********************************
-
 export function onHeaderMenuToggle(event) {
   const menuName = event.target.dataset.menuName;
 

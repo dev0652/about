@@ -1,7 +1,5 @@
-// *********************************
 // Solution courtesy of Lars Magnus
 // https://larsmagnus.co/blog/how-to-make-images-react-to-light-and-dark-mode
-// *********************************
 
 // Make <picture> <source> elements with media="(prefers-color-scheme:)" respect custom theme preference overrides. Otherwise the `media` preference will respond to the OS-level setting
 
@@ -9,13 +7,13 @@ export function updateSourceMedia(colorPreference) {
   //   colorPreference: 'light' | 'dark' | 'auto'
   const pictures = document.querySelectorAll('picture');
 
-  pictures.forEach((picture) => {
+  pictures.forEach(picture => {
     const sources = picture.querySelectorAll(`
         source[media*="prefers-color-scheme"], 
         source[data-media*="prefers-color-scheme"]
       `);
 
-    sources.forEach((source) => {
+    sources.forEach(source => {
       // Preserve the source `media` as a data-attribute to be able to switch between preferences
       if (source?.media.includes('prefers-color-scheme')) {
         source.dataset.media = source.media;

@@ -20,8 +20,6 @@ import {
 import { activateLanguageSwitcher } from '/js/language-switcher';
 import { activateFullscreenSwitcher } from '/js/fullScreen';
 
-// *********************************
-
 const { MEDIA_QUERY_MOBILE } = constants;
 
 function getCurrentSectionIndex() {

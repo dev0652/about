@@ -1,8 +1,6 @@
 import { refs } from './refs';
 import { onHeaderMenuToggle } from './headerMenus';
 
-// *********************************
-
 function toggleFullscreen(event) {
   if (event.target.checked === true) {
     document.documentElement
@@ -17,12 +15,10 @@ function toggleFullscreen(event) {
   }
 }
 
-const onFullScreenReject = (err) => {
+const onFullScreenReject = err => {
   const text = `Error attempting to enable fullscreen mode: ${err.message} (${err.name})`;
   alert(text);
 };
-
-// *********************************
 
 export function activateFullscreenSwitcher() {
   refs.fullscreenSwitcherCheckbox.addEventListener('change', toggleFullscreen);

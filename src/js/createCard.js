@@ -5,8 +5,6 @@ import { getLocalizedField, getLocalizedFieldName } from '/js/localization';
 
 import translations from '/data/translations.json' assert { type: 'json' };
 
-// *********************************
-
 const { LOCALE_ENG } = constants;
 
 export function createCardMarkup(project) {

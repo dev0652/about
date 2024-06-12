@@ -3,8 +3,6 @@ import { refs } from '/js/refs';
 import { makeTitles } from '/js/mobileTitles';
 import translations from '/data/translations.json' assert { type: 'json' };
 
-// *********************************
-
 const {
   LOCALE_ENG,
   LOC_ATTRIBUTE_TEXT,
@@ -12,8 +10,6 @@ const {
   LOC_ATTRIBUTE_ARIA,
   LS_LANGUAGE_KEY,
 } = constants;
-
-// *********************************
 
 function setInitialLocale() {
   const savedLanguage = localStorage.getItem(LS_LANGUAGE_KEY);
@@ -35,8 +31,6 @@ export function getLocalizedFieldName(fieldNameKey) {
   const locale = getLocale();
   return translations[locale][fieldNameKey];
 }
-
-// *********************************
 
 function getElementPropertyName(attr) {
   switch (attr) {

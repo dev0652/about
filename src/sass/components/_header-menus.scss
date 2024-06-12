@@ -75,15 +75,17 @@
   }
 
   $td: 600ms;
-  transition: color $td, width $td;
+  transition:
+    color $td,
+    width $td;
 
   .menu-label-icon {
     fill: currentColor;
-    transition: transform $td, fill $td;
+    transition:
+      transform $td,
+      fill $td;
   }
 }
-
-// ***********************************
 
 .menu-caption-wrapper {
   @media screen and (max-width: $tablet-1) {
@@ -116,13 +118,13 @@
   appearance: none;
 }
 
-// ***********************************
-
 .dropdown-wrapper {
   position: absolute;
 
   overflow: hidden;
-  transition: max-height 300ms ease-in, transform 300ms ease-in;
+  transition:
+    max-height 300ms ease-in,
+    transform 300ms ease-in;
 
   @media screen and (max-width: $tablet-1) {
     top: 0;
@@ -163,7 +165,8 @@
 }
 
 .dropdown {
-  transition: color $scheme-switch-duration $scheme-switch-timing-function,
+  transition:
+    color $scheme-switch-duration $scheme-switch-timing-function,
     background-color $scheme-switch-duration $scheme-switch-timing-function;
 
   background-color: var(--switcher-menu-dropdown-bg);
@@ -185,8 +188,6 @@
     );
   }
 }
-
-// ***********************************
 
 fieldset.switcher {
   position: relative;
@@ -240,7 +241,9 @@ fieldset.switcher {
 
   $td: 200ms;
   $tf: ease-in;
-  transition: color $td $tf, filter $td $tf;
+  transition:
+    color $td $tf,
+    filter $td $tf;
 
   color: var(--switcher-menu-radio);
 

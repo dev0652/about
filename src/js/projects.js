@@ -4,25 +4,22 @@ import { refs } from '/js/refs';
 import { openCardModal } from '/js/modal';
 import { createCardMarkup } from '/js/createCard';
 import translations from '/data/translations.json' assert { type: 'json' };
-// *********************************
 
 const gallery = refs.gallery;
 const modeDescriptor = refs.galleryViewSwitcher.querySelector('.view-mode');
 
-export const makeListMarkup = (projectsArray) => {
+export const makeListMarkup = projectsArray => {
   return `
   <ul class="project-card-list">
-    ${projectsArray.map((item) => createCardMarkup(item)).join('')}
+    ${projectsArray.map(item => createCardMarkup(item)).join('')}
   </ul>`;
 };
-
-// *********************************
 
 // Handle errors if image urls in picture tag's 'source' are broken
 function addImgErrorHandlers() {
   const images = document.querySelectorAll('.error-handleable');
 
-  images.forEach((image) => {
+  images.forEach(image => {
     image.onerror = handler;
   });
 
@@ -31,7 +28,7 @@ function addImgErrorHandlers() {
     const children = event.target.parentElement.children;
 
     // Get both <source> child elements of the <img>'s parent <picture> element and replace their <srcset" value with placeholder image URL
-    [...children].forEach((child) => {
+    [...children].forEach(child => {
       if (!child.nodeName === 'SOURCE') return;
       child.srcset = fallBack;
       child.sizes = '';
@@ -41,8 +38,6 @@ function addImgErrorHandlers() {
 
 const fallBack = new URL(`/images/projects/svg/fallback.svg`, import.meta.url)
   .href;
-
-// *********************************
 
 function slideGalleryOutOfView() {
   gallery.classList.remove('slide-in');
@@ -79,8 +74,6 @@ function switchView() {
   }, 300);
 }
 
-// *********************************
-
 function handleGalleryCardClicks(event) {
   event.preventDefault();
 
@@ -90,13 +83,9 @@ function handleGalleryCardClicks(event) {
   openCardModal(id);
 }
 
-// *********************************
-
 export function renderGallery() {
   gallery.innerHTML = makeListMarkup(projects);
 }
-
-// *********************************
 
 renderGallery();
 addImgErrorHandlers();

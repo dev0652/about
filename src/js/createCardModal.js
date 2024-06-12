@@ -4,8 +4,6 @@ import { getLocalizedField, getLocalizedFieldName } from '/js/localization';
 import translations from '/data/translations.json' assert { type: 'json' };
 import { constants } from '/constants';
 
-// *********************************
-
 const { LOCALE_ENG } = constants;
 
 export function createCardModal(project) {

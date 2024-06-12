@@ -12,8 +12,8 @@
   height: 50px;
   width: 100%;
 
-  transition: background-color $scheme-switch-duration
-      $scheme-switch-timing-function,
+  transition:
+    background-color $scheme-switch-duration $scheme-switch-timing-function,
     color $scheme-switch-duration $scheme-switch-timing-function;
 
   background-color: var(--background-color);
@@ -27,8 +27,6 @@
   align-items: center;
   justify-content: center;
 }
-
-// ***********************************
 
 .mobile-menu-toggle-checkbox {
   appearance: none;

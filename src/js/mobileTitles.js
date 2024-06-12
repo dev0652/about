@@ -1,8 +1,6 @@
 import { refs } from '/js/refs';
 import translations from '/data/translations.json' assert { type: 'json' };
 
-// ***********************************
-
 export function makeTitles() {
   const sectionsNodeList = refs.sections;
   const sections = Array.from(sectionsNodeList);
@@ -11,9 +9,8 @@ export function makeTitles() {
     translations[window.locale][section.id].toLowerCase()
   );
 
-  window.titles = titles; // will be mutated elsewhere
+  window.titles = titles;
 }
-// ***********************************
 
 export function populateTitles(titlesArray) {
   refs.titlesInjectionTarget.innerHTML = '';
@@ -26,9 +23,6 @@ export function populateTitles(titlesArray) {
   });
 }
 
-// ***********************************
-
-// On Screen change:
 function setActiveTitleById(id) {
   const { titles } = window;
 
@@ -54,9 +48,6 @@ export function injectMobileTitles(id) {
   id ? setActiveTitleById(id) : populateTitles(window.titles);
 }
 
-// ***********************************
-
-//Slider callback:
 export function setActiveTitleByDirection(dir) {
   const { titles } = window;
 

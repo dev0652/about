@@ -8,8 +8,6 @@ import {
 // https://github.com/lyfeyaj/swipe
 // https://github.com/lyfeyaj/swipe/issues/35
 
-// *********************************
-
 function scrollToTop() {
   window.scroll({
     top: 0,
@@ -46,7 +44,6 @@ function onSlideChange(index, elem, dir) {
   setActiveBullet(index);
   setActiveTitleByDirection(dir);
 }
-// *********************************
 
 function initialize(startSlide = 0) {
   const options = {
@@ -80,7 +77,5 @@ function reactivate(startSlide = 0) {
 function kill() {
   window.mySwipe.kill();
 }
-
-// *********************************
 
 export const slider = { initialize, reactivate, kill };
