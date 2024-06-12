@@ -17,32 +17,36 @@ export function onHeaderMenuToggle(event) {
     : 'removeEventListener';
   document[method]('click', handleClicksOutsideMenu);
 
-  // If clicked outside menu, close it
+  // Close the menu on an outside click
   function handleClicksOutsideMenu(event) {
     if (
       !dropdown.contains(event.target) &&
       !checkboxLabel.contains(event.target) &&
       !document.querySelector('.caption-toggle-label').contains(event.target)
-    ) {
-      document.removeEventListener('click', handleClicksOutsideMenu);
-      checkbox.checked = false;
-      checkbox.setAttribute('aria-expanded', false);
+    )
+      closeMenu();
+  }
 
-      menuInputs.forEach((input) => {
-        input.tabIndex = '-1'; // disables focus on input buttons when menu is collapsed
-      });
-    }
+  // Close the menu on menuitem click
+  function closeMenu() {
+    document.removeEventListener('click', handleClicksOutsideMenu);
+    checkbox.checked = false;
+    checkbox.setAttribute('aria-expanded', false);
+
+    menuInputs.forEach(input => {
+      input.tabIndex = '-1'; // disables focus on input buttons when menu is collapsed
+    });
   }
 
   // Make menu items keyboard-focusable when menu is shown and set aria-expanded attribute on the checkbox:
   if (event.target.checked) {
-    menuInputs.forEach((input) => {
+    menuInputs.forEach(input => {
       input.removeAttribute('tabIndex');
     });
 
     event.target.setAttribute('aria-expanded', false);
   } else {
-    menuInputs.forEach((input) => {
+    menuInputs.forEach(input => {
       input.tabIndex = '-1'; // disables focus on input buttons when menu is collapsed
     });
 
