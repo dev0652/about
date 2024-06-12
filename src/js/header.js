@@ -4,7 +4,8 @@ import { refs } from './refs';
 // ***********************************
 
 export function addHeaderNavListeners() {
-  refs.headerNavLinks.forEach((link) => {
+  console.log('addHeaderNavListeners fired');
+  refs.headerNavLinks.forEach(link => {
     link.addEventListener('click', handleNavLinkClick);
   });
 }
@@ -14,7 +15,7 @@ function handleNavLinkClick(event) {
   const { id } = event.target.dataset;
 
   // Display the desired section and hide the others
-  refs.sections.forEach((section) => {
+  refs.sections.forEach(section => {
     const isCurrent = section.id === id;
     section.style.display = isCurrent ? 'block' : 'none';
 
@@ -22,7 +23,7 @@ function handleNavLinkClick(event) {
   });
 
   // Set all link inactive
-  refs.headerNavLinks.forEach((link) => {
+  refs.headerNavLinks.forEach(link => {
     link.classList.remove('active');
     link.removeAttribute('aria-current');
   });
@@ -59,7 +60,7 @@ function handleNavLinkClick(event) {
 // ***********************************
 
 export function restoreSectionVisibility() {
-  refs.sections.forEach((section) => {
+  refs.sections.forEach(section => {
     section.style.display = 'block';
   });
 }

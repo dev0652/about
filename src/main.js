@@ -1,4 +1,4 @@
-import './js/checkDevice';
-import './js/projects';
-import './js/accordion';
-import './js/email';
+import '/js/checkDevice';
+import '/js/projects';
+import '/js/accordion';
+import '/js/email';

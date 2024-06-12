@@ -1,4 +1,6 @@
 import { constants } from '/constants';
+import { refs } from '/js/refs';
+import { makeTitles } from '/js/mobileTitles';
 import translations from '/data/translations.json' assert { type: 'json' };
 
 // *********************************
@@ -13,12 +15,12 @@ const {
 
 // *********************************
 
-function setLocale() {
+function setInitialLocale() {
   const savedLanguage = localStorage.getItem(LS_LANGUAGE_KEY);
   window.locale = savedLanguage ? savedLanguage : LOCALE_ENG;
 }
 
-function getLocale() {
+export function getLocale() {
   return window.locale ? window.locale : LOCALE_ENG;
 }
 
@@ -84,10 +86,10 @@ export function translateStaticHTML() {
   localizationAttributes.forEach(translateElementByAttribute);
 }
 
-// *********************************
-
 export function applyTranslations() {
-  setLocale();
+  setInitialLocale();
+
+  makeTitles();
 
   if (window.locale !== LOCALE_ENG) translateStaticHTML();
 

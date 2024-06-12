@@ -1,6 +1,9 @@
-import { refs } from './refs';
+import { refs } from '/js/refs';
 import Swipe from 'swipejs';
-import { injectMobileTitles, setActiveTitleByDirection } from './mobileTitles';
+import {
+  injectMobileTitles,
+  setActiveTitleByDirection,
+} from '/js/mobileTitles';
 
 // https://github.com/lyfeyaj/swipe
 // https://github.com/lyfeyaj/swipe/issues/35

@@ -3,7 +3,7 @@ import { constants } from '/constants';
 
 import { renderGallery } from '/js/projects';
 
-import { populateTitles, titles } from '/js/mobileTitles';
+import { populateTitles } from '/js/mobileTitles';
 
 import { onHeaderMenuToggle } from '/js/headerMenus';
 import { translateStaticHTML } from '/js/localization';
@@ -21,7 +21,7 @@ function getSavedLanguage() {
 }
 
 function saveLanguage(locale) {
-  return localStorage.setItem(LS_LANGUAGE_KEY, locale);
+  localStorage.setItem(LS_LANGUAGE_KEY, locale);
 }
 
 // *********************************
@@ -35,6 +35,8 @@ function translateMobileTitles(locale, prevLang) {
   // Populate the mobile titles array with translated titles:
   const getPreviousTitle = title => translations[prevLang][title].toLowerCase();
   const getTranslatedTitle = title => translations[locale][title].toLowerCase();
+
+  const { titles } = window;
 
   refs.sections.forEach(({ id }) => {
     const index = titles.indexOf(getPreviousTitle(id));

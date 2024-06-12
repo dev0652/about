@@ -1,21 +1,18 @@
-import { constants } from '/constants';
 import { refs } from '/js/refs';
 import translations from '/data/translations.json' assert { type: 'json' };
 
 // ***********************************
 
-const { LOCALE_ENG } = constants;
+export function makeTitles() {
+  const sectionsNodeList = refs.sections;
+  const sections = Array.from(sectionsNodeList);
 
-const sectionsNodeList = refs.sections;
-const sections = Array.from(sectionsNodeList);
+  const titles = sections.map(section =>
+    translations[window.locale][section.id].toLowerCase()
+  );
 
-export const titles = sections.map(
-  section => {
-    const locale = window.locale ? window.locale : LOCALE_ENG;
-    return translations[locale][section.id].toLowerCase();
-  } // mutated elsewhere
-);
-
+  window.titles = titles; // will be mutated elsewhere
+}
 // ***********************************
 
 export function populateTitles(titlesArray) {
@@ -33,6 +30,8 @@ export function populateTitles(titlesArray) {
 
 // On Screen change:
 function setActiveTitleById(id) {
+  const { titles } = window;
+
   const index = titles.indexOf(id);
 
   if (index !== 0) {
@@ -52,13 +51,15 @@ function setActiveTitleById(id) {
 }
 
 export function injectMobileTitles(id) {
-  id ? setActiveTitleById(id) : populateTitles(titles);
+  id ? setActiveTitleById(id) : populateTitles(window.titles);
 }
 
 // ***********************************
 
 //Slider callback:
 export function setActiveTitleByDirection(dir) {
+  const { titles } = window;
+
   // Rearrange the array moving (deleting and then inserting) either:
   // - the first item to the end (for next slide); or
   // - the last item to the beginning (for prev slide) of the array

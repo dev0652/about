@@ -1,23 +1,24 @@
-import { refs } from './refs';
+import { refs } from '/js/refs';
 import { constants } from '/constants';
+
+import { applyTranslations } from '/js/localization';
 
 import {
   setCurrentSection,
   restoreSectionVisibility,
   addHeaderNavListeners,
-} from './header';
+} from '/js/header';
 
-import { slider } from './swipe';
-import { createPagination } from './pagination';
+import { slider } from '/js/swipe';
+import { createPagination } from '/js/pagination';
 
-import { applyTranslations } from '/js/localization';
-import { setTypewriterEffect } from './typing-animation';
+import { setTypewriterEffect } from '/js/typing-animation';
 import {
   activateColorSchemeSwitcher,
   setupColorScheme,
-} from './color-scheme-switcher';
-import { activateLanguageSwitcher } from './language-switcher';
-import { activateFullscreenSwitcher } from './fullScreen';
+} from '/js/color-scheme-switcher';
+import { activateLanguageSwitcher } from '/js/language-switcher';
+import { activateFullscreenSwitcher } from '/js/fullScreen';
 
 // *********************************
 
@@ -35,9 +36,8 @@ function getCurrentSectionIndex() {
 }
 
 function changeTextAreaSize() {
-  const isMobile = window.matchMedia('(max-width: 499px)').matches;
-
-  refs.textArea.setAttribute('rows', isMobile ? 3 : 5);
+  const isMobileWide = window.matchMedia('(max-width: 499px)').matches;
+  refs.textArea.setAttribute('rows', isMobileWide ? 3 : 5);
 }
 
 function onScreenChange(event) {
@@ -59,8 +59,10 @@ function onScreenChange(event) {
 function setNavigationElements() {
   if (MEDIA_QUERY_MOBILE.matches) {
     const paginationList = document.querySelector('.pagination-list');
-    if (!paginationList) createPagination();
-    activateFullscreenSwitcher();
+    if (!paginationList) {
+      createPagination();
+      activateFullscreenSwitcher();
+    }
   } else addHeaderNavListeners();
 }
 
@@ -69,12 +71,12 @@ function setSectionBehavior() {
   else setTypewriterEffect();
 }
 
-function doOnFirstLoad() {
+export function doOnFirstLoad() {
   applyTranslations();
   setupColorScheme();
 
-  setSectionBehavior();
   setNavigationElements();
+  setSectionBehavior();
 
   activateColorSchemeSwitcher();
   activateLanguageSwitcher();
