@@ -1,4 +1,3 @@
-import { getSavedColorScheme } from '/js/color-scheme-switcher';
 import translations from '/data/translations.json' assert { type: 'json' };
 import { constants } from '/constants';
 
@@ -77,7 +76,7 @@ function makeSourceTag(
         `;
 
     if (isModal) {
-      const savedScheme = getSavedColorScheme();
+      const savedScheme = localStorage.getItem(LS_COLOR_SCHEME_KEY);
 
       if (savedScheme) {
         dataMedia = `(prefers-color-scheme: ${colorScheme})`;

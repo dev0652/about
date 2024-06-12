@@ -7,10 +7,6 @@ import { updateSourceMedia } from './updateSourceMedia';
 
 const { LS_COLOR_SCHEME_KEY } = constants;
 
-export function getSavedColorScheme() {
-  return localStorage.getItem(LS_COLOR_SCHEME_KEY);
-}
-
 function getSystemScheme() {
   const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
   return darkSchemeMedia.matches ? 'dark' : 'light';
@@ -62,7 +58,7 @@ function setColorScheme(scheme) {
 
 export function setupColorScheme() {
   const systemScheme = getSystemScheme();
-  const savedScheme = getSavedColorScheme();
+  const savedScheme = localStorage.getItem(LS_COLOR_SCHEME_KEY);
 
   if (!savedScheme || savedScheme === systemScheme) return;
 
@@ -70,7 +66,7 @@ export function setupColorScheme() {
 }
 
 function presetSwitcher() {
-  const savedScheme = getSavedColorScheme();
+  const savedScheme = localStorage.getItem(LS_COLOR_SCHEME_KEY);
 
   if (savedScheme) {
     const currentRadio = document.querySelector(

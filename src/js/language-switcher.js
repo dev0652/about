@@ -12,14 +12,6 @@ import translations from '/data/translations.json' assert { type: 'json' };
 
 const { LS_LANGUAGE_KEY, MEDIA_QUERY_MOBILE, LOCALE_ENG } = constants;
 
-function getSavedLanguage() {
-  return localStorage.getItem(LS_LANGUAGE_KEY);
-}
-
-function saveLanguage(locale) {
-  localStorage.setItem(LS_LANGUAGE_KEY, locale);
-}
-
 function setLocale(locale) {
   window.locale = locale;
   document.documentElement.lang = locale;
@@ -41,7 +33,7 @@ function translateMobileTitles(locale, prevLang) {
 }
 
 function translateContent(locale) {
-  const savedLang = getSavedLanguage();
+  const savedLang = localStorage.getItem(LS_LANGUAGE_KEY);
   const prevLang = savedLang ? savedLang : LOCALE_ENG;
 
   if (MEDIA_QUERY_MOBILE.matches) translateMobileTitles(locale, prevLang);
@@ -63,7 +55,7 @@ function switchLanguage(event) {
   const locale = event.target.value;
 
   setLocale(locale);
-  saveLanguage(locale);
+  localStorage.setItem(LS_LANGUAGE_KEY, locale);
   translateContentWithFadeEffect(locale);
 }
 
