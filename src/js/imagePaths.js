@@ -3,21 +3,18 @@ import { constants } from '/constants';
 
 const { LOCALE_ENG } = constants;
 
-function makeURLfromPath(path) {
-  return new URL(path, import.meta.url).href;
-}
-
 function getPlaceholderUrl(isDarkVersion = false) {
   const baseName = 'placeholder';
   const fileName = isDarkVersion ? baseName + '_dark' : baseName;
-  const path = `/images/projects/svg/${fileName}.svg`;
-  return makeURLfromPath(path);
+  return new URL(`/images/projects/svg/${fileName}.svg`, import.meta.url).href;
 }
 
 function getImageUrl(dirName, fileName, isDark) {
   const name = isDark ? fileName + '_dark' : fileName;
-  const path = `/images/projects/webp/${dirName}/${name}.webp`;
-  return makeURLfromPath(path);
+  return new URL(
+    `/images/projects/webp/${dirName}/${name}.webp`,
+    import.meta.url
+  ).href;
 }
 
 const placeholderUrl = {
