@@ -29,9 +29,10 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
 
-  transition: background-color $scheme-switch-duration
-      $scheme-switch-timing-function,
-    color $scheme-switch-duration $scheme-switch-timing-function, opacity 300ms;
+  transition:
+    background-color $scheme-switch-duration $scheme-switch-timing-function,
+    color $scheme-switch-duration $scheme-switch-timing-function,
+    opacity 300ms;
 
   --blurOffset: 20vh; // default for mobile, is reset via JS
   --bottomBlurOffset: 50px; // default, mobile only, will be reset via JS
@@ -78,7 +79,8 @@ main {
       pointer-events: none;
       z-index: $index-main-pseudos;
 
-      transition: color $scheme-switch-duration $scheme-switch-timing-function,
+      transition:
+        color $scheme-switch-duration $scheme-switch-timing-function,
         background-color $scheme-switch-duration $scheme-switch-timing-function;
     }
 
