@@ -1,7 +1,7 @@
 import translations from '/data/translations.json' assert { type: 'json' };
 import { constants } from '/constants';
 
-const { LOCALE_ENG } = constants;
+const { LOCALE_ENG, LS_COLOR_SCHEME_KEY } = constants;
 
 function getPlaceholderUrl(isDarkVersion = false) {
   const baseName = 'placeholder';

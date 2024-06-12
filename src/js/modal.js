@@ -1,7 +1,7 @@
 import projects from '/data/db';
 import { createCardModal } from './createCardModal';
 
-// ***** Tile card modal *********************************
+// Tile card modal:
 
 const modalPopUp = document.querySelector('.popup-backdrop');
 const closeModalButton = modalPopUp.querySelector('.popup-modal-close-button');
@@ -21,23 +21,7 @@ export function openCardModal(id) {
   onModalOpen();
 }
 
-// ***** Email dialog modal ******************************
-
-// const modalEmail = document.querySelector('.email-backdrop');
-// const closeDialogButton = modalEmail.querySelector('.email-modal-close-button');
-// const modalEmailText = modalEmail.querySelector('.email-confirmation-text');
-
-// export function openEmailModal(message) {
-//   modalEmailText.innerHTML = message;
-
-//   modalEmail.classList.remove('is-hidden');
-//   modalEmail.classList.add('current-modal');
-//   closeDialogButton.addEventListener('click', onModalClose);
-
-//   onModalOpen();
-// }
-
-// ***** Do for all modals ********************************
+// Do for all modals:
 
 function onModalOpen() {
   document.documentElement.style.overflow = 'hidden';
