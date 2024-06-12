@@ -19,8 +19,23 @@
     "vite-plugin-html-inject": "^1.0.1"
   },
   "devDependencies": {
+    "eslint": "^9.4.0",
     "glob": "^8.1.0",
+    "husky": "^9.0.11",
+    "prettier": "^3.3.2",
     "sass": "^1.69.5",
     "vite": "^4.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint — fix",
+      "prettier — write",
+      "git add"
+    ]
   }
 }
