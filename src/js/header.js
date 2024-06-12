@@ -11,7 +11,12 @@ const { TYPING_ANIMATION_INTERVAL: interval } = constants;
 export function addHeaderNavListeners() {
   refs.headerNavLinks.forEach(link => {
     const timer = link.innerText.length * interval * 3;
-    link.addEventListener('click', throttle(handleNavLinkClick, timer));
+    const options = { trailing: false };
+
+    link.addEventListener(
+      'click',
+      throttle(handleNavLinkClick, timer, options)
+    );
   });
 }
 
