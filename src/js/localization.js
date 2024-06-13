@@ -26,9 +26,8 @@ export function setLocale(locale) {
 
 export function getLocalizedField(field) {
   const locale = getLocale();
-
   if (!field) return null;
-  return field[locale] ? field[locale] : field.en;
+  return field[locale] ? field[locale] : field[LOCALE_ENG];
 }
 
 export function getLocalizedFieldName(fieldNameKey) {
@@ -49,7 +48,7 @@ function getElementPropertyName(attr) {
   }
 }
 
-function callback(attr, locale) {
+function translateDecorator(attr, locale) {
   //
   return function (node) {
     const propertyName = getElementPropertyName(attr);
@@ -67,7 +66,7 @@ function callback(attr, locale) {
 
 function translateElementByAttribute(attr) {
   const locale = getLocale();
-  const translate = callback(attr, locale);
+  const translate = translateDecorator(attr, locale);
 
   document.querySelectorAll(`[${attr}]`).forEach(translate);
 }

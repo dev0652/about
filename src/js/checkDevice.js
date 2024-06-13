@@ -19,6 +19,7 @@ import {
 } from '/js/color-scheme-switcher';
 import { activateLanguageSwitcher } from '/js/language-switcher';
 import { activateFullscreenSwitcher } from '/js/fullScreen';
+import { renderGalleryOnInitialLoad } from './projects';
 
 const { MEDIA_QUERY_MOBILE } = constants;
 
@@ -80,6 +81,8 @@ export function doOnFirstLoad() {
   activateLanguageSwitcher();
 
   changeTextAreaSize();
+
+  renderGalleryOnInitialLoad();
 
   MEDIA_QUERY_MOBILE.addEventListener('change', onScreenChange);
 }

@@ -87,6 +87,8 @@ export function renderGallery() {
   gallery.innerHTML = makeListMarkup(projects);
 }
 
-renderGallery();
-addImgErrorHandlers();
-refs.galleryViewSwitcher.addEventListener('click', switchView);
+export function renderGalleryOnInitialLoad() {
+  renderGallery();
+  addImgErrorHandlers();
+  refs.galleryViewSwitcher.addEventListener('click', switchView);
+}
