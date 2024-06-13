@@ -1,10 +1,6 @@
-import { constants } from '/constants';
-
 import emailjs from '@emailjs/browser';
-
 import translations from '/data/translations.json' assert { type: 'json' };
-
-const { LOCALE_ENG } = constants;
+import { getLocale } from '/js/localization';
 
 emailjs.init('E8FZeR5jYUP13UDEy');
 
@@ -15,7 +11,8 @@ form.addEventListener('submit', formSubmitHandler);
 function formSubmitHandler(event) {
   event.preventDefault();
 
-  const locale = window.locale ? window.locale : LOCALE_ENG;
+  const locale = getLocale();
+
   const { successMessage, errorMessage } = translations[locale].email;
 
   emailjs

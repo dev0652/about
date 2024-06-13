@@ -1,14 +1,13 @@
 import { makePictureTag } from '/js/imagePaths';
-import { getLocalizedField, getLocalizedFieldName } from '/js/localization';
-
+import {
+  getLocale,
+  getLocalizedField,
+  getLocalizedFieldName,
+} from '/js/localization';
 import translations from '/data/translations.json' assert { type: 'json' };
-import { constants } from '/constants';
-
-const { LOCALE_ENG } = constants;
 
 export function createCardModal(project) {
-  //
-  const locale = window.locale ? window.locale : LOCALE_ENG;
+  const locale = getLocale();
 
   if (!project) return translations[locale].loadingError;
 

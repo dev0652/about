@@ -1,5 +1,4 @@
 import { constants } from '/constants';
-import { refs } from '/js/refs';
 import { makeTitles } from '/js/mobileTitles';
 import translations from '/data/translations.json' assert { type: 'json' };
 
@@ -18,6 +17,11 @@ function setInitialLocale() {
 
 export function getLocale() {
   return window.locale ? window.locale : LOCALE_ENG;
+}
+
+export function setLocale(locale) {
+  window.locale = locale;
+  document.documentElement.lang = locale;
 }
 
 export function getLocalizedField(field) {

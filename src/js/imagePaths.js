@@ -1,15 +1,27 @@
 import translations from '/data/translations.json' assert { type: 'json' };
 import { constants } from '/constants';
+import { getLocale } from '/js/localization';
 
-const { LOCALE_ENG, LS_COLOR_SCHEME_KEY } = constants;
+const { IMAGE_SIZE_NAMES, LOCALE_UKR, LS_COLOR_SCHEME_KEY } = constants;
 
-function getPlaceholderUrl(isDarkVersion = false) {
+const sizesString = {
+  list: '(max-width: 767px): 100vw, (max-width: 1279px) 550px, 600px',
+  tile: '(max-width: 400px): 100vw, (max-width: 1279px) 325px, 400px',
+  modal: '(max-width: 400px): 100vw, (max-width: 1279px) 520px, 620px',
+};
+
+const placeholderUrl = {
+  light: makePlaceholderUrl('light'),
+  dark: makePlaceholderUrl('dark'),
+};
+
+function makePlaceholderUrl(scheme) {
   const baseName = 'placeholder';
-  const fileName = isDarkVersion ? baseName + '_dark' : baseName;
+  const fileName = scheme === 'dark' ? baseName + '_' + scheme : baseName;
   return new URL(`/images/projects/svg/${fileName}.svg`, import.meta.url).href;
 }
 
-function getImageUrl(dirName, fileName, isDark) {
+function makeImageUrl(dirName, fileName, isDark) {
   const name = isDark ? fileName + '_dark' : fileName;
   return new URL(
     `/images/projects/webp/${dirName}/${name}.webp`,
@@ -17,28 +29,15 @@ function getImageUrl(dirName, fileName, isDark) {
   ).href;
 }
 
-const placeholderUrl = {
-  light: getPlaceholderUrl(),
-  dark: getPlaceholderUrl(true),
-};
-
-const { IMAGE_SIZE_NAMES } = constants;
-
 function getImagePaths(fileName, willCreateDark) {
   const pathsObj = {};
 
   for (const key in IMAGE_SIZE_NAMES) {
-    pathsObj[key] = getImageUrl(key, fileName, willCreateDark);
+    pathsObj[key] = makeImageUrl(key, fileName, willCreateDark);
   }
 
   return pathsObj;
 }
-
-const sizesString = {
-  list: '(max-width: 767px): 100vw, (max-width: 1279px) 550px, 600px',
-  tile: '(max-width: 400px): 100vw, (max-width: 1279px) 325px, 400px',
-  modal: '(max-width: 400px): 100vw, (max-width: 1279px) 520px, 620px',
-};
 
 function makeSourceTag(
   fileName,
@@ -90,6 +89,20 @@ function makeSourceTag(
   `;
 }
 
+function makeImageAltAttr(projectName) {
+  const locale = getLocale();
+
+  const defaultAltText = 'live page screenshot';
+  const altText = translations
+    ? translations[locale]['project-image-alt-text']
+    : defaultAltText;
+
+  const altArr = [projectName, altText];
+  if (locale === LOCALE_UKR) altArr.reverse();
+
+  return altArr.join(' ');
+}
+
 // ***** Resulting function: ****************************
 
 export function makePictureTag(
@@ -114,19 +127,11 @@ export function makePictureTag(
   let loadingMode = 'eager';
 
   if (imgLocation === 'tile') {
-    loadingMode = 'lazy';
     imgSrc = medium;
+    loadingMode = 'lazy';
   }
 
-  const defaultAltText = 'live page screenshot';
-  const locale = window.locale ? window.locale : LOCALE_ENG;
-  const altText = translations
-    ? translations[locale]['project-image-alt-text']
-    : defaultAltText;
-  const altArr = [projectName, altText];
-  if (locale === 'uk') altArr.reverse();
-
-  const alt = altArr.join(' ');
+  const alt = makeImageAltAttr(projectName);
 
   return /* html */ `
     <picture class="project-card-picture-element">

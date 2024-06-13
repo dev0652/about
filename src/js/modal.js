@@ -1,7 +1,5 @@
 import projects from '/data/db';
-import { createCardModal } from './createCardModal';
-
-// Tile card modal:
+import { createCardModal } from '/js/createCardModal';
 
 const modalPopUp = document.querySelector('.popup-backdrop');
 const closeModalButton = modalPopUp.querySelector('.popup-modal-close-button');
@@ -9,19 +7,10 @@ const modalContentEl = modalPopUp.querySelector(
   '.modal-content-injection-target'
 );
 
-export function openCardModal(id) {
-  const selectedProject = projects.find(project => project.id === +id);
-  modalContentEl.innerHTML = createCardModal(selectedProject);
-
-  modalPopUp.classList.remove('is-hidden');
-  modalPopUp.classList.add('current-modal');
-
-  closeModalButton.classList.add('current-close-button');
-
-  onModalOpen();
+function handleBackdropClick(event) {
+  const backdrop = document.querySelector('.current-modal');
+  if (event.target === backdrop) onModalClose();
 }
-
-// Do for all modals:
 
 function onModalOpen() {
   document.documentElement.style.overflow = 'hidden';
@@ -49,11 +38,18 @@ function onModalClose() {
   currentCloseButton.removeEventListener('click', onModalClose);
 }
 
-function handleBackdropClick(event) {
-  const backdrop = document.querySelector('.current-modal');
-  if (event.target === backdrop) onModalClose();
-}
-
 function handleEscapePress(event) {
   if (event.key === 'Escape') onModalClose();
+}
+
+export function openCardModal(id) {
+  const selectedProject = projects.find(project => project.id === +id);
+  modalContentEl.innerHTML = createCardModal(selectedProject);
+
+  modalPopUp.classList.remove('is-hidden');
+  modalPopUp.classList.add('current-modal');
+
+  closeModalButton.classList.add('current-close-button');
+
+  onModalOpen();
 }

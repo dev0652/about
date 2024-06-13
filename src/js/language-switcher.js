@@ -1,21 +1,12 @@
 import { refs } from '/js/refs';
-import { constants } from '/constants';
-
 import { renderGallery } from '/js/projects';
-
 import { populateTitles } from '/js/mobileTitles';
-
 import { onHeaderMenuToggle } from '/js/headerMenus';
-import { translateStaticHTML } from '/js/localization';
-
+import { translateStaticHTML, setLocale } from '/js/localization';
+import { constants } from '/constants';
 import translations from '/data/translations.json' assert { type: 'json' };
 
 const { LS_LANGUAGE_KEY, MEDIA_QUERY_MOBILE, LOCALE_ENG } = constants;
-
-function setLocale(locale) {
-  window.locale = locale;
-  document.documentElement.lang = locale;
-}
 
 function translateMobileTitles(locale, prevLang) {
   // Populate the mobile titles array with translated titles:
