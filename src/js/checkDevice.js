@@ -1,25 +1,21 @@
 import { refs } from '/js/refs';
 import { constants } from '/constants';
-
 import { applyTranslations } from '/js/localization';
-
+import { slider } from '/js/swipe';
+import { createPagination } from '/js/pagination';
+import { setTypewriterEffect } from '/js/typing-animation';
+import { activateLanguageSwitcher } from '/js/language-switcher';
+import { activateFullscreenSwitcher } from '/js/fullScreen';
+import { renderGalleryOnInitialLoad } from '/js/projects';
 import {
   setCurrentSection,
   restoreSectionVisibility,
   addHeaderNavListeners,
 } from '/js/header';
-
-import { slider } from '/js/swipe';
-import { createPagination } from '/js/pagination';
-
-import { setTypewriterEffect } from '/js/typing-animation';
 import {
   activateColorSchemeSwitcher,
   setupColorScheme,
 } from '/js/color-scheme-switcher';
-import { activateLanguageSwitcher } from '/js/language-switcher';
-import { activateFullscreenSwitcher } from '/js/fullScreen';
-import { renderGalleryOnInitialLoad } from './projects';
 
 const { MEDIA_QUERY_MOBILE } = constants;
 

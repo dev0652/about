@@ -54,16 +54,27 @@ function updateViewButtonText(isGallery) {
   modeDescriptor.innerText = translations[window.locale][mode];
 }
 
+function adjustTabIndexesByGalleryView(cardList, isGallery) {
+  // make list card titles non-keyboard-focusable in gallery view
+  const listCardTitles = cardList.querySelectorAll('.card-title');
+
+  listCardTitles.forEach(title => {
+    title.tabIndex = isGallery ? '-1' : '0';
+  });
+}
+
 function toggleGalleryView() {
   const cardList = document.querySelector('.project-card-list');
 
   cardList.classList.toggle('gallery-view');
   const isGallery = cardList.classList.contains('gallery-view');
+
   const method = isGallery ? 'add' : 'remove';
   cardList[`${method}EventListener`]('click', handleGalleryCardClicks);
 
   slideGalleryIntoView();
   updateViewButtonText(isGallery);
+  adjustTabIndexesByGalleryView(cardList, isGallery);
 }
 
 function onViewSwitcherClick() {
