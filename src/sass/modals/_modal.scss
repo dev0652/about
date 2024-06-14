@@ -1,6 +1,12 @@
+$td: 600ms;
+
 // Shared styles:
 
 .modal-backdrop {
+  transition:
+    background-color $td,
+    backdrop-filter $td;
+
   &.is-hidden {
     visibility: hidden;
     opacity: 0;
@@ -24,6 +30,10 @@
 
     opacity: 1;
     z-index: $index-modal-backdrop;
+  }
+
+  &:has(.on-modal-close) {
+    background-color: transparent;
   }
 }
 
@@ -49,8 +59,6 @@
   }
 }
 
-//
-
 // Tile card modal
 .popup-modal {
   max-height: 100%;
@@ -64,40 +72,28 @@
     width: 700px;
   }
 
-  .popup-backdrop:not(.is-hidden) & {
-    animation: slide-in-from-below 600ms;
+  .popup-backdrop:not(.is-hidden) &:not(.on-modal-close) {
+    animation: slide-in-from-below $td;
 
     @media screen and (min-width: $tablet) {
-      animation: modal-emerge 600ms;
+      animation: modal-emerge $td both;
+    }
+  }
+
+  &.on-modal-close {
+    // Duration corresponds to timeout in onModalClose in modal.js
+    animation: slide-back-down $td;
+
+    @media screen and (min-width: $tablet) {
+      $delay: $td/6;
+      $duration: $delay * 5;
+
+      animation: modal-vanish $duration $delay;
     }
   }
 }
 
-// Email dialog modal
-// .email-modal {
-//   @media screen and (min-width: $tablet) {
-//     padding: 50px;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     padding: 50px 70px;
-//   }
-
-//   .email-backdrop:not(.is-hidden) & {
-//     animation: modal-emerge 400ms;
-//   }
-// }
-
-// Content injection div inside .modal
-
-// .modal-content-injection-target {}
-
-// .email-confirmation-text {
-//   font-size: 1.5rem;
-//   margin-bottom: 40px;
-// }
-
-// Injected content
+// Injected content:
 
 .modal-title {
   margin-bottom: $unit-gap;

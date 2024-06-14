@@ -109,7 +109,7 @@ export function createCardMarkup(project) {
             <div class="flip-card-inner">
               <div class="flip-card-front">${tilePictureTag}</div>
 
-              <div class="flip-card-back">
+              <div class="flip-card-back"  tabindex="-1">
                 <h3 class="flip-card-project-name">${name}</h3>
 
                 <div class="tile-card-project-summary">

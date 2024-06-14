@@ -1,3 +1,5 @@
+// Modal
+
 @keyframes modal-emerge {
   from {
     transform: translate(-50%, -50%) scale(0.5);
@@ -7,13 +9,32 @@
   }
 }
 
-// Modal
+@keyframes modal-vanish {
+  from {
+    transform: translate(-50%, -50%);
+    // opacity: 1;
+  }
+  to {
+    transform: translate(-50%, 100%);
+    // opacity: 0.5;
+  }
+}
+
 @keyframes slide-in-from-below {
   from {
     transform: translateY(100%);
   }
   to {
     transform: translateY(0);
+  }
+}
+
+@keyframes slide-back-down {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
   }
 }
 

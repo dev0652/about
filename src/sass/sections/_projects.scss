@@ -111,7 +111,9 @@
   $duration: 400ms;
   $function: ease-in; // don't change!
 
-  transition: max-height $duration $function, opacity $duration $function;
+  transition:
+    max-height $duration $function,
+    opacity $duration $function;
 
   &.animated {
     opacity: 1;
@@ -348,8 +350,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .flip-card:hover .flip-card-inner,
-  .flip-card:focus-visible .flip-card-inner {
+  .flip-card:is(:hover, :focus-visible, .forced-rotated) .flip-card-inner {
     transform: rotateY(180deg);
   }
 }

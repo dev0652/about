@@ -7,6 +7,8 @@ import translations from '/data/translations.json' assert { type: 'json' };
 
 const gallery = refs.gallery;
 const modeDescriptor = refs.galleryViewSwitcher.querySelector('.view-mode');
+const fallBack = new URL(`/images/projects/svg/fallback.svg`, import.meta.url)
+  .href;
 
 export const makeListMarkup = projectsArray => {
   return `
@@ -36,9 +38,6 @@ function addImgErrorHandlers() {
   }
 }
 
-const fallBack = new URL(`/images/projects/svg/fallback.svg`, import.meta.url)
-  .href;
-
 function slideGalleryOutOfView() {
   gallery.classList.remove('slide-in');
   gallery.classList.add('slide-out');
@@ -49,34 +48,31 @@ function slideGalleryIntoView() {
   gallery.classList.add('slide-in');
 }
 
-function switchView() {
+function updateViewButtonText(isGallery) {
+  const mode = isGallery ? 'list' : 'tiles';
+  modeDescriptor.setAttribute('data-loc', mode);
+  modeDescriptor.innerText = translations[window.locale][mode];
+}
+
+function toggleGalleryView() {
   const cardList = document.querySelector('.project-card-list');
 
-  // Slide gallery out of view
+  cardList.classList.toggle('gallery-view');
+  const isGallery = cardList.classList.contains('gallery-view');
+  const method = isGallery ? 'add' : 'remove';
+  cardList[`${method}EventListener`]('click', handleGalleryCardClicks);
+
+  slideGalleryIntoView();
+  updateViewButtonText(isGallery);
+}
+
+function onViewSwitcherClick() {
   slideGalleryOutOfView();
-
-  // Toggle gallery view after slide-out animation has finished
-  setTimeout(() => {
-    cardList.classList.toggle('gallery-view');
-
-    const isGallery = cardList.classList.contains('gallery-view');
-
-    const method = isGallery ? 'add' : 'remove';
-    cardList[`${method}EventListener`]('click', handleGalleryCardClicks);
-
-    // Slide gallery back into view
-    slideGalleryIntoView();
-
-    // Update button text
-    const mode = isGallery ? 'list' : 'tiles';
-    modeDescriptor.setAttribute('data-loc', mode);
-    modeDescriptor.innerText = translations[window.locale][mode];
-  }, 300);
+  setTimeout(toggleGalleryView, 300);
 }
 
 function handleGalleryCardClicks(event) {
   event.preventDefault();
-
   if (!event.target.matches('.tile-card-link')) return;
 
   const id = event.target.dataset.id;
@@ -90,5 +86,5 @@ export function renderGallery() {
 export function renderGalleryOnInitialLoad() {
   renderGallery();
   addImgErrorHandlers();
-  refs.galleryViewSwitcher.addEventListener('click', switchView);
+  refs.galleryViewSwitcher.addEventListener('click', onViewSwitcherClick);
 }

@@ -12,30 +12,65 @@ function handleBackdropClick(event) {
   if (event.target === backdrop) onModalClose();
 }
 
-function onModalOpen() {
+function getCurrentFlipCardById(projectId) {
+  return document.querySelector(`.flip-card[data-id="${projectId}"]`);
+}
+
+function removeHoverEffectFromFlipCard() {
+  const flipCard = document.querySelector('.forced-rotated');
+  if (flipCard) flipCard.classList.remove('forced-rotated');
+}
+
+function toggleBackdropClickAndEscapeKeyListeners() {
+  const method = !window.modalOpen ? 'add' : 'remove';
+  const listenTo = document[`${method}EventListener`];
+
+  listenTo('click', handleBackdropClick);
+  listenTo('keydown', handleEscapePress);
+}
+
+function onModalOpen(projectId) {
+  if (projectId) {
+    const flipCard = getCurrentFlipCardById(projectId);
+    if (flipCard) flipCard.classList.add('forced-rotated');
+  }
+
   document.documentElement.style.overflow = 'hidden';
   document.body.style.overflow = 'hidden';
 
-  document.addEventListener('click', handleBackdropClick);
-  document.addEventListener('keydown', handleEscapePress);
+  toggleBackdropClickAndEscapeKeyListeners();
 
   const currentCloseButton = document.querySelector('.current-close-button');
   currentCloseButton.addEventListener('click', onModalClose);
+
+  window.modalOpen = true;
 }
 
 function onModalClose() {
-  document.documentElement.style.removeProperty('overflow');
-  document.body.style.removeProperty('overflow');
-
-  document.removeEventListener('click', handleBackdropClick);
-  document.removeEventListener('keydown', handleEscapePress);
-
   const currentModal = document.querySelector('.current-modal');
-  currentModal.classList.add('is-hidden');
-  currentModal.classList.remove('current-modal');
 
-  const currentCloseButton = document.querySelector('.current-close-button');
-  currentCloseButton.removeEventListener('click', onModalClose);
+  const modal = currentModal.querySelector('.popup-modal');
+
+  modal.classList.add('on-modal-close');
+
+  setTimeout(() => {
+    modal.classList.remove('on-modal-close');
+
+    document.documentElement.style.removeProperty('overflow');
+    document.body.style.removeProperty('overflow');
+
+    toggleBackdropClickAndEscapeKeyListeners();
+
+    currentModal.classList.add('is-hidden');
+    currentModal.classList.remove('current-modal');
+
+    const currentCloseButton = document.querySelector('.current-close-button');
+    currentCloseButton.removeEventListener('click', onModalClose);
+
+    removeHoverEffectFromFlipCard();
+
+    window.modalOpen = false;
+  }, 600);
 }
 
 function handleEscapePress(event) {
@@ -44,6 +79,7 @@ function handleEscapePress(event) {
 
 export function openCardModal(id) {
   const selectedProject = projects.find(project => project.id === +id);
+
   modalContentEl.innerHTML = createCardModal(selectedProject);
 
   modalPopUp.classList.remove('is-hidden');
@@ -51,5 +87,5 @@ export function openCardModal(id) {
 
   closeModalButton.classList.add('current-close-button');
 
-  onModalOpen();
+  onModalOpen(selectedProject.id);
 }

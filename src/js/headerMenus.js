@@ -3,19 +3,26 @@ import { refs } from '/js/refs';
 export function onHeaderMenuToggle(event) {
   const menuName = event.target.dataset.menuName;
 
-  const dropdown = refs[`${menuName}MenuDropdown`];
-  const checkboxLabel = refs[`${menuName}MenuCheckboxLabel`];
-  const checkbox = refs[`${menuName}MenuCheckbox`];
+  const dropdown = getRef('MenuDropdown');
+  const checkboxLabel = getRef('MenuCheckboxLabel');
+  const checkbox = getRef('MenuCheckbox');
+  const menuInputs = getRef('MenuInputs');
 
-  const menuInputs = refs[`${menuName}MenuInputs`];
+  const method = event.target.checked ? 'add' : 'remove';
+  document[`${method}EventListener`]('click', handleClicksOutsideMenu);
 
-  // Listen to clicks outside of a switcher menu while it is open:
-  const method = event.target.checked
-    ? 'addEventListener'
-    : 'removeEventListener';
-  document[method]('click', handleClicksOutsideMenu);
+  if (event.target.checked) {
+    enableKeyboardFocus(menuInputs);
+    event.target.setAttribute('aria-expanded', true);
+  } else {
+    disableKeyboardFocus(menuInputs);
+    event.target.setAttribute('aria-expanded', false);
+  }
 
-  // Close the menu on an outside click
+  function getRef(name) {
+    return refs[`${menuName}${name}`];
+  }
+
   function handleClicksOutsideMenu(event) {
     if (
       !dropdown.contains(event.target) &&
@@ -25,29 +32,23 @@ export function onHeaderMenuToggle(event) {
       closeMenu();
   }
 
-  // Close the menu on menuitem click
   function closeMenu() {
     document.removeEventListener('click', handleClicksOutsideMenu);
     checkbox.checked = false;
     checkbox.setAttribute('aria-expanded', false);
 
-    menuInputs.forEach(input => {
-      input.tabIndex = '-1'; // disables focus on input buttons when menu is collapsed
-    });
+    disableKeyboardFocus(menuInputs);
   }
+}
 
-  // Make menu items keyboard-focusable when menu is shown and set aria-expanded attribute on the checkbox:
-  if (event.target.checked) {
-    menuInputs.forEach(input => {
-      input.removeAttribute('tabIndex');
-    });
+function disableKeyboardFocus(items) {
+  items.forEach(item => {
+    item.tabIndex = '-1';
+  });
+}
 
-    event.target.setAttribute('aria-expanded', false);
-  } else {
-    menuInputs.forEach(input => {
-      input.tabIndex = '-1'; // disables focus on input buttons when menu is collapsed
-    });
-
-    event.target.setAttribute('aria-expanded', false);
-  }
+function enableKeyboardFocus(items) {
+  items.forEach(item => {
+    item.removeAttribute('tabIndex');
+  });
 }
