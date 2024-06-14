@@ -85,8 +85,8 @@ $td: 600ms;
     animation: slide-back-down $td;
 
     @media screen and (min-width: $tablet) {
-      $delay: $td/6;
-      $duration: $delay * 5;
+      $delay: calc($td / 5);
+      $duration: $delay * 4;
 
       animation: modal-vanish $duration $delay;
     }
