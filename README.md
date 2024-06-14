@@ -4,7 +4,7 @@ To all to whom these presents shall come, greetings :)
 
 This is my personal portfolio website created to showcase my projects and to give anyone interested a glimpse of my web-development skills.
 
-The website is live on [GitHub Pages](https://dev0652.github.io/about/).
+The website is live on [GitHub Pages](https://dev0652.github.io/about/). To appreciate all of its features, please open it on your phone and enable full-screen mode in settings (an icon in the bottom right corner).
 
 <picture>
   <source media="(max-width: 767px) and (prefers-color-scheme: light)" srcset="./src/images/readme/mobile/screenshot_light.webp">
