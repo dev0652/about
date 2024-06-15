@@ -5,7 +5,7 @@
   z-index: $index-header;
 
   @media screen and (max-width: $tablet-1) {
-    bottom: 49.5px; // footer height
+    bottom: 49.5px; // initial footer height
 
     transform: translateY(100%);
 
@@ -14,19 +14,18 @@
     }
 
     &:not(:has(.menu-checkbox:checked)) {
-      // overflow: visible;
-
       &:before {
         content: '';
         position: absolute;
 
-        $blur-offset: 7vh;
+        $offset: 7vh;
 
         left: 0;
-        top: calc($blur-offset * -1);
+        // top: calc($offset * -1);
+        top: calc($offset * -0.95);
 
         width: 100vw;
-        height: $blur-offset;
+        height: $offset;
 
         pointer-events: none;
         z-index: $index-main-pseudos;

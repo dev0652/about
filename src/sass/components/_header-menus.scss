@@ -139,18 +139,18 @@
       content: '';
       position: absolute;
 
-      $blur-offset: 7vh;
+      $offset: 3rem;
 
       left: 0;
-      top: calc($blur-offset * -1);
+      top: calc($offset * -0.95);
 
       width: 100vw;
-      height: $blur-offset;
+      height: $offset;
 
       pointer-events: none;
-      z-index: $index-main-pseudos;
+      z-index: calc($index-main-pseudos - 10);
 
-      background: linear-gradient(to top, var(--background-color), transparent);
+      background: linear-gradient(to top, var(--mobile-menu-bg), transparent);
     }
   }
 
