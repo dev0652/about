@@ -142,6 +142,7 @@
       $offset: 3rem;
 
       left: 0;
+      // top: calc($offset * -1);
       top: calc($offset * -0.95);
 
       width: 100vw;

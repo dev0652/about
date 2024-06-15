@@ -18,7 +18,7 @@
         content: '';
         position: absolute;
 
-        $offset: 7vh;
+        $offset: 3rem;
 
         left: 0;
         // top: calc($offset * -1);
@@ -28,7 +28,7 @@
         height: $offset;
 
         pointer-events: none;
-        z-index: $index-main-pseudos;
+        z-index: calc($index-main-pseudos - 10);
 
         background: linear-gradient(
           to top,
