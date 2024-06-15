@@ -59,9 +59,9 @@
     user-select: none;
     cursor: pointer;
 
-    &:hover .menu-label-icon {
-      transform: scale(1.1);
-    }
+    // &:hover .menu-label-icon {
+    //   transform: scale(1.05);
+    // }
 
     &:hover,
     &:has(.menu-checkbox:checked) {
@@ -81,9 +81,8 @@
 
   .menu-label-icon {
     fill: currentColor;
-    transition:
-      transform $td,
-      fill $td;
+    // transition: transform $td, fill $td;
+    transition: fill $td;
   }
 }
 
