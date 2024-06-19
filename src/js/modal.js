@@ -1,4 +1,4 @@
-import projects from '/data/db';
+// import projects from '/data/db';
 import { createCardModal } from '/js/createCardModal';
 
 const modalPopUp = document.querySelector('.popup-backdrop');
@@ -78,7 +78,7 @@ function handleEscapePress(event) {
 }
 
 export function openCardModal(id) {
-  const selectedProject = projects.find(project => project.id === +id);
+  const selectedProject = window.projects.find(project => project.id === +id);
 
   modalContentEl.innerHTML = createCardModal(selectedProject);
 

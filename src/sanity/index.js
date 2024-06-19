@@ -1,35 +1,33 @@
 import { createClient } from '@sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
 
-// https://www.sanity.io/docs/js-client#quickstart
+// https://www.sanity.io/docs/js-client#api
 // https://www.sanity.io/docs/image-url
 
 const client = createClient({
-  projectId: 'zmxpcy21',
-  dataset: 'production',
+  projectId: 'ik2t7qlr',
+  dataset: 'projects',
   useCdn: true, // set to `false` to bypass the edge cache
   apiVersion: '2024-06-15', // use current date (YYYY-MM-DD) to target the latest API version
 });
 
-// uses GROQ to query content: https://www.sanity.io/docs/groq
-async function getData() {
-  const data = await client.fetch('*[_type == "event"]');
-  console.log('data: ', data);
-  return data;
+async function getProjects() {
+  return await client.fetch('*[_type == "project"]');
 }
 
-// export async function createPost(post) {
-//   const result = client.create(post);
-//   return result;
+// async function getTranslations() {
+//   return await client.fetch('*[_type == "translation"]');
 // }
 
-// export async function updateDocumentTitle(_id, title) {
-//   const result = client.patch(_id).set({ title });
-//   return result;
-// }
+const builder = imageUrlBuilder(client);
+
+export function urlFor(source) {
+  return builder.image(source);
+}
 
 export const sanity = {
-  client,
-  get: getData(),
+  getProjects,
+  // getTranslations,
 };
 
-sanity.get();
+// const data = await getProjects();

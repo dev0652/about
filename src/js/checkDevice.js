@@ -16,8 +16,10 @@ import {
   activateColorSchemeSwitcher,
   setupColorScheme,
 } from '/js/color-scheme-switcher';
+import { sanity } from '../sanity';
 
 const { MEDIA_QUERY_MOBILE } = constants;
+const { getProjects, urlFor } = sanity;
 
 function getCurrentSectionIndex() {
   let currentSectionIndex = 0;
@@ -66,7 +68,13 @@ function setSectionBehavior() {
   else setTypewriterEffect();
 }
 
-export function doOnFirstLoad() {
+export async function doOnFirstLoad() {
+  // tmp
+  window.projects = await getProjects();
+  // console.log('projects: ', projects);
+  // const projects = retrieveDataFromStorage(LS_PROJECTS_KEY, data);
+
+  // end of tmp
   applyTranslations();
   setupColorScheme();
 
@@ -84,3 +92,19 @@ export function doOnFirstLoad() {
 }
 
 doOnFirstLoad();
+
+// tmp:
+
+async function getSanityImageURL() {
+  const data = await getProjects();
+  const img = data[0].images.large1x.asset._ref;
+  const url = urlFor(img);
+
+  return url;
+}
+
+function retrieveDataFromStorage(key, data) {
+  const storedData = localStorage.getItem(key);
+  if (!storedData) localStorage.setItem(key, data);
+  return storedData || data;
+}

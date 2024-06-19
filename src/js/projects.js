@@ -1,6 +1,4 @@
-import projects from '/data/db.json' assert { type: 'json' };
 import { refs } from '/js/refs';
-
 import { openCardModal } from '/js/modal';
 import { createCardMarkup } from '/js/createCard';
 import translations from '/data/translations.json' assert { type: 'json' };
@@ -91,7 +89,7 @@ function handleGalleryCardClicks(event) {
 }
 
 export function renderGallery() {
-  gallery.innerHTML = makeListMarkup(projects);
+  gallery.innerHTML = makeListMarkup(window.projects);
 }
 
 export function renderGalleryOnInitialLoad() {

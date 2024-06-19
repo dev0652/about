@@ -1,8 +1,11 @@
 import translations from '/data/translations.json' assert { type: 'json' };
 import { constants } from '/constants';
 import { getLocale } from '/js/localization';
+import { urlFor } from '../sanity';
 
 const { IMAGE_SIZE_NAMES, LOCALE_UKR, LS_COLOR_SCHEME_KEY } = constants;
+
+const { small, medium, large1x, large2x } = IMAGE_SIZE_NAMES;
 
 const sizesString = {
   list: '(max-width: 767px): 100vw, (max-width: 1279px) 550px, 600px',
@@ -21,27 +24,20 @@ function makePlaceholderUrl(scheme) {
   return new URL(`/images/projects/svg/${fileName}.svg`, import.meta.url).href;
 }
 
-function makeImageUrl(dirName, fileName, isDark) {
-  const name = isDark ? fileName + '_dark' : fileName;
-  return new URL(
-    `/images/projects/webp/${dirName}/${name}.webp`,
-    import.meta.url
-  ).href;
-}
-
-function getImagePaths(fileName, willCreateDark) {
-  const pathsObj = {};
+function getImagePaths(images, isDarkVersion = false) {
+  const imgPaths = {};
 
   for (const key in IMAGE_SIZE_NAMES) {
-    pathsObj[key] = makeImageUrl(key, fileName, willCreateDark);
+    const imgName = isDarkVersion ? key + '_dark' : key;
+    imgPaths[key] = urlFor(images[imgName]);
   }
 
-  return pathsObj;
+  return imgPaths;
 }
 
 function makeSourceTag(
-  fileName,
-  imgLocation,
+  images,
+  imageOrigin,
   colorScheme,
   hasDarkVersion = false
 ) {
@@ -51,21 +47,21 @@ function makeSourceTag(
   let media = `(prefers-color-scheme: ${colorScheme})`;
   let dataMedia = '';
 
-  const isModal = imgLocation === 'modal';
+  const isModal = imageOrigin === 'modal';
 
-  if (fileName) {
-    const willCreateDark =
+  if (images) {
+    const isDarkVersion =
       colorScheme === 'dark' && hasDarkVersion ? true : false;
 
-    const paths = getImagePaths(fileName, willCreateDark);
+    const paths = getImagePaths(images, isDarkVersion);
 
     imageType = 'webp';
-    sizes = sizesString[imgLocation];
+    sizes = sizesString[imageOrigin];
     srcset = `
-        ${paths.small} 370w,
-        ${paths.medium} 480w,
-        ${paths.large1x} 960w,
-        ${paths.large2x} 1920w
+        ${paths[small]} 370w,
+        ${paths[medium]} 480w,
+        ${paths[large1x]} 960w,
+        ${paths[large2x]} 1920w
         `;
 
     if (isModal) {
@@ -107,29 +103,28 @@ function makeImageAltAttr(projectName) {
 
 export function makePictureTag(
   projectName,
-  fileName,
-  imgLocation,
+  projectImages,
+  imageOrigin,
   hasDarkVersion
 ) {
-  // fileName, imgLocation, colorPreference: 'light' | 'dark', hasDarkVersion = false
-  const sourceTagLight = makeSourceTag(fileName, imgLocation, 'light');
+  const sourceTagLight = makeSourceTag(projectImages, imageOrigin, 'light');
   const sourceTagDark = makeSourceTag(
-    fileName,
-    imgLocation,
+    projectImages,
+    imageOrigin,
     'dark',
     hasDarkVersion
   );
 
-  const { medium, large1x } = getImagePaths(fileName);
+  const medium = urlFor(projectImages.medium);
+  const large1x = urlFor(projectImages.large1x);
 
-  // Pick large1x for 'list' & 'modal', and medium for 'tile'
-  let imgSrc = large1x;
-  let loadingMode = 'eager';
+  // large1x for 'list' & 'modal', medium for 'tile'
+  const imgSrc = imageOrigin === 'tile' ? medium : large1x;
 
-  if (imgLocation === 'tile') {
-    imgSrc = medium;
-    loadingMode = 'lazy';
-  }
+  // <img src={urlFor(mysteryPerson.mugshot).width(480).height(270).format('webp').fit(clip).url()}>
+
+  // eager for 'list' & 'modal', lazy for 'tile'
+  const loadingMode = imageOrigin === 'tile' ? 'lazy' : 'eager';
 
   const alt = makeImageAltAttr(projectName);
 
@@ -139,9 +134,9 @@ export function makePictureTag(
       ${sourceTagDark}
 
       <img class="project-card-image error-handleable"
-      src="${imgSrc}"
-      alt="${alt}"
-      loading="${loadingMode}"
+        src="${imgSrc}"
+        alt="${alt}"
+        loading="${loadingMode}"
       />
     </picture>
   `;

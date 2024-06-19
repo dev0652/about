@@ -1,9 +1,9 @@
-import { makePictureTag } from '/js/imagePaths';
 import {
   getLocale,
   getLocalizedField,
   getLocalizedFieldName,
 } from '/js/localization';
+import { makePictureTag } from '/js/imagePaths';
 import translations from '/data/translations.json' assert { type: 'json' };
 
 export function createCardMarkup(project) {
@@ -17,7 +17,7 @@ export function createCardMarkup(project) {
     type: projType,
     link,
     livePage,
-    thumbFileName,
+    images,
     hasDarkVersion: hasDark,
     description: projDescription,
     stack,
@@ -26,8 +26,8 @@ export function createCardMarkup(project) {
     technologies,
   } = project;
 
-  const listPictureTag = makePictureTag(name, thumbFileName, 'list', hasDark);
-  const tilePictureTag = makePictureTag(name, thumbFileName, 'tile', hasDark);
+  const listPictureTag = makePictureTag(name, images, 'list', hasDark);
+  const tilePictureTag = makePictureTag(name, images, 'tile', hasDark);
 
   const technologiesList = technologies.join(', ');
 

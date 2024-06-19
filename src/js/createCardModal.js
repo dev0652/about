@@ -16,7 +16,7 @@ export function createCardModal(project) {
     type: projType,
     link,
     livePage,
-    thumbFileName,
+    images,
     hasDarkVersion: hasDark,
     description: projDescription,
     stack,
@@ -25,7 +25,7 @@ export function createCardModal(project) {
     technologies,
   } = project;
 
-  const modalPictureTag = makePictureTag(name, thumbFileName, 'modal', hasDark);
+  const modalPictureTag = makePictureTag(name, images, 'modal', hasDark);
 
   const technologiesList = technologies.join(', ');
 
