@@ -3,9 +3,15 @@ import { constants } from '/constants';
 import { getLocale } from '/js/localization';
 import { urlFor } from '../sanity';
 
-const { IMAGE_SIZE_NAMES, LOCALE_UKR, LS_COLOR_SCHEME_KEY } = constants;
+const { IMAGE_SIZE_NAMES, LOCALE_UKR, LS_COLOR_SCHEME_KEY, IMAGE_SIZES } =
+  constants;
 
 const { small, medium, large1x, large2x } = IMAGE_SIZE_NAMES;
+
+const imageFormats = {
+  webp: 'webp',
+  svg: 'svg',
+};
 
 const sizesString = {
   list: '(max-width: 767px): 100vw, (max-width: 1279px) 550px, 600px',
@@ -24,39 +30,44 @@ function makePlaceholderUrl(scheme) {
   return new URL(`/images/projects/svg/${fileName}.svg`, import.meta.url).href;
 }
 
-function getImagePaths(images, isDarkVersion = false) {
+function getImagePaths(
+  images,
+  isDarkVersion = false,
+  format = imageFormats.webp
+) {
   const imgPaths = {};
 
   for (const key in IMAGE_SIZE_NAMES) {
-    const imgName = isDarkVersion ? key + '_dark' : key;
-    imgPaths[key] = urlFor(images[imgName]);
+    const source = isDarkVersion ? images.dark : images.light;
+
+    imgPaths[key] = urlFor(source)
+      .width(IMAGE_SIZES[key].width)
+      .height(IMAGE_SIZES[key].height)
+      .format(format)
+      .fit('clip')
+      .url();
   }
 
   return imgPaths;
 }
 
-function makeSourceTag(
-  images,
-  imageOrigin,
-  colorScheme,
-  hasDarkVersion = false
-) {
+function makeSourceTag(images, imageFor, colorScheme, hasDarkVersion = false) {
   let imageType = 'svg';
   let sizes = '';
   let srcset = placeholderUrl[colorScheme];
   let media = `(prefers-color-scheme: ${colorScheme})`;
   let dataMedia = '';
 
-  const isModal = imageOrigin === 'modal';
+  const isModal = imageFor === 'modal';
 
   if (images) {
     const isDarkVersion =
       colorScheme === 'dark' && hasDarkVersion ? true : false;
 
-    const paths = getImagePaths(images, isDarkVersion);
+    const paths = getImagePaths(images, isDarkVersion, imageFormats.webp);
 
-    imageType = 'webp';
-    sizes = sizesString[imageOrigin];
+    imageType = imageFormats.webp;
+    sizes = sizesString[imageFor];
     srcset = `
         ${paths[small]} 370w,
         ${paths[medium]} 480w,
@@ -101,30 +112,17 @@ function makeImageAltAttr(projectName) {
 
 // ***** Resulting function: ****************************
 
-export function makePictureTag(
-  projectName,
-  projectImages,
-  imageOrigin,
-  hasDarkVersion
-) {
-  const sourceTagLight = makeSourceTag(projectImages, imageOrigin, 'light');
-  const sourceTagDark = makeSourceTag(
-    projectImages,
-    imageOrigin,
-    'dark',
-    hasDarkVersion
-  );
+export function makePictureTag(projectName, images, imageFor, hasDarkVersion) {
+  const sourceTagLight = makeSourceTag(images, imageFor, 'light');
+  const sourceTagDark = makeSourceTag(images, imageFor, 'dark', hasDarkVersion);
 
-  const medium = urlFor(projectImages.medium);
-  const large1x = urlFor(projectImages.large1x);
+  const { medium, large1x } = getImagePaths(images);
 
   // large1x for 'list' & 'modal', medium for 'tile'
-  const imgSrc = imageOrigin === 'tile' ? medium : large1x;
-
-  // <img src={urlFor(mysteryPerson.mugshot).width(480).height(270).format('webp').fit(clip).url()}>
+  const imgSrc = imageFor === 'tile' ? medium : large1x;
 
   // eager for 'list' & 'modal', lazy for 'tile'
-  const loadingMode = imageOrigin === 'tile' ? 'lazy' : 'eager';
+  const loadingMode = imageFor === 'tile' ? 'lazy' : 'eager';
 
   const alt = makeImageAltAttr(projectName);
 

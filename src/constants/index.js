@@ -20,4 +20,11 @@ export const constants = {
     large1x: 'large1x',
     large2x: 'large2x',
   },
+
+  IMAGE_SIZES: {
+    small: { width: 370, height: 208 },
+    medium: { width: 480, height: 270 },
+    large1x: { width: 960, height: 540 },
+    large2x: { width: 1920, height: 1080 },
+  },
 };
