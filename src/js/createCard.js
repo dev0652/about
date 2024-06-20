@@ -1,7 +1,8 @@
 import {
   getLocale,
-  getLocalizedField,
+  getLocalizedFieldValue,
   getLocalizedFieldName,
+  getLocalizedFieldValuePreset,
 } from '/js/localization';
 import { makePictureTag } from '/js/imagePaths';
 import translations from '/data/translations.json' assert { type: 'json' };
@@ -31,9 +32,9 @@ export function createCardMarkup(project) {
 
   const technologiesList = technologies.join(', ');
 
-  const type = getLocalizedField(projType);
-  const role = getLocalizedField(projRole);
-  const description = getLocalizedField(projDescription);
+  const type = getLocalizedFieldValuePreset('projectTypes', projType);
+  const role = getLocalizedFieldValue(projRole);
+  const description = getLocalizedFieldValue(projDescription);
 
   const typeFieldName = getLocalizedFieldName('project-type');
   const stackFieldName = getLocalizedFieldName('stack');

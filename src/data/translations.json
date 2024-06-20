@@ -52,6 +52,13 @@
       "errorMessage": "Вибачте, при надсиланні повідомлення сталася помилка"
     },
 
+    "projectTypes": {
+      "commercial": "Комерційний проект",
+      "pet": "Пет-проект",
+      "test": "Тестове завдання",
+      "study": "Навчальний проект"
+    },
+
     "ariaLabels": {
       "scheme-switcher-menu-checkbox": "Відкрити або закрити меню вибору колірної схеми",
       "scheme-switcher-radio-light": "світла",
@@ -125,6 +132,13 @@
     "email": {
       "successMessage": "Your message has been successfully sent",
       "errorMessage": "Sorry, there was an error sending your message"
+    },
+
+    "projectTypes": {
+      "commercial": "Commercial project",
+      "pet": "Pet project",
+      "test": "Test",
+      "study": "Study project"
     },
 
     "ariaLabels": {

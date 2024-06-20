@@ -12,11 +12,11 @@ const {
 
 function setInitialLocale() {
   const savedLanguage = localStorage.getItem(LS_LANGUAGE_KEY);
-  window.locale = savedLanguage ? savedLanguage : LOCALE_ENG;
+  window.locale = savedLanguage || LOCALE_ENG;
 }
 
 export function getLocale() {
-  return window.locale ? window.locale : LOCALE_ENG;
+  return window.locale || LOCALE_ENG;
 }
 
 export function setLocale(locale) {
@@ -24,15 +24,20 @@ export function setLocale(locale) {
   document.documentElement.lang = locale;
 }
 
-export function getLocalizedField(field) {
-  const locale = getLocale();
-  if (!field) return null;
-  return field[locale] ? field[locale] : field[LOCALE_ENG];
-}
-
 export function getLocalizedFieldName(fieldNameKey) {
   const locale = getLocale();
   return translations[locale][fieldNameKey];
+}
+
+export function getLocalizedFieldValue(field) {
+  if (!field) return null;
+  const locale = getLocale();
+  return field[locale] || field[LOCALE_ENG];
+}
+
+export function getLocalizedFieldValuePreset(fieldNameKey, fieldValue) {
+  const locale = getLocale();
+  return translations[locale][fieldNameKey][fieldValue];
 }
 
 function getElementPropertyName(attr) {
