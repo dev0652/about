@@ -18,6 +18,10 @@ import {
 } from '/js/color-scheme-switcher';
 import { sanity } from '../sanity';
 
+import htm from 'htm';
+import vhtml from 'vhtml';
+import { toHTML } from '@portabletext/to-html';
+
 const { MEDIA_QUERY_MOBILE } = constants;
 const { getProjects, getTranslations, urlFor } = sanity;
 
@@ -76,14 +80,27 @@ export async function doOnFirstLoad() {
 
   const translationData = await getTranslations();
   const aboutMe = translationData[0].aboutMe;
-  const aboutUkr = aboutMe.uk;
-  const paragraphs = aboutUkr.map(
-    par => `
-      <p class="about-par">
-        ${par.children[0].text}
-      </ul>
-    `
-  );
+  const aboutMeUkr = aboutMe.uk;
+
+  const paragraphs = aboutMeUkr.map(par => {
+    const { children, markDefs } = par;
+
+    const childrenHTML = children
+      .map(child => {
+        if (child.marks.length === 0) {
+          return `<span class="about-span">${child.text}</span>`;
+        } else {
+          const linkId = child.marks[0];
+          const defWithLink = markDefs.find(
+            ({ _type, _key }) => _type === 'link' && _key === linkId
+          );
+          return `<a href="${defWithLink.href}" class="description-link" target="_blank" rel="noopener noreferrer" lang="en">${child.text}</a>`;
+        }
+      })
+      .join('');
+
+    return `<p class="about-par">${childrenHTML}</p>`;
+  });
 
   const aboutInjectionTarget = document.querySelector('.about-description');
   const aboutContent = paragraphs.join('');
