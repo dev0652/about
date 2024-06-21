@@ -8,12 +8,12 @@ const modeDescriptor = refs.galleryViewSwitcher.querySelector('.view-mode');
 const fallBack = new URL(`/images/projects/svg/fallback.svg`, import.meta.url)
   .href;
 
-export const makeListMarkup = projectsArray => {
+export function makeListMarkup(projectsArray) {
   return `
   <ul class="project-card-list">
     ${projectsArray.map(item => createCardMarkup(item)).join('')}
   </ul>`;
-};
+}
 
 // Handle errors if image urls in picture tag's 'source' are broken
 function addImgErrorHandlers() {
@@ -76,6 +76,8 @@ function toggleGalleryView() {
 }
 
 function onViewSwitcherClick() {
+  if (!window.projects) return;
+
   slideGalleryOutOfView();
   setTimeout(toggleGalleryView, 300);
 }
@@ -89,7 +91,12 @@ function handleGalleryCardClicks(event) {
 }
 
 export function renderGallery() {
-  gallery.innerHTML = makeListMarkup(window.projects);
+  const { locale, projects } = window;
+  const errorMessage = translations[locale].errors.projectsArrayBrokenOrEmpty;
+
+  gallery.innerHTML = projects ? makeListMarkup(projects) : errorMessage;
+
+  if (!projects) refs.galleryViewSwitcher.style.visibility = 'hidden';
 }
 
 export function renderGalleryOnInitialLoad() {

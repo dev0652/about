@@ -35,9 +35,30 @@ export function getLocalizedFieldValue(field) {
   return field[locale] || field[LOCALE_ENG];
 }
 
-export function getLocalizedFieldValuePreset(fieldNameKey, fieldValue) {
+export function getLocalizedString(valueKey, subCategoryKey) {
   const locale = getLocale();
-  return translations[locale][fieldNameKey][fieldValue];
+
+  return !subCategoryKey
+    ? translations[locale][valueKey]
+    : translations[locale][subCategoryKey][valueKey];
+}
+
+export function getLocalizedStringFromArray(array, subCategoryKey) {
+  const locale = getLocale();
+
+  const localizedStrings = array.map(item =>
+    subCategoryKey
+      ? translations[locale][subCategoryKey][item]
+      : translations[locale][item]
+  );
+
+  localizedStrings[0] = uppercaseFirstLetter(localizedStrings[0]);
+
+  return localizedStrings.join(', ');
+}
+
+export function uppercaseFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.substring(1);
 }
 
 function getElementPropertyName(attr) {

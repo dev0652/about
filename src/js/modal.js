@@ -48,7 +48,6 @@ function onModalOpen(projectId) {
 
 function onModalClose() {
   const currentModal = document.querySelector('.current-modal');
-
   const modal = currentModal.querySelector('.popup-modal');
 
   modal.classList.add('on-modal-close');

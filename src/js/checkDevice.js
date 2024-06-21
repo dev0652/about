@@ -70,11 +70,11 @@ function setSectionBehavior() {
 
 export async function doOnFirstLoad() {
   // tmp
-  window.projects = await getProjects();
-  // console.log('projects: ', projects);
-  // const projects = retrieveDataFromStorage(LS_PROJECTS_KEY, data);
-
+  const projectData = await getProjects();
+  const isDataBroken = !projectData || projectData.length === 0;
+  window.projects = isDataBroken ? null : projectData;
   // end of tmp
+
   applyTranslations();
   setupColorScheme();
 

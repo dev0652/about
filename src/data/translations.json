@@ -45,7 +45,10 @@
     "on": "увімкн.",
     "off": "вимкн.",
 
-    "loadingError": "При завантаженні проекту сталася помилка",
+    "errors": {
+      "projectLoadingError": "При завантаженні проекту сталася помилка.. :(",
+      "projectsArrayBrokenOrEmpty": "При завантаженні даних проектів сталася помилка.. :("
+    },
 
     "email": {
       "successMessage": "Повідомлення надіслано",
@@ -57,6 +60,12 @@
       "pet": "Пет-проект",
       "test": "Тестове завдання",
       "study": "Навчальний проект"
+    },
+
+    "projectRoles": {
+      "teamMember": "член команди",
+      "teamLead": "тімлід",
+      "repoOwner": "власник репозиторію"
     },
 
     "ariaLabels": {
@@ -127,7 +136,10 @@
     "on": "On",
     "off": "Off",
 
-    "loadingError": "Error loading project",
+    "errors": {
+      "projectLoadingError": "Error loading project.. :(",
+      "projectsArrayBrokenOrEmpty": "Error getting project data.. :("
+    },
 
     "email": {
       "successMessage": "Your message has been successfully sent",
@@ -139,6 +151,12 @@
       "pet": "Pet project",
       "test": "Test",
       "study": "Study project"
+    },
+
+    "projectRoles": {
+      "teamMember": "team member",
+      "teamLead": "team lead",
+      "repoOwner": "repository owner"
     },
 
     "ariaLabels": {
