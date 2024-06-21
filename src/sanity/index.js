@@ -15,9 +15,9 @@ async function getProjects() {
   return await client.fetch('*[_type == "project"]');
 }
 
-// async function getTranslations() {
-//   return await client.fetch('*[_type == "translation"]');
-// }
+async function getTranslations() {
+  return await client.fetch('*[_type == "translation"]');
+}
 
 const builder = imageUrlBuilder(client);
 
@@ -27,7 +27,5 @@ export function urlFor(source) {
 
 export const sanity = {
   getProjects,
-  // getTranslations,
+  getTranslations,
 };
-
-// const data = await getProjects();

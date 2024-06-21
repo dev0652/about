@@ -19,7 +19,7 @@ import {
 import { sanity } from '../sanity';
 
 const { MEDIA_QUERY_MOBILE } = constants;
-const { getProjects, urlFor } = sanity;
+const { getProjects, getTranslations, urlFor } = sanity;
 
 function getCurrentSectionIndex() {
   let currentSectionIndex = 0;
@@ -73,6 +73,21 @@ export async function doOnFirstLoad() {
   const projectData = await getProjects();
   const isDataBroken = !projectData || projectData.length === 0;
   window.projects = isDataBroken ? null : projectData;
+
+  const translationData = await getTranslations();
+  const aboutMe = translationData[0].aboutMe;
+  const aboutUkr = aboutMe.uk;
+  const paragraphs = aboutUkr.map(
+    par => `
+      <p class="about-par">
+        ${par.children[0].text}
+      </ul>
+    `
+  );
+
+  const aboutInjectionTarget = document.querySelector('.about-description');
+  const aboutContent = paragraphs.join('');
+  aboutInjectionTarget.innerHTML = aboutContent;
   // end of tmp
 
   applyTranslations();
