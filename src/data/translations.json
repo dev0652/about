@@ -124,8 +124,7 @@
     "off": "Off",
 
     "errors": {
-      "projectLoadingError": "Error loading project.. :(",
-      "projectsArrayBrokenOrEmpty": "Error getting project data.. :("
+      "contentLoadingError": "Error loading data.. :("
     },
 
     "email": {
