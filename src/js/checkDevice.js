@@ -21,7 +21,7 @@ import {
 import { uppercaseFirstLetter } from '/js/services';
 
 const { MEDIA_QUERY_MOBILE, DATA_TYPES } = constants;
-const { projects, translations } = DATA_TYPES;
+const { projects, sectionContent } = DATA_TYPES;
 
 function getCurrentSectionIndex() {
   let currentSectionIndex = 0;
@@ -74,6 +74,8 @@ async function getData(dataType) {
   if (!Object.keys(DATA_TYPES).find(el => el === dataType)) return;
 
   const functionName = 'get' + uppercaseFirstLetter(dataType);
+
+  if (!sanity[functionName]) return;
   const data = await sanity[functionName]();
 
   const isDataBroken = !data || data.length === 0;
@@ -82,7 +84,7 @@ async function getData(dataType) {
 
 export async function doOnFirstLoad() {
   await getData(projects);
-  await getData(translations);
+  await getData(sectionContent);
 
   applyTranslations();
   setupColorScheme();

@@ -30,6 +30,6 @@ export const constants = {
 
   DATA_TYPES: {
     projects: 'projects',
-    translations: 'translations',
+    sectionContent: 'sectionContent',
   },
 };

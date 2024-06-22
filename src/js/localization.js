@@ -108,17 +108,17 @@ export function translateStaticHTML() {
 }
 
 function populateAboutMeSection() {
-  const { locale, translations } = window;
+  const { locale, sectionContent } = window;
   const { aboutInjectionTarget } = refs;
   // const { contentLoadingError } = translations[locale].errors;
   const contentLoadingError = 'error...';
 
-  if (!translations) {
+  if (!sectionContent) {
     aboutInjectionTarget.innerHTML = contentLoadingError;
     return;
   }
 
-  const { aboutMe } = translations.find(el => el.aboutMe);
+  const { aboutMe } = sectionContent.find(el => el.aboutMe);
 
   const paragraphs = aboutMe[locale].map(par => {
     const { children, markDefs } = par;
