@@ -107,7 +107,7 @@ export function translateStaticHTML() {
   localizationAttributes.forEach(translateElementByAttribute);
 }
 
-function populateAboutMeSection() {
+export function populateAboutMeSection() {
   const { locale, sectionContent } = window;
   const { aboutInjectionTarget } = refs;
   // const { contentLoadingError } = translations[locale].errors;

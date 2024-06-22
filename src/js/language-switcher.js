@@ -2,7 +2,11 @@ import { refs } from '/js/refs';
 import { renderGallery } from '/js/projects';
 import { populateTitles } from '/js/mobileTitles';
 import { onHeaderMenuToggle } from '/js/headerMenus';
-import { translateStaticHTML, setLocale } from '/js/localization';
+import {
+  translateStaticHTML,
+  setLocale,
+  populateAboutMeSection,
+} from '/js/localization';
 import { constants } from '/constants';
 import translations from '/data/translations.json' assert { type: 'json' };
 
@@ -30,6 +34,7 @@ function translateContent(locale) {
   if (MEDIA_QUERY_MOBILE.matches) translateMobileTitles(locale, prevLang);
 
   renderGallery();
+  populateAboutMeSection();
   translateStaticHTML();
 }
 
