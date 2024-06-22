@@ -1,39 +1,46 @@
-import { makePictureTag } from '/js/imagePaths';
 import {
   getLocale,
-  getLocalizedField,
+  getLocalizedFieldValue,
   getLocalizedFieldName,
+  getLocalizedString,
+  getLocalizedStringFromArray,
 } from '/js/localization';
+import { makePictureTag } from '/js/imagePaths';
 import translations from '/data/translations.json' assert { type: 'json' };
 
 export function createCardMarkup(project) {
   const locale = getLocale();
 
-  if (!project) return translations[locale].loadingError;
+  if (!project) return translations[locale].errors.contentLoadingError;
 
   const {
     id,
     name,
-    type: projType,
+    type,
     link,
     livePage,
-    thumbFileName,
-    hasDarkVersion: hasDark,
-    description: projDescription,
-    stack,
-    role: projRole,
+    images,
+    hasDarkVersion,
+    description,
+    stack: projStack,
+    isRole,
+    role,
     customer,
     technologies,
   } = project;
 
-  const listPictureTag = makePictureTag(name, thumbFileName, 'list', hasDark);
-  const tilePictureTag = makePictureTag(name, thumbFileName, 'tile', hasDark);
+  const listPictureTag = makePictureTag(name, images, 'list', hasDarkVersion);
+  const tilePictureTag = makePictureTag(name, images, 'tile', hasDarkVersion);
 
   const technologiesList = technologies.join(', ');
+  const stack = projStack.join(', ');
 
-  const type = getLocalizedField(projType);
-  const role = getLocalizedField(projRole);
-  const description = getLocalizedField(projDescription);
+  const projType = getLocalizedString(type, 'projectTypes');
+  const myRole = isRole
+    ? getLocalizedStringFromArray(role, 'projectRoles')
+    : '';
+
+  const projDescription = getLocalizedFieldValue(description);
 
   const typeFieldName = getLocalizedFieldName('project-type');
   const stackFieldName = getLocalizedFieldName('stack');
@@ -75,16 +82,16 @@ export function createCardMarkup(project) {
 
             <div class="list-card-summary">
               <div class="summary-items-wrapper">
-                  <p class="type"><span class="field-type">${typeFieldName}</span><span class="field-type">:</span> ${type}</p>
+                  <p class="type"><span class="field-type">${typeFieldName}</span><span class="field-type">:</span> ${projType}</p>
 
                   <p class="customer"
-                  style="${!customer && 'display: none'}">
+                  style="${customer === '' && 'display: none'}">
                     <span class="field-type">${customerFieldName}</span><span class="field-type">:</span> ${customer}
                   </p>
 
                   <p class="role"
-                  style="${!role && 'display: none'}">
-                    <span class="field-type">${roleFieldName}</span><span class="field-type">:</span> ${role}
+                  style="${!isRole && 'display: none'}">
+                    <span class="field-type">${roleFieldName}</span><span class="field-type">:</span> ${myRole}
                   </p>
 
                   <p class="stack"><span class="field-type">${stackFieldName}</span><span class="field-type">:</span> <span lang="en">${stack}</span></p>
@@ -94,7 +101,7 @@ export function createCardMarkup(project) {
             </div>
 
             <div class="list-card-description">
-              <p class="project-description">${description}</p>
+              <p class="project-description">${projDescription}</p>
             </div>  
 
           </div>

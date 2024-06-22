@@ -24,12 +24,6 @@
     "flip-card-prompt": "Клацніть, щоб побачити більше",
     "project-image-alt-text": "Скріншот живої сторінки проекту",
 
-    "about-par-1": "Привіт! Мене звати Михайло, я - веб-розробник.",
-    "about-par-2": "Я пишу на JavaScript та React, а також трохи на Node.js + MongoDB. Крім того, зараз я вивчаю TypeScript, Next.js та React Native.",
-    "about-par-3": "Мені подобається подорожувати, їздити на мотоциклі та проводити час з цікавими людьми.",
-    "about-par-4.1": "Заходьте до мене на",
-    "about-par-4.2": "та додавайтесь в контакти, а якщо будуть запитання - сміливо пишіть :)",
-
     "form-title": "Залиште своє повідомлення",
     "placeholder-name": "Як до вас звертатись?",
     "placeholder-email": "Ваша пошта (необов'язково)",
@@ -45,11 +39,26 @@
     "on": "увімкн.",
     "off": "вимкн.",
 
-    "loadingError": "При завантаженні проекту сталася помилка",
+    "errors": {
+      "contentLoadingError": "При завантаженні даних сталася помилка.. :("
+    },
 
     "email": {
       "successMessage": "Повідомлення надіслано",
       "errorMessage": "Вибачте, при надсиланні повідомлення сталася помилка"
+    },
+
+    "projectTypes": {
+      "commercial": "Комерційний проект",
+      "pet": "Пет-проект",
+      "test": "Тестове завдання",
+      "study": "Навчальний проект"
+    },
+
+    "projectRoles": {
+      "teamMember": "член команди",
+      "teamLead": "тімлід",
+      "repoOwner": "власник репозиторію"
     },
 
     "ariaLabels": {
@@ -99,12 +108,6 @@
     "flip-card-prompt": "Click to learn more",
     "project-image-alt-text": "live page screenshot",
 
-    "about-par-1": "Hi, I'm Mykhailo, a web developer from Ukraine",
-    "about-par-2": "I code in JavaScript and React with a little bit of Node.js + MongoDB. Also, at the moment I'm learning TypeScript, Next.js and React Native.",
-    "about-par-3": "I enjoy going places, motorcycling and spending time with good people.",
-    "about-par-4.1": "Please check my",
-    "about-par-4.2": "for details and feel free to get in touch.",
-
     "form-title": "Drop me a line",
     "placeholder-name": "With whom do I have the pleasure?",
     "placeholder-email": "Your email (optional)",
@@ -120,11 +123,27 @@
     "on": "On",
     "off": "Off",
 
-    "loadingError": "Error loading project",
+    "errors": {
+      "projectLoadingError": "Error loading project.. :(",
+      "projectsArrayBrokenOrEmpty": "Error getting project data.. :("
+    },
 
     "email": {
       "successMessage": "Your message has been successfully sent",
       "errorMessage": "Sorry, there was an error sending your message"
+    },
+
+    "projectTypes": {
+      "commercial": "Commercial project",
+      "pet": "Pet project",
+      "test": "Test",
+      "study": "Study project"
+    },
+
+    "projectRoles": {
+      "teamMember": "team member",
+      "teamLead": "team lead",
+      "repoOwner": "repository owner"
     },
 
     "ariaLabels": {

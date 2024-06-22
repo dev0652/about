@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
+    "@sanity/client": "^6.20.0",
+    "@sanity/image-url": "^1.0.2",
     "lodash.throttle": "^4.1.1",
     "swipejs": "^2.3.1",
     "vite-plugin-full-reload": "^1.0.5",

@@ -1,6 +1,8 @@
 import { constants } from '/constants';
 import { makeTitles } from '/js/mobileTitles';
 import translations from '/data/translations.json' assert { type: 'json' };
+import { uppercaseFirstLetter } from '/js/services';
+import { refs } from './refs';
 
 const {
   LOCALE_ENG,
@@ -12,11 +14,11 @@ const {
 
 function setInitialLocale() {
   const savedLanguage = localStorage.getItem(LS_LANGUAGE_KEY);
-  window.locale = savedLanguage ? savedLanguage : LOCALE_ENG;
+  window.locale = savedLanguage || LOCALE_ENG;
 }
 
 export function getLocale() {
-  return window.locale ? window.locale : LOCALE_ENG;
+  return window.locale || LOCALE_ENG;
 }
 
 export function setLocale(locale) {
@@ -24,15 +26,37 @@ export function setLocale(locale) {
   document.documentElement.lang = locale;
 }
 
-export function getLocalizedField(field) {
-  const locale = getLocale();
-  if (!field) return null;
-  return field[locale] ? field[locale] : field[LOCALE_ENG];
-}
-
 export function getLocalizedFieldName(fieldNameKey) {
   const locale = getLocale();
   return translations[locale][fieldNameKey];
+}
+
+export function getLocalizedFieldValue(field) {
+  if (!field) return null;
+  const locale = getLocale();
+  return field[locale] || field[LOCALE_ENG];
+}
+
+export function getLocalizedString(valueKey, subCategoryKey) {
+  const locale = getLocale();
+
+  return !subCategoryKey
+    ? translations[locale][valueKey]
+    : translations[locale][subCategoryKey][valueKey];
+}
+
+export function getLocalizedStringFromArray(array, subCategoryKey) {
+  const locale = getLocale();
+
+  const localizedStrings = array.map(item =>
+    subCategoryKey
+      ? translations[locale][subCategoryKey][item]
+      : translations[locale][item]
+  );
+
+  localizedStrings[0] = uppercaseFirstLetter(localizedStrings[0]);
+
+  return localizedStrings.join(', ');
 }
 
 function getElementPropertyName(attr) {
@@ -83,11 +107,46 @@ export function translateStaticHTML() {
   localizationAttributes.forEach(translateElementByAttribute);
 }
 
+function populateAboutMeSection() {
+  const { locale, sectionContent } = window;
+  const { aboutInjectionTarget } = refs;
+  // const { contentLoadingError } = translations[locale].errors;
+  const contentLoadingError = 'error...';
+
+  if (!sectionContent) {
+    aboutInjectionTarget.innerHTML = contentLoadingError;
+    return;
+  }
+
+  const { aboutMe } = sectionContent.find(el => el.aboutMe);
+
+  const paragraphs = aboutMe[locale].map(par => {
+    const { children, markDefs } = par;
+
+    const childrenHTML = children
+      .map(child => {
+        if (child.marks.length === 0) {
+          return `<span class="about-span">${child.text}</span>`;
+        } else {
+          const linkId = child.marks[0];
+          const defWithLink = markDefs.find(
+            ({ _type, _key }) => _type === 'link' && _key === linkId
+          );
+          return `<a href="${defWithLink.href}" class="description-link" target="_blank" rel="noopener noreferrer" lang="en">${child.text}</a>`;
+        }
+      })
+      .join('');
+
+    return `<p class="about-par">${childrenHTML}</p>`;
+  });
+
+  aboutInjectionTarget.innerHTML = paragraphs.join('');
+}
+
 export function applyTranslations() {
   setInitialLocale();
-
   makeTitles();
-
+  populateAboutMeSection();
   if (window.locale !== LOCALE_ENG) translateStaticHTML();
 
   // document.body.style.visibility = 'visible';

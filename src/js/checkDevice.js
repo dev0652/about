@@ -1,5 +1,6 @@
 import { refs } from '/js/refs';
 import { constants } from '/constants';
+import { sanity } from '../sanity';
 import { applyTranslations } from '/js/localization';
 import { slider } from '/js/swipe';
 import { createPagination } from '/js/pagination';
@@ -17,7 +18,10 @@ import {
   setupColorScheme,
 } from '/js/color-scheme-switcher';
 
-const { MEDIA_QUERY_MOBILE } = constants;
+import { uppercaseFirstLetter } from '/js/services';
+
+const { MEDIA_QUERY_MOBILE, DATA_TYPES } = constants;
+const { projects, sectionContent } = DATA_TYPES;
 
 function getCurrentSectionIndex() {
   let currentSectionIndex = 0;
@@ -66,7 +70,22 @@ function setSectionBehavior() {
   else setTypewriterEffect();
 }
 
-export function doOnFirstLoad() {
+async function getData(dataType) {
+  if (!Object.keys(DATA_TYPES).find(el => el === dataType)) return;
+
+  const functionName = 'get' + uppercaseFirstLetter(dataType);
+
+  if (!sanity[functionName]) return;
+  const data = await sanity[functionName]();
+
+  const isDataBroken = !data || data.length === 0;
+  window[dataType] = isDataBroken ? null : data;
+}
+
+export async function doOnFirstLoad() {
+  await getData(projects);
+  await getData(sectionContent);
+
   applyTranslations();
   setupColorScheme();
 
