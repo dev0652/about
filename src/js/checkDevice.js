@@ -1,5 +1,6 @@
 import { refs } from '/js/refs';
 import { constants } from '/constants';
+import { sanity } from '../sanity';
 import { applyTranslations } from '/js/localization';
 import { slider } from '/js/swipe';
 import { createPagination } from '/js/pagination';
@@ -16,14 +17,11 @@ import {
   activateColorSchemeSwitcher,
   setupColorScheme,
 } from '/js/color-scheme-switcher';
-import { sanity } from '../sanity';
 
-import htm from 'htm';
-import vhtml from 'vhtml';
-import { toHTML } from '@portabletext/to-html';
+import { uppercaseFirstLetter } from '/js/services';
 
-const { MEDIA_QUERY_MOBILE } = constants;
-const { getProjects, getTranslations, urlFor } = sanity;
+const { MEDIA_QUERY_MOBILE, DATA_TYPES } = constants;
+const { projects, translations } = DATA_TYPES;
 
 function getCurrentSectionIndex() {
   let currentSectionIndex = 0;
@@ -72,40 +70,19 @@ function setSectionBehavior() {
   else setTypewriterEffect();
 }
 
+async function getData(dataType) {
+  if (!Object.keys(DATA_TYPES).find(el => el === dataType)) return;
+
+  const functionName = 'get' + uppercaseFirstLetter(dataType);
+  const data = await sanity[functionName]();
+
+  const isDataBroken = !data || data.length === 0;
+  window[dataType] = isDataBroken ? null : data;
+}
+
 export async function doOnFirstLoad() {
-  // tmp
-  const projectData = await getProjects();
-  const isDataBroken = !projectData || projectData.length === 0;
-  window.projects = isDataBroken ? null : projectData;
-
-  const translationData = await getTranslations();
-  const aboutMe = translationData[0].aboutMe;
-  const aboutMeUkr = aboutMe.uk;
-
-  const paragraphs = aboutMeUkr.map(par => {
-    const { children, markDefs } = par;
-
-    const childrenHTML = children
-      .map(child => {
-        if (child.marks.length === 0) {
-          return `<span class="about-span">${child.text}</span>`;
-        } else {
-          const linkId = child.marks[0];
-          const defWithLink = markDefs.find(
-            ({ _type, _key }) => _type === 'link' && _key === linkId
-          );
-          return `<a href="${defWithLink.href}" class="description-link" target="_blank" rel="noopener noreferrer" lang="en">${child.text}</a>`;
-        }
-      })
-      .join('');
-
-    return `<p class="about-par">${childrenHTML}</p>`;
-  });
-
-  const aboutInjectionTarget = document.querySelector('.about-description');
-  const aboutContent = paragraphs.join('');
-  aboutInjectionTarget.innerHTML = aboutContent;
-  // end of tmp
+  await getData(projects);
+  await getData(translations);
 
   applyTranslations();
   setupColorScheme();
@@ -124,19 +101,3 @@ export async function doOnFirstLoad() {
 }
 
 doOnFirstLoad();
-
-// tmp:
-
-async function getSanityImageURL() {
-  const data = await getProjects();
-  const img = data[0].images.large1x.asset._ref;
-  const url = urlFor(img);
-
-  return url;
-}
-
-function retrieveDataFromStorage(key, data) {
-  const storedData = localStorage.getItem(key);
-  if (!storedData) localStorage.setItem(key, data);
-  return storedData || data;
-}

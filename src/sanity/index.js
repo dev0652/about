@@ -1,5 +1,6 @@
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
+import { getCurrentDate } from '/js/services';
 
 // https://www.sanity.io/docs/js-client#api
 // https://www.sanity.io/docs/image-url
@@ -8,7 +9,7 @@ const client = createClient({
   projectId: 'ik2t7qlr',
   dataset: 'projects',
   useCdn: true, // set to `false` to bypass the edge cache
-  apiVersion: '2024-06-15', // use current date (YYYY-MM-DD) to target the latest API version
+  apiVersion: getCurrentDate(), // use current date (YYYY-MM-DD) to target the latest API version
 });
 
 async function getProjects() {

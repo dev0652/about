@@ -27,4 +27,9 @@ export const constants = {
     large1x: { width: 960, height: 540 },
     large2x: { width: 1920, height: 1080 },
   },
+
+  DATA_TYPES: {
+    projects: 'projects',
+    translations: 'translations',
+  },
 };

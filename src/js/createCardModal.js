@@ -11,7 +11,7 @@ import translations from '/data/translations.json' assert { type: 'json' };
 export function createCardModal(project) {
   const locale = getLocale();
 
-  if (!project) return translations[locale].errors.projectLoadingError;
+  if (!project) return translations[locale].errors.contentLoadingError;
 
   const {
     name,

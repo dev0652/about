@@ -1,6 +1,8 @@
 import { constants } from '/constants';
 import { makeTitles } from '/js/mobileTitles';
 import translations from '/data/translations.json' assert { type: 'json' };
+import { uppercaseFirstLetter } from '/js/services';
+import { refs } from './refs';
 
 const {
   LOCALE_ENG,
@@ -57,10 +59,6 @@ export function getLocalizedStringFromArray(array, subCategoryKey) {
   return localizedStrings.join(', ');
 }
 
-export function uppercaseFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.substring(1);
-}
-
 function getElementPropertyName(attr) {
   switch (attr) {
     case LOC_ATTRIBUTE_TEXT:
@@ -109,11 +107,46 @@ export function translateStaticHTML() {
   localizationAttributes.forEach(translateElementByAttribute);
 }
 
+function populateAboutMeSection() {
+  const { locale, translations } = window;
+  const { aboutInjectionTarget } = refs;
+  // const { contentLoadingError } = translations[locale].errors;
+  const contentLoadingError = 'error...';
+
+  if (!translations) {
+    aboutInjectionTarget.innerHTML = contentLoadingError;
+    return;
+  }
+
+  const { aboutMe } = translations.find(el => el.aboutMe);
+
+  const paragraphs = aboutMe[locale].map(par => {
+    const { children, markDefs } = par;
+
+    const childrenHTML = children
+      .map(child => {
+        if (child.marks.length === 0) {
+          return `<span class="about-span">${child.text}</span>`;
+        } else {
+          const linkId = child.marks[0];
+          const defWithLink = markDefs.find(
+            ({ _type, _key }) => _type === 'link' && _key === linkId
+          );
+          return `<a href="${defWithLink.href}" class="description-link" target="_blank" rel="noopener noreferrer" lang="en">${child.text}</a>`;
+        }
+      })
+      .join('');
+
+    return `<p class="about-par">${childrenHTML}</p>`;
+  });
+
+  aboutInjectionTarget.innerHTML = paragraphs.join('');
+}
+
 export function applyTranslations() {
   setInitialLocale();
-
   makeTitles();
-
+  populateAboutMeSection();
   if (window.locale !== LOCALE_ENG) translateStaticHTML();
 
   // document.body.style.visibility = 'visible';

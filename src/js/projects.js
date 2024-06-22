@@ -92,9 +92,12 @@ function handleGalleryCardClicks(event) {
 
 export function renderGallery() {
   const { locale, projects } = window;
-  const errorMessage = translations[locale].errors.projectsArrayBrokenOrEmpty;
+  const localizedErrorMessage = translations[locale].errors.contentLoadingError;
+  const isProjectsArrayValid = projects && Array.isArray(projects);
 
-  gallery.innerHTML = projects ? makeListMarkup(projects) : errorMessage;
+  gallery.innerHTML = isProjectsArrayValid
+    ? makeListMarkup(projects)
+    : localizedErrorMessage;
 
   if (!projects) refs.galleryViewSwitcher.style.visibility = 'hidden';
 }

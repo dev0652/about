@@ -46,8 +46,7 @@
     "off": "вимкн.",
 
     "errors": {
-      "projectLoadingError": "При завантаженні проекту сталася помилка.. :(",
-      "projectsArrayBrokenOrEmpty": "При завантаженні даних проектів сталася помилка.. :("
+      "contentLoadingError": "При завантаженні даних сталася помилка.. :("
     },
 
     "email": {

@@ -42,6 +42,9 @@ export const refs = {
   sections: document.querySelectorAll('.section'),
   sectionTitles: document.querySelectorAll('.section-title'),
 
+  //About
+  aboutInjectionTarget: document.querySelector('.about-description'),
+
   // Projects
   gallery: document.querySelector('#gallery'),
   galleryViewSwitcher: document.querySelector('.projects-view-switch'),
