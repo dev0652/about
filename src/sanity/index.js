@@ -3,7 +3,6 @@ import imageUrlBuilder from '@sanity/image-url';
 import { getCurrentDate } from '/js/services';
 
 // https://www.sanity.io/docs/js-client#api
-// https://www.sanity.io/docs/image-url
 
 const client = createClient({
   projectId: 'ik2t7qlr',
@@ -12,13 +11,13 @@ const client = createClient({
   apiVersion: getCurrentDate(), // use current date (YYYY-MM-DD) to target the latest API version
 });
 
-async function getProjects() {
-  return await client.fetch('*[_type == "project"]');
+async function getData(schemaType) {
+  const query = `*[_type == "${schemaType}"]`;
+  return await client.fetch(query);
 }
 
-async function getSectionContent() {
-  return await client.fetch('*[_type == "sectionContent"]');
-}
+// https://www.sanity.io/docs/image-url
+
 const builder = imageUrlBuilder(client);
 
 export function urlFor(source) {
@@ -26,6 +25,6 @@ export function urlFor(source) {
 }
 
 export const sanity = {
-  getProjects,
-  getSectionContent,
+  getProjects: () => getData('project'),
+  getSectionContent: () => getData('sectionContent'),
 };
