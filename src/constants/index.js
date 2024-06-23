@@ -15,6 +15,7 @@ export const constants = {
   MEDIA_QUERIES: {
     mobile: window.matchMedia('(max-width: 767px)'),
     widePhone: window.matchMedia('(max-width: 499px)'),
+    desktop: window.matchMedia('(min-width: 1280px)'),
   },
 
   IMAGE_SIZE_NAMES: {

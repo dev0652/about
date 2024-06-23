@@ -13,7 +13,7 @@ const { MEDIA_QUERIES } = constants;
 
 export function createCardMarkup(project) {
   const locale = getLocale();
-  const isMobile = MEDIA_QUERIES.mobile.matches;
+  const isDesktop = MEDIA_QUERIES.desktop.matches;
 
   if (!project) return translations[locale].errors.contentLoadingError;
 
@@ -46,7 +46,9 @@ export function createCardMarkup(project) {
 
   const projDescription = getLocalizedFieldValue(description);
 
-  const typeFieldName = getLocalizedFieldName('project-type');
+  const typeFieldName = getLocalizedFieldName(
+    isDesktop ? 'project-type' : 'type'
+  );
   const stackFieldName = getLocalizedFieldName('stack');
   const roleFieldName = getLocalizedFieldName('role');
   const customerFieldName = getLocalizedFieldName('customer');
@@ -104,7 +106,7 @@ export function createCardMarkup(project) {
               </div>
 
               <p>
-                <span style="${isMobile && 'display: none'}">
+                <span class="only-desktop">
                   <span class="field-type">${technologiesFieldName}</span><span class="field-type">:</span>
                 </span> <span class="technologies" lang="en">${technologiesList}</span>
               </p>
