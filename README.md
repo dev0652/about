@@ -19,7 +19,7 @@ The website is live on [GitHub Pages](https://dev0652.github.io/about/).
   <img alt="A screenshot of my website's Projects page with the project gallery in list presentation. The first project card is expanded, revealing the live page screenshot, project description and links to its GitHub page and live page." src="./public/images/readme/desktop/screenshot_light_2x.webp">
 </picture>
 
-To appreciate all of its features, please open it on your phone and enable
+For the Lumia-like experience, please open it on your phone and enable
 full-screen mode in settings (an icon in the bottom right corner).
 
 <picture>
@@ -50,8 +50,10 @@ keeping both.
 - vanilla JavaScript
 - CSS and SaSS
 - Vite
-- minimum libraries, only [EmailJS](https://www.emailjs.com/) and
-  [Swipe.js](https://github.com/lyfeyaj/swipe).
+- Sanity
+- minimum libraries, just [EmailJS](https://www.emailjs.com/),
+  [Swipe.js](https://github.com/lyfeyaj/swipe) and
+  [lodash.throttle](https://www.npmjs.com/package/lodash.throttle).
 
 ## Features
 
@@ -120,3 +122,10 @@ Lighthouse ratings:
 
   <img alt="A screenshot of my website's Lighthouse report with the following ratings: Performance: 100, Accessibility: 95, Best Practices: 100, SEO: 100." src="./public/images/readme/lighthouse/lighthouse_light.webp">
 </picture>
+
+### Headless CMS
+
+This website uses Sanity as the content management system (CMS).
+
+Sanity Studio code is available on my GitHub
+[here](https://dev0652.github.io/about/).
