@@ -1,18 +1,21 @@
 export const constants = {
-  MEDIA_QUERY_MOBILE: window.matchMedia('(max-width: 767px)'),
-
-  LS_LANGUAGE_KEY: 'language',
-  LS_COLOR_SCHEME_KEY: 'color-scheme',
-  LS_PROJECTS_KEY: 'projects',
-
   LOCALE_ENG: 'en',
   LOCALE_UKR: 'uk',
 
-  LOC_ATTRIBUTE_TEXT: 'data-loc',
-  LOC_ATTRIBUTE_PLC: 'data-loc-plc',
-  LOC_ATTRIBUTE_ARIA: 'data-loc-aria',
+  LS_KEYS: {
+    language: 'language',
+    colorScheme: 'color-scheme',
+  },
 
-  TYPING_ANIMATION_INTERVAL: 100,
+  DATA_TYPES: {
+    projects: 'projects',
+    sectionContent: 'sectionContent',
+  },
+
+  MEDIA_QUERIES: {
+    mobile: window.matchMedia('(max-width: 767px)'),
+    widePhone: window.matchMedia('(max-width: 499px)'),
+  },
 
   IMAGE_SIZE_NAMES: {
     small: 'small',
@@ -28,8 +31,11 @@ export const constants = {
     large2x: { width: 1920, height: 1080 },
   },
 
-  DATA_TYPES: {
-    projects: 'projects',
-    sectionContent: 'sectionContent',
+  LOC_ATTRIBUTES: {
+    text: 'data-loc',
+    placeholder: 'data-loc-plc',
+    ariaLabel: 'data-loc-aria',
   },
+
+  TYPING_ANIMATION_INTERVAL: 100,
 };

@@ -3,8 +3,7 @@ import { constants } from '/constants';
 import { getLocale } from '/js/localization';
 import { urlFor } from '../sanity';
 
-const { IMAGE_SIZE_NAMES, LOCALE_UKR, LS_COLOR_SCHEME_KEY, IMAGE_SIZES } =
-  constants;
+const { IMAGE_SIZE_NAMES, LOCALE_UKR, LS_KEYS, IMAGE_SIZES } = constants;
 
 const { small, medium, large1x, large2x } = IMAGE_SIZE_NAMES;
 
@@ -76,7 +75,7 @@ function makeSourceTag(images, imageFor, colorScheme, hasDarkVersion = false) {
         `;
 
     if (isModal) {
-      const savedScheme = localStorage.getItem(LS_COLOR_SCHEME_KEY);
+      const savedScheme = localStorage.getItem(LS_KEYS.colorScheme);
 
       if (savedScheme) {
         dataMedia = `(prefers-color-scheme: ${colorScheme})`;

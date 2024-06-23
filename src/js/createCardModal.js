@@ -7,9 +7,13 @@ import {
 } from '/js/localization';
 import { makePictureTag } from '/js/imagePaths';
 import translations from '/data/translations.json' assert { type: 'json' };
+import { constants } from '/constants';
+
+const { MEDIA_QUERIES } = constants;
 
 export function createCardModal(project) {
   const locale = getLocale();
+  const isMobile = window.matchMedia(MEDIA_QUERIES.mobile).matches;
 
   if (!project) return translations[locale].errors.contentLoadingError;
 
@@ -40,10 +44,11 @@ export function createCardModal(project) {
 
   const projDescription = getLocalizedFieldValue(description);
 
-  const typeFieldName = getLocalizedFieldName('project-type');
+  const typeFieldName = getLocalizedFieldName('type');
   const stackFieldName = getLocalizedFieldName('stack');
   const roleFieldName = getLocalizedFieldName('role');
   const customerFieldName = getLocalizedFieldName('customer');
+  const technologiesFieldName = getLocalizedFieldName('technologies');
   const livePageButtonText = getLocalizedFieldName('live-page');
 
   return /* html */ `
@@ -55,25 +60,31 @@ export function createCardModal(project) {
         <div class="modal-summary">
           <div class="summary-columns-wrapper">
             <div class="summary-column">
-              <p class="type"><span class="field-type">${typeFieldName}</span><span class="field-type">:</span> ${projType}</p>
+              <p>
+                <span class="field-type">${typeFieldName}</span><span class="field-type">:</span> ${projType}
+              </p>
 
-              <p class="stack"><span class="field-type">${stackFieldName}</span><span class="field-type">:</span> ${stack}</p>
+              <p class="stack">
+                <span class="field-type">${stackFieldName}</span><span class="field-type">:</span> ${stack}
+              </p>
             </div>
 
             <div class="summary-column">
-              <p class="role"
-              style="${!isRole && 'display: none'}">
+              <p style="${!isRole && 'display: none'}">
                 <span class="field-type">${roleFieldName}</span><span class="field-type">:</span> ${myRole}
               </p>
 
-              <p class="customer"
-              style="${customer === '' && 'display: none'}">
+              <p style="${customer === '' && 'display: none'}">
                 <span class="field-type">${customerFieldName}</span><span class="field-type">:</span> ${customer}
               </p>
             </div>
           </div>
 
-          <p class="technologies">${technologiesList}</p>
+          <p>
+            <span style="${isMobile && 'display: none'}">
+              <span class="field-type">${technologiesFieldName}</span><span class="field-type">:</span>
+            </span> <span class="technologies" lang="en">${technologiesList}</span>
+          </p>
         </div>
 
         <div class="modal-image-block">${modalPictureTag}</div>

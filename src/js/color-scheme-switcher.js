@@ -5,7 +5,7 @@ import { updateSourceMedia } from './updateSourceMedia';
 
 // Based on the color scheme switcher solution by Vadim Makeyev
 
-const { LS_COLOR_SCHEME_KEY } = constants;
+const { LS_KEYS } = constants;
 
 function getSystemScheme() {
   const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
@@ -36,8 +36,8 @@ function changeMetaStyleLinks(scheme) {
 }
 
 function saveSchemeSetting(scheme) {
-  if (scheme === 'auto') localStorage.removeItem(LS_COLOR_SCHEME_KEY);
-  else localStorage.setItem(LS_COLOR_SCHEME_KEY, scheme);
+  if (scheme === 'auto') localStorage.removeItem(LS_KEYS.colorScheme);
+  else localStorage.setItem(LS_KEYS.colorScheme, scheme);
 }
 
 function addFadedEdgesEffect() {
@@ -58,7 +58,7 @@ function setColorScheme(scheme) {
 
 export function setupColorScheme() {
   const systemScheme = getSystemScheme();
-  const savedScheme = localStorage.getItem(LS_COLOR_SCHEME_KEY);
+  const savedScheme = localStorage.getItem(LS_KEYS.colorScheme);
 
   if (!savedScheme || savedScheme === systemScheme) return;
 
@@ -66,7 +66,7 @@ export function setupColorScheme() {
 }
 
 function presetSwitcher() {
-  const savedScheme = localStorage.getItem(LS_COLOR_SCHEME_KEY);
+  const savedScheme = localStorage.getItem(LS_KEYS.colorScheme);
 
   if (savedScheme) {
     const currentRadio = document.querySelector(

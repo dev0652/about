@@ -10,7 +10,7 @@ import {
 import { constants } from '/constants';
 import translations from '/data/translations.json' assert { type: 'json' };
 
-const { LS_LANGUAGE_KEY, MEDIA_QUERY_MOBILE, LOCALE_ENG } = constants;
+const { LS_KEYS, MEDIA_QUERIES, LOCALE_ENG } = constants;
 
 function translateMobileTitles(locale, prevLang) {
   // Populate the mobile titles array with translated titles:
@@ -28,10 +28,10 @@ function translateMobileTitles(locale, prevLang) {
 }
 
 function translateContent(locale) {
-  const savedLang = localStorage.getItem(LS_LANGUAGE_KEY);
+  const savedLang = localStorage.getItem(LS_KEYS.language);
   const prevLang = savedLang ? savedLang : LOCALE_ENG;
 
-  if (MEDIA_QUERY_MOBILE.matches) translateMobileTitles(locale, prevLang);
+  if (MEDIA_QUERIES.mobile.matches) translateMobileTitles(locale, prevLang);
 
   renderGallery();
   populateAboutMeSection();
@@ -51,7 +51,7 @@ function switchLanguage(event) {
   const locale = event.target.value;
 
   setLocale(locale);
-  localStorage.setItem(LS_LANGUAGE_KEY, locale);
+  localStorage.setItem(LS_KEYS.language, locale);
   translateContentWithFadeEffect(locale);
 }
 

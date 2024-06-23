@@ -4,16 +4,10 @@ import translations from '/data/translations.json' assert { type: 'json' };
 import { uppercaseFirstLetter } from '/js/services';
 import { refs } from './refs';
 
-const {
-  LOCALE_ENG,
-  LOC_ATTRIBUTE_TEXT,
-  LOC_ATTRIBUTE_PLC,
-  LOC_ATTRIBUTE_ARIA,
-  LS_LANGUAGE_KEY,
-} = constants;
+const { LOCALE_ENG, LOC_ATTRIBUTES, LS_KEYS } = constants;
 
 function setInitialLocale() {
-  const savedLanguage = localStorage.getItem(LS_LANGUAGE_KEY);
+  const savedLanguage = localStorage.getItem(LS_KEYS.language);
   window.locale = savedLanguage || LOCALE_ENG;
 }
 
@@ -61,13 +55,13 @@ export function getLocalizedStringFromArray(array, subCategoryKey) {
 
 function getElementPropertyName(attr) {
   switch (attr) {
-    case LOC_ATTRIBUTE_TEXT:
+    case LOC_ATTRIBUTES.text:
       return 'innerText';
 
-    case LOC_ATTRIBUTE_PLC:
+    case LOC_ATTRIBUTES.placeholder:
       return 'placeholder';
 
-    case LOC_ATTRIBUTE_ARIA:
+    case LOC_ATTRIBUTES.ariaLabel:
       return 'ariaLabel';
   }
 }
@@ -99,9 +93,9 @@ export function translateStaticHTML() {
   document.documentElement.lang = window.locale;
 
   const localizationAttributes = [
-    LOC_ATTRIBUTE_TEXT,
-    LOC_ATTRIBUTE_PLC,
-    LOC_ATTRIBUTE_ARIA,
+    LOC_ATTRIBUTES.text,
+    LOC_ATTRIBUTES.placeholder,
+    LOC_ATTRIBUTES.ariaLabel,
   ];
 
   localizationAttributes.forEach(translateElementByAttribute);

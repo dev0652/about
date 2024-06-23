@@ -8,6 +8,7 @@ import { setTypewriterEffect } from '/js/typing-animation';
 import { activateLanguageSwitcher } from '/js/language-switcher';
 import { activateFullscreenSwitcher } from '/js/fullScreen';
 import { renderGalleryOnInitialLoad } from '/js/projects';
+import { uppercaseFirstLetter } from '/js/services';
 import {
   setCurrentSection,
   restoreSectionVisibility,
@@ -18,9 +19,7 @@ import {
   setupColorScheme,
 } from '/js/color-scheme-switcher';
 
-import { uppercaseFirstLetter } from '/js/services';
-
-const { MEDIA_QUERY_MOBILE, DATA_TYPES } = constants;
+const { MEDIA_QUERIES, DATA_TYPES } = constants;
 const { projects, sectionContent } = DATA_TYPES;
 
 function getCurrentSectionIndex() {
@@ -35,7 +34,7 @@ function getCurrentSectionIndex() {
 }
 
 function changeTextAreaSize() {
-  const isMobileWide = window.matchMedia('(max-width: 499px)').matches;
+  const isMobileWide = window.matchMedia(MEDIA_QUERIES.widePhone).matches;
   refs.textArea.setAttribute('rows', isMobileWide ? 3 : 5);
 }
 
@@ -56,7 +55,7 @@ function onScreenChange(event) {
 }
 
 function setNavigationElements() {
-  if (MEDIA_QUERY_MOBILE.matches) {
+  if (MEDIA_QUERIES.mobile.matches) {
     const paginationList = document.querySelector('.pagination-list');
     if (!paginationList) {
       createPagination();
@@ -66,7 +65,7 @@ function setNavigationElements() {
 }
 
 function setSectionBehavior() {
-  if (MEDIA_QUERY_MOBILE.matches) slider.initialize();
+  if (MEDIA_QUERIES.mobile.matches) slider.initialize();
   else setTypewriterEffect();
 }
 
@@ -99,7 +98,7 @@ export async function doOnFirstLoad() {
 
   renderGalleryOnInitialLoad();
 
-  MEDIA_QUERY_MOBILE.addEventListener('change', onScreenChange);
+  MEDIA_QUERIES.mobile.addEventListener('change', onScreenChange);
 }
 
 doOnFirstLoad();

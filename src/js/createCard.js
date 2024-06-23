@@ -7,9 +7,13 @@ import {
 } from '/js/localization';
 import { makePictureTag } from '/js/imagePaths';
 import translations from '/data/translations.json' assert { type: 'json' };
+import { constants } from '/constants';
+
+const { MEDIA_QUERIES } = constants;
 
 export function createCardMarkup(project) {
   const locale = getLocale();
+  const isMobile = window.matchMedia(MEDIA_QUERIES.mobile).matches;
 
   if (!project) return translations[locale].errors.contentLoadingError;
 
@@ -82,22 +86,28 @@ export function createCardMarkup(project) {
 
             <div class="list-card-summary">
               <div class="summary-items-wrapper">
-                  <p class="type"><span class="field-type">${typeFieldName}</span><span class="field-type">:</span> ${projType}</p>
+                  <p>
+                    <span class="field-type">${typeFieldName}</span><span class="field-type">:</span> ${projType}
+                  </p>
 
-                  <p class="customer"
-                  style="${customer === '' && 'display: none'}">
+                  <p style="${customer === '' && 'display: none'}">
                     <span class="field-type">${customerFieldName}</span><span class="field-type">:</span> ${customer}
                   </p>
 
-                  <p class="role"
-                  style="${!isRole && 'display: none'}">
+                  <p style="${!isRole && 'display: none'}">
                     <span class="field-type">${roleFieldName}</span><span class="field-type">:</span> ${myRole}
                   </p>
 
-                  <p class="stack"><span class="field-type">${stackFieldName}</span><span class="field-type">:</span> <span lang="en">${stack}</span></p>
+                  <p>
+                    <span class="field-type">${stackFieldName}</span><span class="field-type">:</span> <span lang="en">${stack}</span>
+                  </p>
               </div>
 
-              <p class="technologies" lang="en">${technologiesList}</p>
+              <p>
+                <span style="${isMobile && 'display: none'}">
+                  <span class="field-type">${technologiesFieldName}</span><span class="field-type">:</span>
+                </span> <span class="technologies" lang="en">${technologiesList}</span>
+              </p>
             </div>
 
             <div class="list-card-description">
