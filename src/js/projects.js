@@ -62,14 +62,15 @@ function adjustTabIndexesByGalleryView(cardList, isGallery) {
   });
 }
 
-function toggleGalleryView() {
-  //
+function toggleProjectsPresentation() {
   const cardList = document.querySelector('.project-card-list');
-
   cardList.classList.toggle('gallery-view');
+
   const isGallery = cardList.classList.contains('gallery-view');
 
   if (isGallery) collapseAllCards();
+
+  window.currentPresentation = isGallery ? 'gallery' : 'list';
 
   const method = isGallery ? 'add' : 'remove';
   cardList[`${method}EventListener`]('click', handleGalleryCardClicks);
@@ -83,7 +84,7 @@ function onViewSwitcherClick() {
   if (!window.projects) return;
 
   slideGalleryOutOfView();
-  setTimeout(toggleGalleryView, 300);
+  setTimeout(toggleProjectsPresentation, 300);
 }
 
 function handleGalleryCardClicks(event) {

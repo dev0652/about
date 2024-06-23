@@ -27,6 +27,11 @@ function translateMobileTitles(locale, prevLang) {
   populateTitles(titles);
 }
 
+function switchToGalleryView() {
+  const cardList = document.querySelector('.project-card-list');
+  cardList.classList.add('gallery-view');
+}
+
 function translateContent(locale) {
   const savedLang = localStorage.getItem(LS_KEYS.language);
   const prevLang = savedLang ? savedLang : LOCALE_ENG;
@@ -34,6 +39,7 @@ function translateContent(locale) {
   if (MEDIA_QUERIES.mobile.matches) translateMobileTitles(locale, prevLang);
 
   renderGallery();
+  if (window.currentPresentation === 'gallery') switchToGalleryView();
   populateAboutMeSection();
   translateStaticHTML();
 }

@@ -3,7 +3,7 @@ import { constants } from '/constants';
 import { getLocale } from '/js/localization';
 import { urlFor } from '../sanity';
 
-const { IMAGE_SIZE_NAMES, LOCALE_UKR, LS_KEYS, IMAGE_SIZES } = constants;
+const { LOCALE_UKR, LS_KEYS, IMAGE_SIZES, IMAGE_SIZE_NAMES } = constants;
 
 const { small, medium, large1x, large2x } = IMAGE_SIZE_NAMES;
 
@@ -117,11 +117,9 @@ export function makePictureTag(projectName, images, imageFor, hasDarkVersion) {
 
   const { medium, large1x } = getImagePaths(images);
 
-  // large1x for 'list' & 'modal', medium for 'tile'
-  const imgSrc = imageFor === 'tile' ? medium : large1x;
+  const imgSrc = imageFor === 'tile' ? medium : large1x; // large1x for 'list' & 'modal', medium for 'tile'
 
-  // eager for 'list' & 'modal', lazy for 'tile'
-  const loadingMode = imageFor === 'tile' ? 'lazy' : 'eager';
+  const loadingMode = imageFor === 'tile' ? 'lazy' : 'eager'; // eager for 'list' & 'modal', lazy for 'tile'
 
   const alt = makeImageAltAttr(projectName);
 
