@@ -132,26 +132,6 @@
     z-index: -1;
 
     transform: translateY(0);
-
-    &:before {
-      // works when 'overflow' is set to 'visible' in the specific menu's stylesheet
-      content: '';
-      position: absolute;
-
-      $offset: 3rem;
-
-      left: 0;
-      // top: calc($offset * -1);
-      top: calc($offset * -0.95);
-
-      width: 100vw;
-      height: $offset;
-
-      pointer-events: none;
-      z-index: calc($index-main-pseudos - 10);
-
-      background: linear-gradient(to top, var(--mobile-menu-bg), transparent);
-    }
   }
 
   @media screen and (min-width: $tablet) {
@@ -286,9 +266,9 @@ fieldset.switcher {
     margin-top: $outline;
 
     &:checked {
-      // border-color: var(--switcher-menu-radio);
-      outline: $outline solid var(--text-color);
-      outline-offset: -1rem; // dot in the middle :)
+      // border-color: var(--text-color);
+      outline: $outline solid var(--accent-color);
+      outline-offset: -1rem; // dot in the middle :-)
     }
   }
 

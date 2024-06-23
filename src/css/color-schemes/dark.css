@@ -39,7 +39,7 @@
 
   --switcher-label-mobile-inactive: darkgray;
 
-  --switcher-menu-dropdown-bg: #0d1117;
+  --switcher-menu-dropdown-bg: #2a3439;
   @media screen and (min-width: 768px) {
     --switcher-menu-dropdown-bg: var(--dark-gray);
   }
