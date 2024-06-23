@@ -34,7 +34,7 @@ function getCurrentSectionIndex() {
 }
 
 function changeTextAreaSize() {
-  const isMobileWide = window.matchMedia(MEDIA_QUERIES.widePhone).matches;
+  const isMobileWide = MEDIA_QUERIES.widePhone.matches;
   refs.textArea.setAttribute('rows', isMobileWide ? 3 : 5);
 }
 

@@ -1,4 +1,3 @@
-// import projects from '/data/db';
 import { createCardModal } from '/js/createCardModal';
 
 const modalPopUp = document.querySelector('.popup-backdrop');

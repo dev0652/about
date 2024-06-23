@@ -13,7 +13,7 @@ const { MEDIA_QUERIES } = constants;
 
 export function createCardMarkup(project) {
   const locale = getLocale();
-  const isMobile = window.matchMedia(MEDIA_QUERIES.mobile).matches;
+  const isMobile = MEDIA_QUERIES.mobile.matches;
 
   if (!project) return translations[locale].errors.contentLoadingError;
 

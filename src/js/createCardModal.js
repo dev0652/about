@@ -13,7 +13,8 @@ const { MEDIA_QUERIES } = constants;
 
 export function createCardModal(project) {
   const locale = getLocale();
-  const isMobile = window.matchMedia(MEDIA_QUERIES.mobile).matches;
+  const isMobile = MEDIA_QUERIES.mobile.matches;
+  console.log('isMobile: ', isMobile);
 
   if (!project) return translations[locale].errors.contentLoadingError;
 
