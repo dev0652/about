@@ -2,6 +2,7 @@ import { refs } from '/js/refs';
 import { openCardModal } from '/js/modal';
 import { createCardMarkup } from '/js/createCard';
 import translations from '/data/translations.json' assert { type: 'json' };
+import { collapseAllCards } from './accordion';
 
 const gallery = refs.gallery;
 const modeDescriptor = refs.galleryViewSwitcher.querySelector('.view-mode');
@@ -62,10 +63,13 @@ function adjustTabIndexesByGalleryView(cardList, isGallery) {
 }
 
 function toggleGalleryView() {
+  //
   const cardList = document.querySelector('.project-card-list');
 
   cardList.classList.toggle('gallery-view');
   const isGallery = cardList.classList.contains('gallery-view');
+
+  if (isGallery) collapseAllCards();
 
   const method = isGallery ? 'add' : 'remove';
   cardList[`${method}EventListener`]('click', handleGalleryCardClicks);

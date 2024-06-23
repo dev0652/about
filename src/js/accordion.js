@@ -13,7 +13,7 @@ function disableKeyboardFocusOnLinks(cardLinks) {
 
 function checkForExpandedCards(cards, currentCard) {
   return cards.find(card => {
-    if (card === currentCard) return false;
+    if (currentCard && card === currentCard) return false;
 
     const cardTitle = card.querySelector('.collapsible-toggle');
 
@@ -72,6 +72,14 @@ function titleClickHandler(event) {
   if (expandedCard) collapseExpandedCard(expandedCard);
 
   toggleCurrentCard(currentCard);
+}
+
+export function collapseAllCards() {
+  const cardsNodeList = document.querySelectorAll('.project-card');
+  const cards = Array.from(cardsNodeList);
+
+  const expandedCard = checkForExpandedCards(cards);
+  if (expandedCard) collapseExpandedCard(expandedCard);
 }
 
 function titleKeypressHandler(event) {
