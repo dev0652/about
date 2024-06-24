@@ -3,6 +3,7 @@
   --blackish: #111111;
   --smoke-gray: #2a3439;
   --light-blue: #2980b9;
+  --antracite: #0d1117;
 
   /* Accent */
   --accent-color: var(--light-blue);
@@ -10,9 +11,8 @@
   /* Body */
   --text-color: gainsboro;
   --background-color: black;
-
   @media screen and (min-width: 768px) {
-    --background-color: #0d1117; /* #0c090a */
+    --background-color: var(--antracite); /* #0c090a */
   }
 
   /* Header */
@@ -39,7 +39,7 @@
 
   --switcher-label-mobile-inactive: darkgray;
 
-  --switcher-menu-dropdown-bg: var(--blackish);
+  --switcher-menu-dropdown-bg: var(--antracite);
   @media screen and (min-width: 768px) {
     --switcher-menu-dropdown-bg: var(--dark-gray);
   }
