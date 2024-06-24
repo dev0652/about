@@ -125,7 +125,4 @@ Lighthouse ratings:
 
 ### Headless CMS
 
-This website uses Sanity as the content management system (CMS).
-
-Sanity Studio code is available on my GitHub
-[here](https://dev0652.github.io/about/).
+This website uses Sanity as the content management system (CMS). Studio code is also available on my GitHub [here](https://github.com/dev0652/about-sanity-cms). 
