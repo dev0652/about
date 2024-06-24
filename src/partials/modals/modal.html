@@ -1,16 +1,58 @@
-<div class="modal-backdrop popup-backdrop is-hidden">
-  <div class="modal popup-modal">
-    <button
-      type="button"
-      class="popup-modal-close-button"
-      aria-label="Close the modal window"
-      data-loc-aria="popup-modal-close-button"
-    >
-      <svg class="popup-modal-close-button-icon" width="18" height="18">
-        <use href="/images/symbol-defs.svg#icon-x-close"></use>
-      </svg>
-    </button>
+<div class="card-modal-backdrop is-hidden">
+<div class="modal-wrapper">
+      <div class="modal card-modal">
+        <button
+          type="button"
+          class="card-modal-close-button"
+          aria-label="Close the modal window"
+          data-loc-aria="card-modal-close-button"
+        >
+          <svg class="card-modal-close-button-icon" width="18" height="18">
+            <use href="/images/symbol-defs.svg#icon-x-close"></use>
+          </svg>
+        </button>
 
-    <div class="modal-content-injection-target"></div>
+        <div class="modal-content-injection-target"></div>
+      </div>
+
+      <div class="modal-mobile-action-bar">
+         <!-- Modal action bar caption toggle (three dots)  -->
+        <label class="caption-toggle-label" for="close-button-caption-toggle-checkbox">
+          <input
+            class="close-button-caption-toggle-checkbox"
+            type="checkbox"
+            id="close-button-caption-toggle-checkbox"
+            name="close-button-caption-toggle-checkbox"
+            aria-label="Toggle captions for mobile menu icons"
+            data-loc-aria="close-button-caption-toggle-checkbox"
+          />
+
+          <svg class="caption-toggle-icon" width="32" height="32">
+            <use href="images/symbol-defs.svg#icon-overflowdots"></use>
+          </svg>
+        </label>
+
+        <!-- Modal close button group (mobile) -->
+        <div class="card-modal-close-button-mobile-group">
+          <button
+            type="button"
+            class="card-modal-close-button-mobile"
+            aria-label="Close the modal window"
+            data-loc-aria="card-modal-close-button"
+          >
+            <svg class="card-modal-close-button-mobile-icon" width="32" height="32">
+            <use href="/images/symbol-defs.svg#icon-cross-circled"></use>
+            </svg>
+
+            
+          </button>
+
+          <div class="modal-close-button-caption-wrapper">
+            <p class="modal-close-button-caption" data-loc="close">close</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>

@@ -59,6 +59,7 @@
 
   /* Modal */
   --modal-close-button-bg: gray;
+  --modal-mobile-action-bar-bg: var(--dark-gray);
   --modal-scrollbar-bg: #161f37;
   --modal-scrollbar-thumb: #434d67;
 

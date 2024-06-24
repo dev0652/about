@@ -1,9 +1,9 @@
 :root {
+  --white-gray: #f2f3f4;
   --light-gray: #dcdcdc;
+  --smoke-gray: #2a3439;
   --blackish: #111111;
   --light-blue: #2980b9;
-
-  --smoke-gray: #2a3439;
 
   /* Accent */
   --accent-color: var(--light-blue);
@@ -26,7 +26,7 @@
   --pagination-bullet: gray;
   --pagination-bullet-current: black;
 
-  --mobile-menu-bg: #f2f3f4;
+  --mobile-menu-bg: var(--white-gray);
 
   /* Buttons */
   --button-text-color: var(--text-color);
@@ -38,10 +38,10 @@
 
   /* Switcher menus */
   --switcher-label-mobile-inactive: dimgray;
-  --switcher-menu-dropdown-bg: rgb(236, 235, 235);
+  --switcher-menu-dropdown-bg: gainsboro;
 
   @media screen and (min-width: 768px) {
-    --switcher-menu-dropdown-bg: #f2f3f4;
+    --switcher-menu-dropdown-bg: var(--mobile-menu-bg);
   }
 
   --switcher-menu-radio: dimgray;
@@ -60,6 +60,7 @@
 
   /* Modal */
   --modal-close-button-bg: silver;
+  --modal-mobile-action-bar-bg: var(--light-gray);
   --modal-scrollbar-bg: gainsboro;
   --modal-scrollbar-thumb: gray;
 

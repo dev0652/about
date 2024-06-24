@@ -13,30 +13,30 @@
       transform: translateY(0);
     }
 
-    &:not(:has(.menu-checkbox:checked)) {
-      &:before {
-        content: '';
-        position: absolute;
+    // &:not(:has(.menu-checkbox:checked)) {
+    //   &:before {
+    //     content: '';
+    //     position: absolute;
 
-        $offset: 3rem;
+    //     $offset: 3rem;
 
-        left: 0;
-        // top: calc($offset * -1);
-        top: calc($offset * -0.95);
+    //     left: 0;
+    //     // top: calc($offset * -1);
+    //     top: calc($offset * -0.95);
 
-        width: 100vw;
-        height: $offset;
+    //     width: 100vw;
+    //     height: $offset;
 
-        pointer-events: none;
-        z-index: calc($index-main-pseudos - 10);
+    //     pointer-events: none;
+    //     z-index: calc($index-main-pseudos - 10);
 
-        background: linear-gradient(
-          to top,
-          var(--background-color),
-          transparent
-        );
-      }
-    }
+    //     background: linear-gradient(
+    //       to top,
+    //       var(--background-color),
+    //       transparent
+    //     );
+    //   }
+    // }
   }
 
   @media screen and (min-width: $tablet) {

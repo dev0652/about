@@ -39,6 +39,8 @@
     "on": "увімкн.",
     "off": "вимкн.",
 
+    "close": "закрити",
+
     "errors": {
       "contentLoadingError": "При завантаженні даних сталася помилка.. :("
     },
@@ -79,7 +81,8 @@
       "mobile-menu-toggle-checkbox": "Відкрити або закрити мобільне меню",
       "caption-toggle-checkbox": "Показати або приховати підписи для іконок мобільного меню",
 
-      "popup-modal-close-button": "Закрити модальне вікно"
+      "card-modal-close-button": "Закрити модальне вікно",
+      "close-button-caption-toggle-checkbox": "Показати або приховати підпис для іконки кнопки закриття модалки"
     }
   },
 
@@ -123,6 +126,8 @@
     "on": "On",
     "off": "Off",
 
+    "close": "close",
+
     "errors": {
       "contentLoadingError": "Error loading data.. :("
     },
@@ -163,7 +168,8 @@
       "mobile-menu-toggle-checkbox": "Toggle mobile menu",
       "caption-toggle-checkbox": "Toggle captions for mobile menu icons",
 
-      "popup-modal-close-button": "Close the modal window"
+      "card-modal-close-button": "Close the modal window",
+      "close-button-caption-toggle-checkbox": "Toggle modal window's close button caption"
     }
   }
 }

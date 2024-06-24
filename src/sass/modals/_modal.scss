@@ -2,7 +2,7 @@ $td: 600ms;
 
 // Shared styles:
 
-.modal-backdrop {
+.card-modal-backdrop {
   transition:
     background-color $td,
     backdrop-filter $td;
@@ -37,22 +37,33 @@ $td: 600ms;
   }
 }
 
-.modal {
+.modal-wrapper {
   z-index: $index-modal;
   position: absolute;
   bottom: 0;
 
   overflow: hidden;
 
-  color: var(--text-color);
-  background-color: var(--background-color);
-
-  padding: $unit-gap * 3 $unit-gap * 2;
-
   @media screen and (min-width: $tablet) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); // centering
+
+    background-color: beige;
+  }
+}
+
+.modal {
+  color: var(--text-color);
+  background-color: var(--background-color);
+
+  padding: $unit-gap * 2;
+  padding-bottom: $unit-gap * 2.5;
+
+  @media screen and (min-width: $tablet) {
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%); // centering
 
     padding: $unit-gap * 4;
     height: fit-content;
@@ -60,11 +71,10 @@ $td: 600ms;
 }
 
 // Tile card modal
-.popup-modal {
-  max-height: 100%;
-
+.modal-wrapper {
   @media screen and (min-width: $tablet) {
     width: 650px;
+    height: fit-content;
     max-height: 90vh;
   }
 
@@ -72,7 +82,7 @@ $td: 600ms;
     width: 700px;
   }
 
-  .popup-backdrop:not(.is-hidden) &:not(.on-modal-close) {
+  .card-modal-backdrop:not(.is-hidden) &:not(.on-modal-close) {
     animation: slide-in-from-below $td;
 
     @media screen and (min-width: $tablet) {
@@ -210,39 +220,45 @@ $td: 600ms;
 
 // Close button
 
-.popup-modal-close-button {
-  position: absolute;
-
-  top: 24px;
-  right: 24px;
-  padding: 6px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: transparent;
-  border: none;
-
-  &:hover,
-  &:focus-visible {
-    background-color: var(--modal-close-button-bg);
+.card-modal-close-button {
+  @media screen and (max-width: $tablet-1) {
+    display: none;
   }
 
-  &:active {
-    background-color: darkSlateGray;
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+
+    top: 24px;
+    right: 24px;
+    padding: 6px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border: none;
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--modal-close-button-bg);
+    }
+
+    &:active {
+      background-color: darkSlateGray;
+    }
   }
 }
 
-.popup-modal-close-button-icon {
+.card-modal-close-button-icon {
   fill: var(--text-color);
 
-  .popup-modal-close-button:hover &,
-  .popup-modal-close-button:focus-visible & {
+  .card-modal-close-button:hover &,
+  .card-modal-close-button:focus-visible & {
     fill: black;
   }
 
-  .popup-modal-close-button:active & {
+  .card-modal-close-button:active & {
     fill: gainsboro;
   }
 
@@ -252,15 +268,86 @@ $td: 600ms;
   }
 }
 
-// .email-modal-close-button {
-//   @extend %button !optional;
+.modal-mobile-action-bar {
+  position: relative;
 
-//   font-size: 1.5rem;
+  padding: 15px 10px;
+  // background-color: var(--mobile-menu-bg);
+  background-color: var(--modal-mobile-action-bar-bg);
 
-//   @media screen and (min-width: $tablet) {
-//     $horizontal-padding: 70px;
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
 
-//     padding-left: $horizontal-padding;
-//     padding-right: $horizontal-padding;
-//   }
-// }
+.card-modal-close-button-mobile-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--switcher-label-mobile-inactive);
+
+  &:has(.card-modal-close-button-mobile:active) {
+    color: var(--text-color);
+  }
+}
+
+.card-modal-close-button-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 15px;
+  border: none;
+
+  background-color: transparent;
+
+  color: inherit;
+}
+
+.card-modal-close-button-mobile-icon {
+  $td: 200ms;
+  $tf: ease-in;
+
+  fill: currentColor;
+
+  // stroke: var(--swaying-icon-color);
+  // stroke: lightgray;
+
+  transition: fill $td $tf;
+}
+
+.modal-close-button-caption-wrapper {
+  @media screen and (max-width: $tablet-1) {
+    overflow: hidden;
+
+    transition: max-height 300ms;
+    max-height: 0;
+
+    .modal-mobile-action-bar:has(.close-button-caption-toggle-checkbox:checked)
+      & {
+      max-height: 30px;
+    }
+  }
+}
+
+.close-button-caption-toggle-checkbox {
+  appearance: none;
+}
+
+.modal-close-button-caption {
+  @media screen and (max-width: $tablet-1) {
+    font-size: 0.8rem;
+    text-transform: lowercase;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    margin-top: 3px;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop-1) {
+    display: none;
+  }
+}

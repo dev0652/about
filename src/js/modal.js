@@ -1,8 +1,14 @@
 import { createCardModal } from '/js/createCardModal';
 
-const modalPopUp = document.querySelector('.popup-backdrop');
-const closeModalButton = modalPopUp.querySelector('.popup-modal-close-button');
-const modalContentEl = modalPopUp.querySelector(
+const cardModalBackdrop = document.querySelector('.card-modal-backdrop');
+const closeModalButton = cardModalBackdrop.querySelector(
+  '.card-modal-close-button'
+);
+const closeModalButtonMobile = cardModalBackdrop.querySelector(
+  '.card-modal-close-button-mobile'
+);
+
+const modalContentEl = cardModalBackdrop.querySelector(
   '.modal-content-injection-target'
 );
 
@@ -38,16 +44,14 @@ function onModalOpen(projectId) {
   document.body.style.overflow = 'hidden';
 
   toggleBackdropClickAndEscapeKeyListeners();
-
-  const currentCloseButton = document.querySelector('.current-close-button');
-  currentCloseButton.addEventListener('click', onModalClose);
+  toggleModalCloseButtonsClickListeners();
 
   window.modalOpen = true;
 }
 
 function onModalClose() {
   const currentModal = document.querySelector('.current-modal');
-  const modal = currentModal.querySelector('.popup-modal');
+  const modal = currentModal.querySelector('.modal-wrapper');
 
   modal.classList.add('on-modal-close');
 
@@ -58,17 +62,26 @@ function onModalClose() {
     document.body.style.removeProperty('overflow');
 
     toggleBackdropClickAndEscapeKeyListeners();
+    toggleModalCloseButtonsClickListeners();
 
     currentModal.classList.add('is-hidden');
     currentModal.classList.remove('current-modal');
-
-    const currentCloseButton = document.querySelector('.current-close-button');
-    currentCloseButton.removeEventListener('click', onModalClose);
 
     removeHoverEffectFromFlipCard();
 
     window.modalOpen = false;
   }, 600);
+}
+
+function toggleModalCloseButtonsClickListeners() {
+  const method = !window.modalOpen ? 'add' : 'remove';
+  const currentModalCloseButtons = document.querySelectorAll(
+    '.current-close-button'
+  );
+
+  currentModalCloseButtons.forEach(closeButton => {
+    closeButton[`${method}EventListener`]('click', onModalClose);
+  });
 }
 
 function handleEscapePress(event) {
@@ -77,13 +90,13 @@ function handleEscapePress(event) {
 
 export function openCardModal(id) {
   const selectedProject = window.projects.find(project => project.id === +id);
-
   modalContentEl.innerHTML = createCardModal(selectedProject);
 
-  modalPopUp.classList.remove('is-hidden');
-  modalPopUp.classList.add('current-modal');
+  cardModalBackdrop.classList.remove('is-hidden');
+  cardModalBackdrop.classList.add('current-modal');
 
   closeModalButton.classList.add('current-close-button');
+  closeModalButtonMobile.classList.add('current-close-button');
 
   onModalOpen(selectedProject.id);
 }
