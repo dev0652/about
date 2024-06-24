@@ -39,7 +39,7 @@
 
   --switcher-label-mobile-inactive: darkgray;
 
-  --switcher-menu-dropdown-bg: #2a3439;
+  --switcher-menu-dropdown-bg: var(--blackish);
   @media screen and (min-width: 768px) {
     --switcher-menu-dropdown-bg: var(--dark-gray);
   }
@@ -54,7 +54,7 @@
 
   /* Project card */
   --list-card-image-shadow: transparent;
-  --flip-card-bg: #2a3439;
+  --flip-card-bg: var(--smoke-gray);
   --flip-card-text: silver;
 
   /* Modal */
