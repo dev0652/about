@@ -86,7 +86,6 @@ export async function doOnFirstLoad() {
   await getData(sectionContent);
 
   applyTranslations();
-  setupColorScheme();
 
   setNavigationElements();
   setSectionBehavior();
@@ -94,10 +93,10 @@ export async function doOnFirstLoad() {
   activateColorSchemeSwitcher();
   activateLanguageSwitcher();
 
-  changeTextAreaSize();
-
   renderGalleryOnInitialLoad();
+  setupColorScheme();
 
+  changeTextAreaSize();
   MEDIA_QUERIES.mobile.addEventListener('change', onScreenChange);
 }
 

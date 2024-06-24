@@ -46,9 +46,7 @@ function addFadedEdgesEffect() {
   }, getThemeSwitchTransition());
 }
 
-function setColorScheme(scheme) {
-  // scheme: 'light' | 'dark'
-
+function applyColorScheme(scheme) {
   removeFadedEdgesEffect();
   changeMetaStyleLinks(scheme);
   saveSchemeSetting(scheme);
@@ -62,7 +60,7 @@ export function setupColorScheme() {
 
   if (!savedScheme || savedScheme === systemScheme) return;
 
-  setColorScheme(savedScheme);
+  applyColorScheme(savedScheme);
 }
 
 function presetSwitcher() {
@@ -77,7 +75,7 @@ function presetSwitcher() {
 
   [...refs.schemeMenuInputs].forEach(radio => {
     radio.addEventListener('change', event => {
-      setColorScheme(event.target.value);
+      applyColorScheme(event.target.value);
     });
   });
 }

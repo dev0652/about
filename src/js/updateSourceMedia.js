@@ -23,18 +23,14 @@ export function updateSourceMedia(colorPreference) {
       if (colorPreference === 'auto') {
         if (source?.dataset.media === source.media) {
           return;
-        } else if (source?.dataset.media.includes('dark')) {
+        } else if (source?.dataset.media.includes('dark'))
           source.media = '(prefers-color-scheme: dark)';
-        } else if (source) {
-          source.media = '(prefers-color-scheme: light)';
-        }
+        else if (source) source.media = '(prefers-color-scheme: light)';
       } else {
         // If the source element `media` target is the `preference`, override it to 'all' to show or set it to 'none' to hide
-        if (source?.dataset.media.includes(colorPreference)) {
+        if (source?.dataset.media.includes(colorPreference))
           source.media = 'all';
-        } else if (source) {
-          source.media = 'none';
-        }
+        else if (source) source.media = 'none';
       }
     });
   });
