@@ -5,6 +5,7 @@ import { createCardMarkup } from './createCard';
 import translations from '/data/translations.json' assert { type: 'json' };
 import { collapseAllCards } from './accordion';
 import {
+  getLocalizedFieldName,
   getLocalizedFieldValue,
   getLocalizedString,
   getLocalizedStringFromArray,

@@ -8,7 +8,7 @@ import translations from '/data/translations.json' assert { type: 'json' };
 import { constants } from '/constants';
 
 const { MEDIA_QUERIES } = constants;
-c;
+
 export function createCardModal(project) {
   const locale = getLocale();
   if (!project) return translations[locale].errors.contentLoadingError;
@@ -79,7 +79,7 @@ export function createCardModal(project) {
           href="${livePage}"
           target="_blank"
           rel="noopener noreferrer"
-          >${fieldNames.livePageButtonText}</a
+          >${fieldNames.livePageBtn}</a
         >
       </div>
     </article>

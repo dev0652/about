@@ -55,7 +55,7 @@ export function createCardMarkup(project) {
                 target="_blank"
                 rel="noopener noreferrer"
                 tabindex="-1"
-                >${fieldNames.livePageButtonText}</a
+                >${fieldNames.livePageBtn}</a
               >
             </div>
 
