@@ -1,8 +1,16 @@
 import { refs } from './refs';
+import { constants } from '/constants';
 import { openCardModal } from './modal';
 import { createCardMarkup } from './createCard';
 import translations from '/data/translations.json' assert { type: 'json' };
 import { collapseAllCards } from './accordion';
+import {
+  getLocalizedFieldValue,
+  getLocalizedString,
+  getLocalizedStringFromArray,
+} from './localization';
+
+const { MEDIA_QUERIES } = constants;
 
 const gallery = refs.gallery;
 const modeDescriptor = refs.galleryViewSwitcher.querySelector('.view-mode');
@@ -93,6 +101,36 @@ function handleGalleryCardClicks(event) {
 
   const id = event.target.dataset.id;
   openCardModal(id);
+}
+
+export function getProjectCardFieldNames(cardType) {
+  if (cardType !== 'card' && cardType !== 'cardModal')
+    return console.error('Invalid card type passed to function');
+
+  const isCard = cardType === 'card';
+  const isDesktop = MEDIA_QUERIES.desktop.matches;
+
+  return {
+    type: getLocalizedFieldName(isCard && isDesktop ? 'project-type' : 'type'),
+    stack: getLocalizedFieldName('stack'),
+    role: getLocalizedFieldName('role'),
+    customer: getLocalizedFieldName('customer'),
+    technologies: getLocalizedFieldName('technologies'),
+    flipCardPrompt: isCard && getLocalizedFieldName('flip-card-prompt'),
+    livePageBtn: getLocalizedFieldName('live-page'),
+  };
+}
+
+export function getProjectCardFieldValues(project) {
+  const { type, description, stack, isRole, role, technologies } = project;
+
+  return {
+    technologies: technologies.join(', '),
+    stack: stack.join(', '),
+    type: getLocalizedString(type, 'projectTypes'),
+    role: isRole ? getLocalizedStringFromArray(role, 'projectRoles') : '',
+    description: getLocalizedFieldValue(description),
+  };
 }
 
 export function renderGallery() {

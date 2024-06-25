@@ -1,55 +1,26 @@
+import { getLocale } from './localization';
 import {
-  getLocale,
-  getLocalizedFieldValue,
-  getLocalizedFieldName,
-  getLocalizedString,
-  getLocalizedStringFromArray,
-} from './localization';
+  getProjectCardFieldNames,
+  getProjectCardFieldValues,
+} from './projects';
 import { makePictureTag } from './imagePaths';
 import translations from '/data/translations.json' assert { type: 'json' };
 import { constants } from '/constants';
 
 const { MEDIA_QUERIES } = constants;
-
+c;
 export function createCardModal(project) {
   const locale = getLocale();
-  const isMobile = MEDIA_QUERIES.mobile.matches;
-
   if (!project) return translations[locale].errors.contentLoadingError;
 
-  const {
-    name,
-    type,
-    link,
-    livePage,
-    images,
-    hasDarkVersion,
-    description,
-    stack: projStack,
-    isRole,
-    role,
-    customer,
-    technologies,
-  } = project;
+  const isMobile = MEDIA_QUERIES.mobile.matches;
+  const { name, link, livePage, images, hasDarkVersion, isRole, customer } =
+    project;
 
   const modalPictureTag = makePictureTag(name, images, 'modal', hasDarkVersion);
 
-  const technologiesList = technologies.join(', ');
-  const stack = projStack.join(', ');
-
-  const projType = getLocalizedString(type, 'projectTypes');
-  const myRole = isRole
-    ? getLocalizedStringFromArray(role, 'projectRoles')
-    : '';
-
-  const projDescription = getLocalizedFieldValue(description);
-
-  const typeFieldName = getLocalizedFieldName('type');
-  const stackFieldName = getLocalizedFieldName('stack');
-  const roleFieldName = getLocalizedFieldName('role');
-  const customerFieldName = getLocalizedFieldName('customer');
-  const technologiesFieldName = getLocalizedFieldName('technologies');
-  const livePageButtonText = getLocalizedFieldName('live-page');
+  const fieldNames = getProjectCardFieldNames('card');
+  const values = getProjectCardFieldValues(project);
 
   return /* html */ `
     <article class="modal-card">
@@ -61,36 +32,36 @@ export function createCardModal(project) {
           <div class="summary-columns-wrapper">
             <div class="summary-column">
               <p>
-                <span class="field-type">${typeFieldName}</span><span class="field-type">:</span> ${projType}
+                <span class="field-type">${fieldNames.type}</span><span class="field-type">:</span> ${values.type}
               </p>
 
               <p class="stack">
-                <span class="field-type">${stackFieldName}</span><span class="field-type">:</span> ${stack}
+                <span class="field-type">${fieldNames.stack}</span><span class="field-type">:</span> ${values.stack}
               </p>
             </div>
 
             <div class="summary-column">
               <p style="${!isRole && 'display: none'}">
-                <span class="field-type">${roleFieldName}</span><span class="field-type">:</span> ${myRole}
+                <span class="field-type">${fieldNames.role}</span><span class="field-type">:</span> ${values.role}
               </p>
 
               <p style="${customer === '' && 'display: none'}">
-                <span class="field-type">${customerFieldName}</span><span class="field-type">:</span> ${customer}
+                <span class="field-type">${fieldNames.customer}</span><span class="field-type">:</span> ${customer}
               </p>
             </div>
           </div>
 
           <p>
             <span style="${isMobile && 'display: none'}">
-              <span class="field-type">${technologiesFieldName}</span><span class="field-type">:</span>
-            </span> <span class="technologies" lang="en">${technologiesList}</span>
+              <span class="field-type">${fieldNames.technologies}</span><span class="field-type">:</span>
+            </span> <span class="technologies" lang="en">${values.technologies}</span>
           </p>
         </div>
 
         <div class="modal-image-block">${modalPictureTag}</div>
 
         <div class="modal-description">
-          <p class="project-description">${projDescription}</p>
+          <p class="project-description">${values.description}</p>
         </div>
       </div>
 
@@ -108,7 +79,7 @@ export function createCardModal(project) {
           href="${livePage}"
           target="_blank"
           rel="noopener noreferrer"
-          >${livePageButtonText}</a
+          >${fieldNames.livePageButtonText}</a
         >
       </div>
     </article>
