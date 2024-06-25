@@ -4,7 +4,15 @@
 // Make <picture> <source> elements with media="(prefers-color-scheme:)" respect custom theme preference overrides. Otherwise the `media` preference will respond to the OS-level setting
 
 export function updateSourceMedia(colorPreference) {
-  //   colorPreference: 'light' | 'dark' | 'auto'
+  if (
+    colorPreference !== 'light' &&
+    colorPreference !== 'dark' &&
+    colorPreference !== 'auto'
+  )
+    return console.error(
+      'Invalid color preference key passed to function. Valid keys are "light", "dark" and "auto"'
+    );
+
   const pictures = document.querySelectorAll('picture');
 
   pictures.forEach(picture => {

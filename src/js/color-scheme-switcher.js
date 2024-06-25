@@ -36,6 +36,11 @@ function changeMetaStyleLinks(scheme) {
 }
 
 function saveSchemeSetting(scheme) {
+  if (scheme !== 'light' && scheme !== 'dark' && scheme !== 'auto')
+    return console.error(
+      'Invalid scheme key passed to function. Valid keys are "light", "dark" and "auto"'
+    );
+
   if (scheme === 'auto') localStorage.removeItem(LS_KEYS.colorScheme);
   else localStorage.setItem(LS_KEYS.colorScheme, scheme);
 }

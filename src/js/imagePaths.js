@@ -24,6 +24,11 @@ const placeholderUrl = {
 };
 
 function makePlaceholderUrl(scheme) {
+  if (scheme !== 'light' && scheme !== 'dark' && scheme !== 'auto')
+    return console.error(
+      'Invalid scheme key passed to function. Valid keys are "light", "dark" and "auto"'
+    );
+
   const baseName = 'placeholder';
   const fileName = scheme === 'dark' ? baseName + '_' + scheme : baseName;
   return new URL(`/images/projects/svg/${fileName}.svg`, import.meta.url).href;
