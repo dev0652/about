@@ -1,4 +1,4 @@
-import { refs } from '/js/refs';
+import { refs } from './refs';
 import translations from '/data/translations.json' assert { type: 'json' };
 
 export function makeTitles() {

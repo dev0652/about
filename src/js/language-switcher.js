@@ -1,12 +1,12 @@
-import { refs } from '/js/refs';
-import { renderGallery } from '/js/projects';
-import { populateTitles } from '/js/mobileTitles';
-import { onHeaderMenuToggle } from '/js/headerMenus';
+import { refs } from './refs';
+import { renderGallery } from './projects';
+import { populateTitles } from './mobileTitles';
+import { onHeaderMenuToggle } from './headerMenus';
 import {
   translateStaticHTML,
   setLocale,
   populateAboutMeSection,
-} from '/js/localization';
+} from './localization';
 import { constants } from '/constants';
 import translations from '/data/translations.json' assert { type: 'json' };
 

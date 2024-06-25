@@ -1,4 +1,4 @@
-import { createCardModal } from '/js/createCardModal';
+import { createCardModal } from './createCardModal';
 
 const cardModalBackdrop = document.querySelector('.card-modal-backdrop');
 const closeModalButton = cardModalBackdrop.querySelector(

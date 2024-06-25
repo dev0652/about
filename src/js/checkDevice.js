@@ -1,23 +1,23 @@
-import { refs } from '/js/refs';
+import { refs } from './refs';
 import { constants } from '/constants';
 import { sanity } from '../sanity';
-import { applyTranslations } from '/js/localization';
-import { slider } from '/js/swipe';
-import { createPagination } from '/js/pagination';
-import { setTypewriterEffect } from '/js/typing-animation';
-import { activateLanguageSwitcher } from '/js/language-switcher';
-import { activateFullscreenSwitcher } from '/js/fullScreen';
-import { renderGalleryOnInitialLoad } from '/js/projects';
-import { uppercaseFirstLetter } from '/js/services';
+import { applyTranslations } from './localization';
+import { slider } from './swipe';
+import { createPagination } from './pagination';
+import { setTypewriterEffect } from './typing-animation';
+import { activateLanguageSwitcher } from './language-switcher';
+import { activateFullscreenSwitcher } from './fullScreen';
+import { renderGalleryOnInitialLoad } from './projects';
+import { uppercaseFirstLetter } from './services';
 import {
   setCurrentSection,
   restoreSectionVisibility,
   addHeaderNavListeners,
-} from '/js/header';
+} from './header';
 import {
   activateColorSchemeSwitcher,
   setupColorScheme,
-} from '/js/color-scheme-switcher';
+} from './color-scheme-switcher';
 
 const { MEDIA_QUERIES, DATA_TYPES } = constants;
 const { projects, sectionContent } = DATA_TYPES;

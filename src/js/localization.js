@@ -1,7 +1,7 @@
 import { constants } from '/constants';
-import { makeTitles } from '/js/mobileTitles';
+import { makeTitles } from './mobileTitles';
 import translations from '/data/translations.json' assert { type: 'json' };
-import { uppercaseFirstLetter } from '/js/services';
+import { uppercaseFirstLetter } from './services';
 import { refs } from './refs';
 
 const { LOCALE_ENG, LOC_ATTRIBUTES, LS_KEYS } = constants;

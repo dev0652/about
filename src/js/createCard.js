@@ -4,8 +4,8 @@ import {
   getLocalizedFieldName,
   getLocalizedString,
   getLocalizedStringFromArray,
-} from '/js/localization';
-import { makePictureTag } from '/js/imagePaths';
+} from './localization';
+import { makePictureTag } from './imagePaths';
 import translations from '/data/translations.json' assert { type: 'json' };
 import { constants } from '/constants';
 

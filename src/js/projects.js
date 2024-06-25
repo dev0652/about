@@ -1,6 +1,6 @@
-import { refs } from '/js/refs';
-import { openCardModal } from '/js/modal';
-import { createCardMarkup } from '/js/createCard';
+import { refs } from './refs';
+import { openCardModal } from './modal';
+import { createCardMarkup } from './createCard';
 import translations from '/data/translations.json' assert { type: 'json' };
 import { collapseAllCards } from './accordion';
 

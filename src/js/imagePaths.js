@@ -1,6 +1,6 @@
 import translations from '/data/translations.json' assert { type: 'json' };
 import { constants } from '/constants';
-import { getLocale } from '/js/localization';
+import { getLocale } from './localization';
 import { urlFor } from '../sanity';
 
 const { LOCALE_UKR, LS_KEYS, IMAGE_SIZES, IMAGE_SIZE_NAMES } = constants;
