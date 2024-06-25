@@ -11,3 +11,10 @@ export function getCurrentDate() {
 export function uppercaseFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.substring(1);
 }
+
+export function sortArrayOfObjectsById(array) {
+  if (!array) return;
+
+  const compareIds = (a, b) => a.id - b.id;
+  return array.sort(compareIds);
+}

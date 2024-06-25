@@ -8,7 +8,7 @@ import { setTypewriterEffect } from './typing-animation';
 import { activateLanguageSwitcher } from './language-switcher';
 import { activateFullscreenSwitcher } from './fullScreen';
 import { renderGalleryOnInitialLoad } from './projects';
-import { uppercaseFirstLetter } from './services';
+import { sortArrayOfObjectsById, uppercaseFirstLetter } from './services';
 import {
   setCurrentSection,
   restoreSectionVisibility,
@@ -87,14 +87,15 @@ export async function doOnFirstLoad() {
 
   applyTranslations();
 
+  window.projects = sortArrayOfObjectsById(window.projects);
+  renderGalleryOnInitialLoad();
+  setupColorScheme();
+
   setNavigationElements();
   setSectionBehavior();
 
   activateColorSchemeSwitcher();
   activateLanguageSwitcher();
-
-  renderGalleryOnInitialLoad();
-  setupColorScheme();
 
   changeTextAreaSize();
   MEDIA_QUERIES.mobile.addEventListener('change', onScreenChange);
