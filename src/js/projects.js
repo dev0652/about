@@ -106,7 +106,9 @@ function handleGalleryCardClicks(event) {
 
 export function getProjectCardFieldNames(cardType) {
   if (cardType !== 'card' && cardType !== 'cardModal')
-    return console.error('Invalid card type passed to function');
+    return console.error(
+      'Invalid card type passed to function. Valid keys are "card" and "cardModal"'
+    );
 
   const isCard = cardType === 'card';
   const isDesktop = MEDIA_QUERIES.desktop.matches;

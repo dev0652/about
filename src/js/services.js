@@ -12,9 +12,15 @@ export function uppercaseFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.substring(1);
 }
 
-export function sortArrayOfObjectsById(array) {
+export function sortArrayOfObjectsById(array, order) {
   if (!array) return;
 
-  const compareIds = (a, b) => a.id - b.id;
+  if (order !== 'ascending' && order !== 'descending')
+    return console.error(
+      'Invalid order key passed to function. Valid keys are "ascending" and "descending"'
+    );
+
+  const compareIds = (a, b) =>
+    order === 'ascending' ? a.id - b.id : b.id - a.id;
   return array.sort(compareIds);
 }

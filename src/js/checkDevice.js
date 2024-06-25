@@ -87,7 +87,7 @@ export async function doOnFirstLoad() {
 
   applyTranslations();
 
-  window.projects = sortArrayOfObjectsById(window.projects);
+  window.projects = sortArrayOfObjectsById(window.projects, 'descending');
   renderGalleryOnInitialLoad();
   setupColorScheme();
 
