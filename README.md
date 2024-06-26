@@ -8,13 +8,13 @@ give anyone interested a glimpse of my web-development skills.
 The website is live on [GitHub Pages](https://dev0652.github.io/about/).
 
 <picture>
-  <source media="(pointer: fine) and (max-width: 500px) and (prefers-color-scheme: light)" srcset="./public/images/readme/mobile/scr2_mobile_light.webp">
+  <source media="(max-width: 500px) and (prefers-color-scheme: light)" srcset="./public/images/readme/mobile/scr2_mobile_light.webp">
 
-  <source media="(pointer: fine) and (max-width: 500px) and (prefers-color-scheme: dark)" srcset="./public/images/readme/mobile/scr2_mobile_dark.webp">
+  <source media="(max-width: 500px) and (prefers-color-scheme: dark)" srcset="./public/images/readme/mobile/scr2_mobile_dark.webp">
 
-  <source media="(pointer: coarse) and (prefers-color-scheme: light)" srcset="./public/images/readme/desktop/light_1x.webp 1x, ./public/images/readme/desktop/light_2x.webp 2x">
+  <source media="(prefers-color-scheme: light)" srcset="./public/images/readme/desktop/light_1x.webp 1x, ./public/images/readme/desktop/light_2x.webp 2x">
 
-  <source media="(pointer: coarse) and (prefers-color-scheme: dark)" srcset="./public/images/readme/desktop/dark_1x.webp 1x, ./public/images/readme/desktop/dark_2x.webp 2x">
+  <source media="(prefers-color-scheme: dark)" srcset="./public/images/readme/desktop/dark_1x.webp 1x, ./public/images/readme/desktop/dark_2x.webp 2x">
 
   <img alt="A collage of screenshots. One is from my website's Projects page with the project gallery in list presentation. One of the project cards is expanded, revealing the live page screenshot, project description and links to its GitHub page and live page." src="./public/images/readme/desktop/light_2x.webp">
 </picture>
