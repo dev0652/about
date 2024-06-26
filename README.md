@@ -8,28 +8,19 @@ give anyone interested a glimpse of my web-development skills.
 The website is live on [GitHub Pages](https://dev0652.github.io/about/).
 
 <picture>
-  <source media="(max-width: 767px) and (prefers-color-scheme: light)" srcset="./public/images/readme/mobile/screenshot_light.webp">
+  <source media="(max-width: 500px) and (pointer: fine) and (prefers-color-scheme: light)" srcset="./public/images/readme/mobile/scr2_mobile_light.webp">
 
-   <source media="(max-width: 767px) and (prefers-color-scheme: dark)" srcset="./public/images/readme/mobile/screenshot_dark.webp 2x">
+  <source media="(max-width: 500px) and (pointer: fine) and (prefers-color-scheme: dark)" srcset="./public/images/readme/mobile/scr2_mobile_dark.webp">
 
-   <source media="(prefers-color-scheme: light)" srcset="./public/images/readme/desktop/screenshot_light_1x.webp 1x, ./public/images/readme/desktop/screenshot_light_2x.webp 2x">
+  <source media="(prefers-color-scheme: light)" srcset="./public/images/readme/desktop/light_1x.webp 1x, ./public/images/readme/desktop/light_2x.webp 2x">
 
-   <source media="(prefers-color-scheme: dark)" srcset="./public/images/readme/desktop/screenshot_dark_1x.webp 1x, ./public/images/readme/desktop/screenshot_dark_2x.webp 2x">
+  <source media="(prefers-color-scheme: dark)" srcset="./public/images/readme/desktop/dark_1x.webp 1x, ./public/images/readme/desktop/dark_2x.webp 2x">
 
-  <img alt="A screenshot of my website's Projects page with the project gallery in list presentation. The first project card is expanded, revealing the live page screenshot, project description and links to its GitHub page and live page." src="./public/images/readme/desktop/screenshot_light_2x.webp">
+  <img alt="A collage of screenshots. One is from my website's Projects page with the project gallery in list presentation. One of the project cards is expanded, revealing the live page screenshot, project description and links to its GitHub page and live page." src="./public/images/readme/desktop/light_2x.webp">
 </picture>
 
 For the Lumia-like experience, please open it on your phone and enable
 full-screen mode in settings (an icon in the bottom right corner).
-
-<picture>
-
-   <source media="(prefers-color-scheme: light)" srcset="./public/images/readme/desktop/screenshot_mobile_light_1x.webp 1x, ./public/images/readme/desktop/screenshot_mobile_light_2x.webp 2x">
-
-   <source media="(prefers-color-scheme: dark)" srcset="./public/images/readme/desktop/screenshot_mobile_dark_1x.webp 1x, ./public/images/readme/desktop/screenshot_mobile_dark_2x.webp 2x">
-
-  <img alt="Screenshot of all three pages in mobile presentation along one another: 'About', 'Projects' and 'Contacts'. It demonstrates some of the ways in which the mobile version is different from the desktop one, namely, it features a vertical layout and a bottom menu, and modals are sliding out from the bottom of the screen." src="">
-</picture>
 
 ## Design
 
@@ -104,7 +95,7 @@ Mobile mode also features a full-screen-view toggle for better experience.
 
    <source media="(prefers-color-scheme: dark)" srcset="./public/images/readme/mobile-menu/mobile-menu_dark_1x.webp 1x, ./public/images/readme/mobile-menu/mobile-menu_dark_2x.webp 2x">
 
-  <img alt="A screenshot of my website's Projects page with the project gallery in list presentation. The first project card is expanded, revealing the live page screenshot, project description and links to its GitHub page and live page." src="./public/images/readme/mobile-menu/mobile-menu_light_2x.webp">
+  <img alt="A screenshot of Color Scheme, Language and Toggle Full-Screen dropdown menus in mobile version" src="./public/images/readme/mobile-menu/mobile-menu_light_2x.webp">
 </picture>
 
 ### Optimization
@@ -125,4 +116,5 @@ Lighthouse ratings:
 
 ### Headless CMS
 
-This website uses Sanity as the content management system (CMS). Studio code is also available on my GitHub [here](https://github.com/dev0652/about-sanity-cms). 
+This website uses Sanity as the content management system (CMS). Studio code is
+also available on my GitHub [here](https://github.com/dev0652/about-sanity-cms).
