@@ -60,6 +60,10 @@
 
   @media screen and (max-width: $tablet-1) {
     align-self: center;
+
+    &:focus-visible {
+      outline: none;
+    }
   }
 
   $horizontal-padding: 70px;
