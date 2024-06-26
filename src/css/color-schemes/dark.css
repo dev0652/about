@@ -53,7 +53,10 @@
   --swaying-icon-color: gainsboro;
 
   /* Project card */
-  --list-card-image-shadow: transparent;
+  --list-card-image-shadow: var(--smoke-gray);
+  @media screen and (min-width: 768px) {
+    --list-card-image-shadow: black;
+  }
   --flip-card-bg: var(--smoke-gray);
   --flip-card-text: silver;
 
