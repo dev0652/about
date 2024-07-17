@@ -6,18 +6,19 @@ import {
   translateStaticHTML,
   setLocale,
   populateAboutMeSection,
+  getLocale,
 } from './localization';
-import { constants } from '/constants';
+import { constants } from '../constants';
 import translations from '/data/translations.json' assert { type: 'json' };
 
 const { LS_KEYS, MEDIA_QUERIES, LOCALE_ENG } = constants;
 
-function translateMobileTitles(locale, prevLang) {
-  // Populate the mobile titles array with translated titles:
-  const getPreviousTitle = title => translations[prevLang][title].toLowerCase();
-  const getTranslatedTitle = title => translations[locale][title].toLowerCase();
+function translateMobileTitles(oldLocale) {
+  const { locale, titles } = window;
 
-  const { titles } = window;
+  const getPreviousTitle = title =>
+    translations[oldLocale][title].toLowerCase();
+  const getTranslatedTitle = title => translations[locale][title].toLowerCase();
 
   refs.sections.forEach(({ id }) => {
     const index = titles.indexOf(getPreviousTitle(id));
@@ -32,11 +33,8 @@ function switchToGalleryView() {
   cardList.classList.add('gallery-view');
 }
 
-function translateContent(locale) {
-  const savedLang = localStorage.getItem(LS_KEYS.language);
-  const prevLang = savedLang ? savedLang : LOCALE_ENG;
-
-  if (MEDIA_QUERIES.mobile.matches) translateMobileTitles(locale, prevLang);
+function translateContent(oldLocale) {
+  if (MEDIA_QUERIES.mobile.matches) translateMobileTitles(oldLocale);
 
   renderGallery();
   if (window.currentPresentation === 'gallery') switchToGalleryView();
@@ -44,21 +42,23 @@ function translateContent(locale) {
   translateStaticHTML();
 }
 
-function translateContentWithFadeEffect(locale) {
+function translateContentWithFadeEffect(oldLocale) {
   document.body.style.opacity = 0;
 
   setTimeout(() => {
-    translateContent(locale);
+    translateContent(oldLocale);
     document.body.style.removeProperty('opacity');
   }, 300);
 }
 
 function switchLanguage(event) {
-  const locale = event.target.value;
+  const oldLocale = getLocale();
+  const newLocale = event.target.value;
 
-  setLocale(locale);
-  localStorage.setItem(LS_KEYS.language, locale);
-  translateContentWithFadeEffect(locale);
+  setLocale(newLocale);
+  localStorage.setItem(LS_KEYS.language, newLocale);
+
+  translateContentWithFadeEffect(oldLocale);
 }
 
 function presetLanguageSwitcher() {
